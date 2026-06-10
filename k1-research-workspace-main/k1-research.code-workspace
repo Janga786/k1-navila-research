@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "name": "k1_research",
+      "path": "/home/janga/Projects/k1_research"
+    },
+    {
+      "name": "booster_train",
+      "path": "/home/janga/Projects/booster/booster_train"
+    },
+    {
+      "name": "booster_assets",
+      "path": "/home/janga/Projects/booster/booster_assets"
+    },
+    {
+      "name": "IsaacLab",
+      "path": "/home/janga/IsaacLab"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "/home/janga/miniconda3/envs/isaacLab/bin/python",
+    "python.analysis.extraPaths": [
+      "/home/janga/IsaacLab/source/isaaclab",
+      "/home/janga/IsaacLab/source/isaaclab_tasks",
+      "/home/janga/IsaacLab/source/isaaclab_assets",
+      "/home/janga/IsaacLab/source/isaaclab_rl",
+      "/home/janga/Projects/booster/booster_train/source/booster_train",
+      "/home/janga/Projects/booster/booster_assets"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.egg-info": true,
+      "**/logs": false
+    },
+    "search.exclude": {
+      "**/__pycache__": true,
+      "**/miniconda3": true
+    },
+    "terminal.integrated.env.linux": {
+      "CONDA_DEFAULT_ENV": "isaacLab"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "ms-toolsai.jupyter",
+      "eamodio.gitlens",
+      "ms-vscode.cmake-tools"
+    ]
+  }
+}

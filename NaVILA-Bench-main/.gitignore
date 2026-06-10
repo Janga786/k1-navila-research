@@ -1,0 +1,10 @@
+.vscode/
+isaaclab_exts/omni.isaac.vlnce/assets
+*.pyc
+*.egg-info
+# session additions: never commit eval outputs / training logs / videos
+eval_results/
+logs/
+__pycache__/
+.pytest_cache/
+*.mp4

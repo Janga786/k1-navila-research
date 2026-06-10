@@ -1,0 +1,42 @@
+diff --git a/llava/model/multimodal_encoder/intern/flash_attention.py b/llava/model/multimodal_encoder/intern/flash_attention.py
+index cf5b162..0825709 100755
+--- a/llava/model/multimodal_encoder/intern/flash_attention.py
++++ b/llava/model/multimodal_encoder/intern/flash_attention.py
+@@ -21,10 +21,17 @@ from einops import rearrange
+ 
+ try:  # v1
+     from flash_attn.flash_attn_interface import flash_attn_unpadded_qkvpacked_func
+-except:  # v2
+-    from flash_attn.flash_attn_interface import flash_attn_varlen_qkvpacked_func as flash_attn_unpadded_qkvpacked_func
+-
+-from flash_attn.bert_padding import pad_input, unpad_input
++    from flash_attn.bert_padding import pad_input, unpad_input
++except ImportError:
++    try:  # v2
++        from flash_attn.flash_attn_interface import flash_attn_varlen_qkvpacked_func as flash_attn_unpadded_qkvpacked_func
++        from flash_attn.bert_padding import pad_input, unpad_input
++    except ImportError:
++        # flash_attn unavailable (e.g. Blackwell w/o build). InternViT vision tower
++        # cannot run, but other vision towers (SigLIP, CLIP) work fine.
++        flash_attn_unpadded_qkvpacked_func = None
++        pad_input = None
++        unpad_input = None
+ 
+ 
+ class FlashAttention(nn.Module):
+diff --git a/llava/train/sequence_parallel/globals.py b/llava/train/sequence_parallel/globals.py
+index 44ccbbf..5e159fe 100755
+--- a/llava/train/sequence_parallel/globals.py
++++ b/llava/train/sequence_parallel/globals.py
+@@ -16,7 +16,10 @@
+ 
+ import os
+ 
+-import deepspeed.comm as dist
++try:
++    import deepspeed.comm as dist
++except Exception:
++    dist = None  # inference-time fallback; sequence-parallel features unavailable
+ import torch
+ 
+ 

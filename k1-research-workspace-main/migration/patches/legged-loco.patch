@@ -1,0 +1,20 @@
+diff --git a/isaaclab_exts/omni.isaac.leggedloco/omni/isaac/leggedloco/config/k1/k1_low_vision_cfg.py b/isaaclab_exts/omni.isaac.leggedloco/omni/isaac/leggedloco/config/k1/k1_low_vision_cfg.py
+index 79a18f0..74f9065 100644
+--- a/isaaclab_exts/omni.isaac.leggedloco/omni/isaac/leggedloco/config/k1/k1_low_vision_cfg.py
++++ b/isaaclab_exts/omni.isaac.leggedloco/omni/isaac/leggedloco/config/k1/k1_low_vision_cfg.py
+@@ -553,6 +553,15 @@ class TerminationsCfg:
+             "threshold": 1.0,
+         },
+     )
++    # Match the eval's bad_orientation termination so the policy learns to
++    # walk within the same body-tilt envelope it will be evaluated under.
++    # 1.3 rad ~= 75°; tighter than the eval's 0.8 rad earlier ran into during
++    # normal walking strides, hence Fix-v1 relaxed the eval. Train under the
++    # same relaxed limit so train and eval match.
++    bad_orientation = DoneTerm(
++        func=mdp.bad_orientation,
++        params={"limit_angle": 1.3},
++    )
+ 
+ 
+ # ---------------------------------------------------------------------------

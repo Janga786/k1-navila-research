@@ -1,0 +1,187 @@
+--- a/scripts/navila_eval_v3.py
++++ b/scripts/navila_eval_v3.py
+@@ -65,6 +65,13 @@
+                     help="Brighten dim scenes toward NaVILA's well-lit training exposure "
+                          "(CLAHE on L + gamma 0.7), applied BEFORE the median denoise. Adaptive, "
+                          "so already-bright scenes aren't blown out. Composes with --clean_render.")
++parser.add_argument("--vlm_transform", choices=["stretch", "crop", "pad"], default="stretch",
++                    help="Squarify the 16:9 BoosterMipi frame for NaVILA before its resize-to-384. "
++                         "'stretch'=none, the op NaVILA was trained with; keeps full ~90deg HFOV "
++                         "(the path) but distorts geometry [default]. 'crop'=center-crop "
++                         "(undistorted, ~58deg, loses periphery). 'pad'=letterbox (undistorted, "
++                         "full HFOV, but black bars = likely OOD). A/B these; use the SAME mode on "
++                         "the real robot (NAVILA_VLM_TRANSFORM) to keep the benchmark predictive.")
+ parser.add_argument("--closed_loop", action="store_true", default=False,
+                     help="Execute each VLM command in CLOSED LOOP: hold the velocity until "
+                          "the robot has actually achieved the requested displacement/heading "
+@@ -196,8 +203,31 @@
+     return (((rgb / 255.0) ** 0.7) * 255).astype(np.uint8)
+ 
+ 
++def square_frame(pil_img, mode):
++    """Make a frame square so NaVILA's process_images resize-to-384 is geometry-
++    preserving. The real K1 BoosterMipi feed is 16:9; pick how to squarify it:
++      'stretch' -> no-op (the VLM's resize distorts 16:9->1:1, = legacy behavior)
++      'crop'    -> center-crop to square (undistorted, narrower ~58deg FOV)
++      'pad'     -> letterbox to square (undistorted, full ~90deg HFOV, black bars)
++    Apply the SAME mode on the real robot before inference to keep sim predictive."""
++    if mode == "stretch":
++        return pil_img
++    W, H = pil_img.size
++    if W == H:
++        return pil_img
++    if mode == "crop":
++        s = min(W, H)
++        l, t = (W - s) // 2, (H - s) // 2
++        return pil_img.crop((l, t, l + s, t + s))
++    # 'pad' (default): letterbox onto a black square
++    s = max(W, H)
++    canvas = Image.new("RGB", (s, s), (0, 0, 0))
++    canvas.paste(pil_img, ((s - W) // 2, (s - H) // 2))
++    return canvas
++
++
+ def sample_images_and_send_to_vlm(image_list, vlm_host, vlm_port, query,
+-                                  denoise=False, bright=False):
++                                  denoise=False, bright=False, transform="pad"):
+     if len(image_list) == 0:
+         return None
+     if len(image_list) < 8:
+@@ -233,6 +263,7 @@
+             if denoise:  # median-5 kills the salt-and-pepper render speckle (RC-7)
+                 arr = cv2.medianBlur(arr, 5)
+             pil_image = Image.fromarray(arr)
++        pil_image = square_frame(pil_image, transform)
+         pil_images.append(pil_image)
+         buf = io.BytesIO()
+         pil_image.save(buf, format="JPEG")
+@@ -439,6 +470,7 @@
+                     image_observations, args_cli.vlm_host, args_cli.vlm_port,
+                     instruction.instruction_text,
+                     denoise=args_cli.clean_render, bright=args_cli.bright,
++                    transform=args_cli.vlm_transform,
+                 )
+                 vlm_vel_commands, time_to_go = get_vel_command(stream_output)
+                 env_steps_to_go = int(time_to_go / dt_step)
+--- a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
++++ b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+@@ -94,13 +94,14 @@
+         joint_vel={".*": 0.0},
+     ),
+     soft_joint_pos_limit_factor=0.9,
+-    # Actuator parameters MUST match BOOSTER_K1_LOCOMOTION_CFG in
+-    # booster_train. The K1 v2-resumed policy was trained under low effort
+-    # limits (30-60 Nm hips/knees, 20 Nm ankles) with per-joint velocity
+-    # limits and armature. Earlier eval used 200/100 Nm and 20 rad/s for
+-    # everything, no armature — the policy output then saturated/oscillated
+-    # and produced near-zero path_length on every episode. See
+-    # OVERNIGHT_RESULTS.md "Working hypothesis" section.
++    # Actuator params MUST match the policy's TRAINING config. For model_8700
++    # (experiment k1_navila, navila_env_cfg.py) that is the Booster-PROVEN deploy
++    # config (booster_deploy/tasks/locomotion K1WalkControllerCfg, == the real
++    # robot): legs(hips+knees) Kp=100 Kd=2, ankles Kp=50 Kd=1, with the REAL motor
++    # effort/velocity limits (E6408 68/14.66, E4315 76/12.57, E4310 38.3/17.59,
++    # E6416 112/12.57; ankle=E4310 38.3/17.59). The prior 350/250 gains + 30-60 Nm
++    # limits were the OLD v2/v3 policy lineage and made model_8700 over-stiff and
++    # torque-clipped (~3.5-5x torque). Fixed 2026-06-08 to proven values.
+     #
+     # Training uses DelayedImplicitActuatorCfg (booster_train custom class):
+     # ImplicitActuator + 0-4-step (0-20 ms) random delay buffer on joint
+@@ -114,19 +115,19 @@
+             joint_names_expr=[".*_Hip_Pitch", ".*_Hip_Roll", ".*_Hip_Yaw",
+                               ".*_Knee_Pitch"],
+             effort_limit={
+-                ".*_Hip_Pitch": 30.0,
+-                ".*_Hip_Roll": 35.0,
+-                ".*_Hip_Yaw": 20.0,
+-                ".*_Knee_Pitch": 60.0,
++                ".*_Hip_Pitch": 68.0,
++                ".*_Hip_Roll": 76.0,
++                ".*_Hip_Yaw": 38.3,
++                ".*_Knee_Pitch": 112.0,
+             },
+             velocity_limit={
+-                ".*_Hip_Pitch": 8.0,
+-                ".*_Hip_Roll": 12.9,
+-                ".*_Hip_Yaw": 18.0,
+-                ".*_Knee_Pitch": 12.5,
++                ".*_Hip_Pitch": 14.66,
++                ".*_Hip_Roll": 12.57,
++                ".*_Hip_Yaw": 17.59,
++                ".*_Knee_Pitch": 12.57,
+             },
+-            stiffness=350.0,
+-            damping=7.5,
++            stiffness=100.0,
++            damping=2.0,
+             armature={
+                 ".*_Hip_Pitch": ARMATURE_6408,
+                 ".*_Hip_Roll": ARMATURE_4315,
+@@ -136,10 +137,10 @@
+         ),
+         "ankles": ImplicitActuatorCfg(
+             joint_names_expr=[".*_Ankle_Pitch", ".*_Ankle_Roll"],
+-            effort_limit=20.0,
+-            velocity_limit=18.0,
+-            stiffness=250.0,
+-            damping=5.0,
++            effort_limit=38.3,
++            velocity_limit=17.59,
++            stiffness=50.0,
++            damping=1.0,
+             armature=ARMATURE_ANKLE,
+         ),
+     },
+@@ -384,14 +385,19 @@
+     disk_1.init_state.pos = (0, 0, 2.6)
+     disk_2.init_state.pos = (-1, 0, 2.6)
+ 
+-    # K1 head sits ~0.85m above Trunk origin; mount camera there.
++    # K1-ACCURATE camera = the DEPLOYED BoosterMipi head cam (NOT the bench ZED),
++    # ground-truthed on-robot 2026-06-08 (perception_info.yaml Camera: BoosterMipi;
++    # soccer vision.yaml fx=643.9 cx=649.0 @1280x720, distortion "rs d455"; mount
++    # pitch_compensation=0.0 -> level). HFOV~90deg / VFOV~58deg, 16:9. The real head
++    # (ZED Head_2 chain) is ~0.25m above Trunk origin -> ~0.78m eye at standing.
++    # horizontal_aperture = focal(24.0)*width(1280)/fx(643.9) = 47.71 -> HFOV 90deg.
+     rgb_camera = CameraCfg(
+         prim_path="{ENV_REGEX_NS}/Robot/Trunk/rgb_camera",
+-        offset=CameraCfg.OffsetCfg(pos=(0.10, 0.0, 0.85),
++        offset=CameraCfg.OffsetCfg(pos=(0.10, 0.0, 0.25),
+                                     rot=(-0.5, 0.5, -0.5, 0.5)),
+-        spawn=sim_utils.PinholeCameraCfg(horizontal_aperture=54.0),
+-        width=512,
+-        height=512,
++        spawn=sim_utils.PinholeCameraCfg(horizontal_aperture=47.71),
++        width=1280,
++        height=720,
+         data_types=["rgb", "distance_to_image_plane"],
+     )
+     viz_rgb_camera = CameraCfg(
+--- a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py
++++ b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py
+@@ -312,16 +312,18 @@
+     disk_1.init_state.pos = (0, 0, 2.6)
+     disk_2.init_state.pos = (-1, 0, 2.6)
+ 
+-    # Camera mount: with `merge_fixed_joints=True` the K1 head is collapsed
+-    # into Trunk, so we mount on Trunk with an offset matching the head's
+-    # natural position (~0.85m above trunk origin, leaning forward 10cm).
++    # K1-ACCURATE camera = the DEPLOYED BoosterMipi head cam (NOT the bench ZED),
++    # ground-truthed on-robot 2026-06-08. HFOV~90deg / VFOV~58deg, 16:9, level
++    # (pitch_compensation=0.0). With merge_fixed_joints=True the head is collapsed
++    # into Trunk; real head is ~0.25m above Trunk origin -> ~0.78m eye at standing.
++    # horizontal_aperture = 24.0*1280/643.9(fx) = 47.71 -> HFOV 90deg.
+     rgb_camera = CameraCfg(
+         prim_path="{ENV_REGEX_NS}/Robot/Trunk/rgb_camera",
+-        offset=CameraCfg.OffsetCfg(pos=(0.10, 0.0, 0.85),
++        offset=CameraCfg.OffsetCfg(pos=(0.10, 0.0, 0.25),
+                                     rot=(-0.5, 0.5, -0.5, 0.5)),
+-        spawn=sim_utils.PinholeCameraCfg(horizontal_aperture=54.0),
+-        width=512,
+-        height=512,
++        spawn=sim_utils.PinholeCameraCfg(horizontal_aperture=47.71),
++        width=1280,
++        height=720,
+         data_types=["rgb", "distance_to_image_plane"],
+     )
+     viz_rgb_camera = CameraCfg(

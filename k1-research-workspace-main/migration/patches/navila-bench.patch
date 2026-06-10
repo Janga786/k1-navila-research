@@ -1,0 +1,187 @@
+diff --git a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+index 8d68ab1..4278599 100644
+--- a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
++++ b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+@@ -57,6 +57,17 @@ K1_DEFAULT_JOINT_POS = {
+     ".*_Ankle_Roll": 0.0,
+ }
+ 
++# Per-joint armature constants copied verbatim from
++# booster_train/assets/robots/booster.py — these encode motor-model rotor
++# inertia and were used during training. The eval policy was optimized
++# under these inertial values; missing them at eval = different effective
++# joint dynamics.
++ARMATURE_6416 = 0.095625    # Knee_Pitch
++ARMATURE_6408 = 0.0478125   # Hip_Pitch
++ARMATURE_4315 = 0.0339552   # Hip_Roll
++ARMATURE_4310 = 0.0282528   # Hip_Yaw
++ARMATURE_ANKLE = 2.0 * ARMATURE_4310  # 0.0565056, ankle pitch/roll
++
+ K1_ARTICULATION_CFG = ArticulationCfg(
+     spawn=sim_utils.UrdfFileCfg(
+         asset_path=K1_LOCOMOTION_URDF,
+@@ -83,21 +94,53 @@ K1_ARTICULATION_CFG = ArticulationCfg(
+         joint_vel={".*": 0.0},
+     ),
+     soft_joint_pos_limit_factor=0.9,
++    # Actuator parameters MUST match BOOSTER_K1_LOCOMOTION_CFG in
++    # booster_train. The K1 v2-resumed policy was trained under low effort
++    # limits (30-60 Nm hips/knees, 20 Nm ankles) with per-joint velocity
++    # limits and armature. Earlier eval used 200/100 Nm and 20 rad/s for
++    # everything, no armature — the policy output then saturated/oscillated
++    # and produced near-zero path_length on every episode. See
++    # OVERNIGHT_RESULTS.md "Working hypothesis" section.
++    #
++    # Training uses DelayedImplicitActuatorCfg (booster_train custom class):
++    # ImplicitActuator + 0-4-step (0-20 ms) random delay buffer on joint
++    # setpoints, used as a domain-randomization technique for sim-to-real.
++    # Isaac Lab 1.1 has no equivalent; we use plain ImplicitActuatorCfg
++    # here. The policy was trained to be robust to this delay, so feeding
++    # un-delayed commands at eval is acceptable — the delay was meant to
++    # make the policy robust to latency, not require it.
+     actuators={
+         "hips_knees": ImplicitActuatorCfg(
+             joint_names_expr=[".*_Hip_Pitch", ".*_Hip_Roll", ".*_Hip_Yaw",
+                               ".*_Knee_Pitch"],
+-            effort_limit=200.0,
+-            velocity_limit=20.0,
++            effort_limit={
++                ".*_Hip_Pitch": 30.0,
++                ".*_Hip_Roll": 35.0,
++                ".*_Hip_Yaw": 20.0,
++                ".*_Knee_Pitch": 60.0,
++            },
++            velocity_limit={
++                ".*_Hip_Pitch": 8.0,
++                ".*_Hip_Roll": 12.9,
++                ".*_Hip_Yaw": 18.0,
++                ".*_Knee_Pitch": 12.5,
++            },
+             stiffness=350.0,
+-            damping=10.0,
++            damping=7.5,
++            armature={
++                ".*_Hip_Pitch": ARMATURE_6408,
++                ".*_Hip_Roll": ARMATURE_4315,
++                ".*_Hip_Yaw": ARMATURE_4310,
++                ".*_Knee_Pitch": ARMATURE_6416,
++            },
+         ),
+         "ankles": ImplicitActuatorCfg(
+             joint_names_expr=[".*_Ankle_Pitch", ".*_Ankle_Roll"],
+-            effort_limit=100.0,
+-            velocity_limit=20.0,
++            effort_limit=20.0,
++            velocity_limit=18.0,
+             stiffness=250.0,
+             damping=5.0,
++            armature=ARMATURE_ANKLE,
+         ),
+     },
+ )
+@@ -242,12 +285,23 @@ class CurriculumCfg:
+ 
+ @configclass
+ class TerminationsCfg:
+-    """No contact-based termination — see k1_matterport_base note. NaVILA
+-    high-level controls episode end via set_stop_called."""
++    """Relaxed bad_orientation (1.3 rad ~75°) so it only fires for actual
++    falls, not normal walking body sway. The 0.8 rad threshold in the
++    original eval config was firing mid-stride and killing 61% of episodes
++    inside 2 sim-seconds.
++
++    NOTE: We do NOT add base_contact on Trunk here even though training
++    uses it. Reason: with merge_fixed_joints=True the K1's Trunk body
++    INCLUDES the merged arms/head/hands. In Matterport scenes the K1
++    often spawns close to a wall or piece of furniture, and the merged-arm
++    geometry clips into the wall → contact force ~1N → base_contact fires
++    and env auto-resets in a loop, leaving K1 standing-still while NaVILA
++    keeps saying 'move forward 75 cm'. Observed in fix_v1 ep0/1/2 where
++    NaVILA emitted 100+ 'move forward' commands but path_length was 0.054m."""
+     time_out = DoneTerm(func=mdp.time_out, time_out=True)
+     bad_orientation = DoneTerm(
+         func=mdp.bad_orientation,
+-        params={"limit_angle": 0.8},
++        params={"limit_angle": 1.3},
+     )
+ 
+ 
+@@ -302,6 +356,17 @@ class TerrainSceneCfg(InteractiveSceneCfg):
+         mesh_prim_paths=["/World/matterport"],
+     )
+ 
++    # Contact sensor on the K1 body (needed by base_contact termination).
++    # K1_ARTICULATION_CFG sets `activate_contact_sensors=True` on the URDF
++    # spawner, so this works in Isaac Lab 1.1 despite the older
++    # k1_matterport_base note.
++    contact_forces = ContactSensorCfg(
++        prim_path="{ENV_REGEX_NS}/Robot/.*",
++        history_length=3,
++        track_air_time=True,
++        debug_vis=False,
++    )
++
+     light = AssetBaseCfg(
+         prim_path="/World/light",
+         spawn=sim_utils.DistantLightCfg(color=(1.0, 1.0, 1.0), intensity=1000.0),
+@@ -364,6 +429,8 @@ class K1MatterportVisionCfg(ManagerBasedRLEnvCfg):
+ 
+         if self.scene.height_scanner is not None:
+             self.scene.height_scanner.update_period = 4 * self.sim.dt
++        if self.scene.contact_forces is not None:
++            self.scene.contact_forces.update_period = self.sim.dt
+ 
+         self.commands.base_velocity.ranges.lin_vel_x = (0.0, 0.0)
+         self.commands.base_velocity.ranges.lin_vel_y = (0.0, 0.0)
+diff --git a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py
+index 8255f29..d1e8ad3 100644
+--- a/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py
++++ b/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py
+@@ -3,9 +3,11 @@ import os
+ ASSETS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../assets"))
+ 
+ from .wrappers import RslRlVecEnvHistoryWrapper, VLNEnvWrapper
++from .wrappers_v3 import VLNEnvWrapperV3
+ 
+ __all__ = [
+     "ASSETS_DIR",
+     "RslRlVecEnvHistoryWrapper",
+     "VLNEnvWrapper",
++    "VLNEnvWrapperV3",
+ ]
+\ No newline at end of file
+diff --git a/scripts/navila_eval.py b/scripts/navila_eval.py
+index 71240cc..e652b91 100644
+--- a/scripts/navila_eval.py
++++ b/scripts/navila_eval.py
+@@ -321,6 +321,30 @@ def main():
+     same_pos_count = 0
+     prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+     max_episode_steps = 100 * 0.5 / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
++
++    # ---- Fix B: pre-VLM warmup -------------------------------------------
++    # sample_images_and_send_to_vlm needs 8 frames; if fewer, it pads with
++    # BLACK images, which makes NaVILA hallucinate "turn left 45 degree"
++    # for the first ~10 commands. Step with zero-velocity for
++    # 8 * steps_per_image steps to fill image_observations with real frames.
++    # NOTE: don't wrap in torch.inference_mode() — VLNEnvWrapper.update_command
++    # in the main loop does an in-place write to self.low_level_obs[:, 9:12],
++    # which is forbidden on inference tensors carried over from the warmup.
++    zero_cmd = torch.zeros(3, device=obs.device)
++    warmup_target_frames = 8
++    warmup_total_steps = int(warmup_target_frames * steps_per_image)
++    for warm_i in range(warmup_total_steps):
++        obs, _, done, infos = env.step(zero_cmd)
++        if (warm_i + 1) % int(steps_per_image) == 0:
++            curr_frame = (
++                infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()
++            )
++            image_observations.append(Image.fromarray(curr_frame))
++    # Refresh prev_pos after warmup so the same-pos counter doesn't tick
++    # on the warmup standing-still.
++    prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
++    # ---------------------------------------------------------------------
++
+     # visualizer = define_markers()
+     # simulate environment
+     while simulation_app.is_running():

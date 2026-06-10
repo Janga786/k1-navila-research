@@ -1,0 +1,64 @@
+diff --git a/tasks/beyond_mimic/__init__.py b/tasks/beyond_mimic/__init__.py
+index 77c55f9..ae2faff 100644
+--- a/tasks/beyond_mimic/__init__.py
++++ b/tasks/beyond_mimic/__init__.py
+@@ -63,3 +63,32 @@ class K1FightControllerCfg(K1BeyondMimicControllerCfg):
+ 
+ register_task("k1_mj2", K1MJ2ControllerCfg())
+ register_task("k1_fight", K1FightControllerCfg())
++
++@configclass
++class K1OvernightControllerCfg(K1BeyondMimicControllerCfg):
++    def __post_init__(self):
++        super().__post_init__()
++        self.policy.motion_path = "motions/k1_fight_final_deploy.npz"
++        self.policy.checkpoint_path = "models/k1_overnight_supermodel.pt"
++        self.robot.joint_stiffness = [
++            10.0, 10.0,
++            3.95, 3.95, 3.95, 3.95,
++            3.95, 3.95, 3.95, 3.95,
++            80., 80., 80., 80., 30., 30.,
++            80., 80., 80., 80., 30., 30.,
++        ]
++        self.robot.joint_damping = [
++            2., 2.,
++            0.3, 0.3, 0.3, 0.3,
++            0.3, 0.3, 0.3, 0.3,
++            2., 2., 2., 2., 2., 2.,
++            2., 2., 2., 2., 2., 2.
++        ]
++        self.robot.effort_limit = [
++            4, 4,
++            12, 12, 12, 12,
++            12, 12, 12, 12,
++            30, 35, 20, 40, 20, 20,
++            30, 35, 20, 40, 20, 20,
++        ]
++register_task("k1_overnight", K1OvernightControllerCfg())
+diff --git a/tasks/locomotion/__init__.py b/tasks/locomotion/__init__.py
+index 24f6ed0..2bfd480 100644
+--- a/tasks/locomotion/__init__.py
++++ b/tasks/locomotion/__init__.py
+@@ -4,6 +4,7 @@ from .locomotion import (
+     K1WalkControllerCfg,
+     T1WalkControllerCfg
+ )
++from .k1_velocity import K1VelocityControllerCfg
+ 
+ # Register locomotion tasks
+ 
+@@ -18,3 +19,14 @@ class T1WalkControllerCfg1(T1WalkControllerCfg):
+ 
+ register_task(
+     "t1_walk", T1WalkControllerCfg1())
++
++
++@configclass
++class K1VelocityControllerCfg1(K1VelocityControllerCfg):
++    '''K1 velocity-tracking policy (Booster-Gym / NaVILA obs layout).'''
++    def __post_init__(self):
++        super().__post_init__()
++        self.policy.checkpoint_path = "models/k1_velocity.pt"
++
++
++register_task("k1_velocity", K1VelocityControllerCfg1())

@@ -1,0 +1,51 @@
+#!/bin/bash
+# Fires the K1 VLN-CE benchmark smoke test as soon as the first real
+# checkpoint (model_2000.pt) lands in the training run dir.
+#
+# Catches integration bugs (obs dim mismatch, ActorCritic key mismatch,
+# symlink path issue) before the full 14h training completes.
+
+set -e
+
+export PATH="$HOME/miniconda3/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/miniconda3/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+
+BOOSTER_LOGS=~/Projects/k1_research/booster/booster_train/logs/rsl_rl/k1_velocity_vlnce
+SMOKE_LOG=/tmp/k1_vlnce_smoke_when_ready.log
+
+log() { echo "[$(date +%F\ %H:%M:%S)] $*" >> "$SMOKE_LOG"; }
+
+log "watcher started — polling for model_2000.pt every 60s"
+
+while true; do
+  RUN_DIR=$(ls -1dt "$BOOSTER_LOGS"/2026-05-18_*_k1_vlnce_v2 2>/dev/null | head -1)
+  if [[ -z "$RUN_DIR" ]]; then
+    log "no run dir yet, sleeping..."
+    sleep 60
+    continue
+  fi
+  if [[ -f "$RUN_DIR/model_2000.pt" ]]; then
+    RUN_SUBDIR=$(basename "$RUN_DIR")
+    log "model_2000.pt found at $RUN_DIR — firing smoke test"
+    log "run_subdir=$RUN_SUBDIR"
+    bash ~/Projects/k1_research/scripts/bench_k1_vlnce.sh smoke "$RUN_SUBDIR" 2000 >> "$SMOKE_LOG" 2>&1
+    SMOKE_EXIT=$?
+    log "smoke exit code: $SMOKE_EXIT"
+    # An integration failure (state_dict load, obs shape, ActorCritic class)
+    # crashes navila_eval BEFORE the first measurement JSON is written.
+    # Detect by checking whether a measurement file landed.
+    MEAS_FILE="$HOME/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_booster_vlnce_${RUN_SUBDIR}/measurements/0.json"
+    if [[ -f "$MEAS_FILE" ]]; then
+      log "INTEGRATION OK — measurement written to $MEAS_FILE"
+      log "training continues. Full benchmark will fire when training session ends."
+    else
+      log "INTEGRATION FAILURE — no measurement at $MEAS_FILE"
+      log "killing training tmux session 'k1_vlnce_train' to save ~13 h of wasted compute."
+      log "tail of smoke log for diagnosis:"
+      tail -30 /tmp/k1_vlnce_smoke.log 2>&1 | sed 's/^/    /' >> "$SMOKE_LOG"
+      $HOME/miniconda3/bin/tmux kill-session -t k1_vlnce_train 2>/dev/null || true
+    fi
+    break
+  fi
+  sleep 60
+done

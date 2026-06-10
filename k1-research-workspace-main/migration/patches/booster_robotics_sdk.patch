@@ -1,0 +1,53 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2449117..3c6acf6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -13,7 +13,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+ 
+ set(CMAKE_CXX_STANDARD 17)
+ 
+-link_libraries(booster_robotics_sdk.a fastrtps fastcdr libfoonathan_memory-0.7.3.a)
++link_libraries(booster_robotics_sdk.a fastrtps fastcdr libfoonathan_memory-0.7.3.a tinyxml2)
+ 
+ add_executable(b1_loco_example_client example/high_level/b1_loco_example_client.cpp)
+ add_executable(b1_arm_sdk_example_client example/high_level/b1_arm_sdk_example.cpp)
+@@ -28,7 +28,7 @@ add_executable(battery_state_subscriber example/low_level/battery_state_subscrib
+ 
+ 
+ 
+-include_directories(BEFORE $(PROJECT_SOURCE_DIR)/include)
++include_directories(BEFORE ${PROJECT_SOURCE_DIR}/include)
+ 
+ if(BUILD_PYTHON_BINDING)
+     find_package(Python3 REQUIRED COMPONENTS Interpreter Development.Module)
+@@ -55,10 +55,12 @@ if(BUILD_PYTHON_BINDING)
+     add_custom_command(
+         TARGET booster_robotics_sdk_python
+         POST_BUILD
+-        COMMAND PYTHONPATH=${CMAKE_SOURCE_DIR}/build:/${PYTHONPATH} pybind11-stubgen -o ${CMAKE_SOURCE_DIR}/build booster_robotics_sdk_python
++        COMMAND ${CMAKE_COMMAND} -E env PYTHONPATH=${CMAKE_CURRENT_BINARY_DIR}
++                ${PYBIND11_STUBGEN_EXECUTABLE} -o ${CMAKE_CURRENT_BINARY_DIR} booster_robotics_sdk_python
++        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+     )
+ 
+     install(TARGETS booster_robotics_sdk_python LIBRARY DESTINATION ${PYTHON_SITE_PACKAGES})
+-    install(FILES ${CMAKE_SOURCE_DIR}/build/booster_robotics_sdk_python.pyi DESTINATION ${PYTHON_SITE_PACKAGES})    
++    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/booster_robotics_sdk_python.pyi DESTINATION ${PYTHON_SITE_PACKAGES})
+ endif()
+ 
+diff --git a/python/binding.cpp b/python/binding.cpp
+index 5ba493c..09b1faf 100644
+--- a/python/binding.cpp
++++ b/python/binding.cpp
+@@ -406,7 +406,10 @@ PYBIND11_MODULE(booster_robotics_sdk_python, m) {
+                 return client.Init(robot_name);
+             },
+             "Init with robot name")
+-        .def("SendApiRequest", &robot::b1::B1LocoClient::SendApiRequest, py::arg("api_id"), py::arg("param"),
++        .def("SendApiRequest",
++             static_cast<int32_t (robot::b1::B1LocoClient::*)(robot::b1::LocoApiId, const std::string &)>(
++                 &robot::b1::B1LocoClient::SendApiRequest),
++             py::arg("api_id"), py::arg("param"),
+              R"pbdoc(
+                 /**
+                  * @brief Send API request to B1 robot

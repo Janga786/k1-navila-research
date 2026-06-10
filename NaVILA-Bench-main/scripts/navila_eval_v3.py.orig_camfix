@@ -1,0 +1,556 @@
+"""
+NaVILA-Bench evaluation for the K1 VLN-CE v3 policy.
+
+This is a sibling of `navila_eval.py` that:
+  * loads the v3 ActorCritic state-dict directly into a fresh
+    nn.Sequential (skips rsl_rl OnPolicyRunner so we don't need the
+    v3 agent.yaml to live inside NaVILA-Bench)
+  * uses `VLNEnvWrapperV3` which builds the v3 47-dim per-step obs +
+    5-frame term-major history flatten from raw scene state
+  * everything else (VLM image loop, R2R episode handling, measurements,
+    video writer) mirrors navila_eval.py.
+
+Usage:
+  python scripts/navila_eval_v3.py
+      --task=k1_matterport_vision
+      --num_envs=1
+      --headless --enable_cameras
+      --checkpoint=<absolute path to v3 model_*.pt>
+      [--episode_idx=N]
+      [--gait_phase_init=0.0]
+"""
+
+import argparse
+import gymnasium as gym
+import os
+import json
+import math
+import torch
+import torch.nn as nn
+import numpy as np
+import imageio
+from PIL import Image
+import base64
+import io
+import socket
+
+from omni.isaac.lab.app import AppLauncher
+
+# local imports
+import cli_args  # isort: skip
+import nav_diag  # isort: skip  (Step-1 per-episode diagnostics)
+
+parser = argparse.ArgumentParser(description="Eval K1 VLN-CE v3 policy.")
+parser.add_argument("--disable_fabric", action="store_true", default=False)
+parser.add_argument("--num_envs", type=int, default=1)
+parser.add_argument("--task", type=str, default="k1_matterport_vision")
+parser.add_argument("--seed", type=int, default=None)
+parser.add_argument("--episode_idx", type=int, default=0)
+parser.add_argument("--gait_phase_init", type=float, default=0.0,
+                    help="Initial gait clock offset in [0, 1).")
+parser.add_argument("--vlm_host", type=str, default="localhost")
+parser.add_argument("--vlm_port", type=int, default=54321)
+parser.add_argument("--device", type=str, default="cuda")
+parser.add_argument("--out_tag", type=str, default="v3",
+                    help="Suffix for eval_results/k1_matterport_vision_loco_<tag>/")
+parser.add_argument("--diag", action="store_true", default=False,
+                    help="Write per-episode navigation diagnostics (trajectory, "
+                         "VLM frames/text, per-command achieved-vs-requested) under "
+                         "eval_results/.../diag/. Purely additive; does not change scoring.")
+parser.add_argument("--clean_render", action="store_true", default=False,
+                    help="Median-5 denoise the VLM-bound frames to remove the salt-and-pepper "
+                         "render speckle (RC-7) that is off-distribution vs NaVILA's clean "
+                         "Habitat training. Scoped to this process.")
+parser.add_argument("--bright", action="store_true", default=False,
+                    help="Brighten dim scenes toward NaVILA's well-lit training exposure "
+                         "(CLAHE on L + gamma 0.7), applied BEFORE the median denoise. Adaptive, "
+                         "so already-bright scenes aren't blown out. Composes with --clean_render.")
+parser.add_argument("--closed_loop", action="store_true", default=False,
+                    help="Execute each VLM command in CLOSED LOOP: hold the velocity until "
+                         "the robot has actually achieved the requested displacement/heading "
+                         "(then briefly settle), instead of an open-loop fixed duration. "
+                         "Robust to locomotion under-tracking and the acceleration ramp.")
+parser.add_argument("--max_episode_s", type=float, default=50.0,
+                    help="Per-episode wall budget in sim-seconds (default 50 = the original "
+                         "2500-step cap). Loosen for closed-loop so the settle/full-distance "
+                         "overhead isn't penalized as a controller regression.")
+parser.add_argument("--max_chunk_m", type=float, default=0.0,
+                    help="Closed-loop only: cap each forward command's executed displacement "
+                         "to this many meters before re-querying the VLM (0=disabled=full "
+                         "distance). Bounds overshoot on short final approaches and gives the "
+                         "VLM more frequent chances to emit 'stop'. Legitimate (no ground truth).")
+parser.add_argument("--stop_assist", action="store_true", default=False,
+                    help="Legitimate near-goal stop: emit 'stop' when the robot has netted "
+                         "<0.6 m over the last 8 VLM decisions (rotate-without-progress). Uses "
+                         "only the robot's own pose, no goal info.")
+parser.add_argument("--proximity_stop", type=float, default=0.0,
+                    help="DIAGNOSTIC ONLY (uses ground-truth goal distance, NOT benchmark-fair): "
+                         "auto-stop within this radius (m). Use to measure the OS->SR ceiling "
+                         "(success if the robot always stopped on arrival). 0=disabled.")
+cli_args.add_rsl_rl_args(parser)   # adds --checkpoint among others
+AppLauncher.add_app_launcher_args(parser)
+args_cli = parser.parse_args()
+if not args_cli.checkpoint:
+    raise SystemExit("--checkpoint is required (absolute path to v3 model_*.pt)")
+
+# launch omniverse app
+app_launcher = AppLauncher(args_cli)
+simulation_app = app_launcher.app
+# Render fix (RC-7): the egocentric RGB carries heavy salt-and-pepper speckle
+# (off-distribution vs NaVILA's clean Habitat training). The Isaac render-side
+# carb tweak (disabling sampledLighting) did NOT remove it and darkened the
+# scene, so --clean_render instead applies a deterministic median-5 denoise to
+# the VLM-bound frames (see sample_images_and_send_to_vlm). ~40x speckle drop,
+# structure preserved, ~1 ms/frame, source-independent.
+if args_cli.clean_render or args_cli.bright:
+    print(f"[render] VLM-frame fix: bright={args_cli.bright} (CLAHE+gamma) "
+          f"denoise={args_cli.clean_render} (median-5)")
+
+# imports that need the SimulationApp running
+import omni.isaac.lab_tasks  # noqa: F401
+from omni.isaac.lab_tasks.utils import parse_env_cfg
+from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
+import omni.isaac.lab.sim as sim_utils
+
+from omni.isaac.vlnce.config import *
+from omni.isaac.vlnce.utils import ASSETS_DIR, VLNEnvWrapperV3
+from omni.isaac.vlnce.utils.eval_utils import (
+    get_vel_command, read_episodes,
+    add_instruction_on_img, InstructionData,
+)
+
+
+# --------------------------------------------------------------------------- #
+# v3 actor builder — must match the training arch exactly (235 → 512 → 256
+# → 128 → 12, ELU). The checkpoint has only `actor.*` and `critic.*` weights
+# (no normalizer), so we just lift the actor.* keys.
+# --------------------------------------------------------------------------- #
+def build_v3_actor(ckpt_path: str, device: str) -> nn.Sequential:
+    ck = torch.load(ckpt_path, map_location=device, weights_only=False)
+    sd = ck["model_state_dict"]
+    actor = nn.Sequential(
+        nn.Linear(235, 512), nn.ELU(),
+        nn.Linear(512, 256), nn.ELU(),
+        nn.Linear(256, 128), nn.ELU(),
+        nn.Linear(128, 12),
+    )
+    own = actor.state_dict()
+    mapped = {}
+    for k, v in sd.items():
+        if not k.startswith("actor."):
+            continue
+        local_k = k[len("actor."):]
+        if local_k in own:
+            mapped[local_k] = v
+    missing = [k for k in own if k not in mapped]
+    if missing:
+        raise RuntimeError(f"missing actor keys: {missing}")
+    actor.load_state_dict(mapped, strict=True)
+    actor.to(device).eval()
+    iter_ = ck.get("iter", "?")
+    print(f"[v3] loaded actor from {ckpt_path}  iter={iter_}  "
+          f"params={sum(p.numel() for p in actor.parameters())}")
+    return actor
+
+
+def quat2eulers(q0, q1, q2, q3):
+    roll = math.atan2(2 * (q2 * q3 + q0 * q1),
+                       q0**2 - q1**2 - q2**2 + q3**2)
+    pitch = math.asin(2 * (q1 * q3 - q0 * q2))
+    yaw = math.atan2(2 * (q1 * q2 + q0 * q3),
+                      q0**2 + q1**2 - q2**2 - q3**2)
+    return roll, pitch, yaw
+
+
+def reset_start_pos_rot(env_cfg, args_cli, episode):
+    scene_id = os.path.splitext(os.path.basename(episode["scene_id"]))[0]
+    env_cfg.scene.terrain.obj_filepath = os.path.join(
+        ASSETS_DIR, f"matterport_usd/{scene_id}/{scene_id}.usd"
+    )
+    start_pos = episode["start_position"]
+    start_rot = episode["start_rotation"]
+    goal_pos = episode["reference_path"][-1]
+    env_cfg.scene.robot.init_state.rot = start_rot
+    env_cfg.scene.robot.init_state.pos = (
+        start_pos[0], start_pos[1], start_pos[2] + 0.55
+    )
+    env_cfg.scene.terrain.origins = env_cfg.scene.robot.init_state.pos
+    env_cfg.scene.disk_1.init_state.pos = (
+        [start_pos[0], start_pos[1], start_pos[2] + 2.5]
+    )
+    env_cfg.scene.disk_2.init_state.pos = (
+        [goal_pos[0], goal_pos[1], goal_pos[2] + 2.5]
+    )
+    return env_cfg
+
+
+def brighten_frame(arr_rgb):
+    """CLAHE on the L channel + mild gamma — lifts dim Isaac scenes toward
+    NaVILA's well-lit training exposure. Adaptive (per-tile), so already-bright
+    scenes aren't blown out. Input/output: uint8 RGB."""
+    import cv2
+    lab = cv2.cvtColor(arr_rgb, cv2.COLOR_RGB2LAB)
+    l, a, b = cv2.split(lab)
+    l = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(l)
+    rgb = cv2.cvtColor(cv2.merge([l, a, b]), cv2.COLOR_LAB2RGB)
+    return (((rgb / 255.0) ** 0.7) * 255).astype(np.uint8)
+
+
+def sample_images_and_send_to_vlm(image_list, vlm_host, vlm_port, query,
+                                  denoise=False, bright=False):
+    if len(image_list) == 0:
+        return None
+    if len(image_list) < 8:
+        image_list = image_list.copy()
+        for _ in range(8 - len(image_list)):
+            image_list.insert(0, Image.new('RGB', image_list[-1].size, (0, 0, 0)))
+    else:
+        image_list = image_list.copy()
+    num_images = len(image_list)
+    indices = [int(i * (num_images - 1) / 7) for i in range(7)]
+    sampled_images = [image_list[i] for i in indices]
+    sampled_images.append(image_list[-1])
+
+    encoded_images = []
+    pil_images = []  # the exact 8 frames sent, for diagnostics
+    for image in sampled_images:
+        if isinstance(image, np.ndarray):
+            arr = image
+            if arr.dtype != np.uint8:
+                arr = ((arr * 255.0) if arr.max() <= 1.0 else arr).clip(
+                    0, 255
+                ).astype(np.uint8)
+            pil_image = Image.fromarray(arr)
+        elif isinstance(image, Image.Image):
+            pil_image = image
+        else:
+            pil_image = Image.fromarray(np.array(image, dtype=np.uint8))
+        if bright or denoise:  # brighten dim scenes first, then denoise the result
+            import cv2  # lazy import: avoid cv2-before-omni ordering issues
+            arr = np.array(pil_image)
+            if bright:
+                arr = brighten_frame(arr)
+            if denoise:  # median-5 kills the salt-and-pepper render speckle (RC-7)
+                arr = cv2.medianBlur(arr, 5)
+            pil_image = Image.fromarray(arr)
+        pil_images.append(pil_image)
+        buf = io.BytesIO()
+        pil_image.save(buf, format="JPEG")
+        encoded_images.append(base64.b64encode(buf.getvalue()).decode())
+
+    request_data = {'images': encoded_images, 'query': query}
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((vlm_host, vlm_port))
+        data_bytes = json.dumps(request_data).encode()
+        s.sendall(len(data_bytes).to_bytes(8, 'big'))
+        s.sendall(data_bytes)
+        size_data = s.recv(8)
+        size = int.from_bytes(size_data, 'big')
+        response_data = b''
+        while len(response_data) < size:
+            packet = s.recv(4096)
+            if not packet:
+                break
+            response_data += packet
+        return json.loads(response_data.decode()), pil_images
+
+
+class ClosedLoopController:
+    """Step 2: hold each VLM velocity command until the robot has ACTUALLY
+    achieved the requested forward displacement / heading change (measured from
+    Isaac ground-truth base pose), then briefly settle at zero velocity, then
+    signal a re-query. Replaces the open-loop fixed-duration hold, which trusts
+    that vx=0.5 m/s for distance/0.5 s moves `distance` — false for a humanoid
+    with an acceleration ramp or steady-state tracking error. A per-command
+    deadline (timeout) keeps a stuck robot from hanging the episode.
+    """
+
+    def __init__(self, dt_step, fwd_tol=0.05, yaw_tol_deg=3.0,
+                 timeout_mult=4.0, min_timeout_steps=25, settle_steps=8,
+                 max_chunk_m=0.0):
+        self.dt_step = dt_step
+        self.fwd_tol = fwd_tol
+        self.yaw_tol = math.radians(yaw_tol_deg)
+        self.timeout_mult = timeout_mult
+        self.min_timeout = min_timeout_steps
+        self.settle_steps = settle_steps
+        self.max_chunk_m = max_chunk_m  # cap forward exec distance per re-query (0=off)
+        self.active = None
+
+    def start(self, cmd, time_to_go, pos, yaw, num_steps):
+        typ = "forward" if cmd[0] > 0 else ("turn" if abs(cmd[2]) > 0 else "stop")
+        nominal = int(time_to_go / self.dt_step)
+        target_disp = 0.5 * time_to_go if typ == "forward" else 0.0
+        if typ == "forward" and self.max_chunk_m > 0:
+            target_disp = min(target_disp, self.max_chunk_m)  # bound overshoot (fix c)
+        self.active = {
+            "type": typ,
+            "cmd": [float(c) for c in cmd],
+            "start_xy": (float(pos[0]), float(pos[1])),
+            "start_yaw": float(yaw),
+            "target_disp": target_disp,
+            "target_heading": float(cmd[2]) * time_to_go if typ == "turn" else 0.0,
+            "deadline": num_steps + max(int(nominal * self.timeout_mult), self.min_timeout),
+            "phase": "move",
+            "settle_end": None,
+        }
+
+    def velocity(self):
+        if self.active is None or self.active["phase"] == "settle":
+            return [0.0, 0.0, 0.0]
+        return self.active["cmd"]
+
+    def update(self, pos, yaw, num_steps):
+        """Advance one step; return True when ready to (re)query the VLM."""
+        a = self.active
+        if a is None or a["type"] == "stop":
+            return True
+        if a["phase"] == "move":
+            if a["type"] == "forward":
+                dx = float(pos[0]) - a["start_xy"][0]
+                dy = float(pos[1]) - a["start_xy"][1]
+                achieved = dx * math.cos(a["start_yaw"]) + dy * math.sin(a["start_yaw"])
+                reached = achieved >= a["target_disp"] - self.fwd_tol
+            else:  # turn
+                achieved = nav_diag.wrap_pi(float(yaw) - a["start_yaw"])
+                reached = abs(achieved) >= abs(a["target_heading"]) - self.yaw_tol
+            if reached or num_steps >= a["deadline"]:
+                if self.settle_steps > 0:
+                    a["phase"] = "settle"
+                    a["settle_end"] = num_steps + self.settle_steps
+                    return False
+                return True
+            return False
+        return num_steps >= a["settle_end"]  # settle phase
+
+
+def main():
+    r2r_data_path = os.path.join(ASSETS_DIR, "vln_ce_isaac_v1.json.gz")
+    all_episodes = read_episodes(r2r_data_path)
+    episode = all_episodes[args_cli.episode_idx]
+
+    env_cfg = parse_env_cfg(args_cli.task, num_envs=args_cli.num_envs)
+    env_cfg = reset_start_pos_rot(env_cfg, args_cli, episode)
+
+    env = gym.make(args_cli.task, cfg=env_cfg, render_mode=None)
+    env = RslRlVecEnvWrapper(env)
+
+    # Build the v3 actor directly (skip rsl_rl runner setup).
+    device = env.unwrapped.device
+    actor = build_v3_actor(args_cli.checkpoint, device=str(device))
+
+    # Build a callable that turns the 235-dim policy input into 12-dim
+    # actions deterministically (mean of the policy, no exploration).
+    def policy_fn(obs_235: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():
+            return actor(obs_235)
+
+    # Drop the v3-specific wrapper on top.
+    env = VLNEnvWrapperV3(
+        env, policy_fn, args_cli.task, episode,
+        high_level_obs_key="camera_obs",
+        gait_phase_init=args_cli.gait_phase_init,
+    )
+
+    # Camera setup
+    robot_pos_w = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+    robot_quat_w = env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy()
+    _, _, yaw = quat2eulers(*robot_quat_w)
+    cam_eye = (robot_pos_w[0] - 0.8 * math.sin(-yaw),
+               robot_pos_w[1] - 0.8 * math.cos(-yaw),
+               robot_pos_w[2] + 0.8)
+    cam_target = tuple(robot_pos_w)
+    env.unwrapped.sim.set_camera_view(eye=cam_eye, target=cam_target)
+
+    obs, infos = env.reset()
+
+    result_dir = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
+    diag = nav_diag.EpisodeDiagnostics(
+        result_dir, episode, args_cli.episode_idx, enabled=args_cli.diag
+    ) if args_cli.diag else None
+
+    steps_per_image = 0.5 / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
+    steps_per_viz_image = 0.1 / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
+
+    rgb_obs = infos["observations"]["camera_obs"]
+    init_frame = rgb_obs[0, :, :, :3].cpu().numpy()
+    instruction = InstructionData(**episode["instruction"])
+    image_observations = [Image.fromarray(init_frame)]
+
+    add_instruction_on_img(init_frame, instruction.instruction_text)
+    vis_frame = infos["observations"]["viz_camera_obs"][0, :, :, :3].cpu().numpy()
+    add_instruction_on_img(vis_frame, "")
+    rgb_obses = [np.concatenate([init_frame, vis_frame], axis=1)]
+
+    num_steps = 0
+    target_steps = 0
+    same_pos_count = 0
+    prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+    max_episode_steps = args_cli.max_episode_s / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
+    term_reason = "running"
+
+    # Pre-VLM warmup: fill the 8-frame VLM image buffer with REAL frames.
+    zero_cmd = torch.zeros(3, device=obs.device)
+    warmup_target_frames = 8
+    warmup_total_steps = int(warmup_target_frames * steps_per_image)
+    for warm_i in range(warmup_total_steps):
+        obs, _, done, infos = env.step(zero_cmd)
+        if (warm_i + 1) % int(steps_per_image) == 0:
+            curr_frame = (
+                infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()
+            )
+            image_observations.append(Image.fromarray(curr_frame))
+    prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+
+    vlm_vel_commands = [0.0, 0.0, 0.0]
+    env_steps_to_go = 0
+    stream_output = ""
+    sent_frames = None
+    dt_step = env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation
+    controller = (ClosedLoopController(dt_step, max_chunk_m=args_cli.max_chunk_m)
+                  if args_cli.closed_loop else None)
+    recent_tick_xy = []  # for --stop_assist circling detection
+
+    while simulation_app.is_running():
+        cur_p = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+        cur_y = nav_diag.yaw_from_quat(
+            env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy())
+
+        # Diagnostic proximity stop (uses ground-truth goal distance — NOT a fair
+        # benchmark number; only to measure the OS->SR ceiling). Set before env.step
+        # so update_measures() scores Success at this pose.
+        if args_cli.proximity_stop > 0 and not env.is_stop_called:
+            _pd = float(infos.get("measurements", {}).get("distance_to_goal", 1e9))
+            if _pd < args_cli.proximity_stop:
+                env.set_stop_called(True)
+                term_reason = "proximity_stop"
+
+        # --- decide whether to (re)query the VLM ---
+        if controller is not None:
+            requery = controller.update(cur_p, cur_y, num_steps)
+        else:
+            requery = (num_steps == target_steps)
+        if env.is_stop_called:  # proximity-stop already fired -> no point querying
+            requery = False
+
+        with torch.inference_mode():
+            if requery:
+                stream_output, sent_frames = sample_images_and_send_to_vlm(
+                    image_observations, args_cli.vlm_host, args_cli.vlm_port,
+                    instruction.instruction_text,
+                    denoise=args_cli.clean_render, bright=args_cli.bright,
+                )
+                vlm_vel_commands, time_to_go = get_vel_command(stream_output)
+                env_steps_to_go = int(time_to_go / dt_step)
+                target_steps = num_steps + env_steps_to_go
+                print(f"VLM: {stream_output}\nCmd: {vlm_vel_commands}  "
+                      f"steps_to_go: {env_steps_to_go}")
+
+                # Stop-ordering fix: register 'stop' BEFORE the next env.step so
+                # update_measures() scores Success at the stop pose (matching the
+                # upstream demo_planner.py), not one drifted step later.
+                if time_to_go == 0.0:
+                    env.set_stop_called(True)
+
+                # Legitimate near-goal stop: no net progress over last 8 decisions.
+                if args_cli.stop_assist and not env.is_stop_called:
+                    recent_tick_xy.append((float(cur_p[0]), float(cur_p[1])))
+                    recent_tick_xy = recent_tick_xy[-8:]
+                    if len(recent_tick_xy) >= 8:
+                        last = recent_tick_xy[-8:]
+                        span = max(math.hypot(a[0] - b[0], a[1] - b[1])
+                                   for a in last for b in last)
+                        if span < 0.6:
+                            env.set_stop_called(True)
+                            term_reason = "stop_assist"
+
+                if controller is not None:
+                    controller.start(vlm_vel_commands, time_to_go, cur_p, cur_y, num_steps)
+
+                if diag is not None:
+                    _d = float(infos.get("measurements", {}).get(
+                        "distance_to_goal", float("nan")))
+                    diag.on_vlm_tick(num_steps, sent_frames, stream_output,
+                                     vlm_vel_commands, time_to_go, cur_p, cur_y, _d)
+
+        applied_cmd = controller.velocity() if controller is not None else vlm_vel_commands
+        obs, _, done, infos = env.step(
+            torch.tensor(applied_cmd, device=obs.device, dtype=torch.float32)
+        )
+
+        if done or env.is_stop_called or num_steps > max_episode_steps:
+            if term_reason == "running":  # preserve proximity_stop / stop_assist
+                term_reason = ("stop" if env.is_stop_called
+                               else "sim_done" if done else "step_cap")
+            break
+
+        cur_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+        robot_vel = np.linalg.norm(
+            env.unwrapped.scene["robot"].data.root_vel_w[0].detach().cpu().numpy()
+        )
+        if diag is not None:
+            _cq = env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy()
+            _cd = float(infos.get("measurements", {}).get("distance_to_goal", float("nan")))
+            diag.log_step(num_steps, cur_pos, nav_diag.yaw_from_quat(_cq), _cd)
+        if np.linalg.norm(cur_pos - prev_pos) < 0.01 and robot_vel < 0.01:
+            same_pos_count += 1
+        else:
+            same_pos_count = 0
+        prev_pos = cur_pos
+        if same_pos_count >= 1000:
+            print("Same-pos 1000 steps — breaking.")
+            term_reason = "stuck"
+            break
+
+        if num_steps % steps_per_image == 0:
+            curr_frame = infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()
+            image_observations.append(Image.fromarray(curr_frame))
+            curr_frame_copy = curr_frame.copy()
+            add_instruction_on_img(curr_frame_copy, instruction.instruction_text)
+        if num_steps % steps_per_viz_image == 0:
+            curr_vis_frame = infos["observations"]["viz_camera_obs"][0, :, :, :3].cpu().numpy()
+            add_instruction_on_img(curr_vis_frame, stream_output)
+            rgb_obses.append(np.concatenate([curr_frame_copy, curr_vis_frame], axis=1))
+
+        num_steps += 1
+        # (stop is now registered before env.step at the VLM tick above)
+
+    measurements = infos["measurements"]
+    if diag is not None:
+        _fp = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+        _fq = env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy()
+        diag.finalize(measurements, _fp, nav_diag.yaw_from_quat(_fq), extra={
+            "ended_at_step": int(num_steps),
+            "max_episode_steps": int(max_episode_steps),
+            "hit_step_cap": bool(num_steps > max_episode_steps),
+            "term_reason": term_reason,
+            "closed_loop": bool(args_cli.closed_loop),
+            "clean_render": bool(args_cli.clean_render),
+            "bright": bool(args_cli.bright),
+            "max_episode_s": float(args_cli.max_episode_s),
+            "max_chunk_m": float(args_cli.max_chunk_m),
+            "stop_assist": bool(args_cli.stop_assist),
+            "proximity_stop": float(args_cli.proximity_stop),
+        })
+    result_dir = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
+    os.makedirs(result_dir, exist_ok=True)
+    measurement_dir = os.path.join(result_dir, "measurements")
+    os.makedirs(measurement_dir, exist_ok=True)
+    with open(f"{measurement_dir}/{int(episode['episode_id'])-1}.json", "w") as f:
+        json.dump(measurements, f, indent=4)
+
+    video_dir = os.path.join(result_dir, "videos")
+    os.makedirs(video_dir, exist_ok=True)
+    writer = imageio.get_writer(
+        f"{video_dir}/output_{int(episode['episode_id'])-1}.mp4", fps=10
+    )
+    for frame in rgb_obses:
+        writer.append_data(frame.astype(np.uint8))
+    writer.close()
+
+    env.close()
+
+
+if __name__ == "__main__":
+    main()
+    simulation_app.close()

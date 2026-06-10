@@ -1,0 +1,11 @@
+name	path	upstream	branch	commit	dirty_files
+navila	booster/NaVILA	https://github.com/AnjieCheng/NaVILA	main	76b98f233dd0fff05dfcd69435eec6740febff9d	2
+navila-bench	NaVILA-Bench	https://github.com/yang-zj1026/NaVILA-Bench.git	vlnce-isaac-benchmark	eb56f0d3303faf8401ada2bf072dfa3bfd2e3243	12
+legged-loco	legged-loco	https://github.com/yang-zj1026/legged-loco.git	k1-vision	c8fc1a17a92342cc6f9ee52f17e56346546d8d68	1
+k1-robot-project	K1_Robot_Project	https://github.com/Gavinw575/K1_Robot_Project	master	048bcf87f6d2748c5ee9ebd05ef2e4ba469fdcf9	0
+booster_assets	booster/booster_assets	https://github.com/BoosterRobotics/booster_assets.git	main	486da0f864016676de6dab724fd60a8a551655d1	2
+booster_robotics_sdk	booster/booster_robotics_sdk	https://github.com/BoosterRobotics/booster_robotics_sdk	main	324946e7c885de6cd6d37220eca64ed4e0f8d418	2
+booster_deploy	booster/booster_deploy	https://github.com/BoosterRobotics/booster_deploy.git	main	563e7c37e7468b3b96ad9f84f9e61becea3b7fb8	4
+booster_train	booster/booster_train	https://github.com/BoosterRobotics/booster_train.git	main	b77e0e9580b9d8ffeb80ea955a796bedf33f8923	2
+k1-vlm-navigation	experiments/navila	https://github.com/Janga786/k1-vlm-navigation.git	paper-audit-fixes	172177453754c3ca93780519d9426b54757eeb66	11
+workspace	.	https://github.com/Janga786/k1-research-workspace.git	main	55ab03dc0014cefb972fa813585b17d664653870	1

@@ -1,0 +1,7 @@
+name: navila
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - portaudio
+prefix: /home/janga/miniconda3/envs/navila

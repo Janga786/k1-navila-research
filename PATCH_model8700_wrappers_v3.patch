@@ -1,0 +1,99 @@
+--- /tmp/wrappers_v3_orig.py	2026-06-05 09:55:27.621647912 -0600
++++ /home/boosterk1/Projects/k1_research/NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py	2026-06-05 09:55:09.323848317 -0600
+@@ -33,11 +33,24 @@
+ from .measures import add_measurement
+ 
+ 
+-GAIT_FREQ_HZ = 2.0
++GAIT_FREQ_HZ = 1.5   # PATCHED for model_8700 (was 2.0): contract gait clock is 1.5 Hz
+ HISTORY_LENGTH = 5
+ PER_STEP_DIM = 47   # 3+2+3+3+12+12+12
+ ACTION_SCALE_RATIO = 0.5   # v3 wants 0.25; env uses 0.5 → pre-divide by 2
+ 
++# ---- PATCHED for model_8700 (the lab-box velocity policy) ----
++# Trained with the 12 leg joints in this exact interleaved L/R order (preserve_order=True
++# in navila_env_cfg.py). The benchmark articulation may enumerate joints in a different
++# internal order, so we permute obs reads into this order and scatter the action back —
++# correct regardless of the articulation's native ordering.
++LEG_JOINTS = [
++    "Left_Hip_Pitch", "Right_Hip_Pitch", "Left_Hip_Roll", "Right_Hip_Roll",
++    "Left_Hip_Yaw", "Right_Hip_Yaw", "Left_Knee_Pitch", "Right_Knee_Pitch",
++    "Left_Ankle_Pitch", "Right_Ankle_Pitch", "Left_Ankle_Roll", "Right_Ankle_Roll",
++]
++ANGVEL_SCALE = 0.25   # PATCHED: contract base_ang_vel obs scale (benchmark fed it raw)
++JVEL_SCALE = 0.1      # PATCHED: contract joint_vel obs scale (benchmark fed it raw)
++
+ 
+ def quat_apply_inverse(q_wxyz: torch.Tensor, v: torch.Tensor) -> torch.Tensor:
+     """Passive rotation by q^-1 applied to vector v. q_wxyz: (..., 4),
+@@ -89,6 +102,7 @@
+         self.device = self.env.unwrapped.device
+         self.num_envs = self.env.unwrapped.num_envs
+         self._history_buf = None     # (num_envs, HISTORY_LENGTH, PER_STEP_DIM)
++        self._jperm = None           # PATCHED: articulation-order -> LEG_JOINTS-order index map
+         self._last_action = torch.zeros(
+             self.num_envs, 12, device=self.device, dtype=torch.float32
+         )
+@@ -118,8 +132,15 @@
+         """Build the 47-dim per-step v3 obs from raw scene state.
+         Returns (num_envs, 47)."""
+         robot = self.unwrapped.scene["robot"].data
+-        # body-frame angular velocity is already body-frame in Isaac Lab
+-        ang_vel_b = robot.root_ang_vel_b      # (num_envs, 3)
++        # PATCHED: build articulation-order -> LEG_JOINTS-order permutation once.
++        if self._jperm is None:
++            names = list(robot.joint_names)
++            self._jperm = torch.tensor(
++                [names.index(n) for n in LEG_JOINTS],
++                device=self.device, dtype=torch.long,
++            )
++        # body-frame angular velocity (PATCHED: contract obs scale 0.25)
++        ang_vel_b = robot.root_ang_vel_b * ANGVEL_SCALE      # (num_envs, 3)
+         # projected_gravity: gravity in body frame
+         # Isaac Lab convention: gravity_world = (0, 0, -1), projected = q^-1 * g
+         gravity_w = torch.tensor(
+@@ -127,13 +148,16 @@
+         ).expand(self.num_envs, 3)
+         proj_grav = quat_apply_inverse(robot.root_quat_w, gravity_w)
+         # joint_pos_rel = current - default; joint_vel_rel = current vel
+-        # (rsl_rl's joint_vel_rel uses zero default — same as raw joint_vel)
+-        jp_rel = robot.joint_pos - robot.default_joint_pos
+-        jv = robot.joint_vel
++        # PATCHED: permute into LEG_JOINTS order; joint_vel scaled by 0.1 (contract)
++        jp_rel = (robot.joint_pos - robot.default_joint_pos)[:, self._jperm]
++        jv = robot.joint_vel[:, self._jperm] * JVEL_SCALE
+ 
+         # gait_phase obs: cos/sin of 2π × phase
+         angle = 2.0 * math.pi * self._gait_phase
+         gait = torch.stack([torch.cos(angle), torch.sin(angle)], dim=-1)
++        # PATCHED: contract stand-gate — gait = [0,0] when ||cmd|| < 0.1 (stand vs walk)
++        stand = self._command.norm(dim=-1, keepdim=True) < 0.1
++        gait = torch.where(stand, torch.zeros_like(gait), gait)
+ 
+         return torch.cat([
+             self._command,    # 3
+@@ -204,8 +228,10 @@
+                 self._gait_phase + GAIT_FREQ_HZ * self._policy_dt
+             ) % 1.0
+             self._last_action = action
+-            # Pre-divide so env's scale=0.5 yields effective 0.25
+-            scaled = action * ACTION_SCALE_RATIO
++            # PATCHED: scatter LEG_JOINTS-order action into articulation order, then pre-divide
++            full = torch.zeros_like(action)
++            full[:, self._jperm] = action
++            scaled = full * ACTION_SCALE_RATIO
+             low_level_obs, _, _, infos = self.env.step(scaled)
+ 
+         self.env_step = 0
+@@ -240,7 +266,10 @@
+             self._gait_phase + GAIT_FREQ_HZ * self._policy_dt
+         ) % 1.0
+         self._last_action = low_level_action
+-        scaled = low_level_action * ACTION_SCALE_RATIO
++        # PATCHED: scatter LEG_JOINTS-order action into articulation order, then pre-divide
++        full = torch.zeros_like(low_level_action)
++        full[:, self._jperm] = low_level_action
++        scaled = full * ACTION_SCALE_RATIO
+         low_level_obs, reward, done, info = self.env.step(scaled)
+         obs = info["observations"][self.high_level_obs_key]
+         self.env_step += 1

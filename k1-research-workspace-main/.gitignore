@@ -1,0 +1,38 @@
+# Vendor subrepos (each has its own .git and is tracked externally)
+booster/
+NaVILA-Bench/
+legged-loco/
+experiments/
+K1_Robot_Project/
+
+# Large content (PDFs, snapshots) — not appropriate for a code repo
+papers/
+Documentation/
+
+# Empty/placeholder dirs the workspace uses but doesn't need to track
+notes/
+results/
+checkpoints/
+
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Local IDE/editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Model checkpoints / large binaries (in case any drift into top-level)
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# Logs / tmp
+*.log
+.DS_Store
