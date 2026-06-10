@@ -46,6 +46,18 @@ eval_results/
 *.gif
 *.mov
 
+# --- Secrets / credentials (NEVER commit) ---
+.env
+.env.*
+*.pat
+*.token
+*token.txt
+.git-credentials
+secrets.*
+*_secret*
+id_rsa
+id_ed25519
+
 # --- Python / tooling cruft ---
 __pycache__/
 *.py[cod]
