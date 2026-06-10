@@ -25,6 +25,7 @@ import gymnasium as gym
 import os
 import json
 import math
+from collections import deque
 import torch
 import torch.nn as nn
 import numpy as np
@@ -304,7 +305,8 @@ class ClosedLoopController:
 
     def __init__(self, dt_step, fwd_tol=0.05, yaw_tol_deg=3.0,
                  timeout_mult=4.0, min_timeout_steps=25, settle_steps=8,
-                 max_chunk_m=0.0):
+                 max_chunk_m=0.0, stall_window=150, stall_fwd_m=0.10,
+                 stall_turn_deg=15.0):
         self.dt_step = dt_step
         self.fwd_tol = fwd_tol
         self.yaw_tol = math.radians(yaw_tol_deg)
@@ -312,6 +314,15 @@ class ClosedLoopController:
         self.min_timeout = min_timeout_steps
         self.settle_steps = settle_steps
         self.max_chunk_m = max_chunk_m  # cap forward exec distance per re-query (0=off)
+        # Stall early-requery (audit rank 5, validated 2026-06-10): if windowed progress
+        # over the last `stall_window` steps (3 s) is below threshold, end the command and
+        # re-query the VLM instead of burning the full 4x deadline (6.2 s fwd75 / 12.2 s
+        # turn90). WINDOWED net progress, not instantaneous stillness: a wall-jammed K1's
+        # base wobbles at ~1 rad/s (measured), so only integration separates jam (0.14 m,
+        # 8 deg per 3 s) from legit motion (1.2 m walk, 90 deg turn per 3 s).
+        self.stall_window = stall_window
+        self.stall_fwd_m = stall_fwd_m
+        self.stall_turn = math.radians(stall_turn_deg)
         self.active = None
 
     def start(self, cmd, time_to_go, pos, yaw, num_steps):
@@ -330,6 +341,8 @@ class ClosedLoopController:
             "deadline": num_steps + max(int(nominal * self.timeout_mult), self.min_timeout),
             "phase": "move",
             "settle_end": None,
+            "ach_hist": [],     # per-step achieved progress, for the windowed stall check
+            "stall_fired": False,
         }
 
     def velocity(self):
@@ -351,7 +364,20 @@ class ClosedLoopController:
             else:  # turn
                 achieved = nav_diag.wrap_pi(float(yaw) - a["start_yaw"])
                 reached = abs(achieved) >= abs(a["target_heading"]) - self.yaw_tol
-            if reached or num_steps >= a["deadline"]:
+            # windowed stall: no meaningful progress over the last stall_window steps
+            # -> give up on this command early and let the VLM re-plan
+            a["ach_hist"].append(achieved)
+            stalled = False
+            if self.stall_window > 0 and len(a["ach_hist"]) > self.stall_window:
+                prog = abs(achieved - a["ach_hist"][-self.stall_window - 1])
+                thr = self.stall_fwd_m if a["type"] == "forward" else self.stall_turn
+                if prog < thr:
+                    stalled = True
+                    a["stall_fired"] = True
+                    print(f"[closed-loop] STALL: {a['type']} progress "
+                          f"{prog:.3f} over last {self.stall_window} steps (3 s) "
+                          f"— aborting command, re-querying VLM.", flush=True)
+            if reached or stalled or num_steps >= a["deadline"]:
                 if self.settle_steps > 0:
                     a["phase"] = "settle"
                     a["settle_end"] = num_steps + self.settle_steps
@@ -422,6 +448,7 @@ def main():
     num_steps = 0
     target_steps = 0
     same_pos_count = 0
+    stall_buf = deque(maxlen=500)  # (x, y, yaw) per commanded step — hopeless-stall window
     prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
     max_episode_steps = args_cli.max_episode_s / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
     term_reason = "running"
@@ -531,22 +558,36 @@ def main():
             break
 
         cur_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
-        robot_vel = np.linalg.norm(
-            env.unwrapped.scene["robot"].data.root_vel_w[0].detach().cpu().numpy()
-        )
+        root_vel_w = env.unwrapped.scene["robot"].data.root_vel_w[0].detach().cpu().numpy()
         if diag is not None:
             _cq = env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy()
             _cd = float(infos.get("measurements", {}).get("distance_to_goal", float("nan")))
             diag.log_step(num_steps, cur_pos, nav_diag.yaw_from_quat(_cq), _cd)
-        if np.linalg.norm(cur_pos - prev_pos) < 0.01 and robot_vel < 0.01:
-            same_pos_count += 1
+        # Hopeless-stall backstop, mirrors wrappers_v3.check_same_pos (audit rank 5,
+        # validated 2026-06-10): WINDOWED net progress over 500 commanded steps (10 s).
+        # Instantaneous gates cannot work — a wall-jammed K1 wobbles its base ~1 rad/s
+        # and creeps ~0.05 m/s, so only integrated displacement/yaw separates a jam
+        # (~0.15 m, ~8 deg / 10 s) from legit motion (~4 m walk or 90+ deg turn).
+        # Zero command (warmup/settle/stand) clears the window. The FAST per-command
+        # stall lever (3 s -> re-query) lives in ClosedLoopController.update().
+        _cq_all = env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy()
+        if np.linalg.norm(applied_cmd) < 0.1:
+            stall_buf.clear()
         else:
-            same_pos_count = 0
+            stall_buf.append((float(cur_pos[0]), float(cur_pos[1]),
+                              float(nav_diag.yaw_from_quat(_cq_all))))
+        same_pos_count = len(stall_buf)
         prev_pos = cur_pos
-        if same_pos_count >= 1000:
-            print("Same-pos 1000 steps — breaking.")
-            term_reason = "stuck"
-            break
+        if len(stall_buf) >= 500:
+            _x0, _y0, _w0 = stall_buf[0]
+            _x1, _y1, _w1 = stall_buf[-1]
+            _nd = math.hypot(_x1 - _x0, _y1 - _y0)
+            _ny = abs(nav_diag.wrap_pi(_w1 - _w0))
+            if _nd < 0.25 and _ny < math.radians(30.0):
+                print(f"Hopeless-stall: {_nd:.2f} m / {math.degrees(_ny):.0f} deg net "
+                      f"over 500 commanded steps (10 s) — breaking.")
+                term_reason = "stuck"
+                break
 
         if num_steps % steps_per_image == 0:
             curr_frame = infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()

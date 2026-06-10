@@ -27,10 +27,18 @@ engine + Matterport scene + camera renderer + measurement manager.
 from __future__ import annotations
 
 import math
+from collections import deque
+
 import torch
 
 from omni.isaac.lab.envs import ManagerBasedRLEnv
 from .measures import add_measurement
+
+
+def _yaw_from_quat_w(q: torch.Tensor) -> float:
+    """world yaw from a (w,x,y,z) quaternion tensor."""
+    w, x, y, z = (float(q[0]), float(q[1]), float(q[2]), float(q[3]))
+    return math.atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
 
 
 GAIT_FREQ_HZ = 1.5   # PATCHED for model_8700 (was 2.0): contract gait clock is 1.5 Hz
@@ -96,6 +104,8 @@ class VLNEnvWrapperV3:
         self.curr_pos = None
         self.prev_pos = None
         self.is_stop_called = False
+        # windowed hopeless-stall buffer: (x, y, yaw) per commanded step, 500 = 10 s
+        self._stall_buf: deque = deque(maxlen=500)
 
         # v3 obs / gait state, allocated lazily on first reset() since
         # the env hasn't computed obs yet at construct time.
@@ -208,6 +218,7 @@ class VLNEnvWrapperV3:
         self._last_action.zero_()
         self._command.zero_()
         self._gait_phase.fill_(self._gait_phase_init)  # t=0 gait clock each episode (deploy contract, rank 10)
+        self._stall_buf.clear()
 
         # Warmup: same as the original VLNEnvWrapper. Step with zero cmd
         # for the task-specific number of frames so the VLM image buffer
@@ -281,18 +292,39 @@ class VLNEnvWrapperV3:
         return obs, reward, done, info
 
     def check_same_pos(self) -> bool:
+        # Episode-level HOPELESS-STALL backstop (audit rank 5, validated 2026-06-10).
+        # WINDOWED net progress over the last 500 commanded steps (10 s): a wall-jammed
+        # K1 wobbles its base at ~1 rad/s and creeps ~0.05 m/s sideways (measured), so
+        # instantaneous stillness gates NEVER fire on real jams — only integrated
+        # progress separates them. Gates:
+        #   - only while motion is COMMANDED (||cmd|| >= 0.1); zero-cmd (warmup, settle,
+        #     stand) CLEARS the window so intentional stillness can never fire it.
+        #   - hopeless = net displacement < 0.25 m AND net |yaw| < 30 deg over 10 s of
+        #     continuous commands (legit walking covers ~4-5 m; a legit 90-deg turn is
+        #     3x the yaw bar). The fast per-command stall-requery (3 s) lives in
+        #     ClosedLoopController — THIS guard only ends truly-wedged episodes.
         curr_pos = self.env.unwrapped.scene["robot"].data.root_pos_w[0].detach()
-        robot_vel = torch.norm(
-            self.env.unwrapped.scene["robot"].data.root_vel_w[0].detach()
+        curr_yaw = _yaw_from_quat_w(
+            self.env.unwrapped.scene["robot"].data.root_quat_w[0].detach()
         )
-        if torch.norm(curr_pos - self.prev_pos) < 0.01 and robot_vel < 0.1:
-            self.same_pos_count += 1
+        if torch.norm(self._command[0]) < 0.1:
+            self._stall_buf.clear()
         else:
-            self.same_pos_count = 0
+            self._stall_buf.append(
+                (float(curr_pos[0]), float(curr_pos[1]), float(curr_yaw))
+            )
+        self.same_pos_count = len(self._stall_buf)  # kept for external introspection
         self.prev_pos = curr_pos
-        if self.same_pos_count >= 1000:
-            print("[v3-wrapper] same-pos 1000 steps — breaking")
-            return True
+        if len(self._stall_buf) >= self._stall_buf.maxlen:
+            x0, y0, w0 = self._stall_buf[0]
+            x1, y1, w1 = self._stall_buf[-1]
+            net_disp = ((x1 - x0) ** 2 + (y1 - y0) ** 2) ** 0.5
+            net_yaw = abs((w1 - w0 + math.pi) % (2 * math.pi) - math.pi)
+            if net_disp < 0.25 and net_yaw < math.radians(30.0):
+                print(f"[v3-wrapper] hopeless-stall: {net_disp:.2f} m / "
+                      f"{math.degrees(net_yaw):.0f} deg net over 500 commanded steps "
+                      f"(10 s) — ending episode")
+                return True
         return False
 
     def set_stop_called(self, is_stop_called: bool) -> None:
