@@ -1,0 +1,61 @@
+# ============================================================================
+# k1_research — CODE ONLY.
+# Large model weights, simulation assets/datasets, eval outputs, and upstream
+# forks (which have their own git remotes) are EXCLUDED and must be downloaded
+# or cloned separately on each machine. The repo tracks source/configs/docs only.
+# ============================================================================
+
+# --- Model weights / checkpoints (booster/NaVILA ~16 GB; pull from HF) ---
+booster/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.bin
+*.gguf
+*.ckpt
+*.engine
+
+# --- Upstream forks with their own .git (clone separately) ---
+IsaacLab/
+experiments/
+
+# --- Simulation assets / datasets (~9.9 GB; download separately) ---
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/assets/
+NaVILA-Bench/isaaclab_exts/omni.isaac.vlnce/assets/
+**/assets/matterport_usd/
+*.usd
+*.usda
+*.usdc
+*.usdz
+*.glb
+*.gltf
+*.ply
+*.obj
+*.fbx
+*.json.gz
+*.npz
+*.pkl
+
+# --- Eval outputs / rendered media ---
+eval_results/
+**/videos/
+*.mp4
+*.avi
+*.mkv
+*.gif
+*.mov
+
+# --- Python / tooling cruft ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.swp
