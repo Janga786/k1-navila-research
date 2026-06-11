@@ -86,3 +86,14 @@ historical NE — no re-simulation needed.
 - What changed since: model_11999 (clean gait + full tracking gate), 90°-turn parser
   fix, 3 s stall→re-query, VLM socket robustness, BoosterMipi camera geometry,
   proven PD gains/torque limits, NE metric fix.
+
+---
+# DECISION 2026-06-11: FULL RUN MOVES TO THE LAB 3090 (this checklist superseded)
+10-ep smoke head-to-head settled it: desktop (5090, broken Blackwell render, fp16): SR 0/10, OS 4/10.
+Lab 3090 (clean render, int8 via --load_8bit, raw+PNG): **SR 3/10, OS 4/10, NE 5.61** — beats
+paper blind-H1 (24.4/33.3/7.67) on the slice. All SR gain = stop-on-arrival conversions on clean
+frames (eps 5,7,8; archway ep7 flipped from the desktop's deterministic 3x walk-out).
+Full-run recipe on the lab box: VLM_BRIDGE_EXTRA="--load_8bit" EP_TIMEOUT=900
+  bash scripts/run_powered_benchmark.sh <tag> checkpoints/model_14498.pt   (+ raw flags: NO
+  --clean_render/--bright; --vlm_transform stretch pending the crop A/B). ~9-12 min/ep => chunk
+  over ~7-9 days; runner is resumable. Desktop remains useful only if its renderer is ever fixed.
