@@ -256,18 +256,23 @@ def sample_images_and_send_to_vlm(image_list, vlm_host, vlm_port, query,
             pil_image = image
         else:
             pil_image = Image.fromarray(np.array(image, dtype=np.uint8))
-        if bright or denoise:  # brighten dim scenes first, then denoise the result
+        if bright or denoise:
             import cv2  # lazy import: avoid cv2-before-omni ordering issues
             arr = np.array(pil_image)
-            if bright:
-                arr = brighten_frame(arr)
+            # ORDER MATTERS (desktop smoke diagnosis 2026-06-11): denoise BEFORE
+            # CLAHE — brightening first amplifies render speckle into high-contrast
+            # blotches the median can no longer remove.
             if denoise:  # median-5 kills the salt-and-pepper render speckle (RC-7)
                 arr = cv2.medianBlur(arr, 5)
+            if bright:
+                arr = brighten_frame(arr)
             pil_image = Image.fromarray(arr)
         pil_image = square_frame(pil_image, transform)
         pil_images.append(pil_image)
         buf = io.BytesIO()
-        pil_image.save(buf, format="JPEG")
+        # PNG, not JPEG: lossless on the wire (the 6/8 A/B's winning config; JPEG
+        # adds compression artifacts on top of render noise). Localhost: size is free.
+        pil_image.save(buf, format="PNG")
         encoded_images.append(base64.b64encode(buf.getvalue()).decode())
 
     request_data = {'images': encoded_images, 'query': query}

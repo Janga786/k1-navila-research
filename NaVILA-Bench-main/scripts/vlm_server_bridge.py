@@ -45,8 +45,13 @@ EXPERIMENTS = Path.home() / "Projects/k1_research/experiments/navila"
 sys.path.insert(0, str(EXPERIMENTS))
 
 
-def load_navila(model_path: str):
-    """Load NaVILA via llava's load_pretrained_model."""
+def load_navila(model_path: str, load_8bit: bool = False):
+    """Load NaVILA via llava's load_pretrained_model.
+
+    load_8bit: bitsandbytes int8 — drops the 8B VLM ~17 GB -> ~9 GB so it can
+    co-reside with the Isaac render on a 24 GB card (lab 3090). Near-lossless
+    for short greedy action decoding; default off (32 GB boxes run fp16).
+    """
     from llava.mm_utils import get_model_name_from_path
     from llava.model.builder import load_pretrained_model
     from llava.utils import disable_torch_init
@@ -54,7 +59,8 @@ def load_navila(model_path: str):
     print(f"[bridge] loading NaVILA from {model_path}", flush=True)
     name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, _ = load_pretrained_model(
-        model_path, model_base=None, model_name=name, attn_implementation="sdpa"
+        model_path, model_base=None, model_name=name, attn_implementation="sdpa",
+        load_8bit=load_8bit,
     )
     print("[bridge] NaVILA ready.", flush=True)
     return tokenizer, model, image_processor
@@ -178,9 +184,11 @@ def main():
     ap.add_argument("--port", type=int, default=54321)
     ap.add_argument("--model_path", required=True)
     ap.add_argument("--num_video_frames", type=int, default=8)
+    ap.add_argument("--load_8bit", action="store_true",
+                    help="int8 quantized load (fits 24 GB alongside Isaac; see load_navila)")
     args = ap.parse_args()
 
-    tokenizer, model, image_processor = load_navila(args.model_path)
+    tokenizer, model, image_processor = load_navila(args.model_path, load_8bit=args.load_8bit)
     serve(args.host, args.port, tokenizer, model, image_processor,
           args.num_video_frames)
 

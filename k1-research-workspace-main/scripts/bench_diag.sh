@@ -29,7 +29,7 @@ if ! pgrep -f vlm_server_bridge.py > /dev/null; then
         conda activate navila
         python scripts/vlm_server_bridge.py \
             --model_path ~/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f \
-            --port 54321 > $VLM_LOG 2>&1
+            --port 54321 $VLM_BRIDGE_EXTRA > $VLM_LOG 2>&1
     " < /dev/null > /dev/null 2>&1 &
     disown
     echo "[diag-bench] waiting up to 600s for 'listening on'..."
