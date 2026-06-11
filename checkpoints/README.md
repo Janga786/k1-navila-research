@@ -10,3 +10,11 @@
 Benchmark usage on the 32 GB box:
   bash scripts/bench_diag.sh 0 10 smoke_11999 $(pwd)/checkpoints/model_11999.pt \
     "--closed_loop --clean_render --bright --max_episode_s 120 --vlm_transform stretch"
+
+- `model_14498.pt` (+ `_jit.pt` / `.onnx`) — feet_distance fine-tune of model_11999
+  (run 2026-06-10_14-30-20, iters 11999->14498). FIXES FOOT-TO-FOOT CLIPPING:
+  MuJoCo probe 0 contacts in all phases (was 15.8% of steps at vx=0.5), stand
+  width 0.183 m. Circ 0.085 (still well under 8700's 0.105), W4 rated-clamp PASS,
+  W5 chatter same class. Tracking: all primitives PASS except the historically
+  benign ramp-limited 1.5s-dist (0.626 < 0.65; closed-loop compensates).
+  RECOMMENDED policy for hardware deploy AND the headline benchmark run.
