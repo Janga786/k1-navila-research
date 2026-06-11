@@ -21,12 +21,14 @@ set -u
 export PATH="$HOME/miniconda3/bin:$PATH"
 
 OUT_TAG="${1:?need an out_tag}"
-DEFAULT_CKPT="$HOME/Projects/k1_research/booster/booster_train/logs/rsl_rl/k1_velocity_vlnce_v3/2026-05-19_10-38-52_k1_vlnce_v3_resumed/model_16000.pt"
+DEFAULT_CKPT="$HOME/Projects/k1_research/checkpoints/model_14498.pt"  # production policy (was v3 model_16000)
 CKPT="${2:-$DEFAULT_CKPT}"; [ -z "$CKPT" ] && CKPT="$DEFAULT_CKPT"
 START="${3:-0}"
 END="${4:-1077}"
 EXTRA="${5:-}"
-PROD_FLAGS="--closed_loop --clean_render --bright --max_episode_s 120"
+# 2026-06-11: RAW frames (no --clean_render/--bright — the 6/8 A/B found processing
+# suppressed stops; the lab 3090 renders clean). Transform override: TRANSFORM=crop.
+PROD_FLAGS="--closed_loop --max_episode_s 120 --vlm_transform ${TRANSFORM:-stretch}"
 NB="$HOME/Projects/k1_research/NaVILA-Bench"
 RESDIR="$NB/eval_results/k1_matterport_vision_loco_${OUT_TAG}"
 MEAS="$RESDIR/measurements"
@@ -46,7 +48,7 @@ if ! pgrep -f vlm_server_bridge.py > /dev/null; then
         cd $NB; source ~/miniconda3/etc/profile.d/conda.sh; conda activate navila
         python scripts/vlm_server_bridge.py \
             --model_path ~/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f \
-            --port 54321 > $VLM_LOG 2>&1
+            --port 54321 ${VLM_BRIDGE_EXTRA:-} > $VLM_LOG 2>&1
     " < /dev/null > /dev/null 2>&1 &
     disown
     for i in $(seq 1 60); do
@@ -83,7 +85,7 @@ for ((i=START; i<END; i++)); do
     fidx="${FILEIDX[$((i-START))]}"
     if [ -f "$MEAS/${fidx}.json" ]; then skip_n=$((skip_n+1)); continue; fi   # resume
     echo "================ episode idx $i (file ${fidx}.json, $((done_n+1))/$total) ================" | tee -a "$LOG"
-    timeout 480 python scripts/navila_eval_v3.py \
+    timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py \
         --task=k1_matterport_vision --num_envs=1 \
         --checkpoint="$CKPT" --episode_idx=$i --gait_phase_init=0.0 \
         --out_tag=$OUT_TAG $PROD_FLAGS $EXTRA \
