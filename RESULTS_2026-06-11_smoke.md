@@ -60,3 +60,19 @@ VLM_BRIDGE_EXTRA="--load_8bit" EP_TIMEOUT=900 \
 
 Artifacts: `NaVILA-Bench-main/eval_results/k1_matterport_vision_loco_smoke14498_lab3090_raw8bit/`
 (measurements, per-tick VLM frame payloads under `diag/`, videos incl. the ep5/7/8 successes).
+
+---
+## Addendum: transform A/B + int8 arbiter (same day)
+
+**Crop vs stretch (same 10 eps, int8, raw):** stretch SR 30 / OS 40 / NE 5.61 vs crop
+SR **0** / OS 30 / NE 6.09. Crop reached <=0.4 m on eps 6/7/8 (ONE 0.37 each) but
+converted none — arrival recognition needs the peripheral FOV; cropping blinds the stop
+decision while leaving approach intact. **Stretch locked for the full run.**
+
+**int8 arbiter (424 paired ticks):** fp16-vs-int8 action drift 7.1% on identical inputs,
+BELOW the model's own 14.9% sensitivity to an imperceptible JPEG re-encode; 100%
+agreement on every success episode. int8 blessed (see REPLAY_ARBITER_2026-06-11.md).
+
+**Full-run recipe (launched 2026-06-11):**
+`VLM_BRIDGE_EXTRA="--load_8bit" EP_TIMEOUT=900 TRANSFORM=stretch bash scripts/run_powered_benchmark.sh full_14498 checkpoints/model_14498.pt`
+Resumable: re-running the same command skips scored episodes.
