@@ -50,7 +50,7 @@ cd "$NAVILA_BENCH"
 
 for ((i=START_IDX; i<END_IDX; i++)); do
     echo "================ episode $i ================"
-    timeout 480 python scripts/navila_eval_v3.py \
+    timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py \
         --task=k1_matterport_vision --num_envs=1 \
         --checkpoint="$CKPT" \
         --episode_idx=$i \

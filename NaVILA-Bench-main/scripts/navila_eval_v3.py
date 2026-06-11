@@ -392,6 +392,17 @@ class ClosedLoopController:
         return num_steps >= a["settle_end"]  # settle phase
 
 
+def _match_heights(a, b):
+    """Resize b to a's height (keep aspect) before hstack — the nav camera is
+    1280x720 (BoosterMipi patch) while viz_rgb_camera is still 512x512."""
+    if a.shape[0] == b.shape[0]:
+        return b
+    import cv2
+    h = a.shape[0]
+    w = max(1, int(round(b.shape[1] * h / b.shape[0])))
+    return cv2.resize(b, (w, h), interpolation=cv2.INTER_LINEAR)
+
+
 def main():
     r2r_data_path = os.path.join(ASSETS_DIR, "vln_ce_isaac_v1.json.gz")
     all_episodes = read_episodes(r2r_data_path)
@@ -448,7 +459,7 @@ def main():
     add_instruction_on_img(init_frame, instruction.instruction_text)
     vis_frame = infos["observations"]["viz_camera_obs"][0, :, :, :3].cpu().numpy()
     add_instruction_on_img(vis_frame, "")
-    rgb_obses = [np.concatenate([init_frame, vis_frame], axis=1)]
+    rgb_obses = [np.concatenate([init_frame, _match_heights(init_frame, vis_frame)], axis=1)]
 
     num_steps = 0
     target_steps = 0
@@ -602,7 +613,8 @@ def main():
         if num_steps % steps_per_viz_image == 0:
             curr_vis_frame = infos["observations"]["viz_camera_obs"][0, :, :, :3].cpu().numpy()
             add_instruction_on_img(curr_vis_frame, stream_output)
-            rgb_obses.append(np.concatenate([curr_frame_copy, curr_vis_frame], axis=1))
+            rgb_obses.append(np.concatenate(
+                [curr_frame_copy, _match_heights(curr_frame_copy, curr_vis_frame)], axis=1))
 
         num_steps += 1
         # (stop is now registered before env.step at the VLM tick above)

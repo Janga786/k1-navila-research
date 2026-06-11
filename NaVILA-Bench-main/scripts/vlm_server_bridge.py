@@ -58,9 +58,14 @@ def load_navila(model_path: str, load_8bit: bool = False):
     disable_torch_init()
     print(f"[bridge] loading NaVILA from {model_path}", flush=True)
     name = get_model_name_from_path(model_path)
+    extra = {"attn_implementation": "sdpa"}
+    if load_8bit:
+        # VILA builder bug: the load_8bit branch never sets kwargs["torch_dtype"], but
+        # prepare_config_for_eval pops it unconditionally -> KeyError. The builder
+        # forwards **kwargs, so supply it ourselves (fp16 for the non-quantized parts).
+        extra["torch_dtype"] = torch.float16
     tokenizer, model, image_processor, _ = load_pretrained_model(
-        model_path, model_base=None, model_name=name, attn_implementation="sdpa",
-        load_8bit=load_8bit,
+        model_path, model_base=None, model_name=name, load_8bit=load_8bit, **extra
     )
     print("[bridge] NaVILA ready.", flush=True)
     return tokenizer, model, image_processor
