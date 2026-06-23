@@ -1,7 +1,8 @@
 # K1 NaVILA — Full Benchmark Results (VLN-CE-Isaac, R2R val-unseen, n=1077)
 
-**Run:** `full_14498` · completed 2026-06-22 · **48.3 h** of GPU compute (290 episodes run, 787
-resumed-skip, 10.0 min/ep) · lab RTX 3090.
+**Run:** `full_14498` · completed 2026-06-22 · **COMPLETE: 1077/1077 scored, 0 missing** (the 27
+straggler timeouts were recovered on a retry pass with a doubled wall-clock guard — they were slow
+scenes, not hung). · ~54 h total GPU compute · lab RTX 3090.
 **Config:** policy `model_14498` (feet_distance fine-tune; circumduction- and foot-clip-fixed,
 all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (no clean_render/bright)
 · `--vlm_transform stretch` · `--closed_loop` · `--max_episode_s 120`. Code @ repo
@@ -15,23 +16,23 @@ all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (n
 | Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
 | H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
 | H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
-| **K1 (ours, vision)** | **model_14498** (n=1050/1077) | **7.64** | **29.2** | **17.7** | **10.7** |
+| **K1 (ours, vision)** | **model_14498** (n=1077/1077) | **7.59** | **30.3** | **18.3** | **10.9** |
 | K1 — prior stack (reference) | v3 model_16000 | — | ~10 | 0.76 | — |
 
-**SR 0.76% → 17.7% — a ~23× improvement.** NE is essentially tied with the paper's blind-H1
-(7.64 vs 7.67); OS/SR/SPL sit a notch below it — the embodiment gap analyzed below.
+**SR 0.76% → 18.3% — a ~24× improvement.** NE is essentially tied with the paper's blind-H1
+(7.59 vs 7.67); OS/SR/SPL sit a notch below it — the embodiment gap analyzed below.
 
-## Decomposition (where the episodes go)
-- **191 successes / 1077 = SR 17.7%** (18.2% over the 1050 present).
-- **315 reaches / 1077 = OS 29.2%** — got within the 3.0 m goal radius at some point.
-- **Stop-given-reached = 191/315 = 61%** — of episodes that reached, 61% recognized arrival and
+## Decomposition (where the episodes go) — complete n=1077
+- **197 successes = SR 18.3%.**
+- **326 reaches = OS 30.3%** — got within the 3.0 m goal radius at some point.
+- **Stop-given-reached = 197/326 = 60%** — of episodes that reached, 60% recognized arrival and
   stopped. (Paper blind-H1 implies ~73%; ours is lower but far from the old ~0% — the camera/render
   fixes earned this.)
-- **Reached-but-didn't-stop = 124 (11.5% of 1077)** — the stop-failure class; the lever here is
-  arrival recognition (FOV/height), not locomotion.
-- **Didn't reach = 70.8%** — the dominant failure mode, traced to exploration cost (below).
-- **27 missing (2.5%)** — persistent timeouts (93 timeout events total, mostly recovered on retry);
-  honestly counted as failures, so 17.7% is a conservative floor. (Retry pass pending.)
+- **Reached-but-didn't-stop = 129 (12.0%)** — the stop-failure class; the lever here is arrival
+  recognition (FOV/height), not locomotion.
+- **Didn't reach = 69.7%** — the dominant failure mode, traced to exploration cost (below).
+- **0 missing** — all 1077 scored. (The first pass left 27 as persistent timeouts; doubling the
+  harness wall-clock guard 900→1800 s recovered every one — they were slow scenes, not hung.)
 
 ## The scientific finding: the camera-height / FOV embodiment tax
 The same frozen NaVILA VLM drives H1 (blind) to SR 24.4 / OS 33.3 and K1 to SR 17.7 / OS 29.2. The
