@@ -13,26 +13,37 @@ fp16 VLM (~17 GB). `--load-8bit` (~9 GB) is available if anything else needs VRA
 ---
 ## 0. Camera (one command, after any robot boot)
 
-The supported feed is the **`/booster_video_stream`** topic — published by the
-robot's `booster-video-stream` service, **auto-starts on boot, no unlock call,
-no reboot, ever** (per `~/K1_Tutorial/Head_Camera.md`). Do NOT use
-StartVisionService / `/boostercamera/head/raw/rgb` — that's the throttled,
-decays-after-an-hour dead end.
+**Doctrine corrected 2026-07-01/06** (supersedes the old "/booster_video_stream,
+no unlock" guidance — evidence: `~/k1_qr_nav_ws/CAMERA.md` +
+`CAMERA_STEREONET_ISSUE.md` + on-robot `K1_camera_fix_notes.md`; verified live
+2026-07-09 at ~29.5 fps). The X5 head camera **boots into a low-rate idle mode
+(~0.4 fps)** — it must be unlocked with **StartVisionService, face detection
+OFF** (`noface`; the face-YOLO otherwise starves the Jetson → the old mid-run
+"decay"), then bridge the **raw topic `/boostercamera/head/raw/rgb`**
+(~28–30 fps, 100% unique, 544×448). `/booster_video_stream` sits behind the
+broken StereoNet rectifier and republishes stale JPEGs (10 msg/s but ~0.4
+content fps) — do not bridge it.
 
 ```bash
-cd ~/robots/k1/workspace/k1-vlm-navigation
-bash bringup_camera.sh          # deploys + starts the bridge, verifies liveness
-# exit 0 + "✅ CAMERA LIVE"  → done. Deploy pulls http://192.168.10.102:8080/frame.jpg
+bash ~/k1_qr_nav_ws/camera_up.sh   # unlock (noface) + bridge raw topic + verify
+# "✅ CAMERA LIVE ... msg_rate ~29.5/s" → done.
+# Deploy pulls http://192.168.10.102:8080/frame.jpg (544×448;
+#  NAVILA_UNDISTORT=1 + stretch validated on this geometry).
 ```
 
-Healthy: served 30/30, msg_rate ~10/s, age_s < 0.2. Low "unique" count with a
-still robot is fine (static scene = identical JPEGs).
+Health tiers (measured): **27–30 fps** = ideal fresh unlock · **~10 fps** =
+repeated-unlock tier, still fine for NaVILA's ~1 Hz decisions · **<8 fps** =
+sick → reboot the robot and **charge the battery** (brownout silently degrades
+the camera). camera_up.sh already skips the unlock if the feed is live
+(repeated unlocks degrade the X5) and auto-escalates (perception restart →
+re-unlock → re-bridge) if the feed is in the decayed state.
 
 | camera symptom | fix |
 |---|---|
-| `/frame.jpg` 503 / no frame | `booster-video-stream` service down → restart it on the robot (NO reboot): `ssh booster@192.168.10.102 'ros2 run booster-video-stream booster-video-stream &'` |
-| bridge `frames: 0` | wrong topic — must be `/booster_video_stream` |
-| frozen image | check `age_s` on `/status`; if climbing, restart the bridge (`bash bringup_camera.sh` again) |
+| feed "frozen"/~0.4 fps content | the per-boot unlock wasn't run → `bash ~/k1_qr_nav_ws/camera_up.sh` (#1 cause) |
+| `/frame.jpg` 503 / connection refused | HTTP bridge not running (only the camera service auto-starts) → `camera_up.sh` |
+| rate fine, then decayed mid-session | camera_up.sh escalation handles it; if it recurs, charge the battery |
+| image garbled | NV12 decode issue — camera_up.sh/bringup pass `--force-type image` for `boostercamera/*` topics |
 
 ---
 ## 1. VLM server (this box, terminal 1)
@@ -43,10 +54,12 @@ vars go on THIS process, not the relay:
 ```bash
 cd ~/robots/k1/workspace/k1-vlm-navigation
 NAVILA_UNDISTORT=1 NAVILA_VLM_TRANSFORM=stretch \
-conda run -n navila python navila_server.py \
+~/miniconda3/envs/navila/bin/python navila_server.py \
   --bind 0.0.0.0 \
   --model-path ~/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f
 # fp16, loads in ~1-5 min. Add --load-8bit if VRAM is contended (benchmark-blessed).
+# (env python directly, NOT `conda run` — conda run buffers stdout so the server
+#  looks frozen/silent even while it's loading and serving fine.)
 ```
 
 Optional preflight without the robot: `conda run -n navila python preflight_vlm.py`.
