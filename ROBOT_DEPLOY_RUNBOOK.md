@@ -143,5 +143,7 @@ Give each instruction 30–60 s; ~1 decision/sec; some milling is normal.
 | VLM buffer frozen / robot ignores scene | URL must end `/frame.jpg`, never `/stream`; also check the new stale-frame guard messages in the relay log |
 | relay can't reach SDK / "whitelist filtered out" | `--net eno1` (interface NAME); wired LAN: this box 192.168.10.10 ↔ robot 192.168.10.102 must ping |
 | robot won't enter walking | put it in Prepare via remote first; check battery in LUI |
+| live mode runs, decisions stream, but robot never moves | robot wasn't STANDING in Prepare when live launched → kWalking silently refused. Since 2026-07-09 the launcher verifies via GetMode and aborts with instructions; bring the robot to Prepare (remote) and relaunch |
+| camera decays mid-session after ~40 min, all software fixes fail | battery brownout — charge the robot; next boot: `camera_up.sh` once (its escalation now waits up to 180 s after a perception restart before re-unlocking) |
 | pose stays `(?, ?)` with `--pose odom` | odometry subscriber got no message — SDK link problem; re-check `--net eno1` and that the actuator init succeeded first |
 | turns overshoot/oscillate with `--turn-controller` | odom theta sign/scale not validated yet — go back to the odometry ladder step 2 |
