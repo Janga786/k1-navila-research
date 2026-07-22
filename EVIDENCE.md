@@ -107,9 +107,10 @@ Generated tables/scripts live in `receipts/`. Paths are relative to
   1.5 s-dist 0.626 (matches recorded exactly). The 0.007-vs-0.016 gap is run-to-run eval
   variance. **Slide-safe phrasing: "steady-state velocity error < 0.02 m/s (measured
   0.007–0.016), ~4× better than the NaVILA paper's 0.066 Go2 reference."**
-- ⛔ The **0.066 Go2 figure is an external citation** (NaVILA paper, arXiv 2412.04453);
-  the paper PDF is not on disk — verify the section/table against the arXiv copy before
-  the deck ships.
+- ✅ **0.066 VERIFIED against arXiv 2412.04453 HTML (2026-07-22)**: Table V "Linear Vel.
+  Error" = 0.066, Section III-B. Also verified: every H1/Go2 baseline in our docs matches
+  the paper's Table IV exactly (Go2 blind 6.03/49.0/36.2/33.3, Go2 vision 5.49/58.7/50.2/45.5,
+  H1 blind 7.67/33.3/24.4/21.0, H1 vision 5.86/54.6/45.3/40.3).
 
 ---
 ## SECTION 2 — paper evidence chain

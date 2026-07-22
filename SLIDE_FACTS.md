@@ -20,8 +20,8 @@ and regeneration command. Phrasings marked ⚠ are the evidence-safe wordings �
 - Obs contract **235 = 47 × 5** (term-major), verified across training/benchmark/deploy;
   byte-level agreement **≤1.5e-6** (measured 1.431e-06, fresh 2026-07-19 log)
 - Velocity tracking: ⚠ **steady-state error < 0.02 m/s** (measured 0.007–0.016 across
-  eval runs) vs the NaVILA paper's 0.066 Go2 reference (⚠ external citation — verify
-  against arXiv 2412.04453 before shipping)
+  eval runs) vs the NaVILA paper's 0.066 reference (✅ verified 2026-07-22: arXiv 2412.04453
+  Table V "Linear Vel. Error", §III-B; paper Table IV baselines also verified exact)
 
 ## Training effort [17]
 - **22 substantive runs, ≈270 GPU-hours** (31 run dirs on disk); **3 runs on the winning
