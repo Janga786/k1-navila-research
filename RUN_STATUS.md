@@ -43,3 +43,8 @@ cd ~ && setsid bash Projects/k1_research/run_ab100.sh > /tmp/ab100_chain.log 2>&
   (require sudo + account decisions, deliberately NOT done today): install Tailscale and
   enable sshd (`sudo apt install tailscale openssh-server && sudo tailscale up &&
   sudo systemctl enable --now ssh`), or change the August plan to on-site/other host.
+
+## Straggler protocol (observed: ep 0 hit the 900 s guard on arm 1 — known slow scene)
+Timeouts leave no JSON and are retried by simply rerunning the launcher. After both arms
+complete, sweep stragglers exactly like the full run did (900→1800 s):
+`EP_TIMEOUT=1800 bash Projects/k1_research/run_ab100.sh` (resume-safe; only unscored episodes run).
