@@ -1,0 +1,24 @@
+== /home/boosterk1/Projects/k1_research ==
+first: 2026-06-10
+last: 2026-07-09
+commits: 18
+LOC added: 29152 deleted: 118
+uncommitted (working tree): 1 paths
+== /home/boosterk1/robots/k1/workspace/booster_train ==
+first: 2025-12-06
+last: 2026-04-02
+commits: 6
+LOC added: 4958 deleted: 252
+uncommitted (working tree): 20 paths
+== /home/boosterk1/robots/k1/workspace/booster_deploy ==
+first: 2025-12-05
+last: 2026-07-02
+commits: 8
+LOC added: 6959 deleted: 112
+uncommitted (working tree): 14 paths
+== /home/boosterk1/robots/k1/workspace/k1-vlm-navigation ==
+first: 2026-05-08
+last: 2026-07-09
+commits: 9
+LOC added: 7883 deleted: 553
+uncommitted (working tree): 0 paths

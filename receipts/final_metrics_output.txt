@@ -1,0 +1,16 @@
+files present         : 1077 / 1077  (missing counted as failures)
+SR   = 18.29%   (197/1077)
+OS   = 30.27%   (326/1077)
+SPL  = 10.93%
+NE   = 7.59 m  (final distance_to_goal, present episodes)
+mean path length      : 22.12 m
+--- failure decomposition ---
+never reached         : 751  (69.7%)
+reached, no stop      : 129  (12.0%)
+success               : 197  (18.3%)
+stop-given-reached    : 197/326 = 60.4%
+NE among successes    : 1.53 m
+--- derived (paper chain) ---
+SPL-among-successes (K1)      : 10.93/18.29 = 0.597
+SPL-among-successes (H1 blind): 21.0/24.4 = 0.861  (paper Table values)
+H1-blind stop-conversion @1077: 263/359 = 73.3%  (derived from paper SR 24.4 / OS 33.3)
