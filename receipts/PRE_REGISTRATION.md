@@ -61,3 +61,25 @@ read as "at the goal"). Aggregator computes NE/ONE over `distance_to_goal >= 0` 
 ## Probe coverage limit (accepted)
 The determinism probe cannot diff true wall-timeouts (no JSON). Once the wall-timeout fix is
 in, the two longest episodes become diffable; add them to a follow-up probe and record here.
+
+## DETERMINISM VERDICT (2026-07-23) — NON-DETERMINISTIC. HARD STOP.
+Extended probe: 6 episodes {3,8,16,50,20,99} run twice under byte-identical settings
+(model_14498, int8, stretch, closed_loop, max_episode_s 120), no --seed, no variation.
+**Result: 6/6 episodes DIFFERED between the two runs; 2/6 FLIPPED the success outcome.**
+- ep 11 (idx-mapped): run A path 21.1m dtg 7.30 success=0  |  run B path 14.0m dtg 1.37 success=1
+- ep144: run A dtg 2.57 success=1  |  run B dtg 11.76 success=0   (flip, opposite direction)
+- ep 16/50/77: macroscopic trajectory divergence (e.g. path 19.3m vs 28.9m same episode).
+Trajectories diverge chaotically: tiny run-to-run differences (GPU physics and/or non-
+deterministic CUDA in the greedy VLM forward, flipping knife-edge scanning decisions) amplify
+through the closed VLM->policy->physics loop into different outcomes.
+
+CONSEQUENCES (pre-registered gate point 4 fires):
+1. Two-pass 1800 retry is INVALID as designed — a retry is a 2nd independent draw; timed-out
+   episodes would get two chances at success, differentially across transforms. DO NOT RUN IT.
+2. Broader: single-run-per-arm + McNemar-on-paired-outcomes is undermined — the per-episode
+   "pair" is not a stable outcome (ep 11/144 flip). Paired testing tests noise.
+3. NOT invalidated: the aggregate 18.3% over n=1077 (and 17.7% over 0-299) — an aggregate rate
+   over large N is a valid estimate; per-episode noise averages out in the rate. full_14498's
+   27 straggler retries (2.5%) got 2nd draws -> negligible bias on 18.3%.
+STATUS: STOPPED before any launch. Awaiting design decision (replication vs larger-N-unpaired
+vs determinism-hardening). Nothing edited in the eval; no runs launched.
