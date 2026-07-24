@@ -89,7 +89,23 @@ for ((i=START; i<END; i++)); do
         --task=k1_matterport_vision --num_envs=1 \
         --checkpoint="$CKPT" --episode_idx=$i --gait_phase_init=0.0 \
         --out_tag=$OUT_TAG $PROD_FLAGS $EXTRA \
-        --headless --enable_cameras >> "$LOG" 2>&1 || echo "[ep $i timeout/error]" | tee -a "$LOG"
+        --headless --enable_cameras >> "$LOG" 2>&1
+    ep_rc=$?
+    # GUARANTEED RECORD (2026-07-24): Isaac/omni overrides the in-eval SIGTERM handler, so a
+    # wall-clock kill (rc 124/137) can still leave NO JSON. Runner-side stub ensures every
+    # pinned episode index appears as a recorded FAILURE (distances = -1.0 sentinel; the
+    # aggregator excludes those from NE/ONE, counts them as failures for SR/OS/SPL).
+    if [ ! -f "$MEAS/${fidx}.json" ]; then
+        tr=$([ $ep_rc -eq 124 ] || [ $ep_rc -eq 137 ] && echo wall_timeout || echo eval_crash)
+        echo "[ep $i rc=$ep_rc -> stub '$tr']" | tee -a "$LOG"
+        python3 - "$MEAS/${fidx}.json" "$tr" <<'PY'
+import json, sys
+json.dump({"success":0.0,"spl":0.0,"oracle_success":0.0,"distance_to_goal":-1.0,
+           "oracle_navigation_error":-1.0,"path_length":-1.0,"term_reason":sys.argv[2],
+           "ended_at_step":-1,"max_episode_steps":-1,"hit_step_cap":False},
+          open(sys.argv[1],"w"), indent=4)
+PY
+    fi
     ran_n=$((ran_n+1)); done_n=$((done_n+1))
     if (( done_n % 10 == 0 )); then
         el=$((SECONDS - t0)); rate=$(( el / (ran_n>0?ran_n:1) ))
