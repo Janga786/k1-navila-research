@@ -1,0 +1,49 @@
+=== waiting for VLM bridge ===
+bridge listening: 1
+
+########## 1+2. ACCEPTANCE + ISOLATION (5a render, 5b VLM) ##########
+########## TEST 1: wall_timeout acceptance (long ep 16 under a 90s wall-clock) ##########
+/home/boosterk1/Projects/k1_research/receipts/acceptance_and_rootcause.sh: line 14:  7905 Killed                  timeout -k 30 90 python scripts/navila_eval_v3.py $COMMON --episode_idx=16 --out_tag=acc_wt > /tmp/acc_wt.log 2>&1
+-- wall_timeout marker in log:
+0
+-- JSON produced: NONE
+
+########## TEST 2: cam_z isolation (native 0.25 vs virtual 0.97) ##########
+-- cam-override A (native):
+[cam-override] offset (0.1, 0.0, 0.25)->(0.1, 0.0, 0.25)  1280x720  aperture=47.71  abs_ground_height~=0.78m (virtual if >~0.9m)
+-- cam-override B (1.5m virtual):
+[cam-override] offset (0.1, 0.0, 0.25)->(0.1, 0.0, 0.97)  1280x720  aperture=47.71  abs_ground_height~=1.50m (virtual if >~0.9m)
+-- Trunk-z distribution over one walking episode (from diag trajectory):
+   Trunk-z: mean=-1.887 min=-5.782 max=1.229 std=2.381 (m); nominal 0.53
+   -> camera abs height (native, +0.25): -1.64m mean, range [-5.53,1.48]
+
+########## TEST 5a: render determinism (same pose twice, byte-diff) ##########
+5a: camera dump did not produce PNGs (see /tmp/rend_A.log)
+
+########## TEST 5b: VLM determinism (same 8 frames twice, diff tokens) ##########
+   VLM out #1: "The next action is move forward 75 cm."
+   VLM out #2: "The next action is move forward 75 cm."
+5b RESULT: IDENTICAL -> VLM forward is deterministic
+########## TESTS DONE ##########
+
+########## 3. DRIVER SMOKE on 580.173.02 (6 eps x2) ##########
+new-driver files: a=6 b=6   old-driver(580.159): a=6 b=6
+
+-- NEW-DRIVER run-to-run (580.173) = second nondeterminism sample --
+  11.json: success 0.0->1.0 [FLIP]  path 21.1/12.0  steps 1573/1492
+  144.json: success 0.0->0.0   path 22.0/22.0  steps 2772/2772
+  25.json: success 0.0->1.0 [FLIP]  path 33.4/19.6  steps 5734/2640
+  32.json: success 0.0->0.0   path 12.8/11.5  steps 2389/6001
+  6.json: success 0.0->0.0   path 9.6/11.0  steps 1208/1493
+  77.json: success 0.0->0.0   path 35.3/35.1  steps 6001/6001
+  NEW-driver success flips: 2/6   (old-driver was 2/6)
+
+-- CROSS-DRIVER neighborhood + STRUCTURAL-BREAK flags (smoke173a vs exta) --
+  11.json: new path 21.1 vs old 21.1 | new dtg 7.30 vs old 7.30 | new succ 0.0 old 0.0 | in-neighborhood
+  144.json: new path 22.0 vs old 34.4 | new dtg 11.76 vs old 2.57 | new succ 0.0 old 1.0 | in-neighborhood
+  25.json: new path 33.4 vs old 19.3 | new dtg 4.02 vs old 13.06 | new succ 0.0 old 0.0 | in-neighborhood
+  32.json: new path 12.8 vs old 13.2 | new dtg 3.17 vs old 3.13 | new succ 0.0 old 0.0 | in-neighborhood
+  6.json: new path 9.6 vs old 9.6 | new dtg 3.26 vs old 3.26 | new succ 0.0 old 0.0 | in-neighborhood
+  77.json: new path 35.3 vs old 33.5 | new dtg 7.61 vs old 14.27 | new succ 0.0 old 0.0 | in-neighborhood
+
+########## SUITE DONE ##########
