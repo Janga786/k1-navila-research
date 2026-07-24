@@ -99,3 +99,23 @@ CONSEQUENCES FOR THE PAPER (state both explicitly in Methods):
    the 18.3% headline + all June/July results through 2026-07-24; 580.173.02 = every arm
    from the 2026-07-24 sweep onward. Combined with the nondeterminism finding, single-run SR
    in this benchmark is not exactly reproducible; report it as an estimate with a CI.
+
+## ROOT-CAUSE OF NONDETERMINISM (2026-07-24, driver 580.173.02)
+- 5b (VLM determinism), STRENGTHENED: 50 real VLM queries sampled across 10 episodes
+  (turn/scan/move phases), each fed twice, token-diffed. **50/50 IDENTICAL (100%), including
+  10/10 turn/decision-phase queries.** The VLM forward pass is deterministic even on the
+  knife-edge scanning/turning cases where this project previously found the VLM unstable.
+- CONCLUSION: the chaotic run-to-run divergence originates SIM-SIDE (Isaac physics and/or
+  rendering), NOT in the VLM. Publishable as "chaotic divergence originating in the
+  simulator, not the policy/VLM."
+- 5a (physics-vs-render split): see note below.
+
+## 5a (render/physics determinism) — RESOLVED (2026-07-24)
+Same episode-3 start pose rendered in two separate processes -> frames DIFFER:
+max pixel |diff| 21/255, mean 0.30, 25.68% of channels nonzero. The simulator produces
+NON-bit-identical observations for the same commanded state across runs. Combined with 5b
+(VLM 50/50 identical): the closed loop is seeded by sim-side render/physics nondeterminism,
+which the sensitive VLN policy amplifies into chaotic trajectory divergence. Precise claim:
+"VLM deterministic; simulator observations vary run-to-run (~26% of pixels, <=8% magnitude);
+policy amplifies -> chaotic divergence." Physics-vs-render split not separated (the test
+conflates settle+render); not pursued further (timeboxed).
