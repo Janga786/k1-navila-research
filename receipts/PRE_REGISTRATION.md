@@ -83,3 +83,19 @@ CONSEQUENCES (pre-registered gate point 4 fires):
    27 straggler retries (2.5%) got 2nd draws -> negligible bias on 18.3%.
 STATUS: STOPPED before any launch. Awaiting design decision (replication vs larger-N-unpaired
 vs determinism-hardening). Nothing edited in the eval; no runs launched.
+
+## DRIVER-CHANGE CONFOUND (2026-07-24) — METHODS-CRITICAL, record now
+An unattended apt upgrade on 2026-07-24 06:45 replaced the NVIDIA driver 580.159.03 ->
+580.173.02 and (via a driver/module mismatch) took CUDA down. 580.159.03 has been PURGED
+from the Ubuntu archive and is unobtainable, so it cannot be restored. Recovery: rebuilt the
+580.173.02 kernel module from source with gcc-12 (DKMS); machine now runs driver 580.173.02.
+CONSEQUENCES FOR THE PAPER (state both explicitly in Methods):
+1. full_14498 (SR 18.3%; 0-299 subset 17.7%) ran on driver **580.159.03**. Every NEW arm
+   (stretch/crop/pad @300, height sweep) runs on **580.173.02**. The stretch@300 vs
+   full_14498[0-299] comparison therefore SPANS A DRIVER CHANGE: it is an UPPER BOUND on
+   reproducibility (driver-version + run-to-run nondeterminism combined), NOT a clean
+   run-to-run noise floor. Label it that way in every table/figure/caption.
+2. Methods must report BOTH driver versions and which results came from which: 580.159.03 =
+   the 18.3% headline + all June/July results through 2026-07-24; 580.173.02 = every arm
+   from the 2026-07-24 sweep onward. Combined with the nondeterminism finding, single-run SR
+   in this benchmark is not exactly reproducible; report it as an estimate with a CI.
