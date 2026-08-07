@@ -16,3 +16,10 @@
       success_over_total = 16.0%
       oracle_success_over_total = 31.7%
     term_reason: {'step_cap': 129, 'wall_timeout': 22, 'sim_done': 28, 'stop': 121}
+[08-05 02:39]   pushed: Sweep arm complete: stretchB (300/300)
+[08-05 02:39] ARM START: crop  transform=crop  eps 0-300  extra='none'  (have 0)
+[08-07 02:50] ARM DONE: crop — 300/300 scored
+      n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 16.7%
+      oracle_success_over_total = 24.0%
+    term_reason: {'step_cap': 170, 'stop': 107, 'wall_timeout': 6, 'sim_done': 17}
