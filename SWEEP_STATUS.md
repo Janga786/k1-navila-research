@@ -30,3 +30,10 @@
       success_over_total = 13.3%
       oracle_success_over_total = 29.0%
     term_reason: {'step_cap': 124, 'wall_timeout': 37, 'stop': 109, 'sim_done': 30}
+[08-09 06:29]   pushed: Sweep arm complete: pad (300/300)
+[08-09 06:29] ARM START: h060  transform=stretch  eps 0-200  extra='--cam_z=0.07'  (have 0)
+[08-10 16:58] ARM DONE: h060 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 11.5%
+      oracle_success_over_total = 27.5%
+    term_reason: {'step_cap': 102, 'stop': 75, 'sim_done': 13, 'wall_timeout': 10}
