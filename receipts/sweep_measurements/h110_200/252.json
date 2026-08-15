@@ -1,0 +1,12 @@
+{
+    "path_length": 10.24117632688285,
+    "distance_to_goal": 8.912525986985427,
+    "success": 0.0,
+    "spl": 0.0,
+    "oracle_navigation_error": 8.912525986985427,
+    "oracle_success": 0.0,
+    "term_reason": "stop",
+    "ended_at_step": 2040,
+    "max_episode_steps": 6000,
+    "hit_step_cap": false
+}
