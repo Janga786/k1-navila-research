@@ -72,3 +72,5 @@
       success_over_total = 14.5%
       oracle_success_over_total = 25.5%
     term_reason: {'sim_done': 16, 'step_cap': 94, 'stop': 77, 'wall_timeout': 13}
+[08-17 17:43]   pushed: Sweep arm complete: h150 (200/200)
+[08-17 17:43] ALL ARMS COMPLETE
