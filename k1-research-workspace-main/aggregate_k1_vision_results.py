@@ -36,6 +36,10 @@ def aggregate(mdir, total_episodes=None):
     keys = ["success", "spl", "distance_to_goal",
             "oracle_success", "oracle_navigation_error", "path_length"]
     acc = {k: [] for k in keys}
+    # Distance keys use a -1.0 sentinel on a wall-timeout kill before the first step
+    # (no valid final pose). Exclude sentinels from NE/ONE means; they still count as
+    # failures for SR/OS/SPL via success/oracle_success=0. Real distances are >= 0.
+    DIST_KEYS = {"distance_to_goal", "oracle_navigation_error"}
     for f in files:
         try:
             d = json.load(open(f))
@@ -43,6 +47,8 @@ def aggregate(mdir, total_episodes=None):
             continue
         for k in keys:
             if k in d:
+                if k in DIST_KEYS and d[k] < 0:
+                    continue   # -1.0 sentinel: no valid distance, skip from the mean
                 acc[k].append(d[k])
     n_present = len(files)
     out = {

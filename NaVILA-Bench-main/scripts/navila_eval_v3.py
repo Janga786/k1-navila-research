@@ -25,6 +25,7 @@ import gymnasium as gym
 import os
 import json
 import math
+import signal
 from collections import deque
 import torch
 import torch.nn as nn
@@ -95,6 +96,14 @@ parser.add_argument("--proximity_stop", type=float, default=0.0,
                     help="DIAGNOSTIC ONLY (uses ground-truth goal distance, NOT benchmark-fair): "
                          "auto-stop within this radius (m). Use to measure the OS->SR ceiling "
                          "(success if the robot always stopped on arrival). 0=disabled.")
+# Camera-offset overrides (2026-07-23) for the height sweep. Offset is in the Trunk frame;
+# absolute ground height = Trunk-standing (~0.53 m) + cam_z. None => keep the cfg default
+# (0.25 -> ~0.78 m). Aperture left as an explicit override so FOV stays FIXED across a height
+# sweep by default. Ported from l0_camera_dump.py:23-101. Scoring/termination/robot cfg untouched.
+parser.add_argument("--cam_z", type=float, default=None, help="camera z-OFFSET above Trunk (m)")
+parser.add_argument("--cam_width", type=int, default=None, help="camera width override")
+parser.add_argument("--cam_height", type=int, default=None, help="camera height override")
+parser.add_argument("--cam_aperture", type=float, default=None, help="horizontal_aperture (FOV) override")
 cli_args.add_rsl_rl_args(parser)   # adds --checkpoint among others
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
@@ -411,6 +420,19 @@ def main():
     env_cfg = parse_env_cfg(args_cli.task, num_envs=args_cli.num_envs)
     env_cfg = reset_start_pos_rot(env_cfg, args_cli, episode)
 
+    # Camera-offset overrides (height sweep). Camera-only; scoring/termination untouched.
+    if any(v is not None for v in (args_cli.cam_z, args_cli.cam_width,
+                                   args_cli.cam_height, args_cli.cam_aperture)):
+        _cam = env_cfg.scene.rgb_camera
+        _old = tuple(_cam.offset.pos)
+        if args_cli.cam_z is not None:       _cam.offset.pos = (_old[0], _old[1], args_cli.cam_z)
+        if args_cli.cam_width is not None:   _cam.width = args_cli.cam_width
+        if args_cli.cam_height is not None:  _cam.height = args_cli.cam_height
+        if args_cli.cam_aperture is not None: _cam.spawn.horizontal_aperture = args_cli.cam_aperture
+        print(f"[cam-override] offset {_old}->{_cam.offset.pos}  {_cam.width}x{_cam.height}  "
+              f"aperture={_cam.spawn.horizontal_aperture}  "
+              f"abs_ground_height~={0.53 + _cam.offset.pos[2]:.2f}m (virtual if >~0.9m)", flush=True)
+
     env = gym.make(args_cli.task, cfg=env_cfg, render_mode=None)
     env = RslRlVecEnvWrapper(env)
 
@@ -468,6 +490,33 @@ def main():
     prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
     max_episode_steps = args_cli.max_episode_s / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
     term_reason = "running"
+
+    # --- Wall-clock-timeout capture (2026-07-23) -----------------------------------------
+    # The runner kills us with SIGTERM at --EP_TIMEOUT wall-seconds (timeout -k 30). Without
+    # this, that kill lands mid-loop BEFORE the measurement write -> NO JSON (a pilot lost
+    # 29/100). Catch SIGTERM and write a recorded FAILURE row so every pinned episode index
+    # produces a file. Schema guaranteed: all six production fields defaulted (distances use
+    # a -1.0 sentinel; 0.0 would read as 'at the goal'); real mid-episode partials overlay.
+    # Only success & spl are FORCED to 0 (both require a stop); oracle_success / ONE /
+    # path_length keep their real partial values (a wall-timeout can legitimately have OS=1).
+    _WALL_STUB = {"success": 0.0, "spl": 0.0, "oracle_success": 0.0,
+                  "distance_to_goal": -1.0, "oracle_navigation_error": -1.0, "path_length": -1.0}
+    _latest = {"infos": None, "num_steps": 0}   # updated each loop iteration
+    def _on_sigterm(signum, frame):
+        m = dict(_WALL_STUB)
+        m.update((_latest["infos"] or {}).get("measurements", {}))   # real partials win
+        m["success"] = 0.0; m["spl"] = 0.0                            # only these require a stop
+        m["term_reason"] = "wall_timeout"
+        m["ended_at_step"] = int(_latest["num_steps"])
+        m["max_episode_steps"] = int(max_episode_steps)
+        m["hit_step_cap"] = False
+        _rd = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}/measurements"
+        os.makedirs(_rd, exist_ok=True)
+        with open(f"{_rd}/{int(episode['episode_id'])-1}.json", "w") as _f:
+            json.dump(m, _f, indent=4)
+        print("[WALL_TIMEOUT] SIGTERM -> wrote recorded-failure row, exiting", flush=True)
+        os._exit(0)
+    signal.signal(signal.SIGTERM, _on_sigterm)   # set late (post-Isaac-init) so it sticks
 
     # Pre-VLM warmup: fill the 8-frame VLM image buffer with REAL frames.
     zero_cmd = torch.zeros(3, device=obs.device)
@@ -566,6 +615,7 @@ def main():
         obs, _, done, infos = env.step(
             torch.tensor(applied_cmd, device=obs.device, dtype=torch.float32)
         )
+        _latest["infos"] = infos; _latest["num_steps"] = num_steps   # for the SIGTERM handler
 
         if done or env.is_stop_called or num_steps > max_episode_steps:
             if term_reason == "running":  # preserve proximity_stop / stop_assist
@@ -636,6 +686,14 @@ def main():
             "stop_assist": bool(args_cli.stop_assist),
             "proximity_stop": float(args_cli.proximity_stop),
         })
+    # ADDITIVE (2026-07-23): always record termination diagnostics in the production JSON,
+    # not only under --diag. Authoritative (set AFTER the diag block). hit_step_cap derives
+    # from the terminator's own verdict (term_reason), not a recomputed >/>= boundary. No
+    # scored metric is touched.
+    measurements["term_reason"]       = term_reason
+    measurements["ended_at_step"]     = int(num_steps)
+    measurements["max_episode_steps"] = int(max_episode_steps)
+    measurements["hit_step_cap"]      = (term_reason == "step_cap")
     result_dir = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
     os.makedirs(result_dir, exist_ok=True)
     measurement_dir = os.path.join(result_dir, "measurements")
