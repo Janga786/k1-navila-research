@@ -1,4 +1,12 @@
 # SLIDE_FACTS — verified numbers only (2026-07-22)
+
+> [!IMPORTANT]
+> **CORRECTION NOTICE — added 2026-08-22, after the n=300 sweep completed.**
+> The "Controlled studies" crop-vs-stretch item below is superseded. The 100-episode/arm
+> rerun listed as "IN PROGRESS since 07-22" was abandoned and replaced by 300-episode arms,
+> which **reverse** the pilot's direction: crop stops-given-reached **69.4%** vs stretch
+> **51.1%** (Fisher p = 0.008), and no transform differs significantly on SR.
+> See `receipts/analysis/ROBUSTNESS.md` §C and `receipts/KNOWN_GAPS.md` G6, G14.
 Every number below is verified in EVIDENCE.md (claim # in brackets) with primary source
 and regeneration command. Phrasings marked ⚠ are the evidence-safe wordings — use them.
 

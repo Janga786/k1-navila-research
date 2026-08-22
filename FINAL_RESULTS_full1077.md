@@ -1,5 +1,17 @@
 # K1 NaVILA — Full Benchmark Results (VLN-CE-Isaac, R2R val-unseen, n=1077)
 
+> [!IMPORTANT]
+> **CORRECTION NOTICE — added 2026-08-22, after the n=300 sweep completed.**
+> Finding 2 below ("Arrival recognition needs peripheral FOV", crop *reached* but never
+> stopped) came from an n=10 pilot and **did not replicate**. At n=300 per arm the effect
+> runs the OPPOSITE way: crop converts **69.4%** of goal-reaches into stops versus stretch's
+> **51.1%** (Fisher p = 0.008), while reaching *less* often (OS 24.0% vs 29.0/31.7%).
+> No transform shows a significant SR difference at n=300. See
+> `receipts/analysis/ROBUSTNESS.md` §C and `receipts/KNOWN_GAPS.md` G6.
+> **Do not reuse the peripheral-FOV mechanism in the paper.** The body of this document is
+> left unedited so the original claim and its refutation are both on the record; it still
+> needs a proper rewrite, and the outstanding edits in `EVIDENCE.md` (G7) still apply.
+
 **Run:** `full_14498` · completed 2026-06-22 · **COMPLETE: 1077/1077 scored, 0 missing** (the 27
 straggler timeouts were recovered on a retry pass with a doubled wall-clock guard — they were slow
 scenes, not hung). · ~54 h total GPU compute · lab RTX 3090.
