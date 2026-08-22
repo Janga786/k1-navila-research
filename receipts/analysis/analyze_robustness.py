@@ -206,14 +206,19 @@ def main():
 
     # ------------------------------------------------------------------ D
     W("\n\n## D. Scene clustering and cluster-robust intervals\n")
-    if not os.path.exists(DATASET):
-        W("Dataset not found; scene stratification skipped.")
-    else:
+    # The upstream episode dataset is gitignored (*.json.gz), so a fresh clone will not have
+    # it. When present we rebuild the scene map from it and refresh episode_index.csv; when
+    # absent we fall back to the COMMITTED episode_index.csv, which carries the same mapping.
+    # That keeps this section reproducible from the repository alone without redistributing
+    # upstream benchmark data.
+    index_csv = os.path.join(HERE, "episode_index.csv")
+    scene_of, radius_of, source_note = {}, {}, None
+    if os.path.exists(DATASET):
         raw = open(DATASET, "rb").read()
-        W(f"Episode dataset `vln_ce_isaac_v1.json.gz`, SHA-256 `{hashlib.sha256(raw).hexdigest()}`.")
+        source_note = (f"Rebuilt from the episode dataset `vln_ce_isaac_v1.json.gz`, "
+                       f"SHA-256 `{hashlib.sha256(raw).hexdigest()}`.")
         data = json.loads(gzip.decompress(raw))
         eps = data["episodes"] if isinstance(data, dict) else data
-        scene_of, radius_of = {}, {}
         index_rows = []
         for order, e in enumerate(eps):
             rec = int(e["episode_id"]) - 1     # the eval names records episode_id - 1
@@ -223,14 +228,31 @@ def main():
             index_rows.append({"list_order": order, "episode_id": e["episode_id"],
                                "record_idx": rec, "scene": sc_name,
                                "goal_radius": radius_of[rec]})
-        with open(os.path.join(HERE, "episode_index.csv"), "w", newline="") as f:
+        with open(index_csv, "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(index_rows[0].keys()))
             w.writeheader()
             w.writerows(index_rows)
+        n_eps = len(eps)
+    elif os.path.exists(index_csv):
+        source_note = ("Rebuilt from the committed `episode_index.csv` (the upstream dataset "
+                       "`vln_ce_isaac_v1.json.gz` is gitignored and absent from this "
+                       "checkout; the derived index carries the same mapping, SHA-256 of the "
+                       "dataset it came from: "
+                       "`ceb2a2a9ac1f6d1a1ebbf9fe205867b101b1b7bb61d532a4d491124c7c0b0eec`).")
+        for row in csv.DictReader(open(index_csv)):
+            rec = int(row["record_idx"])
+            scene_of[rec] = row["scene"]
+            radius_of[rec] = float(row["goal_radius"])
+        n_eps = len(scene_of)
+    else:
+        W("Neither the episode dataset nor episode_index.csv is available; "
+          "scene stratification skipped.")
 
+    if scene_of:
+        W(source_note)
         radii = set(radius_of.values())
-        W(f"All {len(eps)} episodes use goal radius {radii} m (dataset-supplied, not a")
-        W("project constant). Derived `episode_index.csv` maps list order -> episode_id ->")
+        W(f"\nAll {n_eps} episodes use goal radius {radii} m (dataset-supplied, not a")
+        W("project constant). `episode_index.csv` maps list order -> episode_id ->")
         W("record index -> scene, which is what makes \"episodes 0-299\" interpretable.\n")
 
         pinned = set(arms["stretchA"])
