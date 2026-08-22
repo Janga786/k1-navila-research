@@ -1,0 +1,48 @@
+diff --git a/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py b/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
+index 2c37ca8..b26b0d2 100644
+--- a/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
++++ b/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
+@@ -113,36 +113,36 @@ class PhysxCfg:
+     friction_correlation_distance: float = 0.025
+     """Distance threshold for merging contacts into a single friction anchor point (in m). Default is 0.025 m."""
+ 
+-    gpu_max_rigid_contact_count: int = 2**23
++    gpu_max_rigid_contact_count: int = 2**21
+     """Size of rigid contact stream buffer allocated in pinned host memory. Default is 2 ** 23."""
+ 
+     gpu_max_rigid_patch_count: int = 5 * 2**15
+     """Size of the rigid contact patch stream buffer allocated in pinned host memory. Default is 5 * 2 ** 15."""
+ 
+-    gpu_found_lost_pairs_capacity: int = 2**21
++    gpu_found_lost_pairs_capacity: int = 2**18
+     """Capacity of found and lost buffers allocated in GPU global memory. Default is 2 ** 21.
+ 
+     This is used for the found/lost pair reports in the BP.
+     """
+ 
+-    gpu_found_lost_aggregate_pairs_capacity: int = 2**25
++    gpu_found_lost_aggregate_pairs_capacity: int = 2**18
+     """Capacity of found and lost buffers in aggregate system allocated in GPU global memory.
+     Default is 2 ** 25.
+ 
+     This is used for the found/lost pair reports in AABB manager.
+     """
+ 
+-    gpu_total_aggregate_pairs_capacity: int = 2**21
++    gpu_total_aggregate_pairs_capacity: int = 2**18
+     """Capacity of total number of aggregate pairs allocated in GPU global memory. Default is 2 ** 21."""
+ 
+-    gpu_collision_stack_size: int = 2**26
++    gpu_collision_stack_size: int = 2**23
+     """Size of the collision stack buffer allocated in pinned host memory. Default is 2 ** 26."""
+ 
+-    gpu_heap_capacity: int = 2**26
++    gpu_heap_capacity: int = 2**22
+     """Initial capacity of the GPU and pinned host memory heaps. Additional memory will be allocated
+     if more memory is required. Default is 2 ** 26."""
+ 
+-    gpu_temp_buffer_capacity: int = 2**24
++    gpu_temp_buffer_capacity: int = 2**20
+     """Capacity of temp buffer allocated in pinned host memory. Default is 2 ** 24."""
+ 
+     gpu_max_num_partitions: int = 8

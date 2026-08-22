@@ -119,3 +119,56 @@ which the sensitive VLN policy amplifies into chaotic trajectory divergence. Pre
 "VLM deterministic; simulator observations vary run-to-run (~26% of pixels, <=8% magnitude);
 policy amplifies -> chaotic divergence." Physics-vs-render split not separated (the test
 conflates settle+render); not pursued further (timeboxed).
+
+---
+
+## AMENDMENT 1 (2026-07-27) — primary test changed McNemar -> unpaired two-proportion
+Recorded BEFORE any sweep arm data was inspected; the first arm (stretchA) completed
+2026-07-26 but its numbers were not read into the analysis design. Logged in HANDOFF.md the
+same day.
+
+**What changed.** The "Hypothesis & analysis plan" section above names *McNemar on paired
+per-episode binary success* as the primary test. That test is INVALID here, by this
+document's own determinism gate (§"DETERMINISM VERDICT", §"CONSEQUENCES" point 2): with 6/6
+probe episodes differing run-to-run and 2/6 flipping outcome, a per-episode "pair" is not a
+stable unit and paired testing would test noise rather than treatment.
+
+**Replacement (fixed in advance, not revised after seeing data):**
+- Primary test: **unpaired two-proportion** comparison of SR and OS between arms, reported
+  with the exact (Fisher) p-value as primary and the normal-approximation z-test alongside.
+- Interval estimates: **Wilson** 95% CIs on every rate, with Clopper-Pearson reported too.
+- Multiplicity: **Holm-Bonferroni within each contrast family x metric** (noise floor /
+  transform / height / driver), since the sweep runs many contrasts.
+- Height sweep additionally gets a **Cochran-Armitage trend test** over camera height. It
+  tests monotone trend only; a non-monotone optimum is not something this design can claim.
+- Resolution floor at these n is ~8.7 pp (n=300 vs 300) and ~10.7 pp (n=200 vs 200) at
+  alpha=0.05, power=0.80. Effects smaller than that were never detectable here.
+
+**Note on pairing.** All arms are in fact episode-aligned (verified in ANALYSIS.md §0), so the
+design is *structurally* paired. We deliberately do NOT exploit that, for the reason above.
+Using unpaired tests on episode-aligned data is conservative — it discards a variance
+reduction we cannot trust — and that direction of error is the right one here.
+
+## AMENDMENT 2 (2026-08-22) — reproducibility-receipt branch RESOLVED: it reproduced
+The "Reproducibility receipt (pre-registered)" section above set a hard branch: if the fresh
+stretch@300 run did not reproduce the full_14498 0-299 anchor (SR ~17.7 / OS ~31.7 / NE ~7.22),
+**STOP and escalate before interpreting any ablation.**
+
+**Outcome: it reproduced. The gate does not fire; the ablation is interpretable.**
+
+| run | driver | SR | OS | NE |
+|---|---|---|---|---|
+| full_14498 [pinned 300] | 580.159.03 | 17.7% | 31.7% | 7.22 m |
+| stretchA @300 | 580.173.02 | 15.0% | 29.0% | 7.22 m |
+| stretchB @300 | 580.173.02 | 16.0% | 31.7% | 7.06 m |
+
+No contrast against the anchor is significant (SR: p=0.44 and p=0.66; OS: p=0.53 and p=1.00 —
+see ANALYSIS.md §3.4). A second independent probe at the native camera height (h078 vs the
+same baseline on the 200-episode set) is likewise null. This holds ACROSS the 580.159.03 ->
+580.173.02 driver change, so it is an upper bound on reproducibility — it bounds driver-change
+effects and run-to-run nondeterminism *combined*, and remains consistent with zero.
+
+**Caveat that must travel with this receipt:** "reproduced" here means *no detectable
+difference at this power*, not *equivalence*. With a ~8.7 pp resolution floor, a real effect of
+a few pp would have been invisible. Do not upgrade this to an equivalence claim; report it as
+a null with the CI attached.

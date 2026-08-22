@@ -1,0 +1,2377 @@
+[08-04 15:32] SWEEP RUN (re)started
+[08-04 15:32] ARM SKIP (complete): stretchA (300/300)
+[08-04 15:32] ARM START: stretchB  transform=stretch  eps 0-300  extra='none'  (have 233)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=stretchB_300  episodes=[0,300)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch 
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_stretchB_300   log -> /tmp/powered_stretchB_300.log
+[powered] launching VLM bridge...
+[powered] VLM ready.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 233 (file 365.json, 1/300) ================
+================ episode idx 234 (file 366.json, 2/300) ================
+================ episode idx 235 (file 367.json, 3/300) ================
+================ episode idx 236 (file 368.json, 4/300) ================
+================ episode idx 237 (file 378.json, 5/300) ================
+================ episode idx 238 (file 379.json, 6/300) ================
+================ episode idx 239 (file 380.json, 7/300) ================
+================ episode idx 240 (file 381.json, 8/300) ================
+================ episode idx 241 (file 382.json, 9/300) ================
+================ episode idx 242 (file 383.json, 10/300) ================
+[powered] progress: ran=10 skipped=233  ~613s/ep  ETA ~582 min
+================ episode idx 243 (file 384.json, 11/300) ================
+================ episode idx 244 (file 385.json, 12/300) ================
+================ episode idx 245 (file 386.json, 13/300) ================
+================ episode idx 246 (file 387.json, 14/300) ================
+================ episode idx 247 (file 388.json, 15/300) ================
+================ episode idx 248 (file 389.json, 16/300) ================
+================ episode idx 249 (file 393.json, 17/300) ================
+================ episode idx 250 (file 394.json, 18/300) ================
+================ episode idx 251 (file 395.json, 19/300) ================
+================ episode idx 252 (file 402.json, 20/300) ================
+[powered] progress: ran=20 skipped=233  ~509s/ep  ETA ~398 min
+================ episode idx 253 (file 403.json, 21/300) ================
+================ episode idx 254 (file 404.json, 22/300) ================
+================ episode idx 255 (file 405.json, 23/300) ================
+================ episode idx 256 (file 406.json, 24/300) ================
+================ episode idx 257 (file 407.json, 25/300) ================
+================ episode idx 258 (file 408.json, 26/300) ================
+================ episode idx 259 (file 409.json, 27/300) ================
+================ episode idx 260 (file 410.json, 28/300) ================
+================ episode idx 261 (file 414.json, 29/300) ================
+================ episode idx 262 (file 415.json, 30/300) ================
+[powered] progress: ran=30 skipped=233  ~553s/ep  ETA ~341 min
+================ episode idx 263 (file 416.json, 31/300) ================
+================ episode idx 264 (file 417.json, 32/300) ================
+================ episode idx 265 (file 418.json, 33/300) ================
+================ episode idx 266 (file 419.json, 34/300) ================
+================ episode idx 267 (file 420.json, 35/300) ================
+================ episode idx 268 (file 421.json, 36/300) ================
+================ episode idx 269 (file 422.json, 37/300) ================
+================ episode idx 270 (file 426.json, 38/300) ================
+================ episode idx 271 (file 427.json, 39/300) ================
+================ episode idx 272 (file 428.json, 40/300) ================
+[powered] progress: ran=40 skipped=233  ~575s/ep  ETA ~258 min
+================ episode idx 273 (file 438.json, 41/300) ================
+================ episode idx 274 (file 439.json, 42/300) ================
+================ episode idx 275 (file 440.json, 43/300) ================
+================ episode idx 276 (file 441.json, 44/300) ================
+================ episode idx 277 (file 442.json, 45/300) ================
+================ episode idx 278 (file 443.json, 46/300) ================
+================ episode idx 279 (file 444.json, 47/300) ================
+================ episode idx 280 (file 445.json, 48/300) ================
+================ episode idx 281 (file 446.json, 49/300) ================
+================ episode idx 282 (file 447.json, 50/300) ================
+[powered] progress: ran=50 skipped=233  ~578s/ep  ETA ~163 min
+================ episode idx 283 (file 448.json, 51/300) ================
+================ episode idx 284 (file 449.json, 52/300) ================
+================ episode idx 285 (file 453.json, 53/300) ================
+================ episode idx 286 (file 454.json, 54/300) ================
+================ episode idx 287 (file 455.json, 55/300) ================
+================ episode idx 288 (file 459.json, 56/300) ================
+================ episode idx 289 (file 460.json, 57/300) ================
+================ episode idx 290 (file 461.json, 58/300) ================
+================ episode idx 291 (file 471.json, 59/300) ================
+================ episode idx 292 (file 472.json, 60/300) ================
+[powered] progress: ran=60 skipped=233  ~605s/ep  ETA ~70 min
+================ episode idx 293 (file 473.json, 61/300) ================
+================ episode idx 294 (file 474.json, 62/300) ================
+================ episode idx 295 (file 475.json, 63/300) ================
+================ episode idx 296 (file 476.json, 64/300) ================
+================ episode idx 297 (file 486.json, 65/300) ================
+================ episode idx 298 (file 487.json, 66/300) ================
+================ episode idx 299 (file 488.json, 67/300) ================
+[powered] finished: ran=67 skipped=233 in 666 min
+[powered] === AGGREGATE (stretchB_300) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_stretchB_300/measurements
+  n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.16
+  spl_mean(present) = 0.10
+  distance_to_goal_mean(present) = 7.06
+  oracle_success_mean(present) = 0.32
+  oracle_navigation_error_mean(present) = 5.31
+  path_length_mean(present) = 22.41
+  --- honest rates over n_total=300 (paper-comparable) ---
+  success_over_total = 16.0%
+  spl_over_total = 9.9%
+  oracle_success_over_total = 31.7%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=300/300) | 7.06 | 31.7 | 16.0 | 9.9 |
+[08-05 02:39] ARM DONE: stretchB — 300/300 scored
+      n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 16.0%
+      oracle_success_over_total = 31.7%
+[08-05 02:39]   pushed: Sweep arm complete: stretchB (300/300)
+[08-05 02:39] ARM START: crop  transform=crop  eps 0-300  extra='none'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=crop_300  episodes=[0,300)  flags: --closed_loop --max_episode_s 120 --vlm_transform crop 
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_crop_300   log -> /tmp/powered_crop_300.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/300) ================
+================ episode idx 1 (file 1.json, 2/300) ================
+================ episode idx 2 (file 2.json, 3/300) ================
+================ episode idx 3 (file 6.json, 4/300) ================
+================ episode idx 4 (file 7.json, 5/300) ================
+================ episode idx 5 (file 8.json, 6/300) ================
+================ episode idx 6 (file 9.json, 7/300) ================
+================ episode idx 7 (file 10.json, 8/300) ================
+================ episode idx 8 (file 11.json, 9/300) ================
+================ episode idx 9 (file 12.json, 10/300) ================
+[powered] progress: ran=10 skipped=0  ~465s/ep  ETA ~2247 min
+================ episode idx 10 (file 13.json, 11/300) ================
+================ episode idx 11 (file 14.json, 12/300) ================
+================ episode idx 12 (file 18.json, 13/300) ================
+================ episode idx 13 (file 19.json, 14/300) ================
+================ episode idx 14 (file 20.json, 15/300) ================
+================ episode idx 15 (file 24.json, 16/300) ================
+================ episode idx 16 (file 25.json, 17/300) ================
+================ episode idx 17 (file 26.json, 18/300) ================
+================ episode idx 18 (file 30.json, 19/300) ================
+================ episode idx 19 (file 31.json, 20/300) ================
+[powered] progress: ran=20 skipped=0  ~575s/ep  ETA ~2683 min
+================ episode idx 20 (file 32.json, 21/300) ================
+================ episode idx 21 (file 39.json, 22/300) ================
+================ episode idx 22 (file 40.json, 23/300) ================
+================ episode idx 23 (file 41.json, 24/300) ================
+================ episode idx 24 (file 42.json, 25/300) ================
+================ episode idx 25 (file 43.json, 26/300) ================
+================ episode idx 26 (file 44.json, 27/300) ================
+================ episode idx 27 (file 48.json, 28/300) ================
+================ episode idx 28 (file 49.json, 29/300) ================
+================ episode idx 29 (file 50.json, 30/300) ================
+[powered] progress: ran=30 skipped=0  ~557s/ep  ETA ~2506 min
+================ episode idx 30 (file 51.json, 31/300) ================
+================ episode idx 31 (file 52.json, 32/300) ================
+================ episode idx 32 (file 53.json, 33/300) ================
+================ episode idx 33 (file 54.json, 34/300) ================
+================ episode idx 34 (file 55.json, 35/300) ================
+================ episode idx 35 (file 56.json, 36/300) ================
+================ episode idx 36 (file 60.json, 37/300) ================
+================ episode idx 37 (file 61.json, 38/300) ================
+================ episode idx 38 (file 62.json, 39/300) ================
+================ episode idx 39 (file 66.json, 40/300) ================
+[powered] progress: ran=40 skipped=0  ~578s/ep  ETA ~2504 min
+================ episode idx 40 (file 67.json, 41/300) ================
+================ episode idx 41 (file 68.json, 42/300) ================
+================ episode idx 42 (file 69.json, 43/300) ================
+================ episode idx 43 (file 70.json, 44/300) ================
+================ episode idx 44 (file 71.json, 45/300) ================
+================ episode idx 45 (file 72.json, 46/300) ================
+================ episode idx 46 (file 73.json, 47/300) ================
+================ episode idx 47 (file 74.json, 48/300) ================
+================ episode idx 48 (file 75.json, 49/300) ================
+================ episode idx 49 (file 76.json, 50/300) ================
+[powered] progress: ran=50 skipped=0  ~586s/ep  ETA ~2441 min
+================ episode idx 50 (file 77.json, 51/300) ================
+================ episode idx 51 (file 78.json, 52/300) ================
+================ episode idx 52 (file 79.json, 53/300) ================
+================ episode idx 53 (file 80.json, 54/300) ================
+================ episode idx 54 (file 81.json, 55/300) ================
+================ episode idx 55 (file 82.json, 56/300) ================
+================ episode idx 56 (file 83.json, 57/300) ================
+================ episode idx 57 (file 84.json, 58/300) ================
+================ episode idx 58 (file 85.json, 59/300) ================
+================ episode idx 59 (file 86.json, 60/300) ================
+[powered] progress: ran=60 skipped=0  ~588s/ep  ETA ~2352 min
+================ episode idx 60 (file 87.json, 61/300) ================
+================ episode idx 61 (file 88.json, 62/300) ================
+================ episode idx 62 (file 89.json, 63/300) ================
+================ episode idx 63 (file 90.json, 64/300) ================
+================ episode idx 64 (file 91.json, 65/300) ================
+================ episode idx 65 (file 92.json, 66/300) ================
+================ episode idx 66 (file 93.json, 67/300) ================
+================ episode idx 67 (file 94.json, 68/300) ================
+================ episode idx 68 (file 95.json, 69/300) ================
+================ episode idx 69 (file 96.json, 70/300) ================
+[powered] progress: ran=70 skipped=0  ~587s/ep  ETA ~2250 min
+================ episode idx 70 (file 97.json, 71/300) ================
+================ episode idx 71 (file 98.json, 72/300) ================
+================ episode idx 72 (file 102.json, 73/300) ================
+================ episode idx 73 (file 103.json, 74/300) ================
+================ episode idx 74 (file 104.json, 75/300) ================
+================ episode idx 75 (file 111.json, 76/300) ================
+================ episode idx 76 (file 112.json, 77/300) ================
+================ episode idx 77 (file 113.json, 78/300) ================
+================ episode idx 78 (file 114.json, 79/300) ================
+================ episode idx 79 (file 115.json, 80/300) ================
+[powered] progress: ran=80 skipped=0  ~595s/ep  ETA ~2181 min
+================ episode idx 80 (file 116.json, 81/300) ================
+================ episode idx 81 (file 120.json, 82/300) ================
+================ episode idx 82 (file 121.json, 83/300) ================
+================ episode idx 83 (file 122.json, 84/300) ================
+================ episode idx 84 (file 123.json, 85/300) ================
+================ episode idx 85 (file 124.json, 86/300) ================
+================ episode idx 86 (file 125.json, 87/300) ================
+================ episode idx 87 (file 126.json, 88/300) ================
+================ episode idx 88 (file 127.json, 89/300) ================
+================ episode idx 89 (file 128.json, 90/300) ================
+[powered] progress: ran=90 skipped=0  ~610s/ep  ETA ~2135 min
+================ episode idx 90 (file 135.json, 91/300) ================
+================ episode idx 91 (file 136.json, 92/300) ================
+================ episode idx 92 (file 137.json, 93/300) ================
+================ episode idx 93 (file 138.json, 94/300) ================
+================ episode idx 94 (file 139.json, 95/300) ================
+================ episode idx 95 (file 140.json, 96/300) ================
+================ episode idx 96 (file 141.json, 97/300) ================
+================ episode idx 97 (file 142.json, 98/300) ================
+================ episode idx 98 (file 143.json, 99/300) ================
+================ episode idx 99 (file 144.json, 100/300) ================
+[powered] progress: ran=100 skipped=0  ~589s/ep  ETA ~1963 min
+================ episode idx 100 (file 145.json, 101/300) ================
+================ episode idx 101 (file 146.json, 102/300) ================
+================ episode idx 102 (file 147.json, 103/300) ================
+================ episode idx 103 (file 148.json, 104/300) ================
+================ episode idx 104 (file 149.json, 105/300) ================
+================ episode idx 105 (file 150.json, 106/300) ================
+================ episode idx 106 (file 151.json, 107/300) ================
+================ episode idx 107 (file 152.json, 108/300) ================
+================ episode idx 108 (file 153.json, 109/300) ================
+================ episode idx 109 (file 154.json, 110/300) ================
+[powered] progress: ran=110 skipped=0  ~586s/ep  ETA ~1855 min
+================ episode idx 110 (file 155.json, 111/300) ================
+================ episode idx 111 (file 156.json, 112/300) ================
+================ episode idx 112 (file 157.json, 113/300) ================
+================ episode idx 113 (file 158.json, 114/300) ================
+================ episode idx 114 (file 159.json, 115/300) ================
+================ episode idx 115 (file 160.json, 116/300) ================
+================ episode idx 116 (file 161.json, 117/300) ================
+================ episode idx 117 (file 162.json, 118/300) ================
+================ episode idx 118 (file 163.json, 119/300) ================
+================ episode idx 119 (file 164.json, 120/300) ================
+[powered] progress: ran=120 skipped=0  ~580s/ep  ETA ~1740 min
+================ episode idx 120 (file 165.json, 121/300) ================
+================ episode idx 121 (file 166.json, 122/300) ================
+================ episode idx 122 (file 167.json, 123/300) ================
+================ episode idx 123 (file 174.json, 124/300) ================
+================ episode idx 124 (file 175.json, 125/300) ================
+================ episode idx 125 (file 176.json, 126/300) ================
+================ episode idx 126 (file 177.json, 127/300) ================
+================ episode idx 127 (file 178.json, 128/300) ================
+================ episode idx 128 (file 179.json, 129/300) ================
+================ episode idx 129 (file 189.json, 130/300) ================
+[powered] progress: ran=130 skipped=0  ~582s/ep  ETA ~1649 min
+================ episode idx 130 (file 190.json, 131/300) ================
+================ episode idx 131 (file 191.json, 132/300) ================
+================ episode idx 132 (file 192.json, 133/300) ================
+================ episode idx 133 (file 193.json, 134/300) ================
+================ episode idx 134 (file 194.json, 135/300) ================
+================ episode idx 135 (file 198.json, 136/300) ================
+================ episode idx 136 (file 199.json, 137/300) ================
+================ episode idx 137 (file 200.json, 138/300) ================
+================ episode idx 138 (file 204.json, 139/300) ================
+================ episode idx 139 (file 205.json, 140/300) ================
+[powered] progress: ran=140 skipped=0  ~576s/ep  ETA ~1536 min
+================ episode idx 140 (file 206.json, 141/300) ================
+================ episode idx 141 (file 207.json, 142/300) ================
+================ episode idx 142 (file 208.json, 143/300) ================
+================ episode idx 143 (file 209.json, 144/300) ================
+================ episode idx 144 (file 213.json, 145/300) ================
+================ episode idx 145 (file 214.json, 146/300) ================
+================ episode idx 146 (file 215.json, 147/300) ================
+================ episode idx 147 (file 216.json, 148/300) ================
+================ episode idx 148 (file 217.json, 149/300) ================
+================ episode idx 149 (file 218.json, 150/300) ================
+[powered] progress: ran=150 skipped=0  ~572s/ep  ETA ~1430 min
+================ episode idx 150 (file 225.json, 151/300) ================
+================ episode idx 151 (file 226.json, 152/300) ================
+================ episode idx 152 (file 227.json, 153/300) ================
+================ episode idx 153 (file 234.json, 154/300) ================
+================ episode idx 154 (file 235.json, 155/300) ================
+================ episode idx 155 (file 236.json, 156/300) ================
+================ episode idx 156 (file 237.json, 157/300) ================
+================ episode idx 157 (file 238.json, 158/300) ================
+================ episode idx 158 (file 239.json, 159/300) ================
+================ episode idx 159 (file 243.json, 160/300) ================
+[powered] progress: ran=160 skipped=0  ~574s/ep  ETA ~1339 min
+================ episode idx 160 (file 244.json, 161/300) ================
+================ episode idx 161 (file 245.json, 162/300) ================
+================ episode idx 162 (file 246.json, 163/300) ================
+================ episode idx 163 (file 247.json, 164/300) ================
+================ episode idx 164 (file 248.json, 165/300) ================
+================ episode idx 165 (file 249.json, 166/300) ================
+================ episode idx 166 (file 250.json, 167/300) ================
+================ episode idx 167 (file 251.json, 168/300) ================
+================ episode idx 168 (file 252.json, 169/300) ================
+================ episode idx 169 (file 253.json, 170/300) ================
+[powered] progress: ran=170 skipped=0  ~572s/ep  ETA ~1239 min
+================ episode idx 170 (file 254.json, 171/300) ================
+================ episode idx 171 (file 255.json, 172/300) ================
+================ episode idx 172 (file 256.json, 173/300) ================
+================ episode idx 173 (file 257.json, 174/300) ================
+================ episode idx 174 (file 258.json, 175/300) ================
+================ episode idx 175 (file 259.json, 176/300) ================
+================ episode idx 176 (file 260.json, 177/300) ================
+================ episode idx 177 (file 261.json, 178/300) ================
+================ episode idx 178 (file 262.json, 179/300) ================
+================ episode idx 179 (file 263.json, 180/300) ================
+[powered] progress: ran=180 skipped=0  ~560s/ep  ETA ~1120 min
+================ episode idx 180 (file 264.json, 181/300) ================
+================ episode idx 181 (file 265.json, 182/300) ================
+================ episode idx 182 (file 266.json, 183/300) ================
+================ episode idx 183 (file 276.json, 184/300) ================
+================ episode idx 184 (file 277.json, 185/300) ================
+================ episode idx 185 (file 278.json, 186/300) ================
+================ episode idx 186 (file 279.json, 187/300) ================
+================ episode idx 187 (file 280.json, 188/300) ================
+================ episode idx 188 (file 281.json, 189/300) ================
+================ episode idx 189 (file 285.json, 190/300) ================
+[powered] progress: ran=190 skipped=0  ~570s/ep  ETA ~1045 min
+================ episode idx 190 (file 286.json, 191/300) ================
+================ episode idx 191 (file 287.json, 192/300) ================
+================ episode idx 192 (file 291.json, 193/300) ================
+================ episode idx 193 (file 292.json, 194/300) ================
+================ episode idx 194 (file 293.json, 195/300) ================
+================ episode idx 195 (file 300.json, 196/300) ================
+================ episode idx 196 (file 301.json, 197/300) ================
+================ episode idx 197 (file 302.json, 198/300) ================
+================ episode idx 198 (file 306.json, 199/300) ================
+================ episode idx 199 (file 307.json, 200/300) ================
+[powered] progress: ran=200 skipped=0  ~573s/ep  ETA ~955 min
+================ episode idx 200 (file 308.json, 201/300) ================
+================ episode idx 201 (file 309.json, 202/300) ================
+================ episode idx 202 (file 310.json, 203/300) ================
+================ episode idx 203 (file 311.json, 204/300) ================
+================ episode idx 204 (file 312.json, 205/300) ================
+================ episode idx 205 (file 313.json, 206/300) ================
+================ episode idx 206 (file 314.json, 207/300) ================
+================ episode idx 207 (file 318.json, 208/300) ================
+================ episode idx 208 (file 319.json, 209/300) ================
+================ episode idx 209 (file 320.json, 210/300) ================
+[powered] progress: ran=210 skipped=0  ~581s/ep  ETA ~871 min
+================ episode idx 210 (file 321.json, 211/300) ================
+================ episode idx 211 (file 322.json, 212/300) ================
+================ episode idx 212 (file 323.json, 213/300) ================
+================ episode idx 213 (file 333.json, 214/300) ================
+================ episode idx 214 (file 334.json, 215/300) ================
+================ episode idx 215 (file 335.json, 216/300) ================
+================ episode idx 216 (file 339.json, 217/300) ================
+================ episode idx 217 (file 340.json, 218/300) ================
+================ episode idx 218 (file 341.json, 219/300) ================
+================ episode idx 219 (file 342.json, 220/300) ================
+[powered] progress: ran=220 skipped=0  ~578s/ep  ETA ~770 min
+================ episode idx 220 (file 343.json, 221/300) ================
+================ episode idx 221 (file 344.json, 222/300) ================
+================ episode idx 222 (file 351.json, 223/300) ================
+================ episode idx 223 (file 352.json, 224/300) ================
+================ episode idx 224 (file 353.json, 225/300) ================
+================ episode idx 225 (file 357.json, 226/300) ================
+================ episode idx 226 (file 358.json, 227/300) ================
+================ episode idx 227 (file 359.json, 228/300) ================
+================ episode idx 228 (file 360.json, 229/300) ================
+================ episode idx 229 (file 361.json, 230/300) ================
+[powered] progress: ran=230 skipped=0  ~575s/ep  ETA ~670 min
+================ episode idx 230 (file 362.json, 231/300) ================
+================ episode idx 231 (file 363.json, 232/300) ================
+================ episode idx 232 (file 364.json, 233/300) ================
+================ episode idx 233 (file 365.json, 234/300) ================
+================ episode idx 234 (file 366.json, 235/300) ================
+================ episode idx 235 (file 367.json, 236/300) ================
+================ episode idx 236 (file 368.json, 237/300) ================
+================ episode idx 237 (file 378.json, 238/300) ================
+================ episode idx 238 (file 379.json, 239/300) ================
+================ episode idx 239 (file 380.json, 240/300) ================
+[powered] progress: ran=240 skipped=0  ~574s/ep  ETA ~574 min
+================ episode idx 240 (file 381.json, 241/300) ================
+================ episode idx 241 (file 382.json, 242/300) ================
+================ episode idx 242 (file 383.json, 243/300) ================
+================ episode idx 243 (file 384.json, 244/300) ================
+================ episode idx 244 (file 385.json, 245/300) ================
+================ episode idx 245 (file 386.json, 246/300) ================
+================ episode idx 246 (file 387.json, 247/300) ================
+================ episode idx 247 (file 388.json, 248/300) ================
+================ episode idx 248 (file 389.json, 249/300) ================
+================ episode idx 249 (file 393.json, 250/300) ================
+[powered] progress: ran=250 skipped=0  ~576s/ep  ETA ~480 min
+================ episode idx 250 (file 394.json, 251/300) ================
+================ episode idx 251 (file 395.json, 252/300) ================
+================ episode idx 252 (file 402.json, 253/300) ================
+================ episode idx 253 (file 403.json, 254/300) ================
+================ episode idx 254 (file 404.json, 255/300) ================
+================ episode idx 255 (file 405.json, 256/300) ================
+================ episode idx 256 (file 406.json, 257/300) ================
+================ episode idx 257 (file 407.json, 258/300) ================
+================ episode idx 258 (file 408.json, 259/300) ================
+================ episode idx 259 (file 409.json, 260/300) ================
+[powered] progress: ran=260 skipped=0  ~577s/ep  ETA ~384 min
+================ episode idx 260 (file 410.json, 261/300) ================
+================ episode idx 261 (file 414.json, 262/300) ================
+================ episode idx 262 (file 415.json, 263/300) ================
+================ episode idx 263 (file 416.json, 264/300) ================
+================ episode idx 264 (file 417.json, 265/300) ================
+================ episode idx 265 (file 418.json, 266/300) ================
+================ episode idx 266 (file 419.json, 267/300) ================
+================ episode idx 267 (file 420.json, 268/300) ================
+================ episode idx 268 (file 421.json, 269/300) ================
+================ episode idx 269 (file 422.json, 270/300) ================
+[powered] progress: ran=270 skipped=0  ~576s/ep  ETA ~288 min
+================ episode idx 270 (file 426.json, 271/300) ================
+================ episode idx 271 (file 427.json, 272/300) ================
+================ episode idx 272 (file 428.json, 273/300) ================
+================ episode idx 273 (file 438.json, 274/300) ================
+================ episode idx 274 (file 439.json, 275/300) ================
+================ episode idx 275 (file 440.json, 276/300) ================
+================ episode idx 276 (file 441.json, 277/300) ================
+================ episode idx 277 (file 442.json, 278/300) ================
+================ episode idx 278 (file 443.json, 279/300) ================
+================ episode idx 279 (file 444.json, 280/300) ================
+[powered] progress: ran=280 skipped=0  ~577s/ep  ETA ~192 min
+================ episode idx 280 (file 445.json, 281/300) ================
+================ episode idx 281 (file 446.json, 282/300) ================
+================ episode idx 282 (file 447.json, 283/300) ================
+================ episode idx 283 (file 448.json, 284/300) ================
+================ episode idx 284 (file 449.json, 285/300) ================
+================ episode idx 285 (file 453.json, 286/300) ================
+================ episode idx 286 (file 454.json, 287/300) ================
+================ episode idx 287 (file 455.json, 288/300) ================
+================ episode idx 288 (file 459.json, 289/300) ================
+================ episode idx 289 (file 460.json, 290/300) ================
+[powered] progress: ran=290 skipped=0  ~577s/ep  ETA ~96 min
+================ episode idx 290 (file 461.json, 291/300) ================
+================ episode idx 291 (file 471.json, 292/300) ================
+================ episode idx 292 (file 472.json, 293/300) ================
+================ episode idx 293 (file 473.json, 294/300) ================
+================ episode idx 294 (file 474.json, 295/300) ================
+================ episode idx 295 (file 475.json, 296/300) ================
+================ episode idx 296 (file 476.json, 297/300) ================
+================ episode idx 297 (file 486.json, 298/300) ================
+================ episode idx 298 (file 487.json, 299/300) ================
+================ episode idx 299 (file 488.json, 300/300) ================
+[powered] progress: ran=300 skipped=0  ~578s/ep  ETA ~0 min
+[powered] finished: ran=300 skipped=0 in 2891 min
+[powered] === AGGREGATE (crop_300) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_crop_300/measurements
+  n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.17
+  spl_mean(present) = 0.11
+  distance_to_goal_mean(present) = 7.50
+  oracle_success_mean(present) = 0.24
+  oracle_navigation_error_mean(present) = 6.17
+  path_length_mean(present) = 21.15
+  --- honest rates over n_total=300 (paper-comparable) ---
+  success_over_total = 16.7%
+  spl_over_total = 10.5%
+  oracle_success_over_total = 24.0%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=300/300) | 7.50 | 24.0 | 16.7 | 10.5 |
+[08-07 02:50] ARM DONE: crop — 300/300 scored
+      n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 16.7%
+      oracle_success_over_total = 24.0%
+[08-07 02:50]   pushed: Sweep arm complete: crop (300/300)
+[08-07 02:50] ARM START: pad  transform=pad  eps 0-300  extra='none'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=pad_300  episodes=[0,300)  flags: --closed_loop --max_episode_s 120 --vlm_transform pad 
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_pad_300   log -> /tmp/powered_pad_300.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/300) ================
+================ episode idx 1 (file 1.json, 2/300) ================
+================ episode idx 2 (file 2.json, 3/300) ================
+================ episode idx 3 (file 6.json, 4/300) ================
+================ episode idx 4 (file 7.json, 5/300) ================
+================ episode idx 5 (file 8.json, 6/300) ================
+================ episode idx 6 (file 9.json, 7/300) ================
+================ episode idx 7 (file 10.json, 8/300) ================
+================ episode idx 8 (file 11.json, 9/300) ================
+================ episode idx 9 (file 12.json, 10/300) ================
+[powered] progress: ran=10 skipped=0  ~547s/ep  ETA ~2643 min
+================ episode idx 10 (file 13.json, 11/300) ================
+================ episode idx 11 (file 14.json, 12/300) ================
+================ episode idx 12 (file 18.json, 13/300) ================
+================ episode idx 13 (file 19.json, 14/300) ================
+================ episode idx 14 (file 20.json, 15/300) ================
+================ episode idx 15 (file 24.json, 16/300) ================
+================ episode idx 16 (file 25.json, 17/300) ================
+================ episode idx 17 (file 26.json, 18/300) ================
+================ episode idx 18 (file 30.json, 19/300) ================
+================ episode idx 19 (file 31.json, 20/300) ================
+[powered] progress: ran=20 skipped=0  ~651s/ep  ETA ~3038 min
+================ episode idx 20 (file 32.json, 21/300) ================
+================ episode idx 21 (file 39.json, 22/300) ================
+================ episode idx 22 (file 40.json, 23/300) ================
+================ episode idx 23 (file 41.json, 24/300) ================
+================ episode idx 24 (file 42.json, 25/300) ================
+================ episode idx 25 (file 43.json, 26/300) ================
+================ episode idx 26 (file 44.json, 27/300) ================
+================ episode idx 27 (file 48.json, 28/300) ================
+================ episode idx 28 (file 49.json, 29/300) ================
+================ episode idx 29 (file 50.json, 30/300) ================
+[powered] progress: ran=30 skipped=0  ~618s/ep  ETA ~2781 min
+================ episode idx 30 (file 51.json, 31/300) ================
+================ episode idx 31 (file 52.json, 32/300) ================
+================ episode idx 32 (file 53.json, 33/300) ================
+================ episode idx 33 (file 54.json, 34/300) ================
+================ episode idx 34 (file 55.json, 35/300) ================
+================ episode idx 35 (file 56.json, 36/300) ================
+================ episode idx 36 (file 60.json, 37/300) ================
+================ episode idx 37 (file 61.json, 38/300) ================
+================ episode idx 38 (file 62.json, 39/300) ================
+================ episode idx 39 (file 66.json, 40/300) ================
+[powered] progress: ran=40 skipped=0  ~651s/ep  ETA ~2821 min
+================ episode idx 40 (file 67.json, 41/300) ================
+================ episode idx 41 (file 68.json, 42/300) ================
+================ episode idx 42 (file 69.json, 43/300) ================
+================ episode idx 43 (file 70.json, 44/300) ================
+================ episode idx 44 (file 71.json, 45/300) ================
+================ episode idx 45 (file 72.json, 46/300) ================
+================ episode idx 46 (file 73.json, 47/300) ================
+================ episode idx 47 (file 74.json, 48/300) ================
+================ episode idx 48 (file 75.json, 49/300) ================
+================ episode idx 49 (file 76.json, 50/300) ================
+[powered] progress: ran=50 skipped=0  ~670s/ep  ETA ~2791 min
+================ episode idx 50 (file 77.json, 51/300) ================
+================ episode idx 51 (file 78.json, 52/300) ================
+================ episode idx 52 (file 79.json, 53/300) ================
+================ episode idx 53 (file 80.json, 54/300) ================
+================ episode idx 54 (file 81.json, 55/300) ================
+================ episode idx 55 (file 82.json, 56/300) ================
+================ episode idx 56 (file 83.json, 57/300) ================
+================ episode idx 57 (file 84.json, 58/300) ================
+================ episode idx 58 (file 85.json, 59/300) ================
+================ episode idx 59 (file 86.json, 60/300) ================
+[powered] progress: ran=60 skipped=0  ~678s/ep  ETA ~2712 min
+================ episode idx 60 (file 87.json, 61/300) ================
+================ episode idx 61 (file 88.json, 62/300) ================
+================ episode idx 62 (file 89.json, 63/300) ================
+================ episode idx 63 (file 90.json, 64/300) ================
+================ episode idx 64 (file 91.json, 65/300) ================
+================ episode idx 65 (file 92.json, 66/300) ================
+================ episode idx 66 (file 93.json, 67/300) ================
+================ episode idx 67 (file 94.json, 68/300) ================
+================ episode idx 68 (file 95.json, 69/300) ================
+================ episode idx 69 (file 96.json, 70/300) ================
+[powered] progress: ran=70 skipped=0  ~685s/ep  ETA ~2625 min
+================ episode idx 70 (file 97.json, 71/300) ================
+================ episode idx 71 (file 98.json, 72/300) ================
+================ episode idx 72 (file 102.json, 73/300) ================
+================ episode idx 73 (file 103.json, 74/300) ================
+================ episode idx 74 (file 104.json, 75/300) ================
+================ episode idx 75 (file 111.json, 76/300) ================
+================ episode idx 76 (file 112.json, 77/300) ================
+================ episode idx 77 (file 113.json, 78/300) ================
+================ episode idx 78 (file 114.json, 79/300) ================
+================ episode idx 79 (file 115.json, 80/300) ================
+[powered] progress: ran=80 skipped=0  ~697s/ep  ETA ~2555 min
+================ episode idx 80 (file 116.json, 81/300) ================
+================ episode idx 81 (file 120.json, 82/300) ================
+================ episode idx 82 (file 121.json, 83/300) ================
+================ episode idx 83 (file 122.json, 84/300) ================
+================ episode idx 84 (file 123.json, 85/300) ================
+================ episode idx 85 (file 124.json, 86/300) ================
+================ episode idx 86 (file 125.json, 87/300) ================
+================ episode idx 87 (file 126.json, 88/300) ================
+================ episode idx 88 (file 127.json, 89/300) ================
+================ episode idx 89 (file 128.json, 90/300) ================
+[powered] progress: ran=90 skipped=0  ~686s/ep  ETA ~2401 min
+================ episode idx 90 (file 135.json, 91/300) ================
+================ episode idx 91 (file 136.json, 92/300) ================
+================ episode idx 92 (file 137.json, 93/300) ================
+================ episode idx 93 (file 138.json, 94/300) ================
+================ episode idx 94 (file 139.json, 95/300) ================
+================ episode idx 95 (file 140.json, 96/300) ================
+================ episode idx 96 (file 141.json, 97/300) ================
+================ episode idx 97 (file 142.json, 98/300) ================
+================ episode idx 98 (file 143.json, 99/300) ================
+================ episode idx 99 (file 144.json, 100/300) ================
+[powered] progress: ran=100 skipped=0  ~670s/ep  ETA ~2233 min
+================ episode idx 100 (file 145.json, 101/300) ================
+================ episode idx 101 (file 146.json, 102/300) ================
+================ episode idx 102 (file 147.json, 103/300) ================
+================ episode idx 103 (file 148.json, 104/300) ================
+================ episode idx 104 (file 149.json, 105/300) ================
+================ episode idx 105 (file 150.json, 106/300) ================
+================ episode idx 106 (file 151.json, 107/300) ================
+================ episode idx 107 (file 152.json, 108/300) ================
+================ episode idx 108 (file 153.json, 109/300) ================
+================ episode idx 109 (file 154.json, 110/300) ================
+[powered] progress: ran=110 skipped=0  ~656s/ep  ETA ~2077 min
+================ episode idx 110 (file 155.json, 111/300) ================
+================ episode idx 111 (file 156.json, 112/300) ================
+================ episode idx 112 (file 157.json, 113/300) ================
+================ episode idx 113 (file 158.json, 114/300) ================
+================ episode idx 114 (file 159.json, 115/300) ================
+================ episode idx 115 (file 160.json, 116/300) ================
+================ episode idx 116 (file 161.json, 117/300) ================
+================ episode idx 117 (file 162.json, 118/300) ================
+================ episode idx 118 (file 163.json, 119/300) ================
+================ episode idx 119 (file 164.json, 120/300) ================
+[powered] progress: ran=120 skipped=0  ~645s/ep  ETA ~1935 min
+================ episode idx 120 (file 165.json, 121/300) ================
+================ episode idx 121 (file 166.json, 122/300) ================
+================ episode idx 122 (file 167.json, 123/300) ================
+================ episode idx 123 (file 174.json, 124/300) ================
+================ episode idx 124 (file 175.json, 125/300) ================
+================ episode idx 125 (file 176.json, 126/300) ================
+================ episode idx 126 (file 177.json, 127/300) ================
+================ episode idx 127 (file 178.json, 128/300) ================
+================ episode idx 128 (file 179.json, 129/300) ================
+================ episode idx 129 (file 189.json, 130/300) ================
+[powered] progress: ran=130 skipped=0  ~645s/ep  ETA ~1827 min
+================ episode idx 130 (file 190.json, 131/300) ================
+================ episode idx 131 (file 191.json, 132/300) ================
+================ episode idx 132 (file 192.json, 133/300) ================
+================ episode idx 133 (file 193.json, 134/300) ================
+================ episode idx 134 (file 194.json, 135/300) ================
+================ episode idx 135 (file 198.json, 136/300) ================
+================ episode idx 136 (file 199.json, 137/300) ================
+================ episode idx 137 (file 200.json, 138/300) ================
+================ episode idx 138 (file 204.json, 139/300) ================
+================ episode idx 139 (file 205.json, 140/300) ================
+[powered] progress: ran=140 skipped=0  ~643s/ep  ETA ~1714 min
+================ episode idx 140 (file 206.json, 141/300) ================
+================ episode idx 141 (file 207.json, 142/300) ================
+================ episode idx 142 (file 208.json, 143/300) ================
+================ episode idx 143 (file 209.json, 144/300) ================
+================ episode idx 144 (file 213.json, 145/300) ================
+================ episode idx 145 (file 214.json, 146/300) ================
+================ episode idx 146 (file 215.json, 147/300) ================
+================ episode idx 147 (file 216.json, 148/300) ================
+================ episode idx 148 (file 217.json, 149/300) ================
+================ episode idx 149 (file 218.json, 150/300) ================
+[powered] progress: ran=150 skipped=0  ~633s/ep  ETA ~1582 min
+================ episode idx 150 (file 225.json, 151/300) ================
+================ episode idx 151 (file 226.json, 152/300) ================
+================ episode idx 152 (file 227.json, 153/300) ================
+================ episode idx 153 (file 234.json, 154/300) ================
+================ episode idx 154 (file 235.json, 155/300) ================
+================ episode idx 155 (file 236.json, 156/300) ================
+================ episode idx 156 (file 237.json, 157/300) ================
+================ episode idx 157 (file 238.json, 158/300) ================
+================ episode idx 158 (file 239.json, 159/300) ================
+================ episode idx 159 (file 243.json, 160/300) ================
+[powered] progress: ran=160 skipped=0  ~635s/ep  ETA ~1481 min
+================ episode idx 160 (file 244.json, 161/300) ================
+================ episode idx 161 (file 245.json, 162/300) ================
+================ episode idx 162 (file 246.json, 163/300) ================
+================ episode idx 163 (file 247.json, 164/300) ================
+================ episode idx 164 (file 248.json, 165/300) ================
+================ episode idx 165 (file 249.json, 166/300) ================
+================ episode idx 166 (file 250.json, 167/300) ================
+================ episode idx 167 (file 251.json, 168/300) ================
+================ episode idx 168 (file 252.json, 169/300) ================
+================ episode idx 169 (file 253.json, 170/300) ================
+[powered] progress: ran=170 skipped=0  ~623s/ep  ETA ~1349 min
+================ episode idx 170 (file 254.json, 171/300) ================
+================ episode idx 171 (file 255.json, 172/300) ================
+================ episode idx 172 (file 256.json, 173/300) ================
+================ episode idx 173 (file 257.json, 174/300) ================
+================ episode idx 174 (file 258.json, 175/300) ================
+================ episode idx 175 (file 259.json, 176/300) ================
+================ episode idx 176 (file 260.json, 177/300) ================
+================ episode idx 177 (file 261.json, 178/300) ================
+================ episode idx 178 (file 262.json, 179/300) ================
+================ episode idx 179 (file 263.json, 180/300) ================
+[powered] progress: ran=180 skipped=0  ~621s/ep  ETA ~1242 min
+================ episode idx 180 (file 264.json, 181/300) ================
+================ episode idx 181 (file 265.json, 182/300) ================
+================ episode idx 182 (file 266.json, 183/300) ================
+================ episode idx 183 (file 276.json, 184/300) ================
+================ episode idx 184 (file 277.json, 185/300) ================
+================ episode idx 185 (file 278.json, 186/300) ================
+================ episode idx 186 (file 279.json, 187/300) ================
+================ episode idx 187 (file 280.json, 188/300) ================
+================ episode idx 188 (file 281.json, 189/300) ================
+================ episode idx 189 (file 285.json, 190/300) ================
+[powered] progress: ran=190 skipped=0  ~629s/ep  ETA ~1153 min
+================ episode idx 190 (file 286.json, 191/300) ================
+================ episode idx 191 (file 287.json, 192/300) ================
+================ episode idx 192 (file 291.json, 193/300) ================
+================ episode idx 193 (file 292.json, 194/300) ================
+================ episode idx 194 (file 293.json, 195/300) ================
+================ episode idx 195 (file 300.json, 196/300) ================
+================ episode idx 196 (file 301.json, 197/300) ================
+================ episode idx 197 (file 302.json, 198/300) ================
+================ episode idx 198 (file 306.json, 199/300) ================
+================ episode idx 199 (file 307.json, 200/300) ================
+[powered] progress: ran=200 skipped=0  ~631s/ep  ETA ~1051 min
+================ episode idx 200 (file 308.json, 201/300) ================
+================ episode idx 201 (file 309.json, 202/300) ================
+================ episode idx 202 (file 310.json, 203/300) ================
+================ episode idx 203 (file 311.json, 204/300) ================
+================ episode idx 204 (file 312.json, 205/300) ================
+================ episode idx 205 (file 313.json, 206/300) ================
+================ episode idx 206 (file 314.json, 207/300) ================
+================ episode idx 207 (file 318.json, 208/300) ================
+================ episode idx 208 (file 319.json, 209/300) ================
+================ episode idx 209 (file 320.json, 210/300) ================
+[powered] progress: ran=210 skipped=0  ~635s/ep  ETA ~952 min
+================ episode idx 210 (file 321.json, 211/300) ================
+================ episode idx 211 (file 322.json, 212/300) ================
+================ episode idx 212 (file 323.json, 213/300) ================
+================ episode idx 213 (file 333.json, 214/300) ================
+================ episode idx 214 (file 334.json, 215/300) ================
+================ episode idx 215 (file 335.json, 216/300) ================
+================ episode idx 216 (file 339.json, 217/300) ================
+================ episode idx 217 (file 340.json, 218/300) ================
+================ episode idx 218 (file 341.json, 219/300) ================
+================ episode idx 219 (file 342.json, 220/300) ================
+[powered] progress: ran=220 skipped=0  ~630s/ep  ETA ~840 min
+================ episode idx 220 (file 343.json, 221/300) ================
+================ episode idx 221 (file 344.json, 222/300) ================
+================ episode idx 222 (file 351.json, 223/300) ================
+================ episode idx 223 (file 352.json, 224/300) ================
+================ episode idx 224 (file 353.json, 225/300) ================
+================ episode idx 225 (file 357.json, 226/300) ================
+================ episode idx 226 (file 358.json, 227/300) ================
+================ episode idx 227 (file 359.json, 228/300) ================
+================ episode idx 228 (file 360.json, 229/300) ================
+================ episode idx 229 (file 361.json, 230/300) ================
+[powered] progress: ran=230 skipped=0  ~627s/ep  ETA ~731 min
+================ episode idx 230 (file 362.json, 231/300) ================
+================ episode idx 231 (file 363.json, 232/300) ================
+================ episode idx 232 (file 364.json, 233/300) ================
+================ episode idx 233 (file 365.json, 234/300) ================
+================ episode idx 234 (file 366.json, 235/300) ================
+================ episode idx 235 (file 367.json, 236/300) ================
+================ episode idx 236 (file 368.json, 237/300) ================
+================ episode idx 237 (file 378.json, 238/300) ================
+================ episode idx 238 (file 379.json, 239/300) ================
+================ episode idx 239 (file 380.json, 240/300) ================
+[powered] progress: ran=240 skipped=0  ~628s/ep  ETA ~628 min
+================ episode idx 240 (file 381.json, 241/300) ================
+================ episode idx 241 (file 382.json, 242/300) ================
+================ episode idx 242 (file 383.json, 243/300) ================
+================ episode idx 243 (file 384.json, 244/300) ================
+================ episode idx 244 (file 385.json, 245/300) ================
+================ episode idx 245 (file 386.json, 246/300) ================
+================ episode idx 246 (file 387.json, 247/300) ================
+================ episode idx 247 (file 388.json, 248/300) ================
+================ episode idx 248 (file 389.json, 249/300) ================
+================ episode idx 249 (file 393.json, 250/300) ================
+[powered] progress: ran=250 skipped=0  ~623s/ep  ETA ~519 min
+================ episode idx 250 (file 394.json, 251/300) ================
+================ episode idx 251 (file 395.json, 252/300) ================
+================ episode idx 252 (file 402.json, 253/300) ================
+================ episode idx 253 (file 403.json, 254/300) ================
+================ episode idx 254 (file 404.json, 255/300) ================
+================ episode idx 255 (file 405.json, 256/300) ================
+================ episode idx 256 (file 406.json, 257/300) ================
+================ episode idx 257 (file 407.json, 258/300) ================
+================ episode idx 258 (file 408.json, 259/300) ================
+================ episode idx 259 (file 409.json, 260/300) ================
+[powered] progress: ran=260 skipped=0  ~617s/ep  ETA ~411 min
+================ episode idx 260 (file 410.json, 261/300) ================
+================ episode idx 261 (file 414.json, 262/300) ================
+================ episode idx 262 (file 415.json, 263/300) ================
+================ episode idx 263 (file 416.json, 264/300) ================
+================ episode idx 264 (file 417.json, 265/300) ================
+================ episode idx 265 (file 418.json, 266/300) ================
+================ episode idx 266 (file 419.json, 267/300) ================
+================ episode idx 267 (file 420.json, 268/300) ================
+================ episode idx 268 (file 421.json, 269/300) ================
+================ episode idx 269 (file 422.json, 270/300) ================
+[powered] progress: ran=270 skipped=0  ~616s/ep  ETA ~308 min
+================ episode idx 270 (file 426.json, 271/300) ================
+================ episode idx 271 (file 427.json, 272/300) ================
+================ episode idx 272 (file 428.json, 273/300) ================
+================ episode idx 273 (file 438.json, 274/300) ================
+================ episode idx 274 (file 439.json, 275/300) ================
+================ episode idx 275 (file 440.json, 276/300) ================
+================ episode idx 276 (file 441.json, 277/300) ================
+================ episode idx 277 (file 442.json, 278/300) ================
+================ episode idx 278 (file 443.json, 279/300) ================
+================ episode idx 279 (file 444.json, 280/300) ================
+[powered] progress: ran=280 skipped=0  ~621s/ep  ETA ~207 min
+================ episode idx 280 (file 445.json, 281/300) ================
+================ episode idx 281 (file 446.json, 282/300) ================
+================ episode idx 282 (file 447.json, 283/300) ================
+================ episode idx 283 (file 448.json, 284/300) ================
+================ episode idx 284 (file 449.json, 285/300) ================
+================ episode idx 285 (file 453.json, 286/300) ================
+================ episode idx 286 (file 454.json, 287/300) ================
+================ episode idx 287 (file 455.json, 288/300) ================
+================ episode idx 288 (file 459.json, 289/300) ================
+================ episode idx 289 (file 460.json, 290/300) ================
+[powered] progress: ran=290 skipped=0  ~620s/ep  ETA ~103 min
+================ episode idx 290 (file 461.json, 291/300) ================
+================ episode idx 291 (file 471.json, 292/300) ================
+================ episode idx 292 (file 472.json, 293/300) ================
+================ episode idx 293 (file 473.json, 294/300) ================
+================ episode idx 294 (file 474.json, 295/300) ================
+================ episode idx 295 (file 475.json, 296/300) ================
+================ episode idx 296 (file 476.json, 297/300) ================
+================ episode idx 297 (file 486.json, 298/300) ================
+================ episode idx 298 (file 487.json, 299/300) ================
+================ episode idx 299 (file 488.json, 300/300) ================
+[powered] progress: ran=300 skipped=0  ~619s/ep  ETA ~0 min
+[powered] finished: ran=300 skipped=0 in 3099 min
+[powered] === AGGREGATE (pad_300) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_pad_300/measurements
+  n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.13
+  spl_mean(present) = 0.09
+  distance_to_goal_mean(present) = 7.23
+  oracle_success_mean(present) = 0.29
+  oracle_navigation_error_mean(present) = 5.67
+  path_length_mean(present) = 20.95
+  --- honest rates over n_total=300 (paper-comparable) ---
+  success_over_total = 13.3%
+  spl_over_total = 9.1%
+  oracle_success_over_total = 29.0%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=300/300) | 7.23 | 29.0 | 13.3 | 9.1 |
+[08-09 06:29] ARM DONE: pad — 300/300 scored
+      n_present = 300 / n_total = 300 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 13.3%
+      oracle_success_over_total = 29.0%
+[08-09 06:29]   pushed: Sweep arm complete: pad (300/300)
+[08-09 06:29] ARM START: h060  transform=stretch  eps 0-200  extra='--cam_z=0.07'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h060_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.07
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h060_200   log -> /tmp/powered_h060_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~502s/ep  ETA ~1589 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~550s/ep  ETA ~1650 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~545s/ep  ETA ~1544 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~592s/ep  ETA ~1578 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~621s/ep  ETA ~1552 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~628s/ep  ETA ~1465 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~636s/ep  ETA ~1378 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~638s/ep  ETA ~1276 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~643s/ep  ETA ~1178 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~643s/ep  ETA ~1071 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~640s/ep  ETA ~960 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~623s/ep  ETA ~830 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~617s/ep  ETA ~719 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~626s/ep  ETA ~626 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~626s/ep  ETA ~521 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~622s/ep  ETA ~414 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~614s/ep  ETA ~307 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~606s/ep  ETA ~202 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~615s/ep  ETA ~102 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~620s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 2068 min
+[powered] === AGGREGATE (h060_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h060_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.12
+  spl_mean(present) = 0.07
+  distance_to_goal_mean(present) = 7.76
+  oracle_success_mean(present) = 0.28
+  oracle_navigation_error_mean(present) = 5.65
+  path_length_mean(present) = 23.30
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 11.5%
+  spl_over_total = 7.0%
+  oracle_success_over_total = 27.5%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 7.76 | 27.5 | 11.5 | 7.0 |
+[08-10 16:58] ARM DONE: h060 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 11.5%
+      oracle_success_over_total = 27.5%
+[08-10 16:58]   pushed: Sweep arm complete: h060 (200/200)
+[08-10 16:58] ARM START: h078  transform=stretch  eps 0-200  extra='--cam_z=0.25'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h078_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.25
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h078_200   log -> /tmp/powered_h078_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~536s/ep  ETA ~1697 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~641s/ep  ETA ~1923 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~611s/ep  ETA ~1731 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~637s/ep  ETA ~1698 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~630s/ep  ETA ~1575 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~638s/ep  ETA ~1488 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~627s/ep  ETA ~1358 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~634s/ep  ETA ~1268 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~643s/ep  ETA ~1178 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~622s/ep  ETA ~1036 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~611s/ep  ETA ~916 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~592s/ep  ETA ~789 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~606s/ep  ETA ~707 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~607s/ep  ETA ~607 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~615s/ep  ETA ~512 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~612s/ep  ETA ~408 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~606s/ep  ETA ~303 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 115: 439806 Killed                  timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py --task=k1_matterport_vision --num_envs=1 --checkpoint="$CKPT" --episode_idx=$i --gait_phase_init=0.0 --out_tag=$OUT_TAG $PROD_FLAGS $EXTRA --headless --enable_cameras >> "$LOG" 2>&1
+[ep 175 rc=137 -> stub 'wall_timeout']
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~609s/ep  ETA ~203 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~617s/ep  ETA ~102 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~623s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 2079 min
+[powered] === AGGREGATE (h078_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h078_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.12
+  spl_mean(present) = 0.07
+  distance_to_goal_mean(present) = 7.70
+  oracle_success_mean(present) = 0.28
+  oracle_navigation_error_mean(present) = 5.51
+  path_length_mean(present) = 23.74
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 12.5%
+  spl_over_total = 7.4%
+  oracle_success_over_total = 28.0%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 7.70 | 28.0 | 12.5 | 7.4 |
+[08-12 03:38] ARM DONE: h078 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 12.5%
+      oracle_success_over_total = 28.0%
+[08-12 03:38]   pushed: Sweep arm complete: h078 (200/200)
+[08-12 03:38] ARM START: h095  transform=stretch  eps 0-200  extra='--cam_z=0.42'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h095_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.42
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h095_200   log -> /tmp/powered_h095_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~509s/ep  ETA ~1611 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~572s/ep  ETA ~1716 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~566s/ep  ETA ~1603 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~608s/ep  ETA ~1621 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~624s/ep  ETA ~1560 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~611s/ep  ETA ~1425 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~591s/ep  ETA ~1280 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~595s/ep  ETA ~1190 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~599s/ep  ETA ~1098 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~584s/ep  ETA ~973 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~569s/ep  ETA ~853 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~563s/ep  ETA ~750 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~569s/ep  ETA ~663 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~566s/ep  ETA ~566 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~569s/ep  ETA ~474 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~563s/ep  ETA ~375 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~561s/ep  ETA ~280 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~560s/ep  ETA ~186 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~572s/ep  ETA ~95 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~577s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 1926 min
+[powered] === AGGREGATE (h095_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h095_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.18
+  spl_mean(present) = 0.11
+  distance_to_goal_mean(present) = 6.95
+  oracle_success_mean(present) = 0.31
+  oracle_navigation_error_mean(present) = 5.43
+  path_length_mean(present) = 21.08
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 18.5%
+  spl_over_total = 11.1%
+  oracle_success_over_total = 31.0%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 6.95 | 31.0 | 18.5 | 11.1 |
+[08-13 11:44] ARM DONE: h095 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 18.5%
+      oracle_success_over_total = 31.0%
+[08-13 11:44]   pushed: Sweep arm complete: h095 (200/200)
+[08-13 11:44] ARM START: h110  transform=stretch  eps 0-200  extra='--cam_z=0.57'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h110_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.57
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h110_200   log -> /tmp/powered_h110_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~468s/ep  ETA ~1482 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~591s/ep  ETA ~1773 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~560s/ep  ETA ~1586 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~597s/ep  ETA ~1592 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~615s/ep  ETA ~1537 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~608s/ep  ETA ~1418 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~613s/ep  ETA ~1328 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~606s/ep  ETA ~1212 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~608s/ep  ETA ~1114 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~577s/ep  ETA ~961 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~578s/ep  ETA ~867 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~572s/ep  ETA ~762 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~568s/ep  ETA ~662 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~574s/ep  ETA ~574 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~578s/ep  ETA ~481 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~578s/ep  ETA ~385 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~572s/ep  ETA ~286 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~567s/ep  ETA ~189 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~577s/ep  ETA ~96 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~584s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 1947 min
+[powered] === AGGREGATE (h110_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h110_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.13
+  spl_mean(present) = 0.07
+  distance_to_goal_mean(present) = 7.58
+  oracle_success_mean(present) = 0.22
+  oracle_navigation_error_mean(present) = 5.92
+  path_length_mean(present) = 22.01
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 13.0%
+  spl_over_total = 7.0%
+  oracle_success_over_total = 22.0%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 7.58 | 22.0 | 13.0 | 7.0 |
+[08-14 20:11] ARM DONE: h110 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 13.0%
+      oracle_success_over_total = 22.0%
+[08-14 20:11]   pushed: Sweep arm complete: h110 (200/200)
+[08-14 20:11] ARM START: h130  transform=stretch  eps 0-200  extra='--cam_z=0.77'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h130_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.77
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h130_200   log -> /tmp/powered_h130_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~583s/ep  ETA ~1846 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~623s/ep  ETA ~1869 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~569s/ep  ETA ~1612 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~593s/ep  ETA ~1581 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~612s/ep  ETA ~1530 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 115: 634948 Killed                  timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py --task=k1_matterport_vision --num_envs=1 --checkpoint="$CKPT" --episode_idx=$i --gait_phase_init=0.0 --out_tag=$OUT_TAG $PROD_FLAGS $EXTRA --headless --enable_cameras >> "$LOG" 2>&1
+[ep 53 rc=137 -> stub 'wall_timeout']
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~609s/ep  ETA ~1421 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~605s/ep  ETA ~1310 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~614s/ep  ETA ~1228 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~621s/ep  ETA ~1138 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~611s/ep  ETA ~1018 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~606s/ep  ETA ~909 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~599s/ep  ETA ~798 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~599s/ep  ETA ~698 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~611s/ep  ETA ~611 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~611s/ep  ETA ~509 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~610s/ep  ETA ~406 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~603s/ep  ETA ~301 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~603s/ep  ETA ~201 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~607s/ep  ETA ~101 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~613s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 2045 min
+[powered] === AGGREGATE (h130_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h130_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.15
+  spl_mean(present) = 0.09
+  distance_to_goal_mean(present) = 7.71
+  oracle_success_mean(present) = 0.24
+  oracle_navigation_error_mean(present) = 5.64
+  path_length_mean(present) = 22.68
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 15.0%
+  spl_over_total = 9.3%
+  oracle_success_over_total = 24.5%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 7.71 | 24.5 | 15.0 | 9.3 |
+[08-16 06:17] ARM DONE: h130 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 15.0%
+      oracle_success_over_total = 24.5%
+[08-16 06:17]   pushed: Sweep arm complete: h130 (200/200)
+[08-16 06:17] ARM START: h150  transform=stretch  eps 0-200  extra='--cam_z=0.97'  (have 0)
+[powered] ckpt=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt
+[powered] out_tag=h150_200  episodes=[0,200)  flags: --closed_loop --max_episode_s 120 --vlm_transform stretch --cam_z=0.97
+[powered] results -> /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h150_200   log -> /tmp/powered_h150_200.log
+[powered] VLM bridge already running.
+/home/boosterk1/Projects/k1_research/k1-research-workspace-main/scripts/run_powered_benchmark.sh: line 81: SECONDS: command not found
+================ episode idx 0 (file 0.json, 1/200) ================
+================ episode idx 1 (file 1.json, 2/200) ================
+================ episode idx 2 (file 2.json, 3/200) ================
+================ episode idx 3 (file 6.json, 4/200) ================
+================ episode idx 4 (file 7.json, 5/200) ================
+================ episode idx 5 (file 8.json, 6/200) ================
+================ episode idx 6 (file 9.json, 7/200) ================
+================ episode idx 7 (file 10.json, 8/200) ================
+================ episode idx 8 (file 11.json, 9/200) ================
+================ episode idx 9 (file 12.json, 10/200) ================
+[powered] progress: ran=10 skipped=0  ~538s/ep  ETA ~1703 min
+================ episode idx 10 (file 13.json, 11/200) ================
+================ episode idx 11 (file 14.json, 12/200) ================
+================ episode idx 12 (file 18.json, 13/200) ================
+================ episode idx 13 (file 19.json, 14/200) ================
+================ episode idx 14 (file 20.json, 15/200) ================
+================ episode idx 15 (file 24.json, 16/200) ================
+================ episode idx 16 (file 25.json, 17/200) ================
+================ episode idx 17 (file 26.json, 18/200) ================
+================ episode idx 18 (file 30.json, 19/200) ================
+================ episode idx 19 (file 31.json, 20/200) ================
+[powered] progress: ran=20 skipped=0  ~620s/ep  ETA ~1860 min
+================ episode idx 20 (file 32.json, 21/200) ================
+================ episode idx 21 (file 39.json, 22/200) ================
+================ episode idx 22 (file 40.json, 23/200) ================
+================ episode idx 23 (file 41.json, 24/200) ================
+================ episode idx 24 (file 42.json, 25/200) ================
+================ episode idx 25 (file 43.json, 26/200) ================
+================ episode idx 26 (file 44.json, 27/200) ================
+================ episode idx 27 (file 48.json, 28/200) ================
+================ episode idx 28 (file 49.json, 29/200) ================
+================ episode idx 29 (file 50.json, 30/200) ================
+[powered] progress: ran=30 skipped=0  ~573s/ep  ETA ~1623 min
+================ episode idx 30 (file 51.json, 31/200) ================
+================ episode idx 31 (file 52.json, 32/200) ================
+================ episode idx 32 (file 53.json, 33/200) ================
+================ episode idx 33 (file 54.json, 34/200) ================
+================ episode idx 34 (file 55.json, 35/200) ================
+================ episode idx 35 (file 56.json, 36/200) ================
+================ episode idx 36 (file 60.json, 37/200) ================
+================ episode idx 37 (file 61.json, 38/200) ================
+================ episode idx 38 (file 62.json, 39/200) ================
+================ episode idx 39 (file 66.json, 40/200) ================
+[powered] progress: ran=40 skipped=0  ~607s/ep  ETA ~1618 min
+================ episode idx 40 (file 67.json, 41/200) ================
+================ episode idx 41 (file 68.json, 42/200) ================
+================ episode idx 42 (file 69.json, 43/200) ================
+================ episode idx 43 (file 70.json, 44/200) ================
+================ episode idx 44 (file 71.json, 45/200) ================
+================ episode idx 45 (file 72.json, 46/200) ================
+================ episode idx 46 (file 73.json, 47/200) ================
+================ episode idx 47 (file 74.json, 48/200) ================
+================ episode idx 48 (file 75.json, 49/200) ================
+================ episode idx 49 (file 76.json, 50/200) ================
+[powered] progress: ran=50 skipped=0  ~625s/ep  ETA ~1562 min
+================ episode idx 50 (file 77.json, 51/200) ================
+================ episode idx 51 (file 78.json, 52/200) ================
+================ episode idx 52 (file 79.json, 53/200) ================
+================ episode idx 53 (file 80.json, 54/200) ================
+================ episode idx 54 (file 81.json, 55/200) ================
+================ episode idx 55 (file 82.json, 56/200) ================
+================ episode idx 56 (file 83.json, 57/200) ================
+================ episode idx 57 (file 84.json, 58/200) ================
+================ episode idx 58 (file 85.json, 59/200) ================
+================ episode idx 59 (file 86.json, 60/200) ================
+[powered] progress: ran=60 skipped=0  ~614s/ep  ETA ~1432 min
+================ episode idx 60 (file 87.json, 61/200) ================
+================ episode idx 61 (file 88.json, 62/200) ================
+================ episode idx 62 (file 89.json, 63/200) ================
+================ episode idx 63 (file 90.json, 64/200) ================
+================ episode idx 64 (file 91.json, 65/200) ================
+================ episode idx 65 (file 92.json, 66/200) ================
+================ episode idx 66 (file 93.json, 67/200) ================
+================ episode idx 67 (file 94.json, 68/200) ================
+================ episode idx 68 (file 95.json, 69/200) ================
+================ episode idx 69 (file 96.json, 70/200) ================
+[powered] progress: ran=70 skipped=0  ~634s/ep  ETA ~1373 min
+================ episode idx 70 (file 97.json, 71/200) ================
+================ episode idx 71 (file 98.json, 72/200) ================
+================ episode idx 72 (file 102.json, 73/200) ================
+================ episode idx 73 (file 103.json, 74/200) ================
+================ episode idx 74 (file 104.json, 75/200) ================
+================ episode idx 75 (file 111.json, 76/200) ================
+================ episode idx 76 (file 112.json, 77/200) ================
+================ episode idx 77 (file 113.json, 78/200) ================
+================ episode idx 78 (file 114.json, 79/200) ================
+================ episode idx 79 (file 115.json, 80/200) ================
+[powered] progress: ran=80 skipped=0  ~647s/ep  ETA ~1294 min
+================ episode idx 80 (file 116.json, 81/200) ================
+================ episode idx 81 (file 120.json, 82/200) ================
+================ episode idx 82 (file 121.json, 83/200) ================
+================ episode idx 83 (file 122.json, 84/200) ================
+================ episode idx 84 (file 123.json, 85/200) ================
+================ episode idx 85 (file 124.json, 86/200) ================
+================ episode idx 86 (file 125.json, 87/200) ================
+================ episode idx 87 (file 126.json, 88/200) ================
+================ episode idx 88 (file 127.json, 89/200) ================
+================ episode idx 89 (file 128.json, 90/200) ================
+[powered] progress: ran=90 skipped=0  ~637s/ep  ETA ~1167 min
+================ episode idx 90 (file 135.json, 91/200) ================
+================ episode idx 91 (file 136.json, 92/200) ================
+================ episode idx 92 (file 137.json, 93/200) ================
+================ episode idx 93 (file 138.json, 94/200) ================
+================ episode idx 94 (file 139.json, 95/200) ================
+================ episode idx 95 (file 140.json, 96/200) ================
+================ episode idx 96 (file 141.json, 97/200) ================
+================ episode idx 97 (file 142.json, 98/200) ================
+================ episode idx 98 (file 143.json, 99/200) ================
+================ episode idx 99 (file 144.json, 100/200) ================
+[powered] progress: ran=100 skipped=0  ~624s/ep  ETA ~1040 min
+================ episode idx 100 (file 145.json, 101/200) ================
+================ episode idx 101 (file 146.json, 102/200) ================
+================ episode idx 102 (file 147.json, 103/200) ================
+================ episode idx 103 (file 148.json, 104/200) ================
+================ episode idx 104 (file 149.json, 105/200) ================
+================ episode idx 105 (file 150.json, 106/200) ================
+================ episode idx 106 (file 151.json, 107/200) ================
+================ episode idx 107 (file 152.json, 108/200) ================
+================ episode idx 108 (file 153.json, 109/200) ================
+================ episode idx 109 (file 154.json, 110/200) ================
+[powered] progress: ran=110 skipped=0  ~624s/ep  ETA ~936 min
+================ episode idx 110 (file 155.json, 111/200) ================
+================ episode idx 111 (file 156.json, 112/200) ================
+================ episode idx 112 (file 157.json, 113/200) ================
+================ episode idx 113 (file 158.json, 114/200) ================
+================ episode idx 114 (file 159.json, 115/200) ================
+================ episode idx 115 (file 160.json, 116/200) ================
+================ episode idx 116 (file 161.json, 117/200) ================
+================ episode idx 117 (file 162.json, 118/200) ================
+================ episode idx 118 (file 163.json, 119/200) ================
+================ episode idx 119 (file 164.json, 120/200) ================
+[powered] progress: ran=120 skipped=0  ~615s/ep  ETA ~820 min
+================ episode idx 120 (file 165.json, 121/200) ================
+================ episode idx 121 (file 166.json, 122/200) ================
+================ episode idx 122 (file 167.json, 123/200) ================
+================ episode idx 123 (file 174.json, 124/200) ================
+================ episode idx 124 (file 175.json, 125/200) ================
+================ episode idx 125 (file 176.json, 126/200) ================
+================ episode idx 126 (file 177.json, 127/200) ================
+================ episode idx 127 (file 178.json, 128/200) ================
+================ episode idx 128 (file 179.json, 129/200) ================
+================ episode idx 129 (file 189.json, 130/200) ================
+[powered] progress: ran=130 skipped=0  ~622s/ep  ETA ~725 min
+================ episode idx 130 (file 190.json, 131/200) ================
+================ episode idx 131 (file 191.json, 132/200) ================
+================ episode idx 132 (file 192.json, 133/200) ================
+================ episode idx 133 (file 193.json, 134/200) ================
+================ episode idx 134 (file 194.json, 135/200) ================
+================ episode idx 135 (file 198.json, 136/200) ================
+================ episode idx 136 (file 199.json, 137/200) ================
+================ episode idx 137 (file 200.json, 138/200) ================
+================ episode idx 138 (file 204.json, 139/200) ================
+================ episode idx 139 (file 205.json, 140/200) ================
+[powered] progress: ran=140 skipped=0  ~632s/ep  ETA ~632 min
+================ episode idx 140 (file 206.json, 141/200) ================
+================ episode idx 141 (file 207.json, 142/200) ================
+================ episode idx 142 (file 208.json, 143/200) ================
+================ episode idx 143 (file 209.json, 144/200) ================
+================ episode idx 144 (file 213.json, 145/200) ================
+================ episode idx 145 (file 214.json, 146/200) ================
+================ episode idx 146 (file 215.json, 147/200) ================
+================ episode idx 147 (file 216.json, 148/200) ================
+================ episode idx 148 (file 217.json, 149/200) ================
+================ episode idx 149 (file 218.json, 150/200) ================
+[powered] progress: ran=150 skipped=0  ~638s/ep  ETA ~531 min
+================ episode idx 150 (file 225.json, 151/200) ================
+================ episode idx 151 (file 226.json, 152/200) ================
+================ episode idx 152 (file 227.json, 153/200) ================
+================ episode idx 153 (file 234.json, 154/200) ================
+================ episode idx 154 (file 235.json, 155/200) ================
+================ episode idx 155 (file 236.json, 156/200) ================
+================ episode idx 156 (file 237.json, 157/200) ================
+================ episode idx 157 (file 238.json, 158/200) ================
+================ episode idx 158 (file 239.json, 159/200) ================
+================ episode idx 159 (file 243.json, 160/200) ================
+[powered] progress: ran=160 skipped=0  ~631s/ep  ETA ~420 min
+================ episode idx 160 (file 244.json, 161/200) ================
+================ episode idx 161 (file 245.json, 162/200) ================
+================ episode idx 162 (file 246.json, 163/200) ================
+================ episode idx 163 (file 247.json, 164/200) ================
+================ episode idx 164 (file 248.json, 165/200) ================
+================ episode idx 165 (file 249.json, 166/200) ================
+================ episode idx 166 (file 250.json, 167/200) ================
+================ episode idx 167 (file 251.json, 168/200) ================
+================ episode idx 168 (file 252.json, 169/200) ================
+================ episode idx 169 (file 253.json, 170/200) ================
+[powered] progress: ran=170 skipped=0  ~631s/ep  ETA ~315 min
+================ episode idx 170 (file 254.json, 171/200) ================
+================ episode idx 171 (file 255.json, 172/200) ================
+================ episode idx 172 (file 256.json, 173/200) ================
+================ episode idx 173 (file 257.json, 174/200) ================
+================ episode idx 174 (file 258.json, 175/200) ================
+================ episode idx 175 (file 259.json, 176/200) ================
+================ episode idx 176 (file 260.json, 177/200) ================
+================ episode idx 177 (file 261.json, 178/200) ================
+================ episode idx 178 (file 262.json, 179/200) ================
+================ episode idx 179 (file 263.json, 180/200) ================
+[powered] progress: ran=180 skipped=0  ~632s/ep  ETA ~210 min
+================ episode idx 180 (file 264.json, 181/200) ================
+================ episode idx 181 (file 265.json, 182/200) ================
+================ episode idx 182 (file 266.json, 183/200) ================
+================ episode idx 183 (file 276.json, 184/200) ================
+================ episode idx 184 (file 277.json, 185/200) ================
+================ episode idx 185 (file 278.json, 186/200) ================
+================ episode idx 186 (file 279.json, 187/200) ================
+================ episode idx 187 (file 280.json, 188/200) ================
+================ episode idx 188 (file 281.json, 189/200) ================
+================ episode idx 189 (file 285.json, 190/200) ================
+[powered] progress: ran=190 skipped=0  ~643s/ep  ETA ~107 min
+================ episode idx 190 (file 286.json, 191/200) ================
+================ episode idx 191 (file 287.json, 192/200) ================
+================ episode idx 192 (file 291.json, 193/200) ================
+================ episode idx 193 (file 292.json, 194/200) ================
+================ episode idx 194 (file 293.json, 195/200) ================
+================ episode idx 195 (file 300.json, 196/200) ================
+================ episode idx 196 (file 301.json, 197/200) ================
+================ episode idx 197 (file 302.json, 198/200) ================
+================ episode idx 198 (file 306.json, 199/200) ================
+================ episode idx 199 (file 307.json, 200/200) ================
+[powered] progress: ran=200 skipped=0  ~637s/ep  ETA ~0 min
+[powered] finished: ran=200 skipped=0 in 2126 min
+[powered] === AGGREGATE (h150_200) ===
+# Aggregation of /home/boosterk1/Projects/k1_research/NaVILA-Bench/eval_results/k1_matterport_vision_loco_h150_200/measurements
+  n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+  success_mean(present) = 0.14
+  spl_mean(present) = 0.07
+  distance_to_goal_mean(present) = 7.49
+  oracle_success_mean(present) = 0.26
+  oracle_navigation_error_mean(present) = 5.86
+  path_length_mean(present) = 22.97
+  --- honest rates over n_total=200 (paper-comparable) ---
+  success_over_total = 14.5%
+  spl_over_total = 7.5%
+  oracle_success_over_total = 25.5%
+
+## Markdown row for OVERNIGHT_RESULTS.md:
+
+| Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
+|-------|--------|-----|-----|-----|------|
+| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| **K1 (ours, vision)** | k1_vision (n=200/200) | 7.49 | 25.5 | 14.5 | 7.5 |
+[08-17 17:43] ARM DONE: h150 — 200/200 scored
+      n_present = 200 / n_total = 200 (0 missing — scored as failures for SR/OS/SPL)
+      success_over_total = 14.5%
+      oracle_success_over_total = 25.5%
+[08-17 17:43]   pushed: Sweep arm complete: h150 (200/200)
+[08-17 17:43] ALL ARMS COMPLETE
+[08-17 17:43]   pushed: Sweep COMPLETE — all arms
