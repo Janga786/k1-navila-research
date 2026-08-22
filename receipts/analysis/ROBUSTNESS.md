@@ -100,9 +100,10 @@ reach/recognise split is exploratory and unpowered.
 
 ## D. Scene clustering and cluster-robust intervals
 
-Episode dataset `vln_ce_isaac_v1.json.gz`, SHA-256 `ceb2a2a9ac1f6d1a1ebbf9fe205867b101b1b7bb61d532a4d491124c7c0b0eec`.
+Rebuilt from the episode dataset `vln_ce_isaac_v1.json.gz`, SHA-256 `ceb2a2a9ac1f6d1a1ebbf9fe205867b101b1b7bb61d532a4d491124c7c0b0eec`.
+
 All 1077 episodes use goal radius {3.0} m (dataset-supplied, not a
-project constant). Derived `episode_index.csv` maps list order -> episode_id ->
+project constant). `episode_index.csv` maps list order -> episode_id ->
 record index -> scene, which is what makes "episodes 0-299" interpretable.
 
 The full benchmark spans **11 scenes**; the pinned 300 covers **8**.
