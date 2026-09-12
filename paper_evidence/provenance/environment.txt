@@ -1,0 +1,149 @@
+PROVENANCE SNAPSHOT — environment used for this reanalysis
+=============================================================================
+Captured: 2026-09-11T18:21:09-06:00 (America/Denver, MDT, -0600), NTP-synchronized
+Hostname: booster
+Command used to capture: date -Iseconds; hostname; lsb_release-equivalent /etc/os-release;
+                          uname -a; nvidia-smi --query-gpu=...; nvcc --version; git rev-parse/status
+
+This file distinguishes TWO different environments. Do not conflate them:
+  (a) the environment that ORIGINALLY produced the experimental data (training + the
+      baseline_full_14498 run + the ten-arm sweep), captured historically in
+      receipts/provenance/ENVIRONMENT.md, AWAY_STATUS.md, HANDOFF.md — reproduced verbatim
+      in section 2 below;
+  (b) the environment that ran THIS reanalysis today (2026-09-11), captured live in section 1.
+No simulation, GPU job, training, or eval pipeline was run to produce this file or any other
+paper_evidence/ file. CPU-only re-derivation from committed JSON receipts.
+
+=============================================================================
+SECTION 1 — ENVIRONMENT RUNNING THIS REANALYSIS (today, 2026-09-11)
+=============================================================================
+
+## Host
+OS            : Ubuntu 22.04.5 LTS (Jammy Jellyfish)   [/etc/os-release: PRETTY_NAME="Ubuntu 22.04.5 LTS"]
+Kernel        : Linux booster 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26
+                21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux   [uname -a]
+Hostname      : booster
+
+## GPU / driver (THIS machine, right now — same physical box as the sweep, not touched since)
+NVIDIA driver : 580.173.02   [nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv]
+GPU           : NVIDIA GeForce RTX 3090, 24576 MiB
+CUDA (nvcc)   : release 11.8, V11.8.89, build cuda_11.8.r11.8/compiler.31833905_0
+                (nvcc at /usr/local/cuda-11.8/bin/nvcc; this is the toolkit installed on the
+                machine, NOT necessarily the toolkit any particular conda env links against)
+NOTE: no CUDA context was initialized to capture any of the above — nvidia-smi/nvcc are
+separate processes; no simulation or GPU job was launched for this task.
+
+## Python used for this reanalysis
+Interpreter   : /home/boosterk1/miniconda3/bin/python3
+Version       : 3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:19:41) [GCC 14.3.0]
+numpy         : 2.4.6
+scipy         : 1.17.1
+matplotlib    : 3.10.9
+pandas        : NOT INSTALLED in this interpreter (expected/required — stdlib csv used throughout)
+torch         : importable WITHOUT a CUDA context (plain `import torch`, no `.cuda()` call,
+                no tensor allocation): 2.12.0+cu130
+                — THIS IS NOT THE TRAINING/EVAL TORCH. It is whatever happens to be installed
+                in the base miniconda3 env used to run these read-only analysis scripts. The
+                actual eval/training environment is the separate `vlnce-isaac` conda env
+                (see SECTION 2), which this task never activated, imported from, or executed.
+
+This reanalysis is CPU-only stdlib/numpy/scipy/matplotlib arithmetic over committed JSON files.
+No simulator, no VLM, no policy network was loaded or executed to produce any paper_evidence/ file.
+
+## This repository (git) — read-only queries only
+Branch        : main
+HEAD commit   : a6fe40b431353b0eee968c07015dd8d1b1211d53
+HEAD subject  : "Make scene stratification reproducible from a clean clone"
+HEAD date     : 2026-08-22T14:32:39-06:00
+git status --short (at the time this file was written):
+  ?? paper_evidence/
+(paper_evidence/ is this task's own untracked output directory; receipts/ and every other
+tracked path are clean — verified after restoring receipts/analysis/arm_summary.csv following
+the Task A rerun, see paper_evidence/REPRODUCTION_CHECK.md)
+
+## IsaacLab / Isaac Sim — discovered from files on disk, NOT launched
+IsaacLab commit (git rev-parse HEAD in ./IsaacLab)     : 4d558ec83878c4892a46591c85ba91ac9d3c1834
+IsaacLab local modifications (git status --short)      :
+   M source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
+  ?? source/extensions/omni.isaac.matterport   (symlink into NaVILA-Bench-main, tracked there)
+  ?? source/extensions/omni.isaac.vlnce        (symlink into NaVILA-Bench-main, tracked there)
+IsaacLab/VERSION file contents                          : 1.1.0
+  -> IDENTICAL to the commit and local-modification set recorded in
+     receipts/provenance/ENVIRONMENT.md at sweep time. Nothing in the IsaacLab checkout has
+     moved since the sweep completed.
+isaacsim (pip package, from receipts/provenance/pip_freeze_vlnce-isaac.txt, NOT reinstalled or
+re-queried today — this repo's committed freeze is the only source): isaacsim==4.5.0.0
+  (companion packages isaacsim-app/-core/-gui/-kernel/... pinned at 4.1.0.0 in the same freeze;
+  this mixed 4.5.0.0/4.1.0.0 pinning is exactly as recorded in the committed pip freeze —
+  reported verbatim, not reconciled or explained by this task)
+Isaac Sim / Isaac Lab were NOT launched to produce this snapshot.
+
+=============================================================================
+SECTION 2 — ENVIRONMENT THAT ORIGINALLY PRODUCED THE DATA (historical, reproduced verbatim
+from receipts/provenance/ENVIRONMENT.md, captured 2026-08-22 20:25 UTC on this same machine)
+=============================================================================
+
+>>> IMPORTANT: two DIFFERENT NVIDIA driver versions cover different parts of the dataset <<<
+  580.159.03  (PURGED from the Ubuntu archive, unobtainable) -> baseline_full_14498 ONLY
+              (the SR 18.3% headline; every June/July result through 2026-07-24)
+  580.173.02  -> every sweep arm (stretchA, stretchB, crop, pad, h060..h150), all run
+              2026-07-26 through 2026-08-17, after an unattended apt upgrade forced the bump
+              on 2026-07-24 06:45 (see receipts/PRE_REGISTRATION.md "DRIVER-CHANGE CONFOUND").
+  This machine's CURRENT driver (Section 1, above) happens to also read 580.173.02 — i.e. the
+  box has not been touched since the sweep. That is a coincidence of timing, not evidence that
+  reruns would reproduce the baseline driver; 580.159.03 remains permanently unobtainable.
+
+## Host (at sweep time, per ENVIRONMENT.md)
+OS            : Ubuntu 22.04.5 LTS
+Kernel        : 6.8.0-124-generic
+CPU           : Intel(R) Xeon(R) Gold 6128 CPU @ 3.40GHz
+RAM           : 62 GiB
+GPU           : NVIDIA GeForce RTX 3090, 24576 MiB
+
+## Python / ML stack used to PRODUCE the data (conda env `vlnce-isaac`, per ENVIRONMENT.md)
+conda env     : vlnce-isaac
+python        : 3.10.20
+torch         : 2.2.2+cu118
+torch CUDA    : 11.8
+numpy         : 1.26.4
+scipy         : 1.15.3
+  -> Contrast with Section 1: this reanalysis ran on Python 3.13.13 / numpy 2.4.6 / scipy
+     1.17.1 in a DIFFERENT (base miniconda3) environment. This version drift is the identified
+     cause of the sub-1e-10-relative-magnitude floating-point differences found when rerunning
+     receipts/analysis/analyze_sweep.py today (see REPRODUCTION_CHECK.md, Task A section) —
+     every differing digit is far past the precision any reported number is quoted to.
+
+## Simulator / benchmark code (at sweep time, per ENVIRONMENT.md)
+IsaacLab commit          : 4d558ec83878c4892a46591c85ba91ac9d3c1834   (MATCHES Section 1 today)
+IsaacLab local modifications: same M/??/?? set as Section 1 today (unchanged since capture)
+`omni.isaac.vlnce` / `omni.isaac.matterport` are symlinks into NaVILA-Bench-main/isaaclab_exts/,
+which IS tracked in this repository (61 files) — no benchmark code is unversioned.
+
+## Model
+Evaluated policy: checkpoints/model_14498.pt
+SHA-256 (from receipts/provenance/checkpoint_sha256.txt):
+  8e7559b5075fe6c90d4ce81fb1eb66d69ef852b2ed3718b5416b6a0fd2bdad4b  checkpoints/model_14498.pt
+(full list of all five checkpoint hashes in that file; only model_14498.pt was evaluated)
+
+## Methods-critical local simulator modification (per ENVIRONMENT.md, unchanged today)
+IsaacLab's `sim/simulation_cfg.py` reduces PhysX GPU buffer capacities to fit the RTX 3090's
+24 GB (gpu_max_rigid_contact_count 2^23->2^21, gpu_found_lost_pairs_capacity 2^21->2^18,
+gpu_found_lost_aggregate_pairs_capacity 2^25->2^18, gpu_total_aggregate_pairs_capacity
+2^21->2^18, gpu_collision_stack_size 2^26->2^23, gpu_heap_capacity 2^26->2^22,
+gpu_temp_buffer_capacity 2^24->2^20). Captured verbatim in
+receipts/provenance/isaaclab_simulation_cfg.patch. Constant across the baseline and every
+sweep arm (verified by mtime in ENVIRONMENT.md: patch predates all data collection). Whether
+buffer pressure contributes to the sim-side nondeterminism finding is explicitly UNTESTED
+(ENVIRONMENT.md "Open question"; also receipts/KNOWN_GAPS.md G4).
+
+=============================================================================
+SOURCES FOR THIS FILE
+=============================================================================
+- Section 1 captured live today by this task (bash: date, hostname, /etc/os-release, uname -a,
+  nvidia-smi, nvcc, the analysis python3's own sys/numpy/scipy/matplotlib/torch imports,
+  git -C . and git -C IsaacLab read-only queries, cat IsaacLab/VERSION, grep of the committed
+  pip freeze).
+- Section 2 reproduced verbatim from receipts/provenance/ENVIRONMENT.md (captured 2026-08-22
+  20:25 UTC by the sweep's own operator) plus receipts/PRE_REGISTRATION.md ("DRIVER-CHANGE
+  CONFOUND") and AWAY_STATUS.md / HANDOFF.md for the driver-upgrade timeline. Nothing in
+  Section 2 was independently re-measured — receipts/ is read-only for this task.

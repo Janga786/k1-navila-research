@@ -1,0 +1,22 @@
+statistic,value,ci95_lo,ci95_hi,ci_method,n,notes
+stretchA_SR,0.150000,,,,300,successes=45/300
+stretchB_SR,0.160000,,,,300,successes=48/300
+n11_A_succ_B_succ,30,,,,300,contingency cell
+n10_A_succ_B_fail,15,,,,300,contingency cell
+n01_A_fail_B_succ,18,,,,300,contingency cell
+n00_A_fail_B_fail,237,,,,300,contingency cell
+raw_agreement,0.890000,,,,300,(n11+n00)/n
+discordance_rate,0.110000,,,,300,(n10+n01)/n
+cohens_kappa,0.580153,0.451539,0.708766,asymptotic_fleiss_cohen_SE,300,SE=0.065620
+cohens_kappa,0.580153,0.441006,0.697875,episode_bootstrap_percentile,300,"10000 resamples, seed 20260911, n_valid=10000"
+positive_agreement_PA,0.645161,,,,300,2*n11/(2*n11+n10+n01)
+negative_agreement_NA,0.934911,,,,300,2*n00/(2*n00+n10+n01)
+mcnemar_exact_p,0.728332,,,binomial_two_sided,33,n10=15 n01=18 vs p=0.5
+n01_fail_to_success,18,,,,300,fraction_of_n=0.060000; fraction_of_union=0.285714
+n10_success_to_fail,15,,,,300,fraction_of_n=0.050000; fraction_of_union=0.238095
+union_of_successes,63,,,,300,episodes succeeding in either run out of 300
+union_both_succeeded_fraction,0.476190,,,,63,30/63 succeeded in both runs (historically 30/63=48%)
+scene_count,8,,,,300,number of distinct scenes covered by the 300 paired episodes; scene-cluster bootstrap resamples only this many clusters -> coarse resolution
+cohens_kappa_scene_cluster,0.580153,0.493665,0.661039,scene_cluster_bootstrap_percentile,300,"10000 resamples, seed 20260911, 8 scenes resampled with replacement; n_valid=10000; ONLY 8 CLUSTERS -> coarse/unstable CI"
+discordance_rate_scene_cluster,0.110000,0.075269,0.146671,scene_cluster_bootstrap_percentile,300,"10000 resamples, seed 20260911, 8 scenes; ONLY 8 CLUSTERS -> coarse/unstable CI"
+sr_diff_B_minus_A_scene_cluster,0.010000,-0.027778,0.053763,scene_cluster_bootstrap_percentile,300,"10000 resamples, seed 20260911, 8 scenes; ONLY 8 CLUSTERS -> coarse/unstable CI"

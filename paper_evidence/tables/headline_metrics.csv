@@ -1,0 +1,6 @@
+arm,label,n,successes,sr_pct,oracle_successes,osr_pct,spl_pct,ne_mean_m,ne_n_excl_sentinel,n_timeout
+baseline_full_14498,"baseline (model_14498, full benchmark)",1077,197,18.2916,326,30.2693,10.9252,7.5912,1077,0
+stretchA,stretch (replicate A),300,45,15.0000,87,29.0000,8.7566,7.2166,297,20
+stretchB,stretch (replicate B),300,48,16.0000,95,31.6667,9.9048,7.0588,296,22
+crop,crop,300,50,16.6667,72,24.0000,10.5429,7.4961,300,6
+pad,pad,300,40,13.3333,87,29.0000,9.1099,7.2258,300,37

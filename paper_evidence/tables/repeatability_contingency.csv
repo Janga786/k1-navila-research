@@ -1,0 +1,6 @@
+stretchA_outcome,stretchB_outcome,n_episodes,fraction_of_total
+success,success,30,0.100000
+success,failure,15,0.050000
+failure,success,18,0.060000
+failure,failure,237,0.790000
+TOTAL,TOTAL,300,1.000000
