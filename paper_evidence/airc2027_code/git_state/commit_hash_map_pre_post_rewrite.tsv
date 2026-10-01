@@ -1,0 +1,48 @@
+old_hash_local_main	new_hash_github_main	author_date	subject
+72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa	fa419948d8eb5a33adbf16c1fee03b6bd7efa9e5	2026-09-11T18:47:40-06:00	Add reproducible AIRC paper reanalysis and evidence package
+a6fe40b431353b0eee968c07015dd8d1b1211d53	c6db96c5d29f607aa80f69aa542a21be96fcb4df	2026-08-22T14:32:39-06:00	Make scene stratification reproducible from a clean clone
+50a68a94ff59406321eda6fb6e513a0a4698be7b	70edb55f3b00d1d57c7be0f2dbdcfde63e474898	2026-08-22T14:31:32-06:00	Add robustness analyses, the gap register, and corrections to refuted claims
+ab70f4a0259313d31eeae37e9125c0c5be472776	ccb4211848a99fd0cdccbf64d916e5da82a46b51	2026-08-22T14:26:49-06:00	Add environment provenance, the pre-registered analysis, and two amendments
+f8c0a62041ecb2e8c8e154ed9f023c679d92d34b	6701dbd269db33d6381f1342a40878ba873a00b1	2026-08-22T14:26:49-06:00	Add the full_14498 baseline receipts (1077 per-episode records)
+25f7160693a18ceb59d8407f2550322f5a0b205a	58536a9e335e7611844f07fb4e711e958f26777f	2026-08-22T14:26:38-06:00	Commit the instruments that produced the sweep
+07a526317ef1341e3364df505b9cf98d6c6c99cb	10c26a6fd93e58a3172145216636019c56b6428f	2026-08-17T17:43:21-06:00	Sweep COMPLETE — all arms
+349ab30c24f5f82fc2e0f56116587cbb01c1528c	1910b714e810cf04a45d9b1346ff44d05166f655	2026-08-17T17:43:19-06:00	Sweep arm complete: h150 (200/200)
+42d84568ed7b87b89aa448fa51d9e1cad5a7872b	2194b3cec58dc411f747c99896a3a12e038a13a9	2026-08-16T06:17:02-06:00	Sweep arm complete: h130 (200/200)
+d4aaec6d402f122c5c4c76854b476612a6509c6b	5c9b644e591a87d22e7985d68fbb1a2dfe5152f6	2026-08-14T20:11:53-06:00	Sweep arm complete: h110 (200/200)
+808937428227422f04c149981f544ac84be38249	afe7e5cfe555bc58f8289ddcf89d05a2ab3652ad	2026-08-13T11:44:21-06:00	Sweep arm complete: h095 (200/200)
+d0f8e73ea3c76178834e239797122547c6e16dc7	df5287d5681a55d7b59ca2ef6664f77dbde7396a	2026-08-12T03:38:11-06:00	Sweep arm complete: h078 (200/200)
+032e568c2642a63155436001eceafe4ce02525da	b8c7f9355eec41b0b9d4b981beba2cfc85f2173a	2026-08-10T16:58:20-06:00	Sweep arm complete: h060 (200/200)
+d7eff214e39e2a4594ce9296e8ddd25f51f8c126	42df78146b555ad4042316bf5d73b79a0027c967	2026-08-09T06:29:41-06:00	Sweep arm complete: pad (300/300)
+f5f66b854bae2ae658638332f984642702dabb97	0deeea479bfd86dca5874a7462f4a2bd344dfe95	2026-08-07T02:50:17-06:00	Sweep arm complete: crop (300/300)
+c9a4f4920df5e9d2fee49e6cdfbfbf0275db809c	07419eaa08cbeeea4e1af6c89af461dcf0b77791	2026-08-05T02:39:10-06:00	Sweep arm complete: stretchB (300/300)
+ad1d2415fdba43705791a4b95b3332d143a60f9b	b75e385a042d0865089451fc6dd1064039c48808	2026-07-27T06:37:39-06:00	Handoff doc for session continuity (sweep running: stretchA done, stretchB in progress)
+d2b2081425b82707be890bd46d2f5f31dcba14ac	4b58bd857ce1adf2c0dfbc7583a49eed22051edd	2026-07-26T17:10:27-06:00	Sweep arm complete: stretchA (300/300)
+9311438a5150820af040d212227cafb3f1bf0e7e	36d8729ec0015e0cbcb431a6d71caa2364bc1934	2026-07-24T12:43:24-06:00	Launch: sweep runner (stretchA->stretchB->crop->pad->6-height sweep) started in tmux on driver 580.173.02
+fc31cb8620f9b8d8265042b6b7bf79be14702bba	da0b7c5ac61b550d88e4d8256c7107da898d0cbf	2026-07-24T12:41:16-06:00	Root-cause: strengthened 5b (VLM 50/50 deterministic incl turn phases) + 5a (sim renders non-identical pixels) -> chaos is sim-side, not the VLM
+54424579863de4b6fee43c830ef40b743b85bf5f	6b220c316432c030a42ec500a04c69a9454ded7b	2026-07-24T12:02:24-06:00	Pre-launch suite (driver 580.173): runner-side wall_timeout stub (guaranteed record), cam_z isolation verified, VLM deterministic (5b), driver smoke GREEN (2/6 flips both drivers, all in-neighborhood, no structural breaks)
+e0640ce909cea72ce5312756fc05d830dde94a09	a16e3bcc70d925658993842e4644c56ccc1f1ae6	2026-07-24T09:58:04-06:00	Driver-change confound (580.159->580.173, recovered via gcc-12 DKMS rebuild) + AWAY_STATUS handoff with unhold one-liner and blind CUDA-recovery steps
+b26c98cf9605a111ea70734ec58bdbc50067cec1	cd95379c6009d3d7ea5fcedbe49fec1063b6fabd	2026-07-23T17:04:19-06:00	Determinism verdict: NON-DETERMINISTIC (6/6 episodes differ, 2/6 flip success). Retry design invalid; paired design undermined; aggregate 18.3% intact. STOPPED per pre-registered gate.
+7f14c3fb08fe9912edc0711d3f246b8b6f082d50	dffebd50cf0098d6fb809aa4bc3f4220026c157d	2026-07-23T14:52:39-06:00	Pre-registration: 0-299 stretch baseline (17.7/31.7/7.22), fixed analysis plan (McNemar paired, no seeds), pre-registered null, determinism gate on retry pass, wall-timeout schema
+087598dd88c5e7b27c75663bbe3c55106fccec12	e8b52063441c8e4b3ef454548e6dd9b9f13e58ec	2026-07-22T15:15:14-06:00	Close external-citation flags: NaVILA Table IV/V verified against arXiv 2412.04453
+d50e5c7bb768ddd4a136ba35534de25d5ce8a59e	5535f35fdeebf748364b6c36336684b8f419e69f	2026-07-22T09:18:09-06:00	RUN_STATUS: straggler retry protocol
+c3105dfa4fb5a4c24a5e2422dfe1711f71eb06a9	934a7a82ee17d94b5d1f462d508ee6bc26d84930	2026-07-22T09:03:38-06:00	Final-week ops: A/B-100 launcher + run status (incl. remote-access flag) + verified slide facts
+7ab06628361b3bc9c4ba750d97776f32efcb37d3	c518662b7eec9cf6f90772de3884909cae888d03	2026-07-22T09:00:12-06:00	COMMIT_LEDGER: final-week commit sweep record
+3d3f35d278dc60d83e5731daafd31bd8e878d4f9	c6e80318dcb25036ae54244509fb7ea1ddf6e903	2026-07-22T08:59:27-06:00	Evidence pack: claim-by-claim verification (EVIDENCE.md) + receipts (metric recompute script/outputs, reward tables, 22-run ledger, git ledger, media index, fresh 14498 tracking regen)
+9c50750441fa175b1a9dc3b9b92c333b7a03ef89	46eb23609228fa3b63b2a6f96328477fdcf54dd2	2026-07-09T08:58:26-06:00	Runbook: troubleshooting rows for silent kWalking refusal + battery-brownout camera decay
+52a26ec30a96c37bc15b98855ff252a27364bb9a	5e9229331ca2944572efb40c8c8683a4ea153e1a	2026-07-09T08:44:08-06:00	Runbook §0: camera = camera_up.sh (StartVisionService noface + raw topic, 29.5 fps verified); supersedes /booster_video_stream guidance
+5aa54b076b4e772f48f97be93c7617f2ca122bfe	2b1bf2936f1055262ae0d5d7f97dae451fa37bd7	2026-07-02T11:39:32-06:00	Readiness pass 2026-07-02: runbook rewritten for /booster_video_stream camera (StartVisionService path retired) + eno1/pose-odom/watchdog updates; final-results doc corrected to full-1077 figures
+6bb5f56434b63c1a0b4bce82441fd61e00fd6ce7	365b87037af28125959c0a212188d084b167de41	2026-06-22T21:01:23-06:00	Final result COMPLETE n=1077/1077: SR 18.3 / OS 30.3 / SPL 10.9 / NE 7.59 (27 stragglers recovered via 1800s guard; 0 missing). ~24x over 0.76% baseline.
+9f95a6528fec3a6d5bfcc35daa32dc85d678fabd	8c5d54e8cef474c3b0501497ae61b15a91774ca8	2026-06-22T08:40:41-06:00	Final full-1077 benchmark result: SR 17.7 / OS 29.2 / SPL 10.7 / NE 7.64 (model_14498, int8, n=1050/1077)
+4282904b466fa646511a8efb8b7a33474ec00425	9e1141f7966bac25a28740d514217075fa73c9d0	2026-06-11T15:36:57-06:00	A/B verdict: stretch beats crop (SR 30 vs 0; crop reaches but cannot stop — arrival recognition needs peripheral FOV). Full 1077 launched: int8, raw, stretch, model_14498.
+4db5fa8011ee763c9b6894a1819a4ff86d3c6045	00d0561818b944f1594084e937a2104c649f2fb0	2026-06-11T14:17:14-06:00	Arbiter result: int8 action drift 7.1% on identical inputs — below the model's own 14.9% jpg-noise sensitivity; 100% agreement on all success episodes. int8 blessed for the full run.
+a6dde38a6daa01b15daf41c68172fa95548f94de	c31566b9353b5503f792818d221e5a1d7a641d56	2026-06-11T14:04:23-06:00	Benchmark program tooling: fp16/int8 replay arbiter + lab-box runner config
+ec2980ef48085a891855541850b3e786a99cc474	cd43a94a3b48054fa528a6636ff9e5d4b43b9c6a	2026-06-11T11:42:00-06:00	Robot deploy runbook: vision-service unlock, camera bridge, VLM server, print/dry/live relay escalation
+81e188922c8d2313e3a1eb04a814aceb79c79b30	86b034dd0e1d0ab8aae2047cb766892170992144	2026-06-11T11:10:56-06:00	Results: 10-ep smoke — SR 30 / OS 40 / NE 5.61 (lab 3090, model_14498, int8)
+6dc4d2d8613f0426aec6833a0a07d7c0217ea6b9	31b42973b42172bd4a6530b782297b94a4995c68	2026-06-11T11:06:03-06:00	Lab-3090 smoke: SR 30%/OS 40%/NE 5.61 (beats paper blind-H1) + harness fixes
+dd336fee397b46111577b2b20558765a4d8327a9	(dropped by rewrite: touched only the removed vendored dirs)	2026-06-11T08:34:14-06:00	Render-pipeline fixes from the 32GB smoke diagnosis + 8-bit VLM option
+9d3aa96d04c1738d887cb0b8616f4d72a8bcc11c	59d8486e85141700a68ae48893f6fd19393b2d19	2026-06-10T19:06:48-06:00	Ship model_14498: feet_distance fine-tune (foot clipping fixed, 0 contacts)
+e77fe80af1ebfd00a034ca55c1bfedeeb3e11ae7	7b6158506c82ebbd0ea3ddc0e3f0dd4e24e20323	2026-06-10T14:34:24-06:00	Ship model_11999 checkpoint for the 32GB benchmark machine (7 MB, force-added past *.pt ignore)
+e24bf6527b72af9676c071b083a8ef3738757b33	ce9104bebf3489fda6bef49d5933163c104e5d3d	2026-06-10T14:16:15-06:00	L4 control gate (teleport scorer probe) + 32GB benchmark checklist
+f1af3e13962c6b5dbe1c33aa5811d572d5c9c363	(dropped by rewrite: touched only the removed vendored dirs)	2026-06-10T13:56:43-06:00	Stall-abort v2 (windowed progress) + L2 runtime validation harnesses
+98a80ec3c812459686dd82d6be19a265a0185fb0	32d36f84e28453c4066e9bdc7dbee65ff4aa9501	2026-06-10T11:14:03-06:00	Harden .gitignore: ignore secret/credential files
+acd6b5c9274bd4d5ee7f147fe9a12085e0ef6de1	759509f675f1f478f006370734ec0fb7c3424c50	2026-06-10T11:01:28-06:00	Initial commit: K1 NaVILA benchmark + workspace (code only)

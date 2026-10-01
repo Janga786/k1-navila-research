@@ -1,0 +1,113 @@
+# Was the code in this directory what actually ran during the sweep (2026-07-24 .. 2026-08-17)?
+Evidence collected 2026-10-01 on the sweep workstation. File modification times of the vendored
+benchmark files cannot be used: on 2026-09-11 a branch switch in ~/Projects/k1_research deleted and
+re-created every tracked file under NaVILA-Bench-main/ and k1-research-workspace-main/, so their mtimes all
+read 2026-09-11 18:53. Content evidence used instead:
+
+## 1. Bytecode-cache comparison (all imported modules)
+Python rewrites a module's __pycache__/*.cpython-310.pyc whenever the source's mtime or size no longer
+matches the cache header. The sweep imported these modules in every episode (Python 3.10, conda env
+vlnce-isaac), and every cache below was last written in June. So no imported module changed between the
+cache date and the end of the sweep. Each current source file was then compiled and compared,
+structurally (bytecode, constants, names, line table; filename ignored), with its cached code object.
+Result: 53 of 54 modules are BYTECODE-IDENTICAL; the only mismatch is navila_eval_v3.py, which runs as
+__main__ (never cached by an import during the sweep; its stale cache is from an import on 2026-06-08).
+Comment-only edits would not be detected by this method; they cannot change behaviour.
+
+source_file | verdict | cache_written | cache_header_src_mtime | cache_header_size | current_size
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/config/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 275 | 275
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/config/importer_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 3237 | 3237
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 617 | 617
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_importer.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 5620 | 5620
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_raycast_camera.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 9744 | 9744
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_raycaster.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2743 | 2743
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/raycaster_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 535 | 535
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 54 | 54
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 766 | 766
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/go2_matterport_base_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 14414 | 14414
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/go2_matterport_vision_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 6724 | 6724
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 754 | 754
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/h1_matterport_base_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 13119 | 13119
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/h1_matterport_vision_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 14049 | 14049
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 720 | 720
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py | BYTECODE-IDENTICAL | 2026-06-10 13:33 | 2026-06-10 10:40:20 | 13802 | 13802
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py | BYTECODE-IDENTICAL | 2026-06-08 13:53 | 2026-06-08 13:53:40 | 16822 | 16822
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 317 | 317
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py | BYTECODE-IDENTICAL | 2026-06-10 13:33 | 2026-06-10 10:38:35 | 2697 | 2697
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/measures.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 11459 | 11459
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 10486 | 10486
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py | BYTECODE-IDENTICAL | 2026-06-10 13:47 | 2026-06-10 13:45:43 | 14808 | 14808
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 0 | 0
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 650 | 650
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/curriculums.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2378 | 2378
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/events.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2250 | 2250
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/observations.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 17299 | 17299
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 322 | 322
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/navigation_actions.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 5780 | 5780
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/vlm_navigation_actions.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 4834 | 4834
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/vlm_navigation_actions_gpt.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 4849 | 4849
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1620 | 1620
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/goal_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 7959 | 7959
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/goal_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1250 | 1250
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/lowlevel_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 9856 | 9856
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/lowlevel_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1150 | 1150
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/midlevel_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 4028 | 4028
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/midlevel_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1150 | 1150
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 9752 | 9752
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2115 | 2115
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_gpt.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 9111 | 9111
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_gpt_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2131 | 2131
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/rl_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 8162 | 8162
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/rl_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1120 | 1120
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/robot_vel_command_generator.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 4032 | 4032
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/robot_vel_command_generator_cfg.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 1153 | 1153
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/rewards/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 29 | 29
+NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/rewards/objnav_rewards.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 22833 | 22833
+NaVILA-Bench-main/scripts/cli_args.py | BYTECODE-IDENTICAL | 2026-06-05 10:47 | 2026-06-05 06:56:13 | 3954 | 3954
+NaVILA-Bench-main/scripts/nav_diag.py | BYTECODE-IDENTICAL | 2026-06-05 10:47 | 2026-06-05 06:56:13 | 11914 | 11914
+NaVILA-Bench-main/scripts/navila_eval_v3.py | DIFFERENT | 2026-06-08 13:57 | 2026-06-08 13:56:52 | 27576 | 36480
+NaVILA-Bench-main/scripts/rsl_rl/rsl_rl/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:23 | 2026-06-05 06:56:13 | 178 | 178
+NaVILA-Bench-main/scripts/rsl_rl/rsl_rl/env/__init__.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 196 | 196
+NaVILA-Bench-main/scripts/rsl_rl/rsl_rl/env/vec_env.py | BYTECODE-IDENTICAL | 2026-06-05 10:49 | 2026-06-05 06:56:13 | 2938 | 2938
+
+## 2. navila_eval_v3.py (not covered by 1)
+- It was uncommitted for the whole sweep and committed on 2026-08-22 (old hash 25f7160 / public history:
+  not present, the file was removed by the history rewrite). That commit is purely additive relative to the
+  2026-06-11 version (6dc4d2d; +58 lines, 0 deletions): `import signal`, the --cam_z/--cam_width/
+  --cam_height/--cam_aperture overrides, the SIGTERM wall-clock handler and the term_reason/ended_at_step/
+  max_episode_steps/hit_step_cap fields.
+- A copy taken 2026-07-23 12:24 (~/BACKUPS/predeparture_2026-07-23/k1_research_CODE.tgz) is byte-identical
+  to 6dc4d2d, i.e. none of the additions existed before that day.
+- Line-number fingerprint: the 31 surviving Isaac Sim per-launch logs from the last sweep episodes
+  (h150_200, 2026-08-17, ~/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/omni/logs/Kit/Isaac-Sim/4.1/)
+  print a traceback frame `navila_eval_v3.py(114): <module>`. Line 114 of the committed file is
+  `app_launcher = AppLauncher(args_cli)`; in the 2026-06-11 version that call is on line 105, and the
+  committed diff adds exactly 9 lines above it. Calibration: the same tracebacks' line numbers in unchanged
+  files (IsaacLab app_launcher.py 113/542, Isaac Sim simulation_app.py 199/405) are exact.
+- Behavioural fingerprints in the sweep outputs: every sweep record has the 4 added fields; 142 of the
+  151 wall_timeout records carry real mid-episode partial values written by the in-eval SIGTERM handler
+  (the other 9 are runner stubs with the -1 sentinel); the Kit logs show --cam_z=0.97 on the h150 command lines.
+- Not provable: byte-identity of lines after 114 on 2026-08-17. No evidence of any change was found; no
+  pre-commit copy from the sweep window survives (/tmp was wiped by a reboot on 2026-09-20).
+
+## 3. Shell runner and aggregator
+- run_powered_benchmark.sh: last commit 2026-07-24 12:02 (5442457), before the sweep launch (12:43);
+  the working tree was clean on 2026-08-22 and is clean now. The rescued runner log
+  (receipts/provenance/sweep_run_log.txt) prints "line 81: SECONDS: command not found"; line 81 of this file
+  is `t0=$(SECONDS)` (a harmless bug: it only breaks the ETA printout).
+- aggregate_k1_vision_results.py: committed 2026-08-22 together with navila_eval_v3.py (+6 lines: exclude the
+  -1.0 distance sentinel from the NE/ONE means). No independent sweep-time copy exists. The per-arm lines it
+  printed during the sweep (SWEEP_STATUS.md: n_present, success_over_total, oracle_success_over_total) do
+  not depend on that change.
+- arms_runner.sh (top level of this repo): committed 2026-07-24 12:43 and never modified; mtime 2026-07-24 12:42.
+
+## 4. Outside this repository
+- IsaacLab simulation_cfg.py (PhysX buffers): mtime 2026-06-05 11:19:44 (that checkout is not affected by the
+  branch switch); its only local change is isaaclab_diff_vs_HEAD_4d558ec.diff.
+- experiments/navila (VILA/llava code imported by vlm_server_bridge.py): clean checkout of AnjieCheng/NaVILA
+  76b98f2, see navila_vlm_repo_checkout.txt.
+- model_14498 training config: params/*.yaml mtimes 2026-06-09/10 (training-run directories); checkpoint
+  SHA-256 8e7559b5... equals receipts/provenance/checkpoint_sha256.txt.
+- Python environments: conda package sets of vlnce-isaac and navila(-vila) identical on 2026-07-22 and
+  2026-10-01; vlnce-isaac pip freeze identical on 2026-08-22 and 2026-10-01; the ~/.local user-site
+  packages that shadow them (Pillow 12.3.0, numpy 1.26.4, ...) were last changed 2026-07-02.

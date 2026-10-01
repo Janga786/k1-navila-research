@@ -1,0 +1,2 @@
+# git -C ~/Projects/k1_research diff HEAD -- k1-research-workspace-main   (local main)
+# Empty: working tree equals the last commit.

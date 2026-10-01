@@ -149,6 +149,14 @@ design is *structurally* paired. We deliberately do NOT exploit that, for the re
 Using unpaired tests on episode-aligned data is conservative — it discards a variance
 reduction we cannot trust — and that direction of error is the right one here.
 
+**Dated note (2026-10-01).** Amendment 1 is headed 2026-07-27, but it was appended to this file on
+2026-08-22, after the sweep had finished (the last arm completed 2026-08-17). It was added in commit
+`ccb4211848a99fd0cdccbf64d916e5da82a46b51` ("Add environment provenance, the pre-registered analysis, and
+two amendments", 2026-08-22 14:26:49 -0600), as `git log -p -- receipts/PRE_REGISTRATION.md` shows. No
+earlier commit of this file contains it. In the local history from before the September rewrite, the same
+commit is `ab70f4a` (see `paper_evidence/airc2027_code/git_state/commit_hash_map_pre_post_rewrite.tsv`).
+No existing text in this file was changed.
+
 ## AMENDMENT 2 (2026-08-22) — reproducibility-receipt branch RESOLVED: it reproduced
 The "Reproducibility receipt (pre-registered)" section above set a hard branch: if the fresh
 stretch@300 run did not reproduce the full_14498 0-299 anchor (SR ~17.7 / OS ~31.7 / NE ~7.22),

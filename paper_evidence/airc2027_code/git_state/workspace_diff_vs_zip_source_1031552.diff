@@ -1,0 +1,334 @@
+# Unified diff: zip source Janga786/k1-research-workspace @ 10315527987b73560e7e2e70c77091e970a84366 (a/)  ->  sweep-time state at local main (b/).
+# The nine migration/policies/parts/*.bin files of the zip commit (policy archive, ~780 MB) are not on disk and not shown. Generated 2026-10-01T07:51:45-06:00.
+diff a/aggregate_k1_vision_results.py b/aggregate_k1_vision_results.py
+--- a/aggregate_k1_vision_results.py
++++ b/aggregate_k1_vision_results.py
+@@ -36,6 +36,10 @@
+     keys = ["success", "spl", "distance_to_goal",
+             "oracle_success", "oracle_navigation_error", "path_length"]
+     acc = {k: [] for k in keys}
++    # Distance keys use a -1.0 sentinel on a wall-timeout kill before the first step
++    # (no valid final pose). Exclude sentinels from NE/ONE means; they still count as
++    # failures for SR/OS/SPL via success/oracle_success=0. Real distances are >= 0.
++    DIST_KEYS = {"distance_to_goal", "oracle_navigation_error"}
+     for f in files:
+         try:
+             d = json.load(open(f))
+@@ -43,6 +47,8 @@
+             continue
+         for k in keys:
+             if k in d:
++                if k in DIST_KEYS and d[k] < 0:
++                    continue   # -1.0 sentinel: no valid distance, skip from the mean
+                 acc[k].append(d[k])
+     n_present = len(files)
+     out = {
+@@ -116,13 +122,16 @@
+         for name, ne, os_, sr, spl in PAPER_TABLE:
+             print(f"| {name} | — | {ne:.2f} | {os_:.1f} | {sr:.1f} | {spl:.1f} |")
+     # NE is over present episodes (missing have no final pose); SR/OS/SPL over n_total.
++    # NE column = FINAL distance_to_goal (standard VLN-CE NE, paper-comparable vs H1/Go2).
++    # NOT oracle_navigation_error (ONE = min-dtg-over-episode), which understated K1 NE
++    # because ONE <= final dtg by definition (audit rank 2).
+     rates = r.get("rates_over_total", {})
+     sr = rates.get("success", m["success"])
+     os_ = rates.get("oracle_success", m["oracle_success"])
+     spl = rates.get("spl", m["spl"])
+     print(
+         f"| **K1 (ours, vision)** | k1_vision (n={n_present}/{n_total}) "
+-        f"| {fmt(m['oracle_navigation_error'])} "
++        f"| {fmt(m['distance_to_goal'])} "
+         f"| {fmt(os_, percent=True)} "
+         f"| {fmt(sr, percent=True)} "
+         f"| {fmt(spl, percent=True)} |"
+diff a/scripts/bench_diag.sh b/scripts/bench_diag.sh
+--- a/scripts/bench_diag.sh
++++ b/scripts/bench_diag.sh
+@@ -29,7 +29,7 @@
+         conda activate navila
+         python scripts/vlm_server_bridge.py \
+             --model_path ~/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f \
+-            --port 54321 > $VLM_LOG 2>&1
++            --port 54321 $VLM_BRIDGE_EXTRA > $VLM_LOG 2>&1
+     " < /dev/null > /dev/null 2>&1 &
+     disown
+     echo "[diag-bench] waiting up to 600s for 'listening on'..."
+@@ -50,7 +50,7 @@
+ 
+ for ((i=START_IDX; i<END_IDX; i++)); do
+     echo "================ episode $i ================"
+-    timeout 480 python scripts/navila_eval_v3.py \
++    timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py \
+         --task=k1_matterport_vision --num_envs=1 \
+         --checkpoint="$CKPT" \
+         --episode_idx=$i \
+diff a/scripts/replay_vlm_arbiter.py b/scripts/replay_vlm_arbiter.py
+--- /dev/null
++++ b/scripts/replay_vlm_arbiter.py
+@@ -0,0 +1,207 @@
++#!/usr/bin/env python3
++"""fp16-vs-int8 replay arbiter for the NaVILA benchmark VLM.
++
++Replays the exact 8-frame payloads saved by --diag (diag/epN/frames/tickNNN/)
++through a running vlm_server_bridge (fp16 or int8) and records the answers.
++Then `compare` quantifies:
++  - int8-replay vs int8-original  -> determinism + (jpg-save vs png-wire) effect
++  - fp16-replay vs int8-original  -> the headline "did quantization change the run"
++  - fp16-replay vs int8-replay    -> pure precision difference on identical inputs
++
++Usage:
++  replay_vlm_arbiter.py run --diag-root <...>/diag --out /tmp/replay_fp16.json [--port 54321]
++  replay_vlm_arbiter.py compare --original --a /tmp/replay_int8.json --b /tmp/replay_fp16.json \
++      --diag-root <...>/diag --report /tmp/replay_report.md
++"""
++import argparse
++import base64
++import glob
++import gzip
++import importlib.util
++import json
++import os
++import socket
++import sys
++import time
++import types
++
++ASSETS_EP = ("/home/boosterk1/Projects/k1_research/NaVILA-Bench-main/isaaclab_exts/"
++             "omni.isaac.vlnce/assets/vln_ce_isaac_v1.json.gz")
++EVAL_UTILS = ("/home/boosterk1/Projects/k1_research/NaVILA-Bench-main/isaaclab_exts/"
++              "omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py")
++
++
++def ask(port, images_b64, query, timeout=300.0):
++    req = json.dumps({"images": images_b64, "query": query}).encode()
++    s = socket.create_connection(("localhost", port), timeout=15.0)
++    s.settimeout(timeout)
++    s.sendall(len(req).to_bytes(8, "big"))
++    s.sendall(req)
++    hdr = b""
++    while len(hdr) < 8:
++        c = s.recv(8 - len(hdr))
++        if not c:
++            raise ConnectionError("eof in header")
++        hdr += c
++    n = int.from_bytes(hdr, "big")
++    buf = b""
++    while len(buf) < n:
++        c = s.recv(min(4096, n - len(buf)))
++        if not c:
++            break
++        buf += c
++    s.close()
++    return json.loads(buf.decode())
++
++
++def load_parser():
++    for m in ("cv2", "attr"):
++        if m not in sys.modules:
++            stub = types.ModuleType(m)
++            if m == "attr":
++                stub.s = lambda *a, **k: (lambda c: c)
++                stub.ib = lambda *a, **k: None
++            sys.modules[m] = stub
++    spec = importlib.util.spec_from_file_location("eu", EVAL_UTILS)
++    eu = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(eu)
++    return eu.get_vel_command
++
++
++def action_key(text, parser):
++    cmd, ttg = parser(text)
++    return (round(cmd[0], 3), round(cmd[2], 3), round(ttg, 3))
++
++
++def cmd_run(args):
++    eps = json.loads(gzip.open(ASSETS_EP, "rt", encoding="utf-8").read())["episodes"]
++    out = {}
++    total = done = errs = 0
++    ep_dirs = sorted(glob.glob(os.path.join(args.diag_root, "ep*")))
++    for d in ep_dirs:
++        total += sum(1 for _ in open(os.path.join(d, "ticks.jsonl")))
++    print(f"[replay] starting: {len(ep_dirs)} episodes, {total} ticks, port {args.port}",
++          flush=True)
++    t0 = time.time()
++    for d in ep_dirs:
++        idx = int(os.path.basename(d)[2:])
++        instr = eps[idx]["instruction"]["instruction_text"]
++        rows = []
++        for line in open(os.path.join(d, "ticks.jsonl")):
++            r = json.loads(line)
++            fdir = os.path.join(d, r["frames_dir"])
++            frames = sorted(glob.glob(os.path.join(fdir, "frame_*.jpg")),
++                            key=lambda p: int(p.rsplit("_", 1)[1].split(".")[0]))
++            if len(frames) != 8:
++                rows.append({"tick": r["tick"], "original": r["vlm_raw"],
++                             "replay": None, "note": f"{len(frames)} frames"})
++                continue
++            b64 = [base64.b64encode(open(f, "rb").read()).decode() for f in frames]
++            ans = None
++            for attempt in range(3):  # one flaky socket must not kill the pass
++                try:
++                    ans = ask(args.port, b64, instr)
++                    break
++                except Exception as e:
++                    print(f"[replay] {os.path.basename(d)} tick {r['tick']} "
++                          f"attempt {attempt + 1} failed: {e!r}", flush=True)
++                    time.sleep(3 + 5 * attempt)
++            if ans is None:
++                errs += 1
++            rows.append({"tick": r["tick"], "original": r["vlm_raw"], "replay": ans})
++            done += 1
++            if done % 25 == 0:
++                rate = done / max(time.time() - t0, 1e-9)
++                print(f"[replay] {done}/{total} ticks  ({rate:.2f}/s, "
++                      f"eta {int((total - done) / max(rate, 1e-9))}s)", flush=True)
++        out[os.path.basename(d)] = rows
++        json.dump(out, open(args.out, "w"))  # checkpoint after every episode
++    print(f"[replay] DONE {done}/{total} ({errs} unanswered) -> {args.out}", flush=True)
++
++
++def agree(a, b):
++    return a is not None and b is not None and a.strip() == b.strip()
++
++
++def cmd_compare(args):
++    parser = load_parser()
++    A = json.load(open(args.a))   # int8 replay
++    B = json.load(open(args.b))   # fp16 replay
++    lines = ["# fp16 replay arbiter — results\n"]
++    tot = {"n": 0, "i8r_vs_orig": 0, "fp16_vs_orig": 0, "fp16_vs_i8r": 0,
++           "act_fp16_vs_i8r": 0, "act_fp16_vs_orig": 0}
++    mism = []
++    lines.append("| ep | ticks | int8-replay==orig | fp16==orig | fp16==int8-replay | "
++                 "fp16 action==int8 action |")
++    lines.append("|---|---|---|---|---|---|")
++    for ep in sorted(A.keys(), key=lambda e: int(e[2:])):
++        ra, rb = A[ep], B[ep]
++        n = len(ra)
++        c1 = sum(agree(x["replay"], x["original"]) for x in ra)
++        c2 = sum(agree(y["replay"], y["original"]) for y in rb)
++        c3 = sum(agree(x["replay"], y["replay"]) for x, y in zip(ra, rb))
++        ca = 0
++        cao = 0
++        for x, y in zip(ra, rb):
++            try:
++                if x["replay"] and y["replay"] and \
++                   action_key(x["replay"], parser) == action_key(y["replay"], parser):
++                    ca += 1
++                if y["replay"] and \
++                   action_key(y["replay"], parser) == action_key(x["original"], parser):
++                    cao += 1
++                elif y["replay"]:
++                    mism.append((ep, x["tick"], x["original"], y["replay"]))
++            except Exception:
++                pass
++        lines.append(f"| {ep} | {n} | {c1}/{n} | {c2}/{n} | {c3}/{n} | {ca}/{n} |")
++        tot["n"] += n
++        tot["i8r_vs_orig"] += c1
++        tot["fp16_vs_orig"] += c2
++        tot["fp16_vs_i8r"] += c3
++        tot["act_fp16_vs_i8r"] += ca
++        tot["act_fp16_vs_orig"] += cao
++    n = max(tot["n"], 1)
++    lines.append("")
++    lines.append(f"**TOTALS over {tot['n']} ticks:**")
++    lines.append(f"- int8-replay == int8-original (determinism + jpg-vs-png): "
++                 f"{tot['i8r_vs_orig']}/{n} = {100 * tot['i8r_vs_orig'] / n:.1f}%")
++    lines.append(f"- fp16-replay == int8-original (verbatim): "
++                 f"{tot['fp16_vs_orig']}/{n} = {100 * tot['fp16_vs_orig'] / n:.1f}%")
++    lines.append(f"- fp16-replay == int8-replay (verbatim, identical inputs): "
++                 f"{tot['fp16_vs_i8r']}/{n} = {100 * tot['fp16_vs_i8r'] / n:.1f}%")
++    lines.append(f"- fp16 vs int8 ACTION-level match (what the robot would do): "
++                 f"{tot['act_fp16_vs_i8r']}/{n} = {100 * tot['act_fp16_vs_i8r'] / n:.1f}%")
++    lines.append(f"- fp16 vs ORIGINAL action-level match: "
++                 f"{tot['act_fp16_vs_orig']}/{n} = {100 * tot['act_fp16_vs_orig'] / n:.1f}%")
++    if mism:
++        lines.append(f"\n## Action-level disagreements (fp16 vs original), {len(mism)} total")
++        for ep, t, o, r in mism[:40]:
++            lines.append(f"- {ep} tick {t}: int8 {o!r}  ->  fp16 {r!r}")
++        if len(mism) > 40:
++            lines.append(f"- ... and {len(mism) - 40} more")
++    report = "\n".join(lines)
++    open(args.report, "w").write(report + "\n")
++    print(report)
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    sub = ap.add_subparsers(dest="cmd", required=True)
++    r = sub.add_parser("run")
++    r.add_argument("--diag-root", required=True)
++    r.add_argument("--out", required=True)
++    r.add_argument("--port", type=int, default=54321)
++    c = sub.add_parser("compare")
++    c.add_argument("--a", required=True, help="int8 replay json")
++    c.add_argument("--b", required=True, help="fp16 replay json")
++    c.add_argument("--report", required=True)
++    args = ap.parse_args()
++    if args.cmd == "run":
++        cmd_run(args)
++    else:
++        cmd_compare(args)
++
++
++if __name__ == "__main__":
++    main()
+diff a/scripts/run_powered_benchmark.sh b/scripts/run_powered_benchmark.sh
+--- a/scripts/run_powered_benchmark.sh
++++ b/scripts/run_powered_benchmark.sh
+@@ -21,12 +21,14 @@
+ export PATH="$HOME/miniconda3/bin:$PATH"
+ 
+ OUT_TAG="${1:?need an out_tag}"
+-DEFAULT_CKPT="$HOME/Projects/k1_research/booster/booster_train/logs/rsl_rl/k1_velocity_vlnce_v3/2026-05-19_10-38-52_k1_vlnce_v3_resumed/model_16000.pt"
++DEFAULT_CKPT="$HOME/Projects/k1_research/checkpoints/model_14498.pt"  # production policy (was v3 model_16000)
+ CKPT="${2:-$DEFAULT_CKPT}"; [ -z "$CKPT" ] && CKPT="$DEFAULT_CKPT"
+ START="${3:-0}"
+ END="${4:-1077}"
+ EXTRA="${5:-}"
+-PROD_FLAGS="--closed_loop --clean_render --bright --max_episode_s 120"
++# 2026-06-11: RAW frames (no --clean_render/--bright — the 6/8 A/B found processing
++# suppressed stops; the lab 3090 renders clean). Transform override: TRANSFORM=crop.
++PROD_FLAGS="--closed_loop --max_episode_s 120 --vlm_transform ${TRANSFORM:-stretch}"
+ NB="$HOME/Projects/k1_research/NaVILA-Bench"
+ RESDIR="$NB/eval_results/k1_matterport_vision_loco_${OUT_TAG}"
+ MEAS="$RESDIR/measurements"
+@@ -46,7 +48,7 @@
+         cd $NB; source ~/miniconda3/etc/profile.d/conda.sh; conda activate navila
+         python scripts/vlm_server_bridge.py \
+             --model_path ~/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f \
+-            --port 54321 > $VLM_LOG 2>&1
++            --port 54321 ${VLM_BRIDGE_EXTRA:-} > $VLM_LOG 2>&1
+     " < /dev/null > /dev/null 2>&1 &
+     disown
+     for i in $(seq 1 60); do
+@@ -83,11 +85,27 @@
+     fidx="${FILEIDX[$((i-START))]}"
+     if [ -f "$MEAS/${fidx}.json" ]; then skip_n=$((skip_n+1)); continue; fi   # resume
+     echo "================ episode idx $i (file ${fidx}.json, $((done_n+1))/$total) ================" | tee -a "$LOG"
+-    timeout 480 python scripts/navila_eval_v3.py \
++    timeout -k 30 ${EP_TIMEOUT:-900} python scripts/navila_eval_v3.py \
+         --task=k1_matterport_vision --num_envs=1 \
+         --checkpoint="$CKPT" --episode_idx=$i --gait_phase_init=0.0 \
+         --out_tag=$OUT_TAG $PROD_FLAGS $EXTRA \
+-        --headless --enable_cameras >> "$LOG" 2>&1 || echo "[ep $i timeout/error]" | tee -a "$LOG"
++        --headless --enable_cameras >> "$LOG" 2>&1
++    ep_rc=$?
++    # GUARANTEED RECORD (2026-07-24): Isaac/omni overrides the in-eval SIGTERM handler, so a
++    # wall-clock kill (rc 124/137) can still leave NO JSON. Runner-side stub ensures every
++    # pinned episode index appears as a recorded FAILURE (distances = -1.0 sentinel; the
++    # aggregator excludes those from NE/ONE, counts them as failures for SR/OS/SPL).
++    if [ ! -f "$MEAS/${fidx}.json" ]; then
++        tr=$([ $ep_rc -eq 124 ] || [ $ep_rc -eq 137 ] && echo wall_timeout || echo eval_crash)
++        echo "[ep $i rc=$ep_rc -> stub '$tr']" | tee -a "$LOG"
++        python3 - "$MEAS/${fidx}.json" "$tr" <<'PY'
++import json, sys
++json.dump({"success":0.0,"spl":0.0,"oracle_success":0.0,"distance_to_goal":-1.0,
++           "oracle_navigation_error":-1.0,"path_length":-1.0,"term_reason":sys.argv[2],
++           "ended_at_step":-1,"max_episode_steps":-1,"hit_step_cap":False},
++          open(sys.argv[1],"w"), indent=4)
++PY
++    fi
+     ran_n=$((ran_n+1)); done_n=$((done_n+1))
+     if (( done_n % 10 == 0 )); then
+         el=$((SECONDS - t0)); rate=$(( el / (ran_n>0?ran_n:1) ))

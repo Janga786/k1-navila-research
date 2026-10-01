@@ -1,0 +1,32 @@
+# Git state: k1-navila-research working copy (~/Projects/k1_research)
+# captured 2026-10-01T07:51:45-06:00
+
+## Remote
+origin	https://github.com/Janga786/k1-navila-research.git (fetch)
+origin	https://github.com/Janga786/k1-navila-research.git (push)
+
+## Local branch main (checked out in ~/Projects/k1_research)
+72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa  2026-09-11 18:47:40 -0600  Add reproducible AIRC paper reanalysis and evidence package
+
+## origin/main (GitHub, after `git fetch` on capture date)
+fa419948d8eb5a33adbf16c1fee03b6bd7efa9e5  2026-09-11 18:47:40 -0600  Add reproducible AIRC paper reanalysis and evidence package
+
+## Divergence
+`git merge-base main origin/main` -> (none: the histories share no commit)
+Ahead/behind: 47	45  (local-only commits / remote-only commits)
+
+Explanation. Between 2026-08-22 and 2026-09-11 the GitHub history of main was rewritten to remove
+the vendored directories NaVILA-Bench-main/ (121 files), k1-research-workspace-main/ (62 files) and the
+NaVILA-Bench symlink from every commit (consistent with this repo's .gitignore policy: upstream forks are
+cloned separately). Every other path is byte-identical between the two histories; two commits that only
+touched the removed directories became empty and were dropped. The local branch main in
+~/Projects/k1_research still carries the pre-rewrite history (it is the only place where git records the
+history of the sweep-time benchmark code). See commit_hash_map_pre_post_rewrite.tsv for the mapping of
+old to new commit hashes. The files in this directory were prepared on a separate branch created from
+origin/main, so the public history is extended, not rewritten.
+
+## git status (local main)
+## main...origin/main [ahead 47, behind 45]
+
+## git diff HEAD --stat (local main; empty = clean)
+(empty)

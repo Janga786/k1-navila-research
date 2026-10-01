@@ -1,0 +1,20 @@
+# Git state: IsaacLab (~/Projects/k1_research/IsaacLab), the Isaac Lab 1.1 fork the benchmark runs on
+# captured 2026-10-01T07:51:45-06:00
+
+## Remote
+origin	https://github.com/yang-zj1026/IsaacLab.git (fetch)
+origin	https://github.com/yang-zj1026/IsaacLab.git (push)
+
+## HEAD
+4d558ec83878c4892a46591c85ba91ac9d3c1834  2025-04-11 15:16:33 -0700  update circular buffer
+
+## git status
+## main...origin/main
+ M source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
+?? source/extensions/omni.isaac.matterport
+?? source/extensions/omni.isaac.vlnce
+
+The two untracked entries are symlinks into NaVILA-Bench-main/isaaclab_exts/ (tracked in k1-navila-research local main).
+simulation_cfg.py mtime: 2026-06-05T11:19:44 (this checkout is not touched by k1-navila-research branch switches)
+Upstream comparison: the fork's own HEAD is the upstream reference; the only local change is the diff below
+(the same change is in receipts/provenance/isaaclab_simulation_cfg.patch).

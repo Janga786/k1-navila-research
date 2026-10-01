@@ -1,0 +1,45 @@
+# Git state: k1-research-workspace-main/  (~/Projects/k1_research/k1-research-workspace-main)
+# captured 2026-10-01T07:51:45-06:00
+
+## Commit and remote
+Not a git checkout (no .git). Extracted on 2026-06-05 from ~/Downloads/k1-research-workspace-main.zip, whose
+archive comment records commit 10315527987b73560e7e2e70c77091e970a84366 of the private repository
+Janga786/k1-research-workspace ("Powered benchmark runner + diagnostics aggregator + lab run guide",
+2026-06-05). That repository's main has since moved on to 12e152d (2026-06-07, desktop-side work that this
+workstation never received). From 2026-06-10 the directory was tracked in k1-navila-research local main;
+last commit touching it:
+25f7160693a18ceb59d8407f2550322f5a0b205a  2026-08-22 14:26:38 -0600  Commit the instruments that produced the sweep
+
+### scripts/run_powered_benchmark.sh
+  5442457  2026-07-24 12:02:24 -0600  Pre-launch suite (driver 580.173): runner-side wall_timeout stub (guaranteed record), cam_z isolation verified, VLM deterministic (5b), driver smoke GREEN (2/6 flips both drivers, all in-neighborhood, no structural breaks)
+  a6dde38  2026-06-11 14:04:23 -0600  Benchmark program tooling: fp16/int8 replay arbiter + lab-box runner config
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### aggregate_k1_vision_results.py
+  25f7160  2026-08-22 14:26:38 -0600  Commit the instruments that produced the sweep
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### scripts/bench_diag.sh
+  6dc4d2d  2026-06-11 11:06:03 -0600  Lab-3090 smoke: SR 30%/OS 40%/NE 5.61 (beats paper blind-H1) + harness fixes
+  dd336fe  2026-06-11 08:34:14 -0600  Render-pipeline fixes from the 32GB smoke diagnosis + 8-bit VLM option
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### scripts/replay_vlm_arbiter.py
+  a6dde38  2026-06-11 14:04:23 -0600  Benchmark program tooling: fp16/int8 replay arbiter + lab-box runner config
+
+## git status (local main, scoped; ignored shown)
+!! k1-research-workspace-main/__pycache__/
+!! k1-research-workspace-main/scripts/__pycache__/
+No tracked file is modified.
+
+## Files differing from the zip source commit 1031552
+  MODIFIED: aggregate_k1_vision_results.py
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part00.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part01.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part02.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part03.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part04.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part05.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part06.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part07.bin
+  ONLY IN ZIP COMMIT (not on disk): migration/policies/parts/k1_locomotion_policies.tgz.part08.bin
+  MODIFIED: scripts/bench_diag.sh
+  ADDED LOCALLY: scripts/replay_vlm_arbiter.py
+  MODIFIED: scripts/run_powered_benchmark.sh

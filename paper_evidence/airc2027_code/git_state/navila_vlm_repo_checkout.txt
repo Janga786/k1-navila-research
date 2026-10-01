@@ -1,0 +1,15 @@
+# Git state: experiments/navila (AnjieCheng/NaVILA; vlm_server_bridge.py puts it first on sys.path for `import llava`)
+# captured 2026-10-01T07:51:45-06:00
+
+## Remote
+origin	https://github.com/AnjieCheng/NaVILA.git (fetch)
+origin	https://github.com/AnjieCheng/NaVILA.git (push)
+
+## HEAD
+76b98f233dd0fff05dfcd69435eec6740febff9d  2025-08-19 23:36:04 -0700  Update README.md
+
+## git status (empty = clean)
+(clean)
+
+## git diff HEAD (empty = no local modification)
+(empty)

@@ -1,0 +1,22 @@
+--- git status ---
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	docs/
+	scripts/gen_dance_npz.py
+	scripts/l0_determinism_check.py
+	scripts/l0_spawn_check.py
+	scripts/mujoco_navila_view.py
+	scripts/rsl_rl/eval_circumduction.py
+	scripts/rsl_rl/eval_navila_tracking.py
+	scripts/rsl_rl/play_gait_gui.py
+	source/booster_train/booster_train/tasks/direct/k1_getup/
+	source/booster_train/booster_train/tasks/manager_based/locomotion/
+	train_watch.sh
+
+nothing added to commit but untracked files present (use "git add" to track) 
+
+
+--- git diff ---

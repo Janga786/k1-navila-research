@@ -1,0 +1,2 @@
+# git -C ~/Projects/k1_research diff HEAD -- NaVILA-Bench-main   (local main)
+# Empty: the working tree equals the last commit (25f7160 for navila_eval_v3.py; see navila_bench_checkout.txt).

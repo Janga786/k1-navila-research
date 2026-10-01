@@ -1,0 +1,175 @@
+# Git state: NaVILA-Bench-main/  ($NB = ~/Projects/k1_research/NaVILA-Bench, a symlink to NaVILA-Bench-main)
+# captured 2026-10-01T07:51:45-06:00
+
+## Commit and remote
+$NB is NOT a git checkout (it has no .git). It was extracted on 2026-06-05 from a GitHub archive zip
+(~/Downloads/NaVILA-Bench-main.zip, whose archive comment records commit c60d04240b248a8c88a04dd8a42c2664b4b5318f
+of the private repository Janga786/NaVILA-Bench). That repository's main was later replaced (2026-06-07) by
+an unrelated root commit facf8b9; c60d042 is still fetchable by hash. c60d042 is itself the upstream
+benchmark yang-zj1026/NaVILA-Bench at e9d2db12ce5788c0f987d734c0094100b6bc0d3a (2025-08-27) plus K1 additions.
+
+From 2026-06-10 the directory was tracked inside the k1-navila-research repository (local branch main, see
+k1-navila-research_checkout.txt). Its last commit there is:
+25f7160693a18ceb59d8407f2550322f5a0b205a  2026-08-22 14:26:38 -0600  Commit the instruments that produced the sweep
+
+## Per-file history of the sweep-path files (local main; the public history no longer contains these paths)
+### scripts/navila_eval_v3.py
+  25f7160  2026-08-22 14:26:38 -0600  Commit the instruments that produced the sweep
+  6dc4d2d  2026-06-11 11:06:03 -0600  Lab-3090 smoke: SR 30%/OS 40%/NE 5.61 (beats paper blind-H1) + harness fixes
+  dd336fe  2026-06-11 08:34:14 -0600  Render-pipeline fixes from the 32GB smoke diagnosis + 8-bit VLM option
+  f1af3e1  2026-06-10 13:56:43 -0600  Stall-abort v2 (windowed progress) + L2 runtime validation harnesses
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### scripts/vlm_server_bridge.py
+  6dc4d2d  2026-06-11 11:06:03 -0600  Lab-3090 smoke: SR 30%/OS 40%/NE 5.61 (beats paper blind-H1) + harness fixes
+  dd336fe  2026-06-11 08:34:14 -0600  Render-pipeline fixes from the 32GB smoke diagnosis + 8-bit VLM option
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### scripts/nav_diag.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### scripts/l0_camera_dump.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py
+  f1af3e1  2026-06-10 13:56:43 -0600  Stall-abort v2 (windowed progress) + L2 runtime validation harnesses
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+### isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/observations.py
+  acd6b5c  2026-06-10 11:01:28 -0600  Initial commit: K1 NaVILA benchmark + workspace (code only)
+
+## git status (local main, scoped to NaVILA-Bench-main/, ignored files shown, outputs/assets/caches summarised)
+!! NaVILA-Bench-main/src/teaser.gif
+(plus 20 ignored entries under eval_results/, isaaclab_exts/omni.isaac.vlnce/assets/, __pycache__/ and *.egg-info/: run outputs, Matterport scenes + episode dataset, bytecode caches)
+No tracked file is modified (no ' M' lines): the working tree equals the last commit.
+
+## Classification against upstream yang-zj1026/NaVILA-Bench @ e9d2db1 (121 tracked files)
+### UPSTREAM-IDENTICAL (95)
+  LICENSE
+  README.md
+  isaaclab_exts/omni.isaac.matterport/config/extension.toml
+  isaaclab_exts/omni.isaac.matterport/data/mappings/category_mapping.tsv
+  isaaclab_exts/omni.isaac.matterport/data/mappings/mpcat40.tsv
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/config/__init__.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/config/importer_cfg.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/__init__.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_importer.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_raycast_camera.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/matterport_raycaster.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/domains/raycaster_cfg.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/scripts/__init__.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/scripts/ext_cfg.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/scripts/matterport_domains.py
+  isaaclab_exts/omni.isaac.matterport/omni/isaac/matterport/scripts/matterport_ext.py
+  isaaclab_exts/omni.isaac.matterport/setup.py
+  isaaclab_exts/omni.isaac.vlnce/config/extension.toml
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/go2_matterport_base_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/go2/go2_matterport_vision_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/h1_matterport_base_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/h1/h1_matterport_vision_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/measures.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/goal_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/goal_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/lowlevel_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/lowlevel_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/midlevel_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/midlevel_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_gpt.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/path_follower_command_generator_gpt_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/rl_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/rl_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/robot_vel_command_generator.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/commands/robot_vel_command_generator_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/curriculums.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/events.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/rewards/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/rewards/objnav_rewards.py
+  isaaclab_exts/omni.isaac.vlnce/setup.py
+  scripts/cli_args.py
+  scripts/demo_planner.py
+  scripts/rsl_rl/.flake8
+  scripts/rsl_rl/.gitignore
+  scripts/rsl_rl/.pre-commit-config.yaml
+  scripts/rsl_rl/CONTRIBUTORS.md
+  scripts/rsl_rl/LICENSE
+  scripts/rsl_rl/README.md
+  scripts/rsl_rl/config/dummy_config.yaml
+  scripts/rsl_rl/demo_
+  scripts/rsl_rl/licenses/dependencies/black-license.txt
+  scripts/rsl_rl/licenses/dependencies/codespell-license.txt
+  scripts/rsl_rl/licenses/dependencies/flake8-license.txt
+  scripts/rsl_rl/licenses/dependencies/isort-license.txt
+  scripts/rsl_rl/licenses/dependencies/numpy_license.txt
+  scripts/rsl_rl/licenses/dependencies/onnx-license.txt
+  scripts/rsl_rl/licenses/dependencies/pre-commit-hooks-license.txt
+  scripts/rsl_rl/licenses/dependencies/pre-commit-license.txt
+  scripts/rsl_rl/licenses/dependencies/pyright-license.txt
+  scripts/rsl_rl/licenses/dependencies/pyupgrade-license.txt
+  scripts/rsl_rl/licenses/dependencies/torch_license.txt
+  scripts/rsl_rl/pyproject.toml
+  scripts/rsl_rl/rsl_rl/__init__.py
+  scripts/rsl_rl/rsl_rl/algorithms/__init__.py
+  scripts/rsl_rl/rsl_rl/algorithms/ppo.py
+  scripts/rsl_rl/rsl_rl/env/__init__.py
+  scripts/rsl_rl/rsl_rl/env/vec_env.py
+  scripts/rsl_rl/rsl_rl/modules/__init__.py
+  scripts/rsl_rl/rsl_rl/modules/actor_critic.py
+  scripts/rsl_rl/rsl_rl/modules/actor_critic_depth_cnn.py
+  scripts/rsl_rl/rsl_rl/modules/actor_critic_history.py
+  scripts/rsl_rl/rsl_rl/modules/actor_critic_recurrent.py
+  scripts/rsl_rl/rsl_rl/modules/depth_backbone.py
+  scripts/rsl_rl/rsl_rl/modules/normalizer.py
+  scripts/rsl_rl/rsl_rl/runners/__init__.py
+  scripts/rsl_rl/rsl_rl/runners/on_policy_runner.py
+  scripts/rsl_rl/rsl_rl/runners/on_policy_runner_history.py
+  scripts/rsl_rl/rsl_rl/storage/__init__.py
+  scripts/rsl_rl/rsl_rl/storage/rollout_storage.py
+  scripts/rsl_rl/rsl_rl/utils/__init__.py
+  scripts/rsl_rl/rsl_rl/utils/neptune_utils.py
+  scripts/rsl_rl/rsl_rl/utils/utils.py
+  scripts/rsl_rl/rsl_rl/utils/wandb_utils.py
+  scripts/rsl_rl/setup.py
+  scripts/vlm_server.py
+  src/logo.png
+
+### UPSTREAM-MODIFIED (10)
+  .gitignore
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/navigation_actions.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/vlm_navigation_actions.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/actions/vlm_navigation_actions_gpt.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/vlnce/mdp/observations.py
+  scripts/navila_eval.py
+  scripts/run_benchmark.py
+
+### PROJECT-NEW (16)
+  PATCH_k1_accuracy_benchmark.patch
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/__init__.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_base_cfg.py.orig_camfix
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py.orig_camfix
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py.orig_gains
+  isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py
+  scripts/l0_camera_dump.py
+  scripts/l2_obs_frame_check.py
+  scripts/l2_stall_gate_check.py
+  scripts/l4_control_episode.py
+  scripts/nav_diag.py
+  scripts/navila_eval_v3.py
+  scripts/navila_eval_v3.py.orig_camfix
+  scripts/vlm_server_bridge.py
+
+Upstream files absent here: logs/rsl_rl/go2_base/2024-12-10_21-44-44/events.out.tfevents.1733895893.peanuts.275179.0, logs/rsl_rl/go2_base/2024-12-10_21-44-44/exported/policy.jit, logs/rsl_rl/go2_base/2024-12-10_21-44-44/git/h1-training-isaaclab.diff, logs/rsl_rl/go2_base/2024-12-10_21-44-44/model_1999.pt, logs/rsl_rl/go2_base/2024-12-10_21-44-44/params/agent.pkl, logs/rsl_rl/go2_base/2024-12-10_21-44-44/params/agent.yaml, logs/rsl_rl/go2_base/2024-12-10_21-44-44/params/env.pkl, logs/rsl_rl/go2_base/2024-12-10_21-44-44/params/env.yaml, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/events.out.tfevents.1727331740.yji-Z790-D-DDR4.494733.0, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/exported/lidar_voxel_min.jit, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/exported/policy.jit, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/git/h1-training-isaaclab.diff, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/mode_best, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/model_25500.pt, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/model_26000.pt, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/model_26499.pt, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/params/agent.pkl, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/params/agent.yaml, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/params/env.pkl, logs/rsl_rl/go2_vision/2024-09-25_23-22-02/params/env.yaml, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/events.out.tfevents.1727420267.peanuts.2760081.0, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/exported/policy.jit, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/git/h1-training-isaaclab.diff, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/model_0.pt, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/model_500.pt, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/model_999.pt, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/params/agent.pkl, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/params/agent.yaml, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/params/env.pkl, logs/rsl_rl/h1_base_rough/2024-09-26_23-57-36_lin_vel/params/env.yaml, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/events.out.tfevents.1730675299.peanuts.593693.0, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/exported/policy.jit, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/git/h1-training-isaaclab.diff, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/model_4600.pt, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/model_4800.pt, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/model_4999.pt, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/params/agent.pkl, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/params/agent.yaml, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/params/env.pkl, logs/rsl_rl/h1_vision_rough/2024-11-03_15-08-09_height_scan_obst/params/env.yaml, src/teaser.gif
