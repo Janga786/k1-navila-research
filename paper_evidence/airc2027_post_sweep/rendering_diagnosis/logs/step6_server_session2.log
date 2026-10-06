@@ -1,0 +1,32 @@
+[2026-10-01 20:55:07,468] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[bridge] loading NaVILA from /home/boosterk1/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.15s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.13s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.10s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.50s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.73s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[bridge] NaVILA ready.
+[bridge] listening on localhost:54321
+/home/boosterk1/.local/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:392: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/boosterk1/.local/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:397: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `None` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+[bridge] inf  2189 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1802 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1795 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1804 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1804 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1798 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1799 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1802 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1805 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1800 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1799 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1806 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1796 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1797 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1801 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1805 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1802 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1803 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1803 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1804 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1809 ms  -> 'The next action is move forward 75 cm.'
+[bridge] inf  1807 ms  -> 'The next action is move forward 75 cm.'

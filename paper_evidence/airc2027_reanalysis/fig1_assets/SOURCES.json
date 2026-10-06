@@ -1,0 +1,64 @@
+{
+ "k1_as_rendered_ep0_behind.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/third_person/behind_left.png",
+  "source_sha256": "a8ad2bf96a55d53c4b49c2bcf0924b80f42f0fd5ab27101197b9486ed05e6c50",
+  "crop_box_xyxy": [
+   395,
+   0,
+   1475,
+   1080
+  ],
+  "size": [
+   612,
+   612
+  ]
+ },
+ "robotcam_ep0_h060_camz0.07_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.07_initial.png",
+  "source_sha256": "0efd6d55f44e48b81b3373dd9d7a6ef336d74f4451f0d1f05249f94530020520",
+  "size": [
+   450,
+   253
+  ]
+ },
+ "robotcam_ep0_h078_camz0.25_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.25_initial.png",
+  "source_sha256": "426ed1f1f2391dbe26775d94081fcf1f85205956600f1d9afb4fddfbe0c1e38d",
+  "size": [
+   450,
+   253
+  ]
+ },
+ "robotcam_ep0_h095_camz0.42_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.42_initial.png",
+  "source_sha256": "34eacdb18b7e1fe55b492d0e6ef6afc591469dc57738d6eb3371db9ea03c854c",
+  "size": [
+   450,
+   253
+  ]
+ },
+ "robotcam_ep0_h110_camz0.57_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.57_initial.png",
+  "source_sha256": "bad8e42bdf437bd37c021b3bab7a0519936175f62987fbbe260d0858c5361227",
+  "size": [
+   450,
+   253
+  ]
+ },
+ "robotcam_ep0_h130_camz0.77_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.77_initial.png",
+  "source_sha256": "80ecf7762940329b7b6077eaf7652afe6724fbed97b44299ffb676409be3b166",
+  "size": [
+   450,
+   253
+  ]
+ },
+ "robotcam_ep0_h150_camz0.97_initial.png": {
+  "source": "14_airc2027_renders/images/as_evaluated/robot_camera/idx0_rec0_camz0.97_initial.png",
+  "source_sha256": "8801693cfcc5e36c9986a822053bec8521e25f2ac4eb38d707c5e59f4edac39c",
+  "size": [
+   450,
+   253
+  ]
+ }
+}

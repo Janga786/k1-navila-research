@@ -1,0 +1,381 @@
+{
+  "A": {
+    "name": "ep99_A",
+    "ended_at_step": 2677,
+    "term_reason": "stop",
+    "success": 0.0,
+    "n_queries": 32,
+    "n_frames": 117,
+    "n_state_lines": 2879,
+    "fields": {
+      "path_length": 18.461790176981594,
+      "distance_to_goal": 5.619331925318773,
+      "oracle_navigation_error": 0.8323601500059432,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 1.0
+    }
+  },
+  "X": {
+    "name": "ep99_B",
+    "ended_at_step": 1947,
+    "term_reason": "stop",
+    "success": 1.0,
+    "n_queries": 24,
+    "n_frames": 87,
+    "n_state_lines": 2149,
+    "fields": {
+      "path_length": 12.147969409212237,
+      "distance_to_goal": 1.7383670085601057,
+      "oracle_navigation_error": 1.092268492340768,
+      "success": 1.0,
+      "spl": 0.6444919735711013,
+      "oracle_success": 1.0
+    }
+  },
+  "n_common_queries": 24,
+  "query_counts_differ": true,
+  "first_request_diff": {
+    "i": 0,
+    "step_A": 0,
+    "step_X": 0
+  },
+  "n_requests_differ_replies_match_before_qstar": 11,
+  "n_queries_before_qstar": 11,
+  "first_state_diff": {
+    "pos": 925,
+    "label": "724",
+    "kind": "hash"
+  },
+  "records_equal_six_fields": false,
+  "timeline": [
+    {
+      "i": 0,
+      "step_A": 0,
+      "step_X": 0,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 1,
+      "step_A": 80,
+      "step_X": 80,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 2,
+      "step_A": 170,
+      "step_X": 170,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 3,
+      "step_A": 208,
+      "step_X": 208,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 4,
+      "step_A": 243,
+      "step_X": 243,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 5,
+      "step_A": 276,
+      "step_X": 276,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 6,
+      "step_A": 305,
+      "step_X": 305,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 7,
+      "step_A": 399,
+      "step_X": 399,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 8,
+      "step_A": 491,
+      "step_X": 491,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 9,
+      "step_A": 573,
+      "step_X": 573,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 10,
+      "step_A": 665,
+      "step_X": 665,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 11,
+      "step_A": 724,
+      "step_X": 724,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": true
+    },
+    {
+      "i": 12,
+      "step_A": 753,
+      "step_X": 761,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 13,
+      "step_A": 848,
+      "step_X": 846,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 14,
+      "step_A": 893,
+      "step_X": 902,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 15,
+      "step_A": 933,
+      "step_X": 1022,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 16,
+      "step_A": 988,
+      "step_X": 1330,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 17,
+      "step_A": 1296,
+      "step_X": 1410,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 18,
+      "step_A": 1393,
+      "step_X": 1518,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 19,
+      "step_A": 1701,
+      "step_X": 1547,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 20,
+      "step_A": 1797,
+      "step_X": 1629,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 21,
+      "step_A": 1865,
+      "step_X": 1686,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 22,
+      "step_A": 1973,
+      "step_X": 1788,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 23,
+      "step_A": 2002,
+      "step_X": 1947,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    }
+  ],
+  "qstar": {
+    "i": 11,
+    "step_A": 724,
+    "step_X": 724,
+    "reply_A": "The next action is turn right 15 degree.",
+    "reply_X": "The next action is move forward 25 cm.",
+    "cmd_A": [
+      0.0,
+      0.0,
+      -0.5235987755982988
+    ],
+    "cmd_X": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "request_sha_A": "481d60aa9f3af18c0cee738467ddac1738e05d8f36d16fe7b5a44a21b09a2cb4",
+    "request_sha_X": "99b4a8e4b0a66233a6b3ad70eb390bcc5438729bc8310b0c156f363c1aa40d27",
+    "state_hash_A": "f0df21773117284d901fd7e346844924d135e61664c5598cf14567794bb8d6ca",
+    "state_hash_X": "f0df21773117284d901fd7e346844924d135e61664c5598cf14567794bb8d6ca",
+    "frames": [
+      {
+        "slot": 0,
+        "k_A": 0,
+        "k_X": 0,
+        "label_A": "init",
+        "label_X": "init",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 39,
+        "mean_abs_diff": 0.126044921875,
+        "share_channels_differ": 0.12288917824074073,
+        "share_pixels_differ": 0.3031640625
+      },
+      {
+        "slot": 1,
+        "k_A": 5,
+        "k_X": 5,
+        "label_A": "w124",
+        "label_X": "w124",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 3,
+        "mean_abs_diff": 0.12516276041666666,
+        "share_channels_differ": 0.12506691261574074,
+        "share_pixels_differ": 0.32046332465277777
+      },
+      {
+        "slot": 2,
+        "k_A": 10,
+        "k_X": 10,
+        "label_A": 25,
+        "label_X": 25,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 9,
+        "mean_abs_diff": 0.13330656828703705,
+        "share_channels_differ": 0.1303587962962963,
+        "share_pixels_differ": 0.3012651909722222
+      },
+      {
+        "slot": 3,
+        "k_A": 15,
+        "k_X": 15,
+        "label_A": 150,
+        "label_X": 150,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 6,
+        "mean_abs_diff": 0.11046694155092593,
+        "share_channels_differ": 0.10925455729166667,
+        "share_pixels_differ": 0.2654264322916667
+      },
+      {
+        "slot": 4,
+        "k_A": 21,
+        "k_X": 21,
+        "label_A": 300,
+        "label_X": 300,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 6,
+        "mean_abs_diff": 0.10383897569444445,
+        "share_channels_differ": 0.10288302951388889,
+        "share_pixels_differ": 0.2495236545138889
+      },
+      {
+        "slot": 5,
+        "k_A": 26,
+        "k_X": 26,
+        "label_A": 425,
+        "label_X": 425,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 7,
+        "mean_abs_diff": 0.1445460792824074,
+        "share_channels_differ": 0.14276186342592592,
+        "share_pixels_differ": 0.3257465277777778
+      },
+      {
+        "slot": 6,
+        "k_A": 31,
+        "k_X": 31,
+        "label_A": 550,
+        "label_X": 550,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 5,
+        "mean_abs_diff": 0.12393952546296297,
+        "share_channels_differ": 0.12252423321759259,
+        "share_pixels_differ": 0.28820638020833333
+      },
+      {
+        "slot": 7,
+        "k_A": 37,
+        "k_X": 37,
+        "label_A": 700,
+        "label_X": 700,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 5,
+        "mean_abs_diff": 0.10234157986111111,
+        "share_channels_differ": 0.10175708912037038,
+        "share_pixels_differ": 0.25310004340277775
+      }
+    ],
+    "n_frames_differ": 8
+  },
+  "H1": {
+    "verdict": "held",
+    "a_states_before_step_identical": true,
+    "b_state_at_qstar_identical": true,
+    "c_requests_at_qstar_differ": true,
+    "first_state_diff_relative": "none before q*"
+  },
+  "diverged": true
+}

@@ -1,0 +1,381 @@
+{
+  "A": {
+    "name": "ep16_A",
+    "ended_at_step": 6001,
+    "term_reason": "step_cap",
+    "success": 0.0,
+    "n_queries": 63,
+    "n_frames": 250,
+    "n_state_lines": 6203,
+    "fields": {
+      "path_length": 32.48928515963962,
+      "distance_to_goal": 10.237995493306729,
+      "oracle_navigation_error": 9.877171417265432,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "X": {
+    "name": "ep16_B",
+    "ended_at_step": 2232,
+    "term_reason": "sim_done",
+    "success": 0.0,
+    "n_queries": 24,
+    "n_frames": 99,
+    "n_state_lines": 2434,
+    "fields": {
+      "path_length": 19.26899194131147,
+      "distance_to_goal": 13.063496663600157,
+      "oracle_navigation_error": 10.156379725229728,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "n_common_queries": 24,
+  "query_counts_differ": true,
+  "first_request_diff": {
+    "i": 0,
+    "step_A": 0,
+    "step_X": 0
+  },
+  "n_requests_differ_replies_match_before_qstar": 20,
+  "n_queries_before_qstar": 20,
+  "first_state_diff": {
+    "pos": 2008,
+    "label": "1807",
+    "kind": "hash"
+  },
+  "records_equal_six_fields": false,
+  "timeline": [
+    {
+      "i": 0,
+      "step_A": 0,
+      "step_X": 0,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 1,
+      "step_A": 30,
+      "step_X": 30,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 2,
+      "step_A": 129,
+      "step_X": 129,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 3,
+      "step_A": 169,
+      "step_X": 169,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 4,
+      "step_A": 299,
+      "step_X": 299,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 5,
+      "step_A": 607,
+      "step_X": 607,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 6,
+      "step_A": 707,
+      "step_X": 707,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 7,
+      "step_A": 754,
+      "step_X": 754,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 8,
+      "step_A": 791,
+      "step_X": 791,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 9,
+      "step_A": 836,
+      "step_X": 836,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 10,
+      "step_A": 886,
+      "step_X": 886,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 11,
+      "step_A": 920,
+      "step_X": 920,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 12,
+      "step_A": 989,
+      "step_X": 989,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 13,
+      "step_A": 1122,
+      "step_X": 1122,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 14,
+      "step_A": 1213,
+      "step_X": 1213,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 15,
+      "step_A": 1284,
+      "step_X": 1284,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 16,
+      "step_A": 1337,
+      "step_X": 1337,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 17,
+      "step_A": 1364,
+      "step_X": 1364,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 18,
+      "step_A": 1672,
+      "step_X": 1672,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 19,
+      "step_A": 1753,
+      "step_X": 1753,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 20,
+      "step_A": 1807,
+      "step_X": 1807,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": true
+    },
+    {
+      "i": 21,
+      "step_A": 1886,
+      "step_X": 1915,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 22,
+      "step_A": 2038,
+      "step_X": 2008,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 23,
+      "step_A": 2079,
+      "step_X": 2036,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    }
+  ],
+  "qstar": {
+    "i": 20,
+    "step_A": 1807,
+    "step_X": 1807,
+    "reply_A": "The next action is turn right 45 degree.",
+    "reply_X": "The next action is move forward 25 cm.",
+    "cmd_A": [
+      0.0,
+      0.0,
+      -0.5235987755982988
+    ],
+    "cmd_X": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "request_sha_A": "c3f17b927ecd140e020537a51fe908a5e23719947e264dfd2f358e2fdefeb574",
+    "request_sha_X": "9721ebfc717a1805ef072cb76533fc90bf354f53d5439d6c7e5e0ab4855cd4a0",
+    "state_hash_A": "498b31374c38eb57797b43e5d5f3f7d6b933e3b36b5194faf7ff6627e2621fbc",
+    "state_hash_X": "498b31374c38eb57797b43e5d5f3f7d6b933e3b36b5194faf7ff6627e2621fbc",
+    "frames": [
+      {
+        "slot": 0,
+        "k_A": 0,
+        "k_X": 0,
+        "label_A": "init",
+        "label_X": "init",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 8,
+        "mean_abs_diff": 0.08284830729166667,
+        "share_channels_differ": 0.08245985243055555,
+        "share_pixels_differ": 0.2167068142361111
+      },
+      {
+        "slot": 1,
+        "k_A": 11,
+        "k_X": 11,
+        "label_A": 50,
+        "label_X": 50,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 6,
+        "mean_abs_diff": 0.09038519965277778,
+        "share_channels_differ": 0.0891648582175926,
+        "share_pixels_differ": 0.22196940104166665
+      },
+      {
+        "slot": 2,
+        "k_A": 23,
+        "k_X": 23,
+        "label_A": 350,
+        "label_X": 350,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 5,
+        "mean_abs_diff": 0.10741319444444444,
+        "share_channels_differ": 0.10695421006944444,
+        "share_pixels_differ": 0.26568684895833333
+      },
+      {
+        "slot": 3,
+        "k_A": 34,
+        "k_X": 34,
+        "label_A": 625,
+        "label_X": 625,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 7,
+        "mean_abs_diff": 0.10742513020833333,
+        "share_channels_differ": 0.10679542824074074,
+        "share_pixels_differ": 0.2684407552083333
+      },
+      {
+        "slot": 4,
+        "k_A": 46,
+        "k_X": 46,
+        "label_A": 925,
+        "label_X": 925,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 15,
+        "mean_abs_diff": 0.10816080729166666,
+        "share_channels_differ": 0.10691984953703704,
+        "share_pixels_differ": 0.2678049045138889
+      },
+      {
+        "slot": 5,
+        "k_A": 57,
+        "k_X": 57,
+        "label_A": 1200,
+        "label_X": 1200,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 6,
+        "mean_abs_diff": 0.09758282696759259,
+        "share_channels_differ": 0.09695276331018518,
+        "share_pixels_differ": 0.24576714409722222
+      },
+      {
+        "slot": 6,
+        "k_A": 69,
+        "k_X": 69,
+        "label_A": 1500,
+        "label_X": 1500,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 10,
+        "mean_abs_diff": 0.12520724826388888,
+        "share_channels_differ": 0.12373734085648148,
+        "share_pixels_differ": 0.2970193142361111
+      },
+      {
+        "slot": 7,
+        "k_A": 81,
+        "k_X": 81,
+        "label_A": 1800,
+        "label_X": 1800,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 8,
+        "mean_abs_diff": 0.11355794270833333,
+        "share_channels_differ": 0.11172272858796296,
+        "share_pixels_differ": 0.26753038194444445
+      }
+    ],
+    "n_frames_differ": 8
+  },
+  "H1": {
+    "verdict": "held",
+    "a_states_before_step_identical": true,
+    "b_state_at_qstar_identical": true,
+    "c_requests_at_qstar_differ": true,
+    "first_state_diff_relative": "none before q*"
+  },
+  "diverged": true
+}

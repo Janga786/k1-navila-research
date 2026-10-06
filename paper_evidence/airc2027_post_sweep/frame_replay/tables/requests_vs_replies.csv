@@ -1,0 +1,9 @@
+episode_idx,pair,queries_before_qstar,requests_differed_replies_matched_before_qstar,first_request_diff_index
+3,A vs B,3,3,0
+8,A vs B,6,6,0
+16,A vs B,20,20,0
+20,A vs B,4,4,0
+50,A vs B,51,51,0
+99,A vs B,11,11,0
+92,A vs B,10,10,0
+212,A vs B,13,13,0

@@ -1,0 +1,12 @@
+{
+ "converter_dirs": [
+  "/tmp/IsaacLab/usd_20261001_193649_1544"
+ ],
+ "/tmp/IsaacLab/usd_20261001_193649_1544": [
+  ".",
+  "K1_locomotion.usd",
+  "Props",
+  "Props/instanceable_meshes.usd",
+  "config.yaml"
+ ]
+}

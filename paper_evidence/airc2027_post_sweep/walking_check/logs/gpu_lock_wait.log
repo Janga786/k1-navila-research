@@ -1,0 +1,4 @@
+2026-10-01T23:10:02-06:00	wait	GPU_LOCK exists (frame_replay)	compute: none
+2026-10-01T23:20:02-06:00	wait	GPU_LOCK exists (frame_replay)	compute: none
+2026-10-01T23:30:02-06:00	wait	GPU_LOCK exists (frame_replay)	compute: none
+2026-10-01T23:40:02-06:00	acquired	GPU_LOCK created (walking_check)	compute: none

@@ -1,0 +1,6 @@
+[2026-10-01 23:26:07] === STEP 1: validation ===
+[2026-10-01 23:26:22] model server session1 up: pid 1296470
+[2026-10-01 23:26:23] RUN validate (episode_idx 92)
+[run_sim] validate rc=3 wall=20s log=/home/boosterk1/Projects/k1_research/airc2027_replay/logs/validate.log
+[2026-10-01 23:26:43] STOPPED: validate run rc=3 (logs/validate.log)
+[2026-10-01 23:26:43] BATCH_VALIDATE_FAILED

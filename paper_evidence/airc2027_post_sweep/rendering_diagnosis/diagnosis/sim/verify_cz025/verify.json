@@ -1,0 +1,229 @@
+{
+ "as_evaluated": "diagnosis/sim/step3_cz025",
+ "removal": "diagnosis/sim/removal_headarms_cz025",
+ "cam_z": 0.25,
+ "frames": {
+  "A_reset": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 265,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 265,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 48
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "gt_px": 1160,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.7128571428571429,
+     "precision": 0.8061389337641357,
+     "recall": 0.8603448275862069,
+     "gt_px": 1160,
+     "pred_px": 1238
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 167
+   }
+  },
+  "D_walk_step025": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 12
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.0442294402211472,
+     "precision": 0.08590604026845637,
+     "recall": 0.0835509138381201,
+     "gt_px": 1532,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.721058434399118,
+     "precision": 0.8226415094339623,
+     "recall": 0.8537859007832899,
+     "gt_px": 1532,
+     "pred_px": 1590
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 170
+   }
+  },
+  "D_walk_step050": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 11
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.1747589833479404,
+     "precision": 0.6691275167785234,
+     "recall": 0.1912893323100537,
+     "gt_px": 5212,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.5180809165771572,
+     "precision": 0.8855569155446756,
+     "recall": 0.5552570990023024,
+     "gt_px": 5212,
+     "pred_px": 3268
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 182
+   }
+  },
+  "D_walk_step075": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 23
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.05479885967690846,
+     "precision": 0.11610738255033556,
+     "recall": 0.09402173913043478,
+     "gt_px": 1840,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.5515653775322283,
+     "precision": 0.7830065359477124,
+     "recall": 0.6510869565217391,
+     "gt_px": 1840,
+     "pred_px": 1530
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 157
+   }
+  },
+  "D_walk_step100": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 989,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 989,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 18
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.06575415995705851,
+     "precision": 0.1644295302013423,
+     "recall": 0.09875050382910117,
+     "gt_px": 2481,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.578928046989721,
+     "precision": 0.8664835164835165,
+     "recall": 0.6356307940346635,
+     "gt_px": 2481,
+     "pred_px": 1820
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 158
+   }
+  },
+  "F0_rereset": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 9,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 9,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 60
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "gt_px": 1108,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.7186813186813187,
+     "precision": 0.7924071082390953,
+     "recall": 0.8853790613718412,
+     "gt_px": 1108,
+     "pred_px": 1238
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 157
+   }
+  }
+ }
+}

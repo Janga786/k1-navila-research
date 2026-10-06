@@ -1,0 +1,341 @@
+{
+  "A": {
+    "name": "ep20_A",
+    "ended_at_step": 1563,
+    "term_reason": "sim_done",
+    "success": 0.0,
+    "n_queries": 19,
+    "n_frames": 72,
+    "n_state_lines": 1765,
+    "fields": {
+      "path_length": 13.386594262872677,
+      "distance_to_goal": 7.087826494001739,
+      "oracle_navigation_error": 2.6158616768026435,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 1.0
+    }
+  },
+  "X": {
+    "name": "ep20_B",
+    "ended_at_step": 1437,
+    "term_reason": "stop",
+    "success": 0.0,
+    "n_queries": 20,
+    "n_frames": 67,
+    "n_state_lines": 1639,
+    "fields": {
+      "path_length": 8.50504175097376,
+      "distance_to_goal": 3.066359674269848,
+      "oracle_navigation_error": 2.9398640642991998,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 1.0
+    }
+  },
+  "n_common_queries": 19,
+  "query_counts_differ": true,
+  "first_request_diff": {
+    "i": 0,
+    "step_A": 0,
+    "step_X": 0
+  },
+  "n_requests_differ_replies_match_before_qstar": 4,
+  "n_queries_before_qstar": 4,
+  "first_state_diff": {
+    "pos": 522,
+    "label": "321",
+    "kind": "hash"
+  },
+  "records_equal_six_fields": false,
+  "timeline": [
+    {
+      "i": 0,
+      "step_A": 0,
+      "step_X": 0,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 1,
+      "step_A": 39,
+      "step_X": 39,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 2,
+      "step_A": 118,
+      "step_X": 118,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 3,
+      "step_A": 197,
+      "step_X": 197,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 4,
+      "step_A": 277,
+      "step_X": 277,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": true
+    },
+    {
+      "i": 5,
+      "step_A": 329,
+      "step_X": 355,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 6,
+      "step_A": 361,
+      "step_X": 437,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 7,
+      "step_A": 438,
+      "step_X": 467,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 8,
+      "step_A": 469,
+      "step_X": 521,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 9,
+      "step_A": 523,
+      "step_X": 552,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 10,
+      "step_A": 554,
+      "step_X": 646,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 11,
+      "step_A": 646,
+      "step_X": 679,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 12,
+      "step_A": 734,
+      "step_X": 710,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 13,
+      "step_A": 763,
+      "step_X": 797,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 14,
+      "step_A": 856,
+      "step_X": 883,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 15,
+      "step_A": 940,
+      "step_X": 981,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 16,
+      "step_A": 1033,
+      "step_X": 1018,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    },
+    {
+      "i": 17,
+      "step_A": 1141,
+      "step_X": 1059,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 18,
+      "step_A": 1259,
+      "step_X": 1367,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    }
+  ],
+  "qstar": {
+    "i": 4,
+    "step_A": 277,
+    "step_X": 277,
+    "reply_A": "The next action is turn left 30 degree.",
+    "reply_X": "The next action is turn left 45 degree.",
+    "cmd_A": [
+      0.0,
+      0.0,
+      0.5235987755982988
+    ],
+    "cmd_X": [
+      0.0,
+      0.0,
+      0.5235987755982988
+    ],
+    "request_sha_A": "89307f3fbeaf79b446122f2e3dd9f832046553cee1c81b80bad91f6b000bc053",
+    "request_sha_X": "9fa7530bfcbb3241860bd796e271a012826f1e5bbe36797ef98a61389a5943b2",
+    "state_hash_A": "dd20e344cf34017fde4d1388d008bb2926f575216cda1a6436d8ed438b020394",
+    "state_hash_X": "dd20e344cf34017fde4d1388d008bb2926f575216cda1a6436d8ed438b020394",
+    "frames": [
+      {
+        "slot": 0,
+        "k_A": 0,
+        "k_X": 0,
+        "label_A": "init",
+        "label_X": "init",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 10,
+        "mean_abs_diff": 0.16892939814814814,
+        "share_channels_differ": 0.16803819444444446,
+        "share_pixels_differ": 0.40338758680555553
+      },
+      {
+        "slot": 1,
+        "k_A": 2,
+        "k_X": 2,
+        "label_A": "w49",
+        "label_X": "w49",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 4,
+        "mean_abs_diff": 0.166455078125,
+        "share_channels_differ": 0.16610785590277777,
+        "share_pixels_differ": 0.40758246527777775
+      },
+      {
+        "slot": 2,
+        "k_A": 5,
+        "k_X": 5,
+        "label_A": "w124",
+        "label_X": "w124",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 3,
+        "mean_abs_diff": 0.17171115451388888,
+        "share_channels_differ": 0.17122938368055557,
+        "share_pixels_differ": 0.41878797743055557
+      },
+      {
+        "slot": 3,
+        "k_A": 8,
+        "k_X": 8,
+        "label_A": "w199",
+        "label_X": "w199",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 4,
+        "mean_abs_diff": 0.19493019386574073,
+        "share_channels_differ": 0.19249240451388888,
+        "share_pixels_differ": 0.4553407118055556
+      },
+      {
+        "slot": 4,
+        "k_A": 11,
+        "k_X": 11,
+        "label_A": 50,
+        "label_X": 50,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 3,
+        "mean_abs_diff": 0.15081633391203703,
+        "share_channels_differ": 0.1506611689814815,
+        "share_pixels_differ": 0.362802734375
+      },
+      {
+        "slot": 5,
+        "k_A": 14,
+        "k_X": 14,
+        "label_A": 125,
+        "label_X": 125,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 3,
+        "mean_abs_diff": 0.143916015625,
+        "share_channels_differ": 0.14379991319444443,
+        "share_pixels_differ": 0.353115234375
+      },
+      {
+        "slot": 6,
+        "k_A": 17,
+        "k_X": 17,
+        "label_A": 200,
+        "label_X": 200,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 7,
+        "mean_abs_diff": 0.14035481770833333,
+        "share_channels_differ": 0.140126953125,
+        "share_pixels_differ": 0.3457400173611111
+      },
+      {
+        "slot": 7,
+        "k_A": 20,
+        "k_X": 20,
+        "label_A": 275,
+        "label_X": 275,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 12,
+        "mean_abs_diff": 0.1359248408564815,
+        "share_channels_differ": 0.1350535300925926,
+        "share_pixels_differ": 0.32973524305555557
+      }
+    ],
+    "n_frames_differ": 8
+  },
+  "H1": {
+    "verdict": "held",
+    "a_states_before_step_identical": true,
+    "b_state_at_qstar_identical": true,
+    "c_requests_at_qstar_differ": true,
+    "first_state_diff_relative": "none before q*"
+  },
+  "diverged": true
+}

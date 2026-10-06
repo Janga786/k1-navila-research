@@ -1,0 +1,39 @@
+--- navila_eval_v3_LOG.py	2026-10-01 23:00:08.145173519 -0600
++++ /tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/fixtest/navila_eval_v3_LOG_FIXED.py	2026-10-01 23:31:04.208525526 -0600
+@@ -598,7 +598,7 @@
+             img = Image.fromarray(arr)
+             rec["sha256"] = rec["fresh_sha256"]
+             if k < self.VERIFY_FIRST:
+-                back = np.array(Image.open(path))
++                back = _read_png_rgb(path)
+                 ok = (back.dtype == fresh.dtype and back.shape == fresh.shape
+                       and np.array_equal(back, fresh) and np.array_equal(np.asarray(img), fresh))
+                 rec["png_reload_verified"] = bool(ok)
+@@ -613,7 +613,7 @@
+                 img = Image.fromarray(arr)   # the episode ends at the next hook
+                 rec["sha256"] = rec["fresh_sha256"]
+             else:
+-                rarr = np.array(Image.open(src))
++                rarr = _read_png_rgb(src)
+                 img = Image.fromarray(rarr)
+                 rec["sha256"] = _sha256(np.ascontiguousarray(rarr).tobytes())
+                 rec["A_sha256"] = ref["sha256"]
+@@ -712,6 +712,18 @@
+             fh.close()
+ 
+ 
++def _read_png_rgb(path):
++    """[LOG] Decode a lossless PNG to its uint8 RGB array without PIL's plugin path: inside Isaac Sim 4.1
++    the PIL package mixes Pillow 12.3.0 (PIL.Image, ~/.local) with Kit's prebundled 10.2.0 plugins
++    (PIL.ImageFile / PIL.PngImagePlugin) and Image.open(...).load() raises there. cv2 is already imported
++    by the evaluator; PNG decoding is exact in any conforming decoder."""
++    import cv2
++    bgr = cv2.imread(path, cv2.IMREAD_UNCHANGED)
++    if bgr is None or bgr.ndim != 3 or bgr.shape[2] != 3 or bgr.dtype != np.uint8:
++        raise RuntimeError(f"[LOG] cannot decode {path} as an 8-bit RGB PNG")
++    return np.ascontiguousarray(bgr[:, :, ::-1])
++
++
+ def _file_sha256(path):
+     with open(path, "rb") as fh:
+         return _sha256(fh.read())

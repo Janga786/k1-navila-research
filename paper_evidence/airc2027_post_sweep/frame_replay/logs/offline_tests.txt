@@ -1,0 +1,26 @@
+PASS  normal run A completes (rc 0)
+PASS  normal run B completes (rc 0)
+PASS  validation checks 2-4 + consistency pass on run A (PNG round-trip, request rebuild, schema)
+      A vs B: (6, 346) held
+PASS  A vs B (different render noise, identical physics): q* found, H1 verdict held
+PASS  replay run R completes
+PASS  R vs A: H3 held with deterministic fake physics and server
+PASS  1e-6 m physics jitter after env step 350 -> replay stops with a state mismatch at main step 99
+PASS  nondeterministic server -> replay stops with a reply mismatch
+PASS  identical renders -> no divergence, identical records
+PASS  identical requests + nondeterministic server -> H1 verdict failed_requests_identical
+PASS  physics jitter before q* -> H1 verdict failed_state_before_qstar
+PASS  q* requests rebuilt from saved frames match the logged hashes
+PASS  condition 1 (--replay_queries in the copy): each request gets its own reply 4/4
+PASS  condition 2 client: each request gets its own reply 4/4
+PASS  nondeterministic server -> H2 failed (distribution reported)
+PASS  replay_client._vlm_send_bytes is AST-identical to the copy's (the evaluator's socket code)
+PASS  SIGTERM: record (wall_timeout) and states_at_queries.npz written under --log_dir; rc 124
+PASS  simulated Kit Pillow mix: normal run completes (in-process PNG decode via cv2)
+PASS  simulated Kit Pillow mix: the 10 in-process PNG reload checks are true
+PASS  simulated Kit Pillow mix: validation checks 2-4 + consistency pass (requests encoded under the mix rebuild exactly)
+PASS  simulated Kit Pillow mix: replay run R completes
+PASS  simulated Kit Pillow mix: R vs A H3 held, R's history frames = A's frames
+PASS  refuses a --log_dir under eval_results/ (and creates nothing there)
+PASS  refuses to overwrite an existing run directory
+OFFLINE TESTS: 24 passed, 0 failed

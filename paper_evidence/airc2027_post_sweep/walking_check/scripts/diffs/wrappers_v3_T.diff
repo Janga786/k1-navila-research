@@ -1,0 +1,82 @@
+--- evaluated: NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py
++++ copy: scripts/wrappers_v3_T.py
+@@ -1,5 +1,18 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ """
++AIRC 2027 walking check: COPY of the sweep's wrappers_v3.py (SHA-256 be607d92...) for robot T, the 22-joint
++training robot model (K1_22dof.urdf). The sweep file is untouched. Changes, each marked `# WALKCHECK:`:
++  * class renamed VLNEnvWrapperV3T; absolute import of add_measurement (this file lives outside the package);
++  * the 12 leg joints are selected by name with Isaac Lab's own resolver (find_joints(LEG_JOINTS,
++    preserve_order=True)) and the resolved order is ASSERTED to be the policy's training order (LEG_JOINTS);
++    observations read only those 12 joints (the original already indexes by LEG_JOINTS);
++  * the 12-dim leg action is scattered into the env's full action vector (22 joints for robot T: the action term
++    is joint_names=[".*"], in articulation order, which is asserted); the 10 head/arm entries stay 0, i.e. their
++    position targets stay at the default joint positions = the training pose (use_default_offset=True).
++Everything else (gait clock 1.5 Hz + stand gate, 5-frame term-major history, obs scales, action scale 0.25,
++warm-up, measures, stall check) is unchanged. For a 12-joint robot this reduces to the original.
++
++--- original docstring ---
+ VLNEnvWrapperV3 — drives the K1 VLN-CE v3 policy from the NaVILA-Bench
+ benchmark loop.
+ 
+@@ -32,7 +45,7 @@
+ import torch
+ 
+ from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from .measures import add_measurement
++from omni.isaac.vlnce.utils.measures import add_measurement  # WALKCHECK: absolute import (copy outside the package)
+ 
+ 
+ def _yaw_from_quat_w(q: torch.Tensor) -> float:
+@@ -69,7 +82,7 @@
+     return v - w * t + torch.cross(qv, t, dim=-1)
+ 
+ 
+-class VLNEnvWrapperV3:
++class VLNEnvWrapperV3T:  # WALKCHECK: copy for the 22-joint training robot model
+     """Drives the K1 v3 policy through the bench's Matterport env.
+ 
+     Use with a single env (num_envs=1). Maintains an internal 47-dim ×
+@@ -145,9 +158,21 @@
+         robot = self.unwrapped.scene["robot"].data
+         # PATCHED: build articulation-order -> LEG_JOINTS-order permutation once.
+         if self._jperm is None:
++            # WALKCHECK: select the 12 leg joints BY NAME with Isaac Lab's resolver, in the training order, and
++            # assert that order; also assert the action term covers all joints in articulation order, so the
++            # leg action can be scattered by articulation index into the full action vector.
++            asset = self.unwrapped.scene["robot"]
++            leg_ids, leg_names = asset.find_joints(LEG_JOINTS, preserve_order=True)
++            assert list(leg_names) == LEG_JOINTS, f"leg joint order {leg_names} != training order {LEG_JOINTS}"
++            assert len(set(leg_ids)) == 12
+             names = list(robot.joint_names)
++            assert [names[i] for i in leg_ids] == LEG_JOINTS
++            act_term = self.unwrapped.action_manager.get_term("joint_pos")
++            assert list(act_term._joint_names) == names, "action term must cover all joints in articulation order"
++            self._num_act = int(self.unwrapped.action_manager.total_action_dim)
++            assert self._num_act == len(names)
+             self._jperm = torch.tensor(
+-                [names.index(n) for n in LEG_JOINTS],
++                list(leg_ids),
+                 device=self.device, dtype=torch.long,
+             )
+         # body-frame angular velocity (PATCHED: contract obs scale 0.25)
+@@ -240,7 +265,8 @@
+             ) % 1.0
+             self._last_action = action
+             # PATCHED: scatter LEG_JOINTS-order action into articulation order, then pre-divide
+-            full = torch.zeros_like(action)
++            full = torch.zeros(self.num_envs, self._num_act, device=action.device,
++                               dtype=action.dtype)  # WALKCHECK: full action vector (22 for robot T)
+             full[:, self._jperm] = action
+             scaled = full * ACTION_SCALE_RATIO
+             low_level_obs, _, _, infos = self.env.step(scaled)
+@@ -278,7 +304,8 @@
+         ) % 1.0
+         self._last_action = low_level_action
+         # PATCHED: scatter LEG_JOINTS-order action into articulation order, then pre-divide
+-        full = torch.zeros_like(low_level_action)
++        full = torch.zeros(self.num_envs, self._num_act, device=low_level_action.device,
++                           dtype=low_level_action.dtype)  # WALKCHECK: full action vector (22 for robot T)
+         full[:, self._jperm] = low_level_action
+         scaled = full * ACTION_SCALE_RATIO
+         low_level_obs, reward, done, info = self.env.step(scaled)

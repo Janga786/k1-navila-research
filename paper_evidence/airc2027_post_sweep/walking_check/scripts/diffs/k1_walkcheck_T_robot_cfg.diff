@@ -1,0 +1,34 @@
+--- Oct 1: airc2027_renders/configs/k1_corrected_robot_cfg.py
++++ copy: scripts/configs/k1_walkcheck_T_robot_cfg.py
+@@ -1,14 +1,17 @@
+-"""CORRECTED robot model for still images only (copied config; the sweep's k1_matterport_vision_cfg.py is untouched).
++"""TRAINING robot model (robot T) for the AIRC 2027 walking check. COPY of
++airc2027_renders/configs/k1_corrected_robot_cfg.py (Oct 1 diagnosis); the sweep's k1_matterport_vision_cfg.py is untouched.
+ 
+ Starts from a copy of the evaluated K1_ARTICULATION_CFG (k1_matterport_vision_cfg.py, sweep-time) and changes only
+ the robot model:
+   * URDF K1_locomotion.urdf -> K1_22dof.urdf (the training model of model_14498; head and arm joints revolute,
+     so nothing is merged into the Trunk)
+-  * fix_base=True (still image: the Trunk is held at a given pose)
++  * fix_base=False (WALKCHECK: free base; the Oct 1 still images used fix_base=True)
+   * head/arm joints held by PD at the TRAINING pose of model_14498 (params/env.yaml of run 2026-06-10_14-30-20):
+     Shoulder_Pitch 0.2, Shoulder_Roll -1.25 (L) / +1.25 (R), Elbow_Pitch 0, Elbow_Yaw -0.5 (L) / +0.5 (R), head 0;
+     actuators as in training: arms stiffness 20, damping 2, effort 14, velocity 33.51, armature 0.001;
+     head stiffness 4, damping 1, effort 6, velocity 7.85, armature 0.001.
++    Training used BoosterDelayedPDActuator with a random 0-3-step delay; Isaac Lab 1.1 has no equivalent, so (as in
++    the evaluation) these are plain implicit PD actuators without delay.
+ Leg joints, gains, limits and armatures are unchanged from the evaluated config.
+ """
+ import os
+@@ -30,9 +33,9 @@
+ }
+ 
+ 
+-def make_corrected_robot_cfg(root_pos, root_rot_wxyz):
++def make_walkcheck_T_robot_cfg(root_pos, root_rot_wxyz):
+     cfg = K1_ARTICULATION_CFG.copy()
+-    cfg.spawn = cfg.spawn.replace(asset_path=K1_22DOF_URDF, fix_base=True)
++    cfg.spawn = cfg.spawn.replace(asset_path=K1_22DOF_URDF, fix_base=False)  # WALKCHECK: free base
+     cfg.init_state = cfg.init_state.replace(pos=tuple(root_pos), rot=tuple(root_rot_wxyz),
+                                             joint_pos={**K1_DEFAULT_JOINT_POS, **TRAINING_UPPER_BODY_POSE})
+     cfg.actuators = dict(cfg.actuators)

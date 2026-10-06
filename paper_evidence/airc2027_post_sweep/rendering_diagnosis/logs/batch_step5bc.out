@@ -1,0 +1,8 @@
+[run_gpu] pt_corrected rc=0 wall=72s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/pt_corrected.log
+[run_gpu] pt_studio rc=0 wall=54s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/pt_studio.log
+[run_gpu] matbind_cz057 rc=0 wall=31s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/matbind_cz057.log
+[run_gpu] removal_logo_cz042 rc=0 wall=23s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_logo_cz042.log
+[run_gpu] h095pattern_idx75 rc=0 wall=35s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/h095pattern_idx75.log
+[run_gpu] h095pattern_idx81 rc=0 wall=36s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/h095pattern_idx81.log
+[run_gpu] h095pattern_idx72 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/h095pattern_idx72.log
+BATCH_DONE

@@ -1,0 +1,636 @@
+--- /home/boosterk1/Projects/k1_research/NaVILA-Bench-main/scripts/navila_eval_v3.py	2026-09-11 18:53:43.889877351 -0600
++++ navila_eval_v3_LOG.py	2026-10-02 09:57:23.597487720 -0600
+@@ -19,6 +19,13 @@
+       [--episode_idx=N]
+       [--gait_phase_init=0.0]
+ """
++# [LOG] FRAME-REPLAY LOGGING COPY (airc2027_replay, 2026-10-01) of NaVILA-Bench-main/scripts/
++# navila_eval_v3.py (SHA-256 9b010715...281fc). Every change is marked "[LOG]" and listed in
++# evaluator.diff. Added, behind new flags: --log_dir (mandatory: all outputs go there, never
++# eval_results/), per-frame PNG + frames.jsonl, per-query queries.jsonl, per-step state hashes,
++# --replay_frames_from (run R: the model's history gets run A's saved frames) and --replay_queries
++# (resend saved requests with the simulator loaded). Outside replay mode nothing changes the
++# simulation, the random state, the control flow or the bytes sent to the model.
+ 
+ import argparse
+ import gymnasium as gym
+@@ -35,6 +42,16 @@
+ import base64
+ import io
+ import socket
++import hashlib    # [LOG]
++import sys        # [LOG]
++import time       # [LOG]
++import traceback  # [LOG]
++
++# [LOG] This copy lives outside NaVILA-Bench/scripts. Put that directory first on sys.path so the
++# sweep's own cli_args / nav_diag are imported (read-only), as `python scripts/navila_eval_v3.py`
++# resolves them (there sys.path[0] is the script's directory).
++_NB_SCRIPTS = os.path.realpath(os.path.expanduser("~/Projects/k1_research/NaVILA-Bench/scripts"))
++sys.path.insert(0, _NB_SCRIPTS)
+ 
+ from omni.isaac.lab.app import AppLauncher
+ 
+@@ -104,11 +121,41 @@
+ parser.add_argument("--cam_width", type=int, default=None, help="camera width override")
+ parser.add_argument("--cam_height", type=int, default=None, help="camera height override")
+ parser.add_argument("--cam_aperture", type=float, default=None, help="horizontal_aperture (FOV) override")
++# [LOG] frame-replay experiment flags (see the header note and evaluator.diff)
++parser.add_argument("--log_dir", type=str, default=None,
++                    help="[LOG] MANDATORY. All outputs (record JSON, video, frame/query/state logs) go here.")
++parser.add_argument("--replay_frames_from", type=str, default=None,
++                    help="[LOG] Run R: store run A's saved frames DIR/frames/f{k:04d}.png in the model's history "
++                         "instead of the fresh renders (still rendered and saved as fresh_frames/); compare with A's "
++                         "logs and end the episode at the first mismatch.")
++parser.add_argument("--replay_queries", type=str, default=None,
++                    help="[LOG] JSON file of saved requests: build the env, reset the episode, send each request "
++                         "--replay_n times through the evaluator's socket code, log the replies, exit.")
++parser.add_argument("--replay_n", type=int, default=20, help="[LOG] sends per request for --replay_queries")
+ cli_args.add_rsl_rl_args(parser)   # adds --checkpoint among others
+ AppLauncher.add_app_launcher_args(parser)
+ args_cli = parser.parse_args()
+ if not args_cli.checkpoint:
+     raise SystemExit("--checkpoint is required (absolute path to v3 model_*.pt)")
++# [LOG] The logging copy writes only under --log_dir, never into eval_results/, and never over a run.
++if not args_cli.log_dir:
++    raise SystemExit("[LOG] --log_dir is required in the logging copy")
++args_cli.log_dir = os.path.realpath(args_cli.log_dir)
++if "eval_results" in args_cli.log_dir.split(os.sep):
++    raise SystemExit(f"[LOG] refusing to write under eval_results/: {args_cli.log_dir}")
++if args_cli.replay_frames_from and args_cli.replay_queries:
++    raise SystemExit("[LOG] --replay_frames_from and --replay_queries are mutually exclusive")
++if args_cli.replay_frames_from:
++    args_cli.replay_frames_from = os.path.realpath(args_cli.replay_frames_from)
++    for _f in ("frames", "frames.jsonl", "queries.jsonl", "state_hashes.txt"):
++        if not os.path.exists(os.path.join(args_cli.replay_frames_from, _f)):
++            raise SystemExit(f"[LOG] --replay_frames_from lacks {_f}: {args_cli.replay_frames_from}")
++    if args_cli.replay_frames_from == args_cli.log_dir:
++        raise SystemExit("[LOG] --log_dir must differ from --replay_frames_from")
++for _f in ("frames.jsonl", "queries.jsonl", "replay_queries.jsonl"):
++    if os.path.exists(os.path.join(args_cli.log_dir, _f)):
++        raise SystemExit(f"[LOG] --log_dir already holds a run ({_f}): {args_cli.log_dir}")
++os.makedirs(args_cli.log_dir, exist_ok=True)
+ 
+ # launch omniverse app
+ app_launcher = AppLauncher(args_cli)
+@@ -236,8 +283,37 @@
+     return canvas
+ 
+ 
++def _vlm_send_bytes(data_bytes, vlm_host, vlm_port, log=None):
++    """[LOG] The evaluator's socket exchange, moved verbatim out of sample_images_and_send_to_vlm
++    so that --replay_queries sends saved requests through the very same code."""
++    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
++        s.connect((vlm_host, vlm_port))
++        s.settimeout(120.0)  # bound every recv: a VLM crash/OOM must not hang the eval forever (rank 4)
++        s.sendall(len(data_bytes).to_bytes(8, 'big'))
++        s.sendall(data_bytes)
++        size_data = b''                       # recv(8) may return <8 bytes on a partial read (rank 12)
++        while len(size_data) < 8:
++            chunk = s.recv(8 - len(size_data))
++            if not chunk:
++                raise ConnectionError("VLM closed connection before sending the size header")
++            size_data += chunk
++        size = int.from_bytes(size_data, 'big')
++        response_data = b''
++        while len(response_data) < size:
++            packet = s.recv(4096)
++            if not packet:
++                break
++            response_data += packet
++        if log is not None:  # [LOG]
++            log["response_sha256"] = _sha256(response_data)
++            log["response_len"] = len(response_data)
++        return json.loads(response_data.decode())
++
++
+ def sample_images_and_send_to_vlm(image_list, vlm_host, vlm_port, query,
+-                                  denoise=False, bright=False, transform="stretch"):
++                                  denoise=False, bright=False, transform="stretch",
++                                  log=None):  # [LOG] log: per-query record (None = no logging)
++    _n_hist = len(image_list)  # [LOG]
+     if len(image_list) == 0:
+         return None
+     if len(image_list) < 8:
+@@ -250,6 +326,10 @@
+     indices = [int(i * (num_images - 1) / 7) for i in range(7)]
+     sampled_images = [image_list[i] for i in indices]
+     sampled_images.append(image_list[-1])
++    if log is not None:  # [LOG] append indices k of the 8 frames sent (-1 = black padding frame)
++        _pad = num_images - _n_hist
++        log["frames_in_history"] = _n_hist
++        log["indices"] = [i - _pad if i >= _pad else -1 for i in indices + [num_images - 1]]
+ 
+     encoded_images = []
+     pil_images = []  # the exact 8 frames sent, for diagnostics
+@@ -283,28 +363,23 @@
+         # adds compression artifacts on top of render noise). Localhost: size is free.
+         pil_image.save(buf, format="PNG")
+         encoded_images.append(base64.b64encode(buf.getvalue()).decode())
++        if log is not None:  # [LOG] SHA-256 of each PNG byte string sent
++            log["png_sha256"].append(_sha256(buf.getvalue()))
+ 
+     request_data = {'images': encoded_images, 'query': query}
+-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+-        s.connect((vlm_host, vlm_port))
+-        s.settimeout(120.0)  # bound every recv: a VLM crash/OOM must not hang the eval forever (rank 4)
+-        data_bytes = json.dumps(request_data).encode()
+-        s.sendall(len(data_bytes).to_bytes(8, 'big'))
+-        s.sendall(data_bytes)
+-        size_data = b''                       # recv(8) may return <8 bytes on a partial read (rank 12)
+-        while len(size_data) < 8:
+-            chunk = s.recv(8 - len(size_data))
+-            if not chunk:
+-                raise ConnectionError("VLM closed connection before sending the size header")
+-            size_data += chunk
+-        size = int.from_bytes(size_data, 'big')
+-        response_data = b''
+-        while len(response_data) < size:
+-            packet = s.recv(4096)
+-            if not packet:
+-                break
+-            response_data += packet
+-        return json.loads(response_data.decode()), pil_images
++    data_bytes = json.dumps(request_data).encode()  # [LOG] moved out of the socket block; same bytes
++    if log is not None:  # [LOG]
++        log["request_sha256"] = _sha256(data_bytes)
++        log["request_len"] = len(data_bytes)
++        _exp = log.get("expect_request_sha256")  # set in replay mode only
++        if _exp is not None and _exp != log["request_sha256"]:
++            log["request_mismatch"] = True
++            raise ReplayMismatch("request")      # replay mode: end before sending a differing request
++        log["t_send_unix"] = time.time()
++    _resp = _vlm_send_bytes(data_bytes, vlm_host, vlm_port, log=log)  # [LOG] original socket code
++    if log is not None:  # [LOG]
++        log["request_wall_s"] = round(time.time() - log["t_send_unix"], 4)
++    return _resp, pil_images
+ 
+ 
+ class ClosedLoopController:
+@@ -412,6 +487,294 @@
+     return cv2.resize(b, (w, h), interpolation=cv2.INTER_LINEAR)
+ 
+ 
++# =================================================================================== #
++# [LOG] Frame-replay logging. Observers only: they copy tensors to the host, hash them #
++# and write files under --log_dir. They never write to the simulator, never draw      #
++# random numbers and never change the bytes sent to the model. Replay mode            #
++# (--replay_frames_from) is the one documented exception: it changes the source of    #
++# the frames stored in the model's history and ends the episode at the first mismatch.#
++# =================================================================================== #
++STATE_PARTS = ("root_state_w", "joint_pos", "joint_vel", "body_state_w",
++               "joint_pos_target", "policy_obs_history")
++
++
++class ReplayMismatch(Exception):
++    """[LOG] Replay mode only: run R differs from run A."""
++
++
++def _sha256(b):
++    return hashlib.sha256(b).hexdigest()
++
++
++def _state_arrays(env):
++    """[LOG] Host copies of the state hashed after every env.step, in hash order. The policy
++    observation is the wrapper's 5 x 47 history buffer (the 235-dim input is its flatten)."""
++    d = env.unwrapped.scene["robot"].data
++    return [
++        ("root_state_w", d.root_state_w.detach().cpu().numpy()),
++        ("joint_pos", d.joint_pos.detach().cpu().numpy()),
++        ("joint_vel", d.joint_vel.detach().cpu().numpy()),
++        ("body_state_w", d.body_state_w.detach().cpu().numpy()),
++        ("joint_pos_target", d.joint_pos_target.detach().cpu().numpy()),
++        ("policy_obs_history", env._history_buf.detach().cpu().numpy()),
++    ]
++
++
++def _context_arrays(env):
++    """[LOG] Extra wrapper state saved at queries (not part of the state hash)."""
++    return [
++        ("last_action", env._last_action.detach().cpu().numpy()),
++        ("gait_phase", env._gait_phase.detach().cpu().numpy()),
++        ("command", env._command.detach().cpu().numpy()),
++    ]
++
++
++class ReplayLog:
++    """[LOG] frames/ + frames.jsonl, queries.jsonl, state_hashes.txt (+ per-part hashes in
++    state_components.tsv) and states_at_queries.npz for one run. With replay_from (run R):
++    serves run A's frames to the model's history and compares with A's logs."""
++
++    VERIFY_FIRST = 10  # frames whose PNG is reloaded and compared with the array in-process
++
++    def __init__(self, log_dir, replay_from=None, meta=None):
++        self.dir = log_dir
++        self.replay_from = replay_from
++        self.k = 0               # append index into image_observations
++        self.qi = 0              # query index
++        self.mismatch = None     # replay mode: the first difference from run A
++        self.last_state = None   # (label, hash) of the latest logged state
++        self.layout = None
++        self.q_arrays = {}
++        self._closed = False
++        self.frames_sub = "frames" if replay_from is None else "fresh_frames"
++        os.makedirs(os.path.join(log_dir, self.frames_sub), exist_ok=True)
++        self.f_frames = open(os.path.join(log_dir, "frames.jsonl"), "w", buffering=1)
++        self.f_queries = open(os.path.join(log_dir, "queries.jsonl"), "w", buffering=1)
++        self.f_states = open(os.path.join(log_dir, "state_hashes.txt"), "w", buffering=1)
++        self.f_comp = open(os.path.join(log_dir, "state_components.tsv"), "w", buffering=1)
++        self.f_comp.write("label\t" + "\t".join(STATE_PARTS) + "\n")
++        self.ref_frames, self.ref_queries, self.ref_states = {}, {}, {}
++        if replay_from is not None:
++            with open(os.path.join(replay_from, "frames.jsonl")) as fh:
++                for line in fh:
++                    r = json.loads(line)
++                    self.ref_frames[r["k"]] = r
++            with open(os.path.join(replay_from, "queries.jsonl")) as fh:
++                for line in fh:
++                    r = json.loads(line)
++                    self.ref_queries[r["query_index"]] = r
++            with open(os.path.join(replay_from, "state_hashes.txt")) as fh:
++                for line in fh:
++                    lab, hx = line.split()
++                    self.ref_states[lab] = hx
++        if meta is not None:
++            with open(os.path.join(log_dir, "run_meta.json"), "w") as fh:
++                json.dump(meta, fh, indent=2, default=str)
++
++    def _set_mismatch(self, what, where, run_a, run_r):
++        if self.mismatch is not None:
++            return
++        self.mismatch = {"what": what, "where": where, "run_A": run_a, "run_R": run_r,
++                         "replay_frames_from": self.replay_from, "frames_appended": self.k,
++                         "queries_started": self.qi,
++                         "last_state_label": self.last_state[0] if self.last_state else None}
++        with open(os.path.join(self.dir, "replay_mismatch.json"), "w") as fh:
++            json.dump(self.mismatch, fh, indent=2, default=str)
++        print(f"[LOG] REPLAY MISMATCH ({what}) at {where}: A={run_a!r} R={run_r!r}", flush=True)
++
++    def hist_frame(self, arr, label):
++        """Called where the evaluator appends a frame to image_observations; returns the image
++        to append. Normal mode: Image.fromarray(arr), as before, and the frame is saved as a
++        lossless PNG. Replay mode: run A's frame k wrapped the same way (Image.fromarray of the
++        uint8 array); the fresh render is saved under fresh_frames/."""
++        k = self.k
++        self.k += 1
++        fresh = np.ascontiguousarray(arr)
++        rec = {"k": k, "label": label, "shape": list(fresh.shape), "dtype": str(fresh.dtype),
++               "fresh_sha256": _sha256(fresh.tobytes())}
++        path = os.path.join(self.dir, self.frames_sub, f"f{k:04d}.png")
++        Image.fromarray(fresh).save(path, format="PNG")
++        if self.replay_from is None:
++            img = Image.fromarray(arr)
++            rec["sha256"] = rec["fresh_sha256"]
++            if k < self.VERIFY_FIRST:
++                back = _read_png_rgb(path)
++                ok = (back.dtype == fresh.dtype and back.shape == fresh.shape
++                      and np.array_equal(back, fresh) and np.array_equal(np.asarray(img), fresh))
++                rec["png_reload_verified"] = bool(ok)
++                if not ok:
++                    self.f_frames.write(json.dumps(rec) + "\n")
++                    raise RuntimeError(f"[LOG] PNG reload check failed for frame {k}")
++        else:
++            src = os.path.join(self.replay_from, "frames", f"f{k:04d}.png")
++            ref = self.ref_frames.get(k)
++            if ref is None or not os.path.exists(src):
++                self._set_mismatch("frame_missing_in_A", {"k": k, "label": label}, None, rec["fresh_sha256"])
++                img = Image.fromarray(arr)   # the episode ends at the next hook
++                rec["sha256"] = rec["fresh_sha256"]
++            else:
++                rarr = _read_png_rgb(src)
++                img = Image.fromarray(rarr)
++                rec["sha256"] = _sha256(np.ascontiguousarray(rarr).tobytes())
++                rec["A_sha256"] = ref["sha256"]
++                if (rec["sha256"] != ref["sha256"] or rarr.shape != fresh.shape
++                        or rarr.dtype != fresh.dtype or ref.get("label") != label):
++                    self._set_mismatch("replay_frame", {"k": k, "label": label, "A_label": ref.get("label")},
++                                       ref["sha256"], rec["sha256"])
++        self.f_frames.write(json.dumps(rec) + "\n")
++        return img
++
++    def log_state(self, env, label):
++        """After env.reset and after every env.step: `label hash` in state_hashes.txt (SHA-256
++        over the bytes of STATE_PARTS, in order). Returns False in replay mode once run R
++        differs from run A (the caller ends the episode)."""
++        parts = _state_arrays(env)
++        if self.layout is None:
++            self.layout = [(n, list(a.shape), str(a.dtype)) for n, a in parts]
++            with open(os.path.join(self.dir, "state_layout.json"), "w") as fh:
++                json.dump(self.layout, fh, indent=2)
++        h = hashlib.sha256()
++        comps = []
++        for _, a in parts:
++            b = np.ascontiguousarray(a).tobytes()
++            h.update(b)
++            comps.append(_sha256(b))
++        hx = h.hexdigest()
++        self.f_states.write(f"{label} {hx}\n")
++        self.f_comp.write(f"{label}\t" + "\t".join(comps) + "\n")
++        self.last_state = (str(label), hx)
++        if self.replay_from is not None and self.mismatch is None:
++            ref = self.ref_states.get(str(label))
++            if ref != hx:
++                self._set_mismatch("state", {"label": str(label)}, ref, hx)
++        return self.mismatch is None
++
++    def query_begin(self, env, num_steps, infos):
++        """At each model query, before the request is built: state hash at the query, raw state
++        arrays (states_at_queries.npz), distance_to_goal. Returns the per-query record that
++        sample_images_and_send_to_vlm fills in (indices, PNG hashes, request hash, wall time)."""
++        qi = self.qi
++        self.qi += 1
++        h = hashlib.sha256()
++        for name, a in _state_arrays(env):
++            h.update(np.ascontiguousarray(a).tobytes())
++            self.q_arrays[f"q{qi:04d}_{name}"] = a
++        for name, a in _context_arrays(env):
++            self.q_arrays[f"q{qi:04d}_{name}"] = a
++        q = {"query_index": qi, "num_steps": int(num_steps),
++             "state_hash": h.hexdigest(),
++             "state_label_before": self.last_state[0] if self.last_state else None,
++             "distance_to_goal": float(infos.get("measurements", {}).get("distance_to_goal", float("nan"))),
++             "frames_in_history": None, "indices": None, "png_sha256": [],
++             "request_sha256": None, "request_len": None}
++        if self.replay_from is not None:
++            ref = self.ref_queries.get(qi)
++            if self.mismatch is not None:
++                q["abort"] = "earlier_mismatch"
++            elif ref is None:
++                self._set_mismatch("query_missing_in_A", {"query_index": qi, "num_steps": int(num_steps)},
++                                   None, int(num_steps))
++                q["abort"] = "query_missing_in_A"
++            elif int(ref["num_steps"]) != int(num_steps):
++                self._set_mismatch("query_step", {"query_index": qi}, int(ref["num_steps"]), int(num_steps))
++                q["abort"] = "query_step"
++            else:
++                q["expect_request_sha256"] = ref["request_sha256"]
++        return q
++
++    def query_end(self, q, instruction, reply, cmd, time_to_go, error=None):
++        """After the reply (or a failed/aborted query): one line in queries.jsonl."""
++        q = dict(q)
++        q["instruction"] = instruction
++        q["reply"] = reply
++        q["parsed_cmd"] = None if cmd is None else [float(c) for c in cmd]
++        q["time_to_go"] = None if time_to_go is None else float(time_to_go)
++        if error is not None:
++            q["error"] = error
++        if self.replay_from is not None and self.mismatch is None:
++            ref = self.ref_queries.get(q["query_index"])
++            where = {"query_index": q["query_index"], "num_steps": q["num_steps"]}
++            if q.get("request_mismatch"):
++                self._set_mismatch("request", dict(where, A_png_sha256=ref.get("png_sha256"),
++                                                   R_png_sha256=q.get("png_sha256")),
++                                   ref["request_sha256"], q["request_sha256"])
++            elif reply is not None and reply != ref["reply"]:
++                self._set_mismatch("reply", where, ref["reply"], reply)
++        self.f_queries.write(json.dumps(q) + "\n")
++
++    def close(self):
++        """Write states_at_queries.npz and close the line logs (normal end, SIGTERM, errors)."""
++        if self._closed:
++            return
++        self._closed = True
++        np.savez(os.path.join(self.dir, "states_at_queries.npz"), **self.q_arrays)
++        for fh in (self.f_frames, self.f_queries, self.f_states, self.f_comp):
++            fh.close()
++
++
++def _read_png_rgb(path):
++    """[LOG] Decode a lossless PNG to its uint8 RGB array without PIL's plugin path: inside Isaac Sim 4.1
++    the PIL package mixes Pillow 12.3.0 (PIL.Image, ~/.local) with Kit's prebundled 10.2.0 plugins
++    (PIL.ImageFile / PIL.PngImagePlugin) and Image.open(...).load() raises there. cv2 is already imported
++    by the evaluator; PNG decoding is exact in any conforming decoder."""
++    import cv2
++    bgr = cv2.imread(path, cv2.IMREAD_UNCHANGED)
++    if bgr is None or bgr.ndim != 3 or bgr.shape[2] != 3 or bgr.dtype != np.uint8:
++        raise RuntimeError(f"[LOG] cannot decode {path} as an 8-bit RGB PNG")
++    return np.ascontiguousarray(bgr[:, :, ::-1])
++
++
++def _file_sha256(path):
++    with open(path, "rb") as fh:
++        return _sha256(fh.read())
++
++
++def _run_meta(episode):
++    """[LOG] Provenance written once per run (run_meta.json)."""
++    import platform
++    import zlib
++    import PIL
++    return {
++        "argv": sys.argv, "args": vars(args_cli),
++        "episode_idx": args_cli.episode_idx, "episode_id": episode["episode_id"],
++        "record": int(episode["episode_id"]) - 1, "scene_id": episode["scene_id"],
++        "instruction": episode["instruction"]["instruction_text"],
++        "pid": os.getpid(), "host": platform.node(), "cwd": os.getcwd(),
++        "start_unix": time.time(), "start_local": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
++        "evaluator_copy_sha256": _file_sha256(os.path.abspath(__file__)),
++        "sweep_evaluator_sha256": _file_sha256(os.path.join(_NB_SCRIPTS, "navila_eval_v3.py")),
++        "python": sys.version, "torch": torch.__version__,
++        "numpy": [np.__version__, np.__file__], "PIL": [PIL.__version__, PIL.__file__],
++        "zlib": [zlib.ZLIB_VERSION, zlib.ZLIB_RUNTIME_VERSION],
++        "env_PYTHONDONTWRITEBYTECODE": os.environ.get("PYTHONDONTWRITEBYTECODE"),
++    }
++
++
++def _replay_queries(args_cli):
++    """[LOG] --replay_queries (Step 4, condition 1): with the simulator built and the episode
++    reset, send each saved request --replay_n times through _vlm_send_bytes (the evaluator's
++    socket code) and log every reply to <log_dir>/replay_queries.jsonl."""
++    with open(args_cli.replay_queries) as fh:
++        spec = json.load(fh)
++    base = os.path.dirname(os.path.abspath(args_cli.replay_queries))
++    with open(os.path.join(args_cli.log_dir, "replay_queries.jsonl"), "w", buffering=1) as out:
++        for req in spec["requests"]:
++            path = req["path"] if os.path.isabs(req["path"]) else os.path.join(base, req["path"])
++            with open(path, "rb") as fh:
++                data_bytes = fh.read()
++            sha = _sha256(data_bytes)
++            if sha != req["sha256"]:
++                raise RuntimeError(f"[LOG] request {req['label']}: sha256 {sha} != {req['sha256']}")
++            for i in range(args_cli.replay_n):
++                log = {}
++                t0 = time.time()
++                reply = _vlm_send_bytes(data_bytes, args_cli.vlm_host, args_cli.vlm_port, log=log)
++                out.write(json.dumps({"label": req["label"], "i": i, "request_sha256": sha,
++                                      "reply": reply, "response_sha256": log.get("response_sha256"),
++                                      "wall_s": round(time.time() - t0, 4), "t_unix": t0}) + "\n")
++                print(f"[LOG] replay {req['label']} {i}: {reply!r}", flush=True)
++
++
+ def main():
+     r2r_data_path = os.path.join(ASSETS_DIR, "vln_ce_isaac_v1.json.gz")
+     all_episodes = read_episodes(r2r_data_path)
+@@ -465,7 +828,14 @@
+ 
+     obs, infos = env.reset()
+ 
+-    result_dir = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
++    if args_cli.replay_queries:  # [LOG] Step 4, condition 1: simulator built, episode reset; no episode
++        _replay_queries(args_cli)
++        env.close()
++        return
++    rlog = ReplayLog(args_cli.log_dir, args_cli.replay_frames_from, meta=_run_meta(episode))  # [LOG]
++    _reset_ok = rlog.log_state(env, "reset")  # [LOG] False only in replay mode, if R's reset state differs
++
++    result_dir = args_cli.log_dir  # [LOG] was f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
+     diag = nav_diag.EpisodeDiagnostics(
+         result_dir, episode, args_cli.episode_idx, enabled=args_cli.diag
+     ) if args_cli.diag else None
+@@ -476,7 +846,7 @@
+     rgb_obs = infos["observations"]["camera_obs"]
+     init_frame = rgb_obs[0, :, :, :3].cpu().numpy()
+     instruction = InstructionData(**episode["instruction"])
+-    image_observations = [Image.fromarray(init_frame)]
++    image_observations = [rlog.hist_frame(init_frame, "init")]  # [LOG] was [Image.fromarray(init_frame)]
+ 
+     add_instruction_on_img(init_frame, instruction.instruction_text)
+     vis_frame = infos["observations"]["viz_camera_obs"][0, :, :, :3].cpu().numpy()
+@@ -490,6 +860,8 @@
+     prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+     max_episode_steps = args_cli.max_episode_s / (env.unwrapped.cfg.sim.dt * env.unwrapped.cfg.decimation)
+     term_reason = "running"
++    if not _reset_ok:  # [LOG] replay mode only: R's reset state differs from run A's
++        term_reason = "replay_mismatch"
+ 
+     # --- Wall-clock-timeout capture (2026-07-23) -----------------------------------------
+     # The runner kills us with SIGTERM at --EP_TIMEOUT wall-seconds (timeout -k 30). Without
+@@ -510,10 +882,11 @@
+         m["ended_at_step"] = int(_latest["num_steps"])
+         m["max_episode_steps"] = int(max_episode_steps)
+         m["hit_step_cap"] = False
+-        _rd = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}/measurements"
++        _rd = f"{args_cli.log_dir}/measurements"  # [LOG] was f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}/measurements"
+         os.makedirs(_rd, exist_ok=True)
+         with open(f"{_rd}/{int(episode['episode_id'])-1}.json", "w") as _f:
+             json.dump(m, _f, indent=4)
++        rlog.close()  # [LOG] flush the logs
+         print("[WALL_TIMEOUT] SIGTERM -> wrote recorded-failure row, exiting", flush=True)
+         os._exit(0)
+     signal.signal(signal.SIGTERM, _on_sigterm)   # set late (post-Isaac-init) so it sticks
+@@ -523,12 +896,17 @@
+     warmup_target_frames = 8
+     warmup_total_steps = int(warmup_target_frames * steps_per_image)
+     for warm_i in range(warmup_total_steps):
++        if term_reason == "replay_mismatch":  # [LOG] replay mode only
++            break
+         obs, _, done, infos = env.step(zero_cmd)
++        if not rlog.log_state(env, f"w{warm_i}"):  # [LOG] replay mode only: state differs from run A
++            term_reason = "replay_mismatch"
++            break
+         if (warm_i + 1) % int(steps_per_image) == 0:
+             curr_frame = (
+                 infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()
+             )
+-            image_observations.append(Image.fromarray(curr_frame))
++            image_observations.append(rlog.hist_frame(curr_frame, f"w{warm_i}"))  # [LOG] was Image.fromarray(curr_frame)
+     prev_pos = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+ 
+     vlm_vel_commands = [0.0, 0.0, 0.0]
+@@ -540,7 +918,7 @@
+                   if args_cli.closed_loop else None)
+     recent_tick_xy = []  # for --stop_assist circling detection
+ 
+-    while simulation_app.is_running():
++    while term_reason != "replay_mismatch" and simulation_app.is_running():  # [LOG] 1st clause: replay mode only
+         cur_p = env.unwrapped.scene["robot"].data.root_pos_w[0].detach().cpu().numpy()
+         cur_y = nav_diag.yaw_from_quat(
+             env.unwrapped.scene["robot"].data.root_quat_w[0].detach().cpu().numpy())
+@@ -562,20 +940,32 @@
+         if env.is_stop_called:  # proximity-stop already fired -> no point querying
+             requery = False
+ 
++        # [LOG] state at the query + per-query record; read here, outside inference_mode, so a
++        # lazy Isaac Lab buffer can never be refilled with an inference tensor
++        _q = rlog.query_begin(env, num_steps, infos) if requery else None
+         with torch.inference_mode():
+             if requery:
+                 try:
++                    if _q.get("abort"):  # [LOG] replay mode only
++                        raise ReplayMismatch(_q["abort"])
+                     stream_output, sent_frames = sample_images_and_send_to_vlm(
+                         image_observations, args_cli.vlm_host, args_cli.vlm_port,
+                         instruction.instruction_text,
+                         denoise=args_cli.clean_render, bright=args_cli.bright,
+                         transform=args_cli.vlm_transform,
++                        log=_q,  # [LOG]
+                     )
++                except ReplayMismatch:  # [LOG] replay mode only: end the episode with a partial record
++                    rlog.query_end(_q, instruction.instruction_text, None, None, None)
++                    term_reason = "replay_mismatch"
++                    break
+                 except (socket.timeout, OSError, ValueError) as e:
+                     # VLM hung/crashed/OOM or sent malformed JSON: end the episode as a
+                     # FAILURE (no set_stop_called -> not scored as success) and write the
+                     # partial measurement JSON, instead of blocking the whole run (rank 4/12).
+                     print(f"[VLM_ERROR] {type(e).__name__}: {e} -- ending episode", flush=True)
++                    rlog.query_end(_q, instruction.instruction_text, None, None, None,
++                                   error=f"{type(e).__name__}: {e}")  # [LOG]
+                     term_reason = "vlm_error"
+                     break
+                 vlm_vel_commands, time_to_go = get_vel_command(stream_output)
+@@ -583,6 +973,11 @@
+                 target_steps = num_steps + env_steps_to_go
+                 print(f"VLM: {stream_output}\nCmd: {vlm_vel_commands}  "
+                       f"steps_to_go: {env_steps_to_go}")
++                rlog.query_end(_q, instruction.instruction_text, stream_output,
++                               vlm_vel_commands, time_to_go)  # [LOG]
++                if rlog.mismatch is not None:  # [LOG] replay mode only: reply differs from run A
++                    term_reason = "replay_mismatch"
++                    break
+ 
+                 # Stop-ordering fix: register 'stop' BEFORE the next env.step so
+                 # update_measures() scores Success at the stop pose (matching the
+@@ -616,6 +1011,9 @@
+             torch.tensor(applied_cmd, device=obs.device, dtype=torch.float32)
+         )
+         _latest["infos"] = infos; _latest["num_steps"] = num_steps   # for the SIGTERM handler
++        if not rlog.log_state(env, num_steps):  # [LOG] replay mode only: state differs from run A
++            term_reason = "replay_mismatch"
++            break
+ 
+         if done or env.is_stop_called or num_steps > max_episode_steps:
+             if term_reason == "running":  # preserve proximity_stop / stop_assist
+@@ -657,7 +1055,7 @@
+ 
+         if num_steps % steps_per_image == 0:
+             curr_frame = infos["observations"]["camera_obs"][0, :, :, :3].cpu().numpy()
+-            image_observations.append(Image.fromarray(curr_frame))
++            image_observations.append(rlog.hist_frame(curr_frame, num_steps))  # [LOG] was Image.fromarray(curr_frame)
+             curr_frame_copy = curr_frame.copy()
+             add_instruction_on_img(curr_frame_copy, instruction.instruction_text)
+         if num_steps % steps_per_viz_image == 0:
+@@ -694,12 +1092,13 @@
+     measurements["ended_at_step"]     = int(num_steps)
+     measurements["max_episode_steps"] = int(max_episode_steps)
+     measurements["hit_step_cap"]      = (term_reason == "step_cap")
+-    result_dir = f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
++    result_dir = args_cli.log_dir  # [LOG] was f"eval_results/{args_cli.task}_loco_{args_cli.out_tag}"
+     os.makedirs(result_dir, exist_ok=True)
+     measurement_dir = os.path.join(result_dir, "measurements")
+     os.makedirs(measurement_dir, exist_ok=True)
+     with open(f"{measurement_dir}/{int(episode['episode_id'])-1}.json", "w") as f:
+         json.dump(measurements, f, indent=4)
++    rlog.close()  # [LOG] states_at_queries.npz; flush the line logs
+ 
+     video_dir = os.path.join(result_dir, "videos")
+     os.makedirs(video_dir, exist_ok=True)
+@@ -714,5 +1113,16 @@
+ 
+ 
+ if __name__ == "__main__":
+-    main()
++    try:  # [LOG] Kit stays alive after an uncaught exception: print it, save it, hard-exit with 3
++        main()
++    except Exception:
++        traceback.print_exc()
++        try:
++            with open(os.path.join(args_cli.log_dir, "error.txt"), "w") as _fh:
++                _fh.write(traceback.format_exc())
++        except Exception:
++            pass
++        sys.stdout.flush()
++        sys.stderr.flush()
++        os._exit(3)
+     simulation_app.close()

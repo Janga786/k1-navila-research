@@ -1,0 +1,6 @@
+A_reset            phys_identical=True  robotcam: IoU cur=0.0 spawn=0.0 (gt 265px)  chasecam: IoU cur=0.0 spawn=0.713 (gt 1160px)
+D_walk_step025     phys_identical=True  robotcam: IoU cur=None spawn=None (gt 0px)  chasecam: IoU cur=0.044 spawn=0.721 (gt 1532px)
+D_walk_step050     phys_identical=True  robotcam: IoU cur=None spawn=None (gt 0px)  chasecam: IoU cur=0.175 spawn=0.518 (gt 5212px)
+D_walk_step075     phys_identical=True  robotcam: IoU cur=None spawn=None (gt 0px)  chasecam: IoU cur=0.055 spawn=0.552 (gt 1840px)
+D_walk_step100     phys_identical=True  robotcam: IoU cur=0.0 spawn=0.0 (gt 989px)  chasecam: IoU cur=0.066 spawn=0.579 (gt 2481px)
+F0_rereset         phys_identical=True  robotcam: IoU cur=0.0 spawn=0.0 (gt 9px)  chasecam: IoU cur=0.0 spawn=0.719 (gt 1108px)

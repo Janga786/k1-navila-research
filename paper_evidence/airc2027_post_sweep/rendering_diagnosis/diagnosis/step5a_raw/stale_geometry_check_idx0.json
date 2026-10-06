@@ -1,0 +1,373 @@
+{
+ "diagnosis/step5a_raw/idx0_cz025": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.25,
+  "frames": {
+   "init": {
+    "gray": 0.0015,
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0541,
+     0.0024,
+     0.0187
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2012
+   },
+   "warmup1": {
+    "gray": 0.0015,
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.0384,
+     0.0054,
+     0.0175
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2024
+   },
+   "warmup2": {
+    "gray": 0.0017,
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0298,
+     0.0065,
+     0.0163
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2036
+   },
+   "warmup3": {
+    "gray": 0.0018,
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0241,
+     0.0073,
+     0.0154
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2045
+   },
+   "warmup4": {
+    "gray": 0.0018,
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0201,
+     0.0078,
+     0.0147
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2052
+   },
+   "warmup5": {
+    "gray": 0.0017,
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0172,
+     0.0081,
+     0.0143
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2056
+   },
+   "warmup6": {
+    "gray": 0.0018,
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0153,
+     0.0084,
+     0.0139
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.206
+   },
+   "warmup7": {
+    "gray": 0.0018,
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.014,
+     0.0088,
+     0.0136
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2063
+   },
+   "warmup8": {
+    "gray": 0.0017,
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0132,
+     0.0089,
+     0.0134
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2065
+   },
+   "main000": {
+    "gray": 0.0017,
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0131,
+     0.009,
+     0.0146
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2053
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz042": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.42,
+  "frames": {
+   "init": {
+    "gray": 0.0007,
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0533,
+     0.0033,
+     0.1887
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0312
+   },
+   "warmup1": {
+    "gray": 0.0012,
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.036,
+     0.0063,
+     0.1874
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0325
+   },
+   "warmup2": {
+    "gray": 0.0014,
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0266,
+     0.0073,
+     0.1863
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0336
+   },
+   "warmup3": {
+    "gray": 0.0012,
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0204,
+     0.008,
+     0.1854
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0345
+   },
+   "warmup4": {
+    "gray": 0.0014,
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.016,
+     0.0085,
+     0.1847
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0352
+   },
+   "warmup5": {
+    "gray": 0.0014,
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0129,
+     0.0087,
+     0.1842
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0357
+   },
+   "warmup6": {
+    "gray": 0.0015,
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0108,
+     0.009,
+     0.1838
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0361
+   },
+   "warmup7": {
+    "gray": 0.0015,
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.0094,
+     0.0094,
+     0.1835
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0364
+   },
+   "warmup8": {
+    "gray": 0.0014,
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0085,
+     0.0096,
+     0.1833
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0366
+   },
+   "main000": {
+    "gray": 0.0014,
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0078,
+     0.0103,
+     0.1845
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0354
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz057": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.57,
+  "frames": {
+   "init": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0527,
+     0.004,
+     0.3387
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup1": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.0338,
+     0.0071,
+     0.3374
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup2": {
+    "gray": 0.9997,
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0238,
+     0.008,
+     0.3362
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup3": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0172,
+     0.0087,
+     0.3353
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup4": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0125,
+     0.0091,
+     0.3347
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup5": {
+    "gray": 0.9998,
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0091,
+     0.0093,
+     0.3342
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup6": {
+    "gray": 0.9999,
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0069,
+     0.0095,
+     0.3338
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup7": {
+    "gray": 0.9999,
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.0054,
+     0.0099,
+     0.3335
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup8": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0043,
+     0.0101,
+     0.3332
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "main000": {
+    "gray": 1.0,
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0032,
+     0.0114,
+     0.3344
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   }
+  }
+ }
+}

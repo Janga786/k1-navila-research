@@ -1,0 +1,6 @@
+[2026-10-01 23:26:10,074] [INFO] [real_accelerator.py:110:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[bridge] loading NaVILA from /home/boosterk1/Projects/k1_research/booster/NaVILA/checkpoints/navila-llama3-8b-8f
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.05s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.05s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.48s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.69s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[bridge] NaVILA ready.
+[bridge] listening on localhost:54321

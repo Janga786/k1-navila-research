@@ -1,0 +1,629 @@
+{
+  "A": {
+    "name": "ep50_A",
+    "ended_at_step": 6001,
+    "term_reason": "step_cap",
+    "success": 0.0,
+    "n_queries": 57,
+    "n_frames": 250,
+    "n_state_lines": 6203,
+    "fields": {
+      "path_length": 35.393546332907135,
+      "distance_to_goal": 7.647009340385726,
+      "oracle_navigation_error": 6.0797204181167395,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "X": {
+    "name": "ep50_B",
+    "ended_at_step": 6001,
+    "term_reason": "step_cap",
+    "success": 0.0,
+    "n_queries": 55,
+    "n_frames": 250,
+    "n_state_lines": 6203,
+    "fields": {
+      "path_length": 35.122222713467636,
+      "distance_to_goal": 7.409564109831651,
+      "oracle_navigation_error": 6.0797204181167395,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "n_common_queries": 55,
+  "query_counts_differ": true,
+  "first_request_diff": {
+    "i": 0,
+    "step_A": 0,
+    "step_X": 0
+  },
+  "n_requests_differ_replies_match_before_qstar": 51,
+  "n_queries_before_qstar": 51,
+  "first_state_diff": {
+    "pos": 5683,
+    "label": "5482",
+    "kind": "hash"
+  },
+  "records_equal_six_fields": false,
+  "timeline": [
+    {
+      "i": 0,
+      "step_A": 0,
+      "step_X": 0,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 1,
+      "step_A": 40,
+      "step_X": 40,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 2,
+      "step_A": 81,
+      "step_X": 81,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 3,
+      "step_A": 137,
+      "step_X": 137,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 4,
+      "step_A": 369,
+      "step_X": 369,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 5,
+      "step_A": 535,
+      "step_X": 535,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 6,
+      "step_A": 574,
+      "step_X": 574,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 7,
+      "step_A": 602,
+      "step_X": 602,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 8,
+      "step_A": 718,
+      "step_X": 718,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 9,
+      "step_A": 825,
+      "step_X": 825,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 10,
+      "step_A": 853,
+      "step_X": 853,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 11,
+      "step_A": 949,
+      "step_X": 949,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 12,
+      "step_A": 1243,
+      "step_X": 1243,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 13,
+      "step_A": 1322,
+      "step_X": 1322,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 14,
+      "step_A": 1401,
+      "step_X": 1401,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 15,
+      "step_A": 1535,
+      "step_X": 1535,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 16,
+      "step_A": 1636,
+      "step_X": 1636,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 17,
+      "step_A": 1728,
+      "step_X": 1728,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 18,
+      "step_A": 1774,
+      "step_X": 1774,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 19,
+      "step_A": 1934,
+      "step_X": 1934,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 20,
+      "step_A": 2056,
+      "step_X": 2056,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 21,
+      "step_A": 2102,
+      "step_X": 2102,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 22,
+      "step_A": 2139,
+      "step_X": 2139,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 23,
+      "step_A": 2236,
+      "step_X": 2236,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 24,
+      "step_A": 2264,
+      "step_X": 2264,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 25,
+      "step_A": 2357,
+      "step_X": 2357,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 26,
+      "step_A": 2442,
+      "step_X": 2442,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 27,
+      "step_A": 2528,
+      "step_X": 2528,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 28,
+      "step_A": 2615,
+      "step_X": 2615,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 29,
+      "step_A": 2711,
+      "step_X": 2711,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 30,
+      "step_A": 2800,
+      "step_X": 2800,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 31,
+      "step_A": 2893,
+      "step_X": 2893,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 32,
+      "step_A": 2977,
+      "step_X": 2977,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 33,
+      "step_A": 3062,
+      "step_X": 3062,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 34,
+      "step_A": 3155,
+      "step_X": 3155,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 35,
+      "step_A": 3243,
+      "step_X": 3243,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 36,
+      "step_A": 3328,
+      "step_X": 3328,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 37,
+      "step_A": 3563,
+      "step_X": 3563,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 38,
+      "step_A": 3642,
+      "step_X": 3642,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 39,
+      "step_A": 3681,
+      "step_X": 3681,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 40,
+      "step_A": 3862,
+      "step_X": 3862,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 41,
+      "step_A": 3977,
+      "step_X": 3977,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 42,
+      "step_A": 4017,
+      "step_X": 4017,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 43,
+      "step_A": 4248,
+      "step_X": 4248,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 44,
+      "step_A": 4395,
+      "step_X": 4395,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 45,
+      "step_A": 4580,
+      "step_X": 4580,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 46,
+      "step_A": 4715,
+      "step_X": 4715,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 47,
+      "step_A": 4883,
+      "step_X": 4883,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 48,
+      "step_A": 5015,
+      "step_X": 5015,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 49,
+      "step_A": 5209,
+      "step_X": 5209,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 50,
+      "step_A": 5319,
+      "step_X": 5319,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": true
+    },
+    {
+      "i": 51,
+      "step_A": 5482,
+      "step_X": 5482,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": true
+    },
+    {
+      "i": 52,
+      "step_A": 5539,
+      "step_X": 5563,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 53,
+      "step_A": 5622,
+      "step_X": 5785,
+      "request_same": false,
+      "reply_same": false,
+      "state_at_query_same": false
+    },
+    {
+      "i": 54,
+      "step_A": 5733,
+      "step_X": 5885,
+      "request_same": false,
+      "reply_same": true,
+      "state_at_query_same": false
+    }
+  ],
+  "qstar": {
+    "i": 51,
+    "step_A": 5482,
+    "step_X": 5482,
+    "reply_A": "The next action is turn right 15 degree.",
+    "reply_X": "The next action is turn left 45 degree.",
+    "cmd_A": [
+      0.0,
+      0.0,
+      -0.5235987755982988
+    ],
+    "cmd_X": [
+      0.0,
+      0.0,
+      0.5235987755982988
+    ],
+    "request_sha_A": "fffb5a64c2ba629cab637127b735bf509454101027cc254557a6ed30a55ed021",
+    "request_sha_X": "eebd0c3a396d0b0ec715b349bc5b2ea8792937fab9bbdb6384f26ec8956ae748",
+    "state_hash_A": "0805874961f6215a66a4cfc90288d3816e8088db31d14e5be2c961b39e8dae2a",
+    "state_hash_X": "0805874961f6215a66a4cfc90288d3816e8088db31d14e5be2c961b39e8dae2a",
+    "frames": [
+      {
+        "slot": 0,
+        "k_A": 0,
+        "k_X": 0,
+        "label_A": "init",
+        "label_X": "init",
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 26,
+        "mean_abs_diff": 0.16198386863425926,
+        "share_channels_differ": 0.15726164641203705,
+        "share_pixels_differ": 0.3532986111111111
+      },
+      {
+        "slot": 1,
+        "k_A": 32,
+        "k_X": 32,
+        "label_A": 575,
+        "label_X": 575,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 11,
+        "mean_abs_diff": 0.16426396122685186,
+        "share_channels_differ": 0.1599754050925926,
+        "share_pixels_differ": 0.34701171875
+      },
+      {
+        "slot": 2,
+        "k_A": 65,
+        "k_X": 65,
+        "label_A": 1400,
+        "label_X": 1400,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 21,
+        "mean_abs_diff": 0.17010380497685185,
+        "share_channels_differ": 0.16546079282407408,
+        "share_pixels_differ": 0.3579318576388889
+      },
+      {
+        "slot": 3,
+        "k_A": 97,
+        "k_X": 97,
+        "label_A": 2200,
+        "label_X": 2200,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 8,
+        "mean_abs_diff": 0.1424974681712963,
+        "share_channels_differ": 0.13950086805555556,
+        "share_pixels_differ": 0.31609700520833334
+      },
+      {
+        "slot": 4,
+        "k_A": 130,
+        "k_X": 130,
+        "label_A": 3025,
+        "label_X": 3025,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 9,
+        "mean_abs_diff": 0.15116608796296296,
+        "share_channels_differ": 0.14699327256944444,
+        "share_pixels_differ": 0.32469075520833335
+      },
+      {
+        "slot": 5,
+        "k_A": 162,
+        "k_X": 162,
+        "label_A": 3825,
+        "label_X": 3825,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 65,
+        "mean_abs_diff": 0.9744737413194444,
+        "share_channels_differ": 0.25361147280092594,
+        "share_pixels_differ": 0.3349739583333333
+      },
+      {
+        "slot": 6,
+        "k_A": 195,
+        "k_X": 195,
+        "label_A": 4650,
+        "label_X": 4650,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 13,
+        "mean_abs_diff": 0.12865849247685185,
+        "share_channels_differ": 0.12737955729166667,
+        "share_pixels_differ": 0.3033767361111111
+      },
+      {
+        "slot": 7,
+        "k_A": 228,
+        "k_X": 228,
+        "label_A": 5475,
+        "label_X": 5475,
+        "frame_sha_same": false,
+        "png_sha_same": false,
+        "max_abs_diff": 7,
+        "mean_abs_diff": 0.1303660300925926,
+        "share_channels_differ": 0.12861617476851853,
+        "share_pixels_differ": 0.306015625
+      }
+    ],
+    "n_frames_differ": 8
+  },
+  "H1": {
+    "verdict": "held",
+    "a_states_before_step_identical": true,
+    "b_state_at_qstar_identical": true,
+    "c_requests_at_qstar_differ": true,
+    "first_state_diff_relative": "none before q*"
+  },
+  "diverged": true
+}

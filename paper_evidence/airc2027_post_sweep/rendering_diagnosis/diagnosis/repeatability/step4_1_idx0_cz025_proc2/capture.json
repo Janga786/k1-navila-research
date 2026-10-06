@@ -1,0 +1,60 @@
+{
+ "script": "airc2027_renders/scripts/sim_capture.py",
+ "protocol": "init50",
+ "k1_research_commit": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+ "evaluator_sha256": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+ "task": "k1_matterport_vision",
+ "episode_idx": 0,
+ "record": 0,
+ "scene": "zsNo4HB9uLZ",
+ "cam_z": 0.25,
+ "config_overrides": {
+  "cam_z": 0.25
+ },
+ "robot_model": "K1_locomotion.urdf (merge_fixed_joints=True), unmodified",
+ "as_evaluated": true,
+ "render_mode": "RTX real-time (Isaac Lab 1.1 headless.rendering kit, unmodified), Isaac Lab Camera annotator 'rgb'",
+ "samples_per_pixel": "n/a (real-time ray-traced lighting, not path tracing)",
+ "resolution": [
+  1280,
+  720
+ ],
+ "text_overlay": false,
+ "frames": {
+  "init": {
+   "robotcam_gray_frac": 0.001533203125,
+   "trunk_pos": [
+    15.107034683227539,
+    4.461751937866211,
+    0.4899153709411621
+   ],
+   "trunk_quat_wxyz": [
+    0.2570623457431793,
+    0.001477226265706122,
+    -0.003020952921360731,
+    0.9663889408111572
+   ],
+   "root_state_float32_hex": "6ab67141acc68e4030d6fa3ead9d833e7d9fc13a2efb45bb4465773f9146f53c7993f0bc8363163b03cd423cc2106b3cfa977b3b"
+  },
+  "after50": {
+   "robotcam_gray_frac": 0.00047960069444444444,
+   "trunk_pos": [
+    14.772801399230957,
+    4.563535690307617,
+    0.49620765447616577
+   ],
+   "trunk_quat_wxyz": [
+    0.2588169276714325,
+    -0.045824646949768066,
+    -0.0035490288864821196,
+    0.9648322463035583
+   ],
+   "root_state_float32_hex": "655d6c417c089240ee0efe3ea783843ea0b23bbdd39668bb3fff763f630a38bd74018ebd871e503e523d6cbed385343f2f1304bf"
+  }
+ },
+ "command": [
+  0.5,
+  0.0,
+  0.0
+ ]
+}

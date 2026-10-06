@@ -1,0 +1,50 @@
+{
+  "qstar": 4,
+  "step_A": 277,
+  "step_X": 277,
+  "requests": [
+    {
+      "label": "ep20_A_q004",
+      "run": "ep20_A",
+      "path": "requests/ep20_A_q004.bin",
+      "sha256": "89307f3fbeaf79b446122f2e3dd9f832046553cee1c81b80bad91f6b000bc053",
+      "logged_request_sha256": "89307f3fbeaf79b446122f2e3dd9f832046553cee1c81b80bad91f6b000bc053",
+      "rebuilt_matches_log": true,
+      "logged_reply": "The next action is turn left 30 degree.",
+      "num_steps": 277,
+      "indices": [
+        0,
+        2,
+        5,
+        8,
+        11,
+        14,
+        17,
+        20
+      ],
+      "bytes": 7958162
+    },
+    {
+      "label": "ep20_B_q004",
+      "run": "ep20_B",
+      "path": "requests/ep20_B_q004.bin",
+      "sha256": "9fa7530bfcbb3241860bd796e271a012826f1e5bbe36797ef98a61389a5943b2",
+      "logged_request_sha256": "9fa7530bfcbb3241860bd796e271a012826f1e5bbe36797ef98a61389a5943b2",
+      "rebuilt_matches_log": true,
+      "logged_reply": "The next action is turn left 45 degree.",
+      "num_steps": 277,
+      "indices": [
+        0,
+        2,
+        5,
+        8,
+        11,
+        14,
+        17,
+        20
+      ],
+      "bytes": 7957906
+    }
+  ],
+  "requests_identical": false
+}

@@ -1,0 +1,44 @@
+{
+ "image": "idx0_rec0_camz0.25_warmup_last.png",
+ "as_evaluated_or_corrected": "as_evaluated",
+ "description": "last frame of the evaluator's 4-s pre-query warm-up (zero command; the 8th history frame, captured after warm-up step 200)",
+ "script": "airc2027_renders/scripts/sim_capture.py --protocol mainloop --main_steps 1 (via run_gpu.sh)",
+ "code_commit": {
+  "k1_research_HEAD": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+  "evaluator_sha256": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+  "airc2027_renders_scripts": "see 14_airc2027_renders/scripts in the archive commit"
+ },
+ "config_overrides": {
+  "--cam_z": 0.25
+ },
+ "task": "k1_matterport_vision",
+ "dataset_index": 0,
+ "record": 0,
+ "scene": "zsNo4HB9uLZ",
+ "cam_z": 0.25,
+ "nominal_height_label": "h078",
+ "robot_model": "K1_locomotion.urdf (merge_fixed_joints=True), unmodified",
+ "render_mode": "RTX real-time (Isaac Lab 1.1 headless.rendering kit, unmodified), Isaac Lab Camera annotator 'rgb'",
+ "samples_per_pixel": "n/a (real-time ray-traced lighting, not path tracing)",
+ "resolution": [
+  1280,
+  720
+ ],
+ "text_overlay": false,
+ "lossless": "PNG",
+ "robotcam_gray_fraction": 0.0017393663194444444,
+ "trunk_pose_at_capture": {
+  "pos": [
+   15.134784698486328,
+   4.439728260040283,
+   0.4823332130908966
+  ],
+  "quat_wxyz": [
+   0.24868661165237427,
+   0.012838276103138924,
+   -0.005438763648271561,
+   0.9684836268424988
+  ]
+ },
+ "match_to_sweep_video": "not in the videos (the warm-up frames are not recorded by the evaluator)"
+}

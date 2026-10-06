@@ -1,0 +1,136 @@
+/World/envs/env_0/Robot | Xform | inst=False proxy=False |  | xformOp:translate=(15.068599700927734, 4.4848198890686035, 0.7216280102729797) xformOp:orient=(0.25881901383399963, 0, 0, 0.9659258127212524) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0686,4.4848,0.7216)  
+/World/envs/env_0/Robot/Trunk | Xform | inst=False proxy=False | RigidBody,ArtRoot,Mass | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0686,4.4848,0.7216)  
+/World/envs/env_0/Robot/Trunk/Head_1 | Xform | inst=False proxy=False |  | xformOp:translate=(0.00559999980032444, 0, 0.21490000188350677) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0637,4.4876,0.9365)  
+/World/envs/env_0/Robot/Trunk/Left_Arm_1 | Xform | inst=False proxy=False |  | xformOp:translate=(0, 0.07699999958276749, 0.18449999392032623) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0301,4.4181,0.9061)  
+/World/envs/env_0/Robot/Trunk/Right_Arm_1 | Xform | inst=False proxy=False |  | xformOp:translate=(0, -0.07699999958276749, 0.18449999392032623) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1071,4.5515,0.9061)  
+/World/envs/env_0/Robot/Trunk/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Trunk/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0686,4.4848,0.7216)  
+/World/envs/env_0/Robot/Trunk/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Trunk/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Trunk/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Trunk/visuals/mesh_1 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0686,4.4848,0.7216)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_2 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.00559999980032444, 0, 0.21490000188350677) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0637,4.4876,0.9365)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_3 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.00559999980032444, 0, 0.24790000915527344) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0637,4.4876,0.9695)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_4 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0.07699999958276749, 0.18449999392032623) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0301,4.4181,0.9061)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_5 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, 0.14500001072883606, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9939,4.3605,0.8926)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_6 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, 0.18942800164222717, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9717,4.3220,0.8926)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_7 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, 0.31092801690101624, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9110,4.2168,0.8926)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_8 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, -0.07699999958276749, 0.18449999392032623) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1071,4.5515,0.9061)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_9 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, -0.14500001072883606, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1389,4.6116,0.8926)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_10 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, -0.18942800164222717, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1611,4.6501,0.8926)  
+/World/envs/env_0/Robot/Trunk/visuals/mesh_11 | Mesh | inst=False proxy=True |  | xformOp:translate=(0.0024999999441206455, -0.31092801690101624, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.2219,4.7553,0.8926)  
+/World/envs/env_0/Robot/Trunk/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Trunk/collisions/mesh_0 | Cube | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0.10000000149011612) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(0.11999999731779099, 0.18000000715255737, 0.20000000298023224) | usd_world_t=(15.0686,4.4848,0.8216)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_1 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, -0.05999999865889549) xformOp:orient=(0.7071055173873901, 0.7071080803871155, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0686,4.4848,0.6616)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_2 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.00559999980032444, 0, 0.21490000188350677) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0637,4.4876,0.9365)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_3 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.00559999980032444, 0, 0.24790000915527344) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0637,4.4876,0.9695)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_4 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(-0.004500000271946192, 0.14500001072883606, 0.17099998891353607) xformOp:orient=(0.7071055173873901, 0, 0.7071080803871155, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0000,4.3570,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_5 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.0024999999441206455, 0.18942800164222717, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9717,4.3220,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_6 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.0024999999441206455, 0.31092801690101624, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9110,4.2168,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_7 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(-0.004500000271946192, -0.14500001072883606, 0.17099998891353607) xformOp:orient=(0.7071055173873901, 0, 0.7071080803871155, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1450,4.6081,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_8 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.0024999999441206455, -0.18942800164222717, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1611,4.6501,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/collisions/mesh_9 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0.0024999999441206455, -0.31092801690101624, 0.17099998891353607) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.2219,4.7553,0.8926)  purpose=guide
+/World/envs/env_0/Robot/Trunk/Left_Hip_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Trunk/Right_Hip_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Trunk/rgb_camera | Camera | inst=False proxy=False |  | xformOp:translate=(0.10000000149011612, 0, 0.5699999928474426) xformOp:orient=(0.5, 0.5, -0.5, -0.5) xformOp:scale=(1, 1, 1) | usd_world_t=(14.9820,4.5348,1.2916)  
+/World/envs/env_0/Robot/Trunk/viz_rgb_camera | Camera | inst=False proxy=False |  | xformOp:translate=(-1, 0, 0.8500000238418579) xformOp:orient=(0.5, 0.5, -0.5, -0.5) xformOp:scale=(1, 1, 1) | usd_world_t=(15.9346,3.9848,1.5716)  
+/World/envs/env_0/Robot/Left_Hip_Pitch | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0, 0.09600000083446503, -0.07699999958276749) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0206,4.4017,0.6446)  
+/World/envs/env_0/Robot/Left_Hip_Pitch/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0206,4.4017,0.6446)  
+/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Pitch/Left_Hip_Roll | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0, 0.09600000083446503, -0.10300000011920929) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0206,4.4017,0.6186)  
+/World/envs/env_0/Robot/Left_Hip_Roll/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0206,4.4017,0.6186)  
+/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Roll/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(0.7071055173873901, 0, 0.7071080803871155, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0206,4.4017,0.6186)  purpose=guide
+/World/envs/env_0/Robot/Left_Hip_Roll/Left_Hip_Yaw | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0.012000000104308128, 0.09600000083446503, -0.15150000154972076) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0102,4.4077,0.5701)  
+/World/envs/env_0/Robot/Left_Hip_Yaw/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0102,4.4077,0.5701)  
+/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Hip_Yaw/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, -0.029999999329447746) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0102,4.4077,0.5401)  purpose=guide
+/World/envs/env_0/Robot/Left_Hip_Yaw/Left_Knee_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Shank | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0020000003278255463, 0.09600000083446503, -0.2685000002384186) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0223,4.4007,0.4531)  
+/World/envs/env_0/Robot/Left_Shank/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Shank/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0223,4.4007,0.4531)  
+/World/envs/env_0/Robot/Left_Shank/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Shank/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Shank/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Shank/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Shank/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(0.7071055173873901, 0.7071080803871155, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0223,4.4007,0.4531)  purpose=guide
+/World/envs/env_0/Robot/Left_Shank/collisions/mesh_1 | Cube | inst=False proxy=True | Collision | xformOp:translate=(0, 0, -0.12999999523162842) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(0.05999999865889549, 0.05999999865889549, 0.10000000149011612) | usd_world_t=(15.0223,4.4007,0.3231)  purpose=guide
+/World/envs/env_0/Robot/Left_Shank/Left_Ankle_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Ankle_Cross | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0018029403872787952, 0.09620000422000885, -0.5136899948120117) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0221,4.4006,0.2079)  
+/World/envs/env_0/Robot/Left_Ankle_Cross/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0221,4.4006,0.2079)  
+/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Left_Ankle_Cross/Left_Ankle_Roll | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/left_foot_link | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0018029403872787952, 0.09620000422000885, -0.5136899948120117) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0221,4.4006,0.2079)  
+/World/envs/env_0/Robot/left_foot_link/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/left_foot_link/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0221,4.4006,0.2079)  
+/World/envs/env_0/Robot/left_foot_link/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/left_foot_link/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/left_foot_link/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/left_foot_link/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/left_foot_link/collisions/mesh_0 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.0221,4.4006,0.2079)  purpose=guide
+/World/envs/env_0/Robot/Right_Hip_Pitch | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0, -0.09600000083446503, -0.07699999958276749) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1166,4.5680,0.6446)  
+/World/envs/env_0/Robot/Right_Hip_Pitch/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1166,4.5680,0.6446)  
+/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Pitch/Right_Hip_Roll | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0, -0.09600000083446503, -0.10300000011920929) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1166,4.5680,0.6186)  
+/World/envs/env_0/Robot/Right_Hip_Roll/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1166,4.5680,0.6186)  
+/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Roll/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(0.7071055173873901, 0, 0.7071080803871155, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1166,4.5680,0.6186)  purpose=guide
+/World/envs/env_0/Robot/Right_Hip_Roll/Right_Hip_Yaw | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(0.012000000104308128, -0.09600000083446503, -0.15150000154972076) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1062,4.5740,0.5701)  
+/World/envs/env_0/Robot/Right_Hip_Yaw/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1062,4.5740,0.5701)  
+/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Hip_Yaw/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, -0.029999999329447746) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1062,4.5740,0.5401)  purpose=guide
+/World/envs/env_0/Robot/Right_Hip_Yaw/Right_Knee_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Shank | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0020000003278255463, -0.09600000083446503, -0.2685000002384186) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5670,0.4531)  
+/World/envs/env_0/Robot/Right_Shank/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Shank/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5670,0.4531)  
+/World/envs/env_0/Robot/Right_Shank/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Shank/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Shank/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Shank/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Shank/collisions/mesh_0 | Cylinder | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(0.7071055173873901, 0.7071080803871155, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5670,0.4531)  purpose=guide
+/World/envs/env_0/Robot/Right_Shank/collisions/mesh_1 | Cube | inst=False proxy=True | Collision | xformOp:translate=(0, 0, -0.12999999523162842) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(0.05999999865889549, 0.05999999865889549, 0.10000000149011612) | usd_world_t=(15.1183,4.5670,0.3231)  purpose=guide
+/World/envs/env_0/Robot/Right_Shank/Right_Ankle_Pitch | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Ankle_Cross | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0018029403872787952, -0.09620000422000885, -0.5136899948120117) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5672,0.2079)  
+/World/envs/env_0/Robot/Right_Ankle_Cross/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5672,0.2079)  
+/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/Right_Ankle_Cross/Right_Ankle_Roll | PhysicsRevoluteJoint | inst=False proxy=False |  |  |   
+/World/envs/env_0/Robot/right_foot_link | Xform | inst=False proxy=False | RigidBody,Mass | xformOp:translate=(-0.0018029403872787952, -0.09620000422000885, -0.5136899948120117) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5672,0.2079)  
+/World/envs/env_0/Robot/right_foot_link/visuals |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/right_foot_link/visuals/mesh_0 | Mesh | inst=False proxy=True |  | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5672,0.2079)  
+/World/envs/env_0/Robot/right_foot_link/visuals/Looks |  | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/right_foot_link/visuals/Looks/material_C0C0C0 | Material | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/right_foot_link/visuals/Looks/material_C0C0C0/Shader | Shader | inst=False proxy=True |  |  |   
+/World/envs/env_0/Robot/right_foot_link/collisions |  | inst=True proxy=False |  |  |   
+/World/envs/env_0/Robot/right_foot_link/collisions/mesh_0 | Mesh | inst=False proxy=True | Collision | xformOp:translate=(0, 0, 0) xformOp:orient=(1, 0, 0, 0) xformOp:scale=(1, 1, 1) | usd_world_t=(15.1183,4.5672,0.2079)  purpose=guide

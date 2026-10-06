@@ -1,0 +1,93 @@
+{
+ "script": "airc2027_renders/scripts/sim_render_pt.py",
+ "k1_research_commit": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+ "evaluator_sha256": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+ "robot_model": "K1_22dof.urdf, fix_base=True, training upper-body pose (configs/k1_corrected_robot_cfg.py)",
+ "variant": "corrected",
+ "state": "fixed base at the as-evaluated Trunk pose after the reset warm-up; PD settled 1 s",
+ "joint_pos_rendered": {
+  "AAHead_yaw": 9.999999747378752e-05,
+  "ALeft_Shoulder_Pitch": 0.19089999794960022,
+  "ARight_Shoulder_Pitch": 0.19089999794960022,
+  "Left_Hip_Pitch": -0.14380000531673431,
+  "Right_Hip_Pitch": -0.14380000531673431,
+  "Head_pitch": 0.02070000022649765,
+  "Left_Shoulder_Roll": -1.270300030708313,
+  "Right_Shoulder_Roll": 1.2710000276565552,
+  "Left_Hip_Roll": 0.0005000000237487257,
+  "Right_Hip_Roll": 0.00019999999494757503,
+  "Left_Elbow_Pitch": 0.0010999999940395355,
+  "Right_Elbow_Pitch": 0.0010999999940395355,
+  "Left_Hip_Yaw": -9.999999747378752e-05,
+  "Right_Hip_Yaw": -0.0,
+  "Left_Elbow_Yaw": -0.49790000915527344,
+  "Right_Elbow_Yaw": 0.49790000915527344,
+  "Left_Knee_Pitch": 0.2964000105857849,
+  "Right_Knee_Pitch": 0.2964000105857849,
+  "Left_Ankle_Pitch": -0.14890000224113464,
+  "Right_Ankle_Pitch": -0.14890000224113464,
+  "Left_Ankle_Roll": -0.0,
+  "Right_Ankle_Roll": 0.0
+ },
+ "image": "corrected_side.png",
+ "as_evaluated_or_corrected": "corrected",
+ "dataset_index": 0,
+ "record": 0,
+ "scene": "zsNo4HB9uLZ",
+ "config_overrides": {
+  "robot": "configs/k1_corrected_robot_cfg.py"
+ },
+ "cam_z": null,
+ "render_mode": "RTX PathTracing via Replicator render product + rgb annotator",
+ "samples_per_pixel": 256,
+ "spp_per_frame": 32,
+ "frames_rendered": 12,
+ "denoiser": "OptiX (/rtx/pathtracing/optixDenoiser/enabled=True)",
+ "rtx_settings_read_back": {
+  "/rtx/rendermode": "PathTracing",
+  "/rtx/pathtracing/spp": 32,
+  "/rtx/pathtracing/totalSpp": 256,
+  "/rtx/pathtracing/optixDenoiser/enabled": true,
+  "/rtx/pathtracing/maxBounces": 4,
+  "/rtx/pathtracing/clampSpp": 0,
+  "/rtx/pathtracing/adaptiveSampling/enabled": false
+ },
+ "resolution": [
+  1920,
+  1080
+ ],
+ "camera": {
+  "eye": [
+   15.362115104835459,
+   5.93986665899305,
+   0.8431200444698334
+  ],
+  "target": [
+   15.107034683227539,
+   4.461751937866211,
+   0.5931200444698334
+  ],
+  "focal_length": 20.821059670975874,
+  "requested": "from the side",
+  "direction_deg_from_heading": -70,
+  "distance_m": 1.4999630496447398,
+  "free_distance_m": 1.6499630496447397,
+  "horizontal_aperture": 36.0,
+  "width": 1920,
+  "height": 1080
+ },
+ "mean_abs_change_after_3_more_frames": 0.0,
+ "trunk_pose": {
+  "pos": [
+   15.107034683227539,
+   4.461751937866211,
+   0.4899153411388397
+  ],
+  "quat_wxyz": [
+   0.2570623457431793,
+   0.0014772271970286965,
+   -0.003020952921360731,
+   0.9663890600204468
+  ]
+ }
+}

@@ -1,0 +1,77 @@
+{
+  "A": {
+    "name": "ep50_A",
+    "ended_at_step": 6001,
+    "term_reason": "step_cap",
+    "success": 0.0,
+    "n_queries": 57,
+    "n_frames": 250,
+    "n_state_lines": 6203,
+    "fields": {
+      "path_length": 35.393546332907135,
+      "distance_to_goal": 7.647009340385726,
+      "oracle_navigation_error": 6.0797204181167395,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "R": {
+    "name": "ep50_R",
+    "ended_at_step": 6001,
+    "term_reason": "step_cap",
+    "success": 0.0,
+    "n_queries": 57,
+    "n_frames": 250,
+    "n_state_lines": 6203,
+    "fields": {
+      "path_length": 35.393546332907135,
+      "distance_to_goal": 7.647009340385726,
+      "oracle_navigation_error": 6.0797204181167395,
+      "success": 0.0,
+      "spl": 0.0,
+      "oracle_success": 0.0
+    }
+  },
+  "requests_identical_all": true,
+  "replies_identical_all": true,
+  "states_identical_all": true,
+  "record_six_fields_equal": true,
+  "fields": {
+    "path_length": {
+      "A": 35.393546332907135,
+      "R": 35.393546332907135,
+      "equal": true
+    },
+    "distance_to_goal": {
+      "A": 7.647009340385726,
+      "R": 7.647009340385726,
+      "equal": true
+    },
+    "oracle_navigation_error": {
+      "A": 6.0797204181167395,
+      "R": 6.0797204181167395,
+      "equal": true
+    },
+    "success": {
+      "A": 0.0,
+      "R": 0.0,
+      "equal": true
+    },
+    "spl": {
+      "A": 0.0,
+      "R": 0.0,
+      "equal": true
+    },
+    "oracle_success": {
+      "A": 0.0,
+      "R": 0.0,
+      "equal": true
+    }
+  },
+  "replay_mismatch": null,
+  "first_query_diff": null,
+  "first_state_diff": null,
+  "R_history_frames_equal_A_frames": true,
+  "H3": "held"
+}

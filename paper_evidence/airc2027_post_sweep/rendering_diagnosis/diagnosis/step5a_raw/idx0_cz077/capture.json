@@ -1,0 +1,180 @@
+{
+ "script": "airc2027_renders/scripts/sim_capture.py",
+ "protocol": "mainloop",
+ "k1_research_commit": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+ "evaluator_sha256": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+ "task": "k1_matterport_vision",
+ "episode_idx": 0,
+ "record": 0,
+ "scene": "zsNo4HB9uLZ",
+ "cam_z": 0.77,
+ "config_overrides": {
+  "cam_z": 0.77
+ },
+ "robot_model": "K1_locomotion.urdf (merge_fixed_joints=True), unmodified",
+ "as_evaluated": true,
+ "render_mode": "RTX real-time (Isaac Lab 1.1 headless.rendering kit, unmodified), Isaac Lab Camera annotator 'rgb'",
+ "samples_per_pixel": "n/a (real-time ray-traced lighting, not path tracing)",
+ "resolution": [
+  1280,
+  720
+ ],
+ "text_overlay": false,
+ "frames": {
+  "init": {
+   "robotcam_gray_frac": 0.0007237413194444445,
+   "trunk_pos": [
+    15.107034683227539,
+    4.461751937866211,
+    0.4899153709411621
+   ],
+   "trunk_quat_wxyz": [
+    0.2570623457431793,
+    0.001477226265706122,
+    -0.003020952921360731,
+    0.9663889408111572
+   ],
+   "root_state_float32_hex": "6ab67141acc68e4030d6fa3ead9d833e7d9fc13a2efb45bb4465773f9146f53c7993f0bc8363163b03cd423cc2106b3cfa977b3b"
+  },
+  "warmup1": {
+   "robotcam_gray_frac": 0.00078125,
+   "trunk_pos": [
+    15.117096900939941,
+    4.452965259552002,
+    0.48766642808914185
+   ],
+   "trunk_quat_wxyz": [
+    0.25567054748535156,
+    0.006292177829891443,
+    -0.004547966178506613,
+    0.9667328596115112
+   ],
+   "root_state_float32_hex": "a1df7141b17e8e406aaff93e40e7823e9d2ece3b1b0795bbce7b773f82b47f3cc66e46bcf783773b06d8adbbbc3984385bf9973b"
+  },
+  "warmup2": {
+   "robotcam_gray_frac": 0.0007204861111111111,
+   "trunk_pos": [
+    15.123068809509277,
+    4.44834041595459,
+    0.48607224225997925
+   ],
+   "trunk_quat_wxyz": [
+    0.2542276680469513,
+    0.008515086956322193,
+    -0.00481226434931159,
+    0.9670949578285217
+   ],
+   "root_state_float32_hex": "17f87141ce588e4076def83e212a823edd820b3c33b09dbb8993773f9b611d3c809deabbc543a03b7aa803bc9fdb6ebb5ff48d3b"
+  },
+  "warmup3": {
+   "robotcam_gray_frac": 0.0008409288194444445,
+   "trunk_pos": [
+    15.127053260803223,
+    4.445286273956299,
+    0.48491519689559937
+   ],
+   "trunk_quat_wxyz": [
+    0.25295475125312805,
+    0.009934909641742706,
+    -0.004962495062500238,
+    0.9674142599105835
+   ],
+   "root_state_float32_hex": "69087241c93f8e40ce46f83e4983813e08c6223c6d9ca2bb76a8773fea7ad03b2c4799bb0e4bba3b079d0ebc2794b5bb8b5c663b"
+  },
+  "warmup4": {
+   "robotcam_gray_frac": 0.0008637152777777778,
+   "trunk_pos": [
+    15.129905700683594,
+    4.443159103393555,
+    0.4840710759162903
+   ],
+   "trunk_quat_wxyz": [
+    0.2519558072090149,
+    0.010962152853608131,
+    -0.005057109519839287,
+    0.9676635265350342
+   ],
+   "root_state_float32_hex": "181472415c2e8e402ad8f73e5a00813e9a9a333c1cb6a5bbccb8773ffa858e3b623744bbe6e1cc3b051318bc400bcdbbd965313b"
+  },
+  "warmup5": {
+   "robotcam_gray_frac": 0.0009494357638888889,
+   "trunk_pos": [
+    15.131970405578613,
+    4.441691875457764,
+    0.4834561347961426
+   ],
+   "trunk_quat_wxyz": [
+    0.25120335817337036,
+    0.011711571365594864,
+    -0.005095514934509993,
+    0.9678500294685364
+   ],
+   "root_state_float32_hex": "8d1c724157228e409087f73eba9d803ee4e13f3c47f8a6bb05c5773f88163d3ba6aae3bae67fd83b761d20bc1ea9e9bbb68ffb3a"
+  },
+  "warmup6": {
+   "robotcam_gray_frac": 0.0009689670138888889,
+   "trunk_pos": [
+    15.133370399475098,
+    4.440720558166504,
+    0.482998251914978
+   ],
+   "trunk_quat_wxyz": [
+    0.25037896633148193,
+    0.012175042182207108,
+    -0.005147583782672882,
+    0.9680577516555786
+   ],
+   "root_state_float32_hex": "49227241621a8e408c4bf73eac31803ed479473c10ada8bba2d2773fe917b73a3c0c70bad8f3db3be24120bccc17cdbb5f2a51ba"
+  },
+  "warmup7": {
+   "robotcam_gray_frac": 0.0009342447916666667,
+   "trunk_pos": [
+    15.134163856506348,
+    4.440096378326416,
+    0.4826154410839081
+   ],
+   "trunk_quat_wxyz": [
+    0.24943573772907257,
+    0.012553575448691845,
+    -0.005349285900592804,
+    0.9682952165603638
+   ],
+   "root_state_float32_hex": "8925724145158e405f19f73e156c7f3e83ad4d3c1049afbb32e2773f73d07b3af21ac0b99a44e23b49c12ebccfffcebbfd35b7ba"
+  },
+  "warmup8": {
+   "robotcam_gray_frac": 0.0009223090277777778,
+   "trunk_pos": [
+    15.134784698486328,
+    4.439728260040283,
+    0.4823332130908966
+   ],
+   "trunk_quat_wxyz": [
+    0.24868661165237427,
+    0.012838276103138924,
+    -0.005438763648271561,
+    0.9684836268424988
+   ],
+   "root_state_float32_hex": "1428724141128e4061f4f63eb4a77e3ea257523ca837b2bb8bee773ff8092e3aa3ee97399cbbe83ba52837bc18d4d9bbb7d417bb"
+  },
+  "main000": {
+   "robotcam_gray_frac": 0.0008973524305555555,
+   "trunk_pos": [
+    15.134566307067871,
+    4.440907001495361,
+    0.48322296142578125
+   ],
+   "trunk_quat_wxyz": [
+    0.24858173727989197,
+    0.013953737914562225,
+    -0.007734500803053379,
+    0.9684795141220093
+   ],
+   "root_state_float32_hex": "2f277241e91b8e400069f73e368c7e3e389e643cb271fdbb46ee773f369f38bc2e435b3d166acb3d9e79eb3e022b5a3d19a91f3d"
+  }
+ },
+ "command": [
+  0.5,
+  0.0,
+  0.0
+ ]
+}

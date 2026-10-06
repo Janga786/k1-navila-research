@@ -1,0 +1,143 @@
+[2026-10-01 23:26:07] === STEP 1: validation ===
+[2026-10-01 23:26:22] model server session1 up: pid 1296470
+[2026-10-01 23:26:23] RUN validate (episode_idx 92)
+[2026-10-01 23:26:43] STOPPED: validate run rc=3 (logs/validate.log)
+[2026-10-01 23:26:43] BATCH_VALIDATE_FAILED
+server 1296470 stopped (SIGTERM) after 216 s
+[2026-10-01 23:33:05] GPU_LOCK deleted after early stop (see STOP_REPORT.md)
+[2026-10-02 10:02:25] === STEP 1: validation ===
+[2026-10-02 10:02:40] model server session1 up: pid 1332353
+[2026-10-02 10:02:41] RUN validate (episode_idx 92)
+1_outputs: PASS  {"ok": true, "missing": [], "files_written_outside_airc2027_replay": [], "n_files_written_outside": 0, "excluded_from_check": ["/home/boosterk1/Projects/k1_research/airc2027_replay", "/home/boosterk1/Projects/k1_research/airc2027_walking"]}
+2_png_roundtrip: PASS  {"ok": true, "frames_checked": 46, "mismatching_frames": [], "in_process_checks": 10, "in_process_all_true": true, "k_contiguous": true}
+3_request_rebuild: PASS  {"ok": true, "queries_checked": 16, "failures": []}
+4_schema: PASS  {"ok": true, "missing_keys": [], "extra_keys": [], "type_differences": {}}
+consistency: PASS  {"ok": true, "state_labels_as_expected": true, "n_state_lines": 1115, "main_loop_lines": 914, "ended_at_step": 913, "query_state_hash_equals_previous_step": true, "query_previous_label_ok": true, "error_txt": false}
+ALL_OK
+[2026-10-02 10:06:57] STEP 1 PASSED
+[2026-10-02 10:06:57] BATCH_VALIDATE_DONE
+[2026-10-02 10:07:24] === STEP 2: runs A and B (extra runs C, D if no reply differs) ===
+[2026-10-02 10:07:24] RUN ep3_A (episode_idx 3) elapsed=299s
+[2026-10-02 10:11:46]   ep3_A done: ended_at_step/term_reason/success = 1022 stop 0.0; queries=19
+[2026-10-02 10:11:46] RUN ep3_B (episode_idx 3) elapsed=561s
+[2026-10-02 10:15:37]   ep3_B done: ended_at_step/term_reason/success = 903 stop 0.0; queries=16
+[2026-10-02 10:15:37]   ep3 A vs B: q*=3 step=109/109 H1=held first_state_diff=109
+[2026-10-02 10:15:37]   ep3: pair = A vs B
+[2026-10-02 10:15:37] RUN ep8_A (episode_idx 8) elapsed=792s
+[2026-10-02 10:20:32]   ep8_A done: ended_at_step/term_reason/success = 1573 sim_done 0.0; queries=16
+[2026-10-02 10:20:32] RUN ep8_B (episode_idx 8) elapsed=1087s
+[2026-10-02 10:26:59]   ep8_B done: ended_at_step/term_reason/success = 1776 stop 1.0; queries=26
+[2026-10-02 10:27:00]   ep8 A vs B: q*=6 step=530/530 H1=held first_state_diff=530
+[2026-10-02 10:27:00]   ep8: pair = A vs B
+[2026-10-02 10:27:00] RUN ep16_A (episode_idx 16) elapsed=1475s
+[2026-10-02 10:40:56]   ep16_A done: ended_at_step/term_reason/success = 6001 step_cap 0.0; queries=63
+[2026-10-02 10:40:56] RUN ep16_B (episode_idx 16) elapsed=2311s
+[2026-10-02 10:46:32]   ep16_B done: ended_at_step/term_reason/success = 2232 sim_done 0.0; queries=24
+[2026-10-02 10:46:33]   ep16 A vs B: q*=20 step=1807/1807 H1=held first_state_diff=1807
+[2026-10-02 10:46:33]   ep16: pair = A vs B
+[2026-10-02 10:46:33] RUN ep20_A (episode_idx 20) elapsed=2648s
+[2026-10-02 10:51:18]   ep20_A done: ended_at_step/term_reason/success = 1563 sim_done 0.0; queries=19
+[2026-10-02 10:51:18] RUN ep20_B (episode_idx 20) elapsed=2933s
+[2026-10-02 10:55:58]   ep20_B done: ended_at_step/term_reason/success = 1437 stop 0.0; queries=20
+[2026-10-02 10:55:59]   ep20 A vs B: q*=4 step=277/277 H1=held first_state_diff=321
+[2026-10-02 10:55:59]   ep20: pair = A vs B
+[2026-10-02 10:55:59] RUN ep50_A (episode_idx 50) elapsed=3214s
+[2026-10-02 11:11:16]   ep50_A done: ended_at_step/term_reason/success = 6001 step_cap 0.0; queries=57
+[2026-10-02 11:11:16] RUN ep50_B (episode_idx 50) elapsed=4131s
+[2026-10-02 11:26:18]   ep50_B done: ended_at_step/term_reason/success = 6001 step_cap 0.0; queries=55
+[2026-10-02 11:26:18]   ep50 A vs B: q*=51 step=5482/5482 H1=held first_state_diff=5482
+[2026-10-02 11:26:18]   ep50: pair = A vs B
+[2026-10-02 11:26:18] RUN ep99_A (episode_idx 99) elapsed=5033s
+[2026-10-02 11:33:33]   ep99_A done: ended_at_step/term_reason/success = 2677 stop 0.0; queries=32
+[2026-10-02 11:33:33] RUN ep99_B (episode_idx 99) elapsed=5468s
+[2026-10-02 11:39:01]   ep99_B done: ended_at_step/term_reason/success = 1947 stop 1.0; queries=24
+[2026-10-02 11:39:02]   ep99 A vs B: q*=11 step=724/724 H1=held first_state_diff=724
+[2026-10-02 11:39:02]   ep99: pair = A vs B
+[2026-10-02 11:39:02] RUN ep92_A (episode_idx 92) elapsed=5797s
+[2026-10-02 11:42:42]   ep92_A done: ended_at_step/term_reason/success = 1025 stop 1.0; queries=17
+[2026-10-02 11:42:42] RUN ep92_B (episode_idx 92) elapsed=6017s
+[2026-10-02 11:45:54]   ep92_B done: ended_at_step/term_reason/success = 926 stop 1.0; queries=14
+[2026-10-02 11:45:55]   ep92 A vs B: q*=10 step=665/665 H1=held first_state_diff=692
+[2026-10-02 11:45:55]   ep92: pair = A vs B
+[2026-10-02 11:45:55] RUN ep212_A (episode_idx 212) elapsed=6210s
+[2026-10-02 11:49:53]   ep212_A done: ended_at_step/term_reason/success = 1049 stop 1.0; queries=15
+[2026-10-02 11:49:53] RUN ep212_B (episode_idx 212) elapsed=6448s
+[2026-10-02 11:53:47]   ep212_B done: ended_at_step/term_reason/success = 994 stop 1.0; queries=15
+[2026-10-02 11:53:48]   ep212 A vs B: q*=13 step=954/954 H1=held first_state_diff=986
+[2026-10-02 11:53:48]   ep212: pair = A vs B
+[2026-10-02 11:53:48] diverging pairs: 8 of 8
+[2026-10-02 11:53:48] === STEP 3: run R (model history = run A's saved frames) ===
+[2026-10-02 11:53:48] RUN ep3_R (episode_idx 3) elapsed=6683s
+[2026-10-02 11:58:11]   ep3_R done: ended_at_step/term_reason/success = 1022 stop 0.0; queries=19
+[2026-10-02 11:58:12]   ep3: H3 held mismatch None
+[2026-10-02 11:58:12] RUN ep8_R (episode_idx 8) elapsed=6947s
+[2026-10-02 12:03:10]   ep8_R done: ended_at_step/term_reason/success = 1573 sim_done 0.0; queries=16
+[2026-10-02 12:03:10]   ep8: H3 held mismatch None
+[2026-10-02 12:03:10] RUN ep16_R (episode_idx 16) elapsed=7245s
+[2026-10-02 12:17:20]   ep16_R done: ended_at_step/term_reason/success = 6001 step_cap 0.0; queries=63
+[2026-10-02 12:17:20]   ep16: H3 held mismatch None
+[2026-10-02 12:17:21] RUN ep20_R (episode_idx 20) elapsed=8096s
+[2026-10-02 12:22:08]   ep20_R done: ended_at_step/term_reason/success = 1563 sim_done 0.0; queries=19
+[2026-10-02 12:22:08]   ep20: H3 held mismatch None
+[2026-10-02 12:22:08] RUN ep50_R (episode_idx 50) elapsed=8383s
+[2026-10-02 12:37:36]   ep50_R done: ended_at_step/term_reason/success = 6001 step_cap 0.0; queries=57
+[2026-10-02 12:37:36]   ep50: H3 held mismatch None
+[2026-10-02 12:37:36] RUN ep99_R (episode_idx 99) elapsed=9311s
+[2026-10-02 12:44:56]   ep99_R done: ended_at_step/term_reason/success = 2677 stop 0.0; queries=32
+[2026-10-02 12:44:56]   ep99: H3 held mismatch None
+[2026-10-02 12:44:56] RUN ep92_R (episode_idx 92) elapsed=9751s
+[2026-10-02 12:48:34]   ep92_R done: ended_at_step/term_reason/success = 1025 stop 1.0; queries=17
+[2026-10-02 12:48:34]   ep92: H3 held mismatch None
+[2026-10-02 12:48:34] RUN ep212_R (episode_idx 212) elapsed=9969s
+[2026-10-02 12:52:33]   ep212_R done: ended_at_step/term_reason/success = 1049 stop 1.0; queries=15
+[2026-10-02 12:52:33]   ep212: H3 held mismatch None
+[2026-10-02 12:52:33] === STEP 4: model replays at q* ===
+[2026-10-02 12:52:41]   ep3 q* requests rebuilt and verified: ep3_A q3: rebuilt 89d6354214f533d2 logged 89d6354214f533d2 match=True ep3_B q3: rebuilt d7fe9b127029effd logged d7fe9b127029effd match=True 
+[2026-10-02 12:52:49]   ep8 q* requests rebuilt and verified: ep8_A q6: rebuilt cf2c97f2a7c74fef logged cf2c97f2a7c74fef match=True ep8_B q6: rebuilt 766e9f2ec5117f86 logged 766e9f2ec5117f86 match=True 
+[2026-10-02 12:52:55]   ep16 q* requests rebuilt and verified: ep16_A q20: rebuilt c3f17b927ecd140e logged c3f17b927ecd140e match=True ep16_B q20: rebuilt 9721ebfc717a1805 logged 9721ebfc717a1805 match=True 
+[2026-10-02 12:53:02]   ep20 q* requests rebuilt and verified: ep20_A q4: rebuilt 89307f3fbeaf79b4 logged 89307f3fbeaf79b4 match=True ep20_B q4: rebuilt 9fa7530bfcbb3241 logged 9fa7530bfcbb3241 match=True 
+[2026-10-02 12:53:09]   ep50 q* requests rebuilt and verified: ep50_A q51: rebuilt fffb5a64c2ba629c logged fffb5a64c2ba629c match=True ep50_B q51: rebuilt eebd0c3a396d0b0e logged eebd0c3a396d0b0e match=True 
+[2026-10-02 12:53:15]   ep99 q* requests rebuilt and verified: ep99_A q11: rebuilt 481d60aa9f3af18c logged 481d60aa9f3af18c match=True ep99_B q11: rebuilt 99b4a8e4b0a66233 logged 99b4a8e4b0a66233 match=True 
+[2026-10-02 12:53:22]   ep92 q* requests rebuilt and verified: ep92_A q10: rebuilt 50b2b9ab21945646 logged 50b2b9ab21945646 match=True ep92_B q10: rebuilt 85b3f72c9e022cf4 logged 85b3f72c9e022cf4 match=True 
+[2026-10-02 12:53:30]   ep212 q* requests rebuilt and verified: ep212_A q13: rebuilt 42d984720214bd13 logged 42d984720214bd13 match=True ep212_B q13: rebuilt 381fd84231ddaa87 logged 381fd84231ddaa87 match=True 
+[2026-10-02 12:53:30] --- condition 1: simulator loaded (evaluator copy --replay_queries) ---
+[2026-10-02 12:53:30] RUN ep3_cond1 elapsed=10265s
+[2026-10-02 12:56:10]   cond1 ep3: held [('ep3_A_q003', 20, 20), ('ep3_B_q003', 20, 20)]
+[2026-10-02 12:56:11] RUN ep8_cond1 elapsed=10425s
+[2026-10-02 12:59:38]   cond1 ep8: held [('ep8_A_q006', 20, 20), ('ep8_B_q006', 20, 20)]
+[2026-10-02 12:59:38] RUN ep16_cond1 elapsed=10633s
+[2026-10-02 13:01:54]   cond1 ep16: held [('ep16_A_q020', 20, 20), ('ep16_B_q020', 20, 20)]
+[2026-10-02 13:01:54] RUN ep20_cond1 elapsed=10769s
+[2026-10-02 13:04:22]   cond1 ep20: held [('ep20_A_q004', 20, 20), ('ep20_B_q004', 20, 20)]
+[2026-10-02 13:04:22] RUN ep50_cond1 elapsed=10917s
+[2026-10-02 13:07:08]   cond1 ep50: held [('ep50_A_q051', 20, 20), ('ep50_B_q051', 20, 20)]
+[2026-10-02 13:07:08] RUN ep99_cond1 elapsed=11083s
+[2026-10-02 13:09:33]   cond1 ep99: held [('ep99_A_q011', 20, 20), ('ep99_B_q011', 20, 20)]
+[2026-10-02 13:09:33] RUN ep92_cond1 elapsed=11228s
+[2026-10-02 13:11:59]   cond1 ep92: held [('ep92_A_q010', 20, 20), ('ep92_B_q010', 20, 20)]
+[2026-10-02 13:11:59] RUN ep212_cond1 elapsed=11374s
+[2026-10-02 13:15:12]   cond1 ep212: held [('ep212_A_q013', 20, 20), ('ep212_B_q013', 20, 20)]
+[2026-10-02 13:15:12] --- condition 2: server alone ---
+[2026-10-02 13:17:28]   cond2 ep3: held [('ep3_A_q003', 20, 20), ('ep3_B_q003', 20, 20)]
+[2026-10-02 13:20:23]   cond2 ep8: held [('ep8_A_q006', 20, 20), ('ep8_B_q006', 20, 20)]
+[2026-10-02 13:22:12]   cond2 ep16: held [('ep16_A_q020', 20, 20), ('ep16_B_q020', 20, 20)]
+[2026-10-02 13:24:13]   cond2 ep20: held [('ep20_A_q004', 20, 20), ('ep20_B_q004', 20, 20)]
+[2026-10-02 13:26:33]   cond2 ep50: held [('ep50_A_q051', 20, 20), ('ep50_B_q051', 20, 20)]
+[2026-10-02 13:28:31]   cond2 ep99: held [('ep99_A_q011', 20, 20), ('ep99_B_q011', 20, 20)]
+[2026-10-02 13:30:31]   cond2 ep92: held [('ep92_A_q010', 20, 20), ('ep92_B_q010', 20, 20)]
+[2026-10-02 13:33:14]   cond2 ep212: held [('ep212_A_q013', 20, 20), ('ep212_B_q013', 20, 20)]
+[2026-10-02 13:33:14] --- condition 3: restarted server, no simulator ---
+server 1332353 stopped (SIGTERM) after 12650 s
+[2026-10-02 13:33:30] model server session2 up: pid 1352510
+[2026-10-02 13:35:47]   cond3 ep3: held [('ep3_A_q003', 20, 20), ('ep3_B_q003', 20, 20)]
+[2026-10-02 13:38:39]   cond3 ep8: held [('ep8_A_q006', 20, 20), ('ep8_B_q006', 20, 20)]
+[2026-10-02 13:40:27]   cond3 ep16: held [('ep16_A_q020', 20, 20), ('ep16_B_q020', 20, 20)]
+[2026-10-02 13:42:29]   cond3 ep20: held [('ep20_A_q004', 20, 20), ('ep20_B_q004', 20, 20)]
+[2026-10-02 13:44:47]   cond3 ep50: held [('ep50_A_q051', 20, 20), ('ep50_B_q051', 20, 20)]
+[2026-10-02 13:46:46]   cond3 ep99: held [('ep99_A_q011', 20, 20), ('ep99_B_q011', 20, 20)]
+[2026-10-02 13:48:48]   cond3 ep92: held [('ep92_A_q010', 20, 20), ('ep92_B_q010', 20, 20)]
+[2026-10-02 13:51:32]   cond3 ep212: held [('ep212_A_q013', 20, 20), ('ep212_B_q013', 20, 20)]
+[2026-10-02 13:51:32] STEPS 2-4 COMPLETE (server session2 left running until after the upload)
+[2026-10-02 13:51:32] BATCH_MAIN_DONE
+server 1352510 stopped (SIGTERM) after 34887 s
+[2026-10-02 23:14:45] GPU_LOCK deleted (experiment complete)

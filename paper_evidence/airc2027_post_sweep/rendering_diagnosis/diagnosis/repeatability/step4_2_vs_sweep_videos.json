@@ -1,0 +1,80 @@
+[
+ {
+  "label": "idx21_main050_vs_stretchA_rec39_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "stretchA_300/output_39.mp4",
+  "video_frame": 11,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.1442556423611111,
+  "gray_video": 0.12767795138888888,
+  "mean_abs_diff_sim+overlay_vs_video": 1.3404607928240742,
+  "p99_abs_diff": 8.0
+ },
+ {
+  "label": "idx21_main050_vs_h078_rec39_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "h078_200/output_39.mp4",
+  "video_frame": 11,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.1442556423611111,
+  "gray_video": 0.12703342013888888,
+  "mean_abs_diff_sim+overlay_vs_video": 1.3409968171296296,
+  "p99_abs_diff": 8.0
+ },
+ {
+  "label": "idx21_main050_vs_June_rec39_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "full_14498/output_39.mp4",
+  "video_frame": 11,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.1442556423611111,
+  "gray_video": 0.06620442708333334,
+  "mean_abs_diff_sim+overlay_vs_video": 3.9375629340277776,
+  "p99_abs_diff": 26.0
+ },
+ {
+  "label": "idx21_main025_vs_stretchA_rec39_f06",
+  "sim_png": "step4_2_idx21_cz025_proc1/main025_robotcam.png",
+  "video": "stretchA_300/output_39.mp4",
+  "video_frame": 6,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.0021061197916666667,
+  "gray_sim_with_overlay": 0.0025130208333333333,
+  "gray_video": 0.002255859375,
+  "mean_abs_diff_sim+overlay_vs_video": 1.6530320457175927,
+  "p99_abs_diff": 11.0
+ },
+ {
+  "label": "idx21_init_vs_stretchA_rec39_f00",
+  "sim_png": "step4_2_idx21_cz025_proc1/init_robotcam.png",
+  "video": "stretchA_300/output_39.mp4",
+  "video_frame": 0,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.002443576388888889,
+  "gray_sim_with_overlay": 0.00287109375,
+  "gray_video": 0.0025911458333333333,
+  "mean_abs_diff_sim+overlay_vs_video": 1.6816399016203705,
+  "p99_abs_diff": 11.0
+ },
+ {
+  "label": "idx21_init_vs_June_rec39_f00",
+  "sim_png": "step4_2_idx21_cz025_proc1/init_robotcam.png",
+  "video": "full_14498/output_39.mp4",
+  "video_frame": 0,
+  "episode_idx": 21,
+  "record": 39,
+  "gray_sim_raw": 0.002443576388888889,
+  "gray_sim_with_overlay": 0.00287109375,
+  "gray_video": 0.002509765625,
+  "mean_abs_diff_sim+overlay_vs_video": 1.6874681712962962,
+  "p99_abs_diff": 11.0
+ }
+]

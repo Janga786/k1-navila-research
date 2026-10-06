@@ -1,0 +1,58 @@
+{
+ "behind_left": {
+  "eye": [
+   15.645348591740616,
+   3.795999831306274,
+   0.9588957407353462
+  ],
+  "target": [
+   15.107034683227539,
+   4.461751937866211,
+   0.6131200444698334
+  ],
+  "requested": "1.8 m back, 0.7 m left, 1.4 m above floor",
+  "first_hit_from_target_m": 1.0433463941639236,
+  "focal_length": 24.0,
+  "horizontal_aperture": 36.0,
+  "width": 1920,
+  "height": 1080
+ },
+ "side": {
+  "eye": [
+   15.101538936034167,
+   5.9696609636217435,
+   0.7631200444698334
+  ],
+  "target": [
+   15.107034683227539,
+   4.461751937866211,
+   0.6131200444698334
+  ],
+  "requested": "from the side",
+  "direction_deg_from_heading": -60,
+  "distance_m": 1.5079190406624,
+  "free_distance_m": 1.6279190406624,
+  "focal_length": 24.0,
+  "horizontal_aperture": 36.0,
+  "width": 1920,
+  "height": 1080
+ },
+ "upper_body_close": {
+  "eye": [
+   14.275057993523221,
+   4.291628342240429,
+   1.0331200444698334
+  ],
+  "target": [
+   15.107034683227539,
+   4.461751937866211,
+   0.9131200444698334
+  ],
+  "requested": "closer view of the upper body, front-left",
+  "first_hit_from_target_m": Infinity,
+  "focal_length": 24.0,
+  "horizontal_aperture": 36.0,
+  "width": 1920,
+  "height": 1080
+ }
+}

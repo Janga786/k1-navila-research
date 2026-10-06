@@ -1,0 +1,220 @@
+{
+ "summary": {
+  "pairs": 12,
+  "diverged": 11,
+  "reply_first_at_identical_pose": 11,
+  "pose_diverged_before_reply": 0
+ },
+ "pairs": [
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep16",
+   "ticks": [
+    24,
+    68
+   ],
+   "identical": false,
+   "first_reply_diff": 5,
+   "first_pose_or_step_diff": 6,
+   "step_at_first_reply_diff": 607,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn left 45 degree.",
+    "The next action is turn right 45 degree."
+   ]
+  },
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep20",
+   "ticks": [
+    30,
+    20
+   ],
+   "identical": false,
+   "first_reply_diff": 4,
+   "first_pose_or_step_diff": 5,
+   "step_at_first_reply_diff": 277,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn left 30 degree.",
+    "The next action is turn left 45 degree."
+   ]
+  },
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep3",
+   "ticks": [
+    18,
+    16
+   ],
+   "identical": false,
+   "first_reply_diff": 4,
+   "first_pose_or_step_diff": 5,
+   "step_at_first_reply_diff": 141,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is move forward 25 cm.",
+    "The next action is turn right 15 degree."
+   ]
+  },
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep50",
+   "ticks": [
+    68,
+    60
+   ],
+   "identical": false,
+   "first_reply_diff": 14,
+   "first_pose_or_step_diff": 15,
+   "step_at_first_reply_diff": 1401,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn right 15 degree.",
+    "The next action is turn right 45 degree."
+   ]
+  },
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep8",
+   "ticks": [
+    16,
+    26
+   ],
+   "identical": false,
+   "first_reply_diff": 6,
+   "first_pose_or_step_diff": 7,
+   "step_at_first_reply_diff": 530,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn right 15 degree.",
+    "The next action is move forward 25 cm."
+   ]
+  },
+  {
+   "pair": "exta/extb",
+   "driver": "580.159.03",
+   "episode": "ep99",
+   "ticks": [
+    61,
+    39
+   ],
+   "identical": false,
+   "first_reply_diff": 21,
+   "first_pose_or_step_diff": 22,
+   "step_at_first_reply_diff": 1530,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is move forward 25 cm.",
+    "The next action is turn right 15 degree."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep16",
+   "ticks": [
+    66,
+    41
+   ],
+   "identical": false,
+   "first_reply_diff": 1,
+   "first_pose_or_step_diff": 2,
+   "step_at_first_reply_diff": 30,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is move forward 75 cm.",
+    "The next action is move forward 25 cm."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep20",
+   "ticks": [
+    29,
+    52
+   ],
+   "identical": false,
+   "first_reply_diff": 21,
+   "first_pose_or_step_diff": 22,
+   "step_at_first_reply_diff": 1581,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn left 30 degree.",
+    "The next action is move forward 25 cm."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep3",
+   "ticks": [
+    18,
+    27
+   ],
+   "identical": false,
+   "first_reply_diff": 3,
+   "first_pose_or_step_diff": 4,
+   "step_at_first_reply_diff": 109,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn right 15 degree.",
+    "The next action is move forward 25 cm."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep50",
+   "ticks": [
+    57,
+    55
+   ],
+   "identical": false,
+   "first_reply_diff": 50,
+   "first_pose_or_step_diff": 51,
+   "step_at_first_reply_diff": 5319,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn right 15 degree.",
+    "The next action is turn right 45 degree."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep8",
+   "ticks": [
+    16,
+    16
+   ],
+   "identical": false,
+   "first_reply_diff": 15,
+   "first_pose_or_step_diff": null,
+   "step_at_first_reply_diff": 1492,
+   "pose_identical_at_first_reply_diff": true,
+   "replies": [
+    "The next action is turn left 45 degree.",
+    "I think I should stop because I have finished the instruction."
+   ]
+  },
+  {
+   "pair": "smoke173a/smoke173b",
+   "driver": "580.173.02",
+   "episode": "ep99",
+   "ticks": [
+    39,
+    39
+   ],
+   "identical": true,
+   "first_reply_diff": null,
+   "first_pose_or_step_diff": null
+  }
+ ]
+}

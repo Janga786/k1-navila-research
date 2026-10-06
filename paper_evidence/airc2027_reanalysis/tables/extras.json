@@ -1,0 +1,53 @@
+{
+ "J_identical_longer_than_2000": 53,
+ "J_identical_at_cap": 26,
+ "handler_written": 108,
+ "handler_after_5500": 68,
+ "handler_at_6001": 0,
+ "handler_min_step": 4527.0,
+ "interrupted_identical_to_J": [],
+ "cap_share_pct": {
+  "A": {
+   "labeled": 46.666666666666664,
+   "reached": 48.66666666666667
+  },
+  "B": {
+   "labeled": 43.0,
+   "reached": 44.0
+  },
+  "crop": {
+   "labeled": 56.666666666666664,
+   "reached": 57.99999999999999
+  },
+  "h060": {
+   "labeled": 51.0,
+   "reached": 52.0
+  },
+  "h078": {
+   "labeled": 47.5,
+   "reached": 50.0
+  },
+  "h095": {
+   "labeled": 41.5,
+   "reached": 42.5
+  },
+  "h110": {
+   "labeled": 46.0,
+   "reached": 47.0
+  },
+  "h130": {
+   "labeled": 40.5,
+   "reached": 41.5
+  },
+  "h150": {
+   "labeled": 47.0,
+   "reached": 48.0
+  },
+  "pad": {
+   "labeled": 41.333333333333336,
+   "reached": 43.333333333333336
+  }
+ },
+ "AB_SR_identical_pct": 30.76923076923077,
+ "AB_SR_other_pct": 12.298387096774194
+}

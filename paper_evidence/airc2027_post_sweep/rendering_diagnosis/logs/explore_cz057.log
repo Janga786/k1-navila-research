@@ -1,0 +1,247 @@
+[Warning] [omni.isaac.kit.simulation_app] Modules: ['omni.kit_app'] were loaded before SimulationApp was started and might not be loaded correctly.
+[Warning] [omni.isaac.kit.simulation_app] Please check to make sure no extra omniverse or pxr modules are imported before the call to SimulationApp(...)
+Loading user config located at: '/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/omni/data/Kit/Isaac-Sim/4.1/user.config.json'
+[Info] [carb] Logging to file: /home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/omni/logs/Kit/Isaac-Sim/4.1/kit_20261001_193634.log
+2026-10-02 01:36:34 [0ms] [Warning] [omni.kit.app.plugin] No crash reporter present, dumps uploading isn't available.
+[0.083s] [ext: omni.kit.async_engine-0.0.0] startup
+[0.193s] [ext: omni.stats-1.0.1] startup
+[0.195s] [ext: omni.client-1.1.0] startup
+[0.254s] [ext: omni.datastore-0.0.0] startup
+[0.257s] [ext: omni.blobkey-1.1.0] startup
+[0.259s] [ext: omni.ujitso.default-1.0.0] startup
+[0.262s] [ext: omni.hsscclient-0.0.0] startup
+[0.265s] [ext: omni.rtx.shadercache.vulkan-1.0.0] startup
+[0.266s] [ext: omni.assets.plugins-0.0.0] startup
+[0.274s] [ext: omni.gpu_foundation-0.0.0] startup
+[0.322s] [ext: carb.windowing.plugins-1.0.0] startup
+2026-10-02 01:36:35 [289ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:35 [289ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+[0.327s] [ext: omni.kit.renderer.init-0.0.0] startup
+2026-10-02 01:36:35 [309ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.173.02    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 3090          | Yes: 0 |     | 24822   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2204      | c4160bf8.. |
+|     |                                  |        |     |            | 2d        |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-124-generic
+| Processor: Intel(R) Xeon(R) Gold 6128 CPU @ 3.40GHz | Cores: 6 | Logical: 12
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 64001 | Free Memory: 58554
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 2038
+|---------------------------------------------------------------------------------------------|
+[1.391s] [ext: omni.kit.pipapi-0.0.0] startup
+[1.393s] [ext: omni.kit.pip_archive-0.0.0] startup
+[1.395s] [ext: omni.mtlx-0.1.0] startup
+[1.396s] [ext: omni.usd.config-1.0.4] startup
+[1.403s] [ext: omni.gpucompute.plugins-0.0.0] startup
+[1.405s] [ext: omni.usd.libs-1.0.1] startup
+[1.603s] [ext: omni.kit.telemetry-0.5.0] startup
+[1.636s] [ext: omni.kit.loop-isaac-1.2.0] startup
+[1.638s] [ext: omni.kit.test-0.0.0] startup
+[1.701s] [ext: omni.usd.schema.semantics-0.0.0] startup
+[1.868s] [ext: omni.usd.schema.anim-0.0.0] startup
+[1.915s] [ext: omni.usd.schema.physx-106.0.20] startup
+[1.974s] [ext: omni.usd.schema.omnigraph-1.0.0] startup
+[1.983s] [ext: omni.usd.schema.audio-0.0.0] startup
+[1.988s] [ext: omni.usd.schema.geospatial-0.0.0] startup
+[1.992s] [ext: omni.usd.schema.forcefield-106.0.20] startup
+[2.000s] [ext: omni.usd_resolver-1.0.0] startup
+[2.010s] [ext: usdrt.scenegraph-7.4.8] startup
+[2.081s] [ext: omni.appwindow-1.1.8] startup
+2026-10-02 01:36:36 [2,046ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:36 [2,046ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+[2.085s] [ext: omni.kit.actions.core-1.0.0] startup
+[2.089s] [ext: omni.kit.renderer.core-1.0.1] startup
+2026-10-02 01:36:36 [2,056ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:36 [2,056ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+2026-10-02 01:36:36 [2,062ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:36 [2,062ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+[2.102s] [ext: omni.kit.commands-1.4.9] startup
+[2.108s] [ext: omni.kit.renderer.capture-0.0.0] startup
+[2.112s] [ext: omni.graph.exec-0.9.3] startup
+[2.113s] [ext: omni.kit.renderer.imgui-1.0.1] startup
+2026-10-02 01:36:37 [2,086ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:37 [2,086ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+2026-10-02 01:36:37 [2,088ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:37 [2,088ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+2026-10-02 01:36:37 [2,089ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:37 [2,089ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+[2.225s] [ext: carb.audio-0.1.0] startup
+[2.232s] [ext: omni.ui-2.23.11] startup
+[2.249s] [ext: omni.kit.usd_undo-0.1.8] startup
+[2.250s] [ext: omni.kit.exec.core-0.13.2] startup
+[2.255s] [ext: omni.kit.audiodeviceenum-1.0.1] startup
+[2.257s] [ext: omni.activity.core-1.0.1] startup
+[2.260s] [ext: omni.kit.window.popup_dialog-2.0.24] startup
+[2.266s] [ext: omni.usd.core-1.2.11] startup
+[2.273s] [ext: omni.resourcemonitor-105.0.1] startup
+[2.277s] [ext: omni.timeline-1.0.10] startup
+[2.280s] [ext: omni.kit.widget.nucleus_connector-1.1.8] startup
+[2.283s] [ext: omni.hydra.usdrt_delegate-7.4.7] startup
+[2.315s] [ext: omni.hydra.scene_delegate-0.3.3] startup
+[2.326s] [ext: omni.usd-1.11.2] startup
+[2.383s] [ext: omni.kit.helper.file_utils-0.1.8] startup
+[2.385s] [ext: omni.kit.widget.path_field-2.0.9] startup
+[2.386s] [ext: omni.kit.widget.options_menu-1.1.4] startup
+[2.390s] [ext: omni.kit.widget.context_menu-1.2.1] startup
+[2.391s] [ext: omni.kit.widget.filebrowser-2.10.48] startup
+[2.398s] [ext: omni.kit.widget.browser_bar-2.0.10] startup
+[2.399s] [ext: omni.kit.widget.options_button-1.0.2] startup
+[2.400s] [ext: omni.ui.scene-1.9.3] startup
+[2.409s] [ext: omni.kit.notification_manager-1.0.8] startup
+[2.412s] [ext: omni.kit.clipboard-1.0.3] startup
+[2.413s] [ext: omni.kit.window.filepicker-2.10.34] startup
+[2.429s] [ext: omni.ujitso.processor.texture-1.0.0] startup
+[2.431s] [ext: omni.iray.libs-0.0.0] startup
+[2.475s] [ext: omni.kit.window.file_importer-1.1.11] startup
+[2.479s] [ext: omni.ujitso.client-0.0.0] startup
+[2.480s] [ext: omni.mdl.neuraylib-0.2.5] startup
+[2.483s] [ext: omni.mdl-52.0.1] startup
+[2.507s] [ext: omni.kit.menu.utils-1.5.27] startup
+[2.521s] [ext: omni.kit.usd.layers-2.1.31] startup
+[2.534s] [ext: omni.volume-0.5.0] startup
+[2.542s] [ext: omni.kit.context_menu-1.Warning: Possible version incompatibility. Attempting to load omni::fabric::IPath with version v0.2 against v0.1.
+Warning: Possible version incompatibility. Attempting to load omni::fabric::IPath with version v0.2 against v0.1.
+8.0] startup
+[2.545s] [ext: omni.hydra.rtx-0.2.0] startup
+[2.588s] [ext: omni.kit.material.library-1.4.4] startup
+[2.594s] [ext: omni.hydra.engine.stats-1.0.2] startup
+[2.599s] [ext: omni.kit.hydra_texture-1.2.6] startup
+[2.607s] [ext: omni.kit.viewport.registry-104.0.6] startup
+[2.608s] [ext: omni.kit.raycast.query-1.0.5] startup
+[2.620s] [ext: omni.kit.hotkeys.core-1.3.3] startup
+[2.626s] [ext: omni.kit.widget.viewport-106.0.3] startup
+[2.632s] [ext: omni.inspect-1.0.1] startup
+[2.635s] [ext: omni.kit.viewport.window-106.0.8] startup
+[2.657s] [ext: omni.kit.window.file_exporter-1.0.29] startup
+[2.659s] [ext: omni.kit.widget.filter-1.1.4] startup
+[2.660s] [ext: omni.kit.viewport.utility-1.0.17] startup
+[2.661s] [ext: omni.kit.widget.prompt-1.0.7] startup
+[2.662s] [ext: omni.kit.widget.stage-2.10.26] startup
+[2.676s] [ext: omni.graph.core-2.170.3] startup
+[2.685s] [ext: omni.kit.widget.text_editor-1.0.2] startup
+[2.688s] [ext: omni.physx.foundation-106.0.20] startup
+[2.689s] [ext: omni.kit.widget.searchfield-1.1.6] startup
+[2.691s] [ext: omni.kit.widget.highlight_label-1.0.2] startup
+[2.692s] [ext: omni.kit.widget.settings-1.1.1] startup
+[2.695s] [ext: omni.kit.window.property-1.11.1] startup
+[2.698s] [ext: omni.graph.tools-1.78.0] startup
+[2.725s] [ext: omni.kit.window.preferences-1.5.3] startup
+[2.738s] [ext: omni.kit.property.usd-3.21.28] startup
+[2.751s] [ext: omni.graph-1.135.0] startup
+[2.927s] [ext: omni.graph.image.core-0.3.2] startup
+[2.933s] [ext: omni.graph.ui-1.70.0] startup
+[2.956s] [ext: omni.graph.action_core-1.1.4] startup
+[2.968s] [ext: omni.graph.image.nodes-1.0.2] startup
+[2.973s] [ext: omni.graph.action_nodes-1.23.0] startup
+[2.987s] [ext: omni.graph.nodes-1.143.0] startup
+[3.024s] [ext: omni.graph.action-1.102.1] startup
+[3.028s] [ext: omni.kvdb-106.0.20] startup
+[3.035s] [ext: omni.debugdraw-0.1.3] startup
+[3.044s] [ext: omni.usdphysics-106.0.20] startup
+[3.049s] [ext: omni.localcache-106.0.20] startup
+[3.053s] [ext: omni.convexdecomposition-106.0.20] startup
+[3.065s] [ext: omni.graph.ui_nodes-1.25.1] startup
+[3.081s] [ext: omni.physx.cooking-106.0.20] startup
+[3.112s] [ext: omni.graph.bundle.action-2.0.4] startup
+[3.113s] [ext: omni.kit.stage_template.core-1.1.21] startup
+[3.118s] [ext: omni.physx-106.0.20] startup
+[3.158s] [ext: omni.graph.scriptnode-1.19.1] startup
+[3.166s] [ext: omni.physx.stageupdate-106.0.20] startup
+[3.194s] [ext: omni.kit.primitive.mesh-1.0.16] startup
+[3.228s] [ext: omni.kit.manipulator.transform-104.7.5] startup
+[3.239s] [ext: omni.kit.widget.toolbar-1.6.2] startup
+[3.303s] [ext: omni.usdphysics.ui-106.0.20] startup
+[3.425s] [ext: omni.physx.commands-106.0.20] startup
+[3.455s] [ext: omni.kit.manipulator.tool.snap-1.4.5] startup
+[3.464s] [ext: omni.kit.stage_templates-1.2.3] startup
+[3.470s] [ext: omni.physx.ui-106.0.20] startup
+[3.512s] [ext: omni.kit.window.file-1.3.52] startup
+[3.525s] [ext: omni.kit.property.material-1.9.4] startup
+[3.535s] [ext: omni.physics.tensors-106.0.20] startup
+[3.546s] [ext: omni.physx.demos-106.0.20] startup
+[3.574s] [ext: omni.kit.property.physx-106.0.20] startup
+[3.688s] [ext: omni.physx.tensors-106.0.20] startup
+[3.701s] [ext: omni.physx.vehicle-106.0.20] startup
+[3.737s] [ext: omni.sensors.tiled-0.0.4] startup
+[3.745s] [ext: omni.physx.camera-106.0.20] startup
+[3.761s] [ext: omni.kit.manipulator.selector-1.1.1] startup
+[3.766s] [ext: omni.ui_query-1.1.2] startup
+[3.769s] [ext: omni.fabric.commands-1.1.4] startup
+[3.777s] [ext: omni.kit.viewport.manipulator.transform-106.0.1] startup
+[3.780s] [ext: omni.kit.ui_test-1.2.18] startup
+[3.784s] [ext: omni.kit.widget.graph-1.12.8] startup
+[3.791s] [ext: omni.kit.manipulator.prim.core-107.0.3] startup
+[3.800s] [ext: omni.physx.cct-106.0.20] startup
+[3.814s] [ext: omni.kit.graph.delegate.default-1.2.2] startup
+[3.825s] [ext: omni.kit.manipulator.prim.fabric-106.0.1] startup
+[3.830s] [ext: omni.kit.manipulator.prim.usd-106.0.1] startup
+[3.834s] [ext: omni.kit.graph.editor.core-1.5.3] startup
+[3.845s] [ext: omni.kit.widget.material_preview-1.0.16] startup
+[3.849s] [ext: omni.kit.manipulator.prim-106.0.0] startup
+[3.850s] [ext: omni.kit.graph.usd.commands-1.3.1] startup
+[3.851s] [ext: omni.kit.window.toolbar-1.6.1] startup
+[3.856s] [ext: omni.kit.widget.layers-1.7.9] startup
+[3.873s] [ext: omni.kit.manipulator.selection-104.0.9] startup
+[3.876s] [ext: omni.physx.graph-106.0.20] startup
+[3.899s] [ext: omni.physx.telemetry-106.0.20] startup
+[3.911s] [ext: omni.physx.supportui-106.0.20] startup
+[3.936s] [ext: omni.kit.window.material_graph-1.8.15] startup
+[4.091s] [ext: omni.warp.core-1.2.1] startup
+[4.098s] [ext: omni.syntheticdata-0.6.7] startup
+[4.121s] [ext: omni.isaac.version-1.1.0] startup
+[4.126s] [ext: omni.warp-1.2.1] startup
+[4.151s] [ext: omni.physx.bundle-106.0.20] startup
+[4.158s] [ext: omni.command.usd-1.0.3] startup
+[4.163s] [ext: omni.isaac.nucleus-0.3.0] startup
+[4.167s] [ext: omni.replicator.core-1.11.14] startup
+2026-10-02 01:36:39 [4,399ms] [Warning] [omni.replicator.core.scripts.annotators] Annotator PostProcessDispatch is already registered, overwriting annotator template
+[4.646s] [ext: omni.isaac.core-3.18.1] startup
+[6.428s] [ext: omni.isaac.kit-1.13.0] startup
+[6.428s] [ext: omni.replicator.isaac-1.15.0] startup
+[6.463s] [ext: omni.physx.fabric-106.0.20] startup
+[6.474s] [ext: omni.isaac.cloner-0.8.1] startup
+[6.479s] [ext: omni.kit.viewport.rtx-104.0.1] startup
+[6.480s] [ext: isaaclab.python.headless-1.1.0] startup
+[6.480s] [ext: isaaclab.python.headless.rendering-1.1.0] startup
+[6.482s] Simulation App Starting
+[9.546s] app ready
+/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/tensordict/_pytree.py:218: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_pytree_node(
+/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/tensordict/_pytree.py:237: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  register_pytree_node(
+[INFO][AppLauncher]: Loading experience file: /home/boosterk1/Projects/k1_research/IsaacLab/source/extensions/omni.isaac.lab/omni/isaac/lab/app/../../../../../../apps/isaaclab.python.headless.rendering.kit
+Starting kit application with the following args:  ['/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/exts/omni.isaac.kit/omni/isaac/kit/simulation_app.py', '/home/boosterk1/Projects/k1_research/IsaacLab/source/extensions/omni.isaac.lab/omni/isaac/lab/app/../../../../../../apps/isaaclab.python.headless.rendering.kit', '--/app/tokens/exe-path=/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/omni', '--/persistent/app/viewport/displayOptions=3094', '--/rtx/materialDb/syncLoads=True', '--/rtx/hydra/materialSyncLoads=True', '--/omni.kit.plugin/syncUsdLoads=True', '--/app/renderer/resolution/width=1280', '--/app/renderer/resolution/height=720', '--/app/window/width=1440', '--/app/window/height=900', '--/renderer/multiGpu/enabled=True', '--/app/fastShutdown=True', '--ext-folder', '/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/exts', '--ext-folder', '/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/apps', '--/renderer/activeGpu=0', '--/physics/cudaDevice=0', '--portable', '--no-window', '--/app/window/hideUi=True']
+Passing the following args to the base kit application:  ['--task=k1_matterport_vision', '--num_envs=1', '--checkpoint=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt', '--gait_phase_init=0.0', '--headless', '--enable_cameras', '--episode_idx=0', '--cam_z=0.57', '--out_dir', '/home/boosterk1/Projects/k1_research/airc2027_renders/diagnosis/sim/explore_cz057']
+Warp 1.2.1 initialized:
+   CUDA Toolkit 11.8, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA GeForce RTX 3090" (24 GiB, sm_86, mempool enabled)
+   Kernel cache:
+     /home/boosterk1/.cache/warp/1.2.1
+[INFO]: Parsing configuration from: <class 'omni.isaac.vlnce.config.k1.k1_matterport_vision_cfg.K1MatterportVisionCfg'>
+[cam-override] offset (0.1, 0.0, 0.25)->(0.1, 0.0, 0.57)  1280x720  aperture=47.71  abs_ground_height~=1.10m (virtual if >~0.9m)
+[9.837s] Simulation App Startup Complete
+[12.222s] [ext: omni.kit.asset_converter-2.1.11] startup
+[14.198s] [ext: omni.kit.mainwindow-1.0.3] startup
+[14.210s] [ext: omni.uiaudio-1.0.0] startup
+[14.214s] [ext: omni.kit.uiapp-0.0.0] startup
+[14.214s] [ext: omni.kit.window.drop_support-1.0.2] startup
+[14.216s] [ext: omni.kit.window.content_browser_registry-0.0.6] startup
+[14.217s] [ext: omni.kit.window.content_browser-2.9.14] startup
+[14.247s] [ext: omni.kit.window.extensions-1.4.9] startup
+[14.270s] [ext: omni.importer.urdf-1.14.1] startup
+2026-10-02 01:36:49 [14,357ms] [Error] [omni.usd] Runtime Error: in Open at line 893 of /buildAgent/work/ac88d7d902b57417/USD/pxr/usd/usd/stage.cpp -- Failed to open layer @/tmp/IsaacLab/usd_20261001_193649_1544/Props/instanceable_meshes.usd@
+
+2026-10-02 01:36:51 [16,394ms] [Warning] [omni.hydra.scene_delegate.plugin] Calling getBypassRenderSkelMeshProcessing for prim /World/envs/env_0/Robot/Right_Hip_Pitch/visuals.proto_mesh_0_id0 that has not been populated
+2026-10-02 01:36:56 [22,055ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-10-02 01:36:56 [22,055ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.4]) (impl: carb.windowing-glfw.plugin)
+[22.252s] Simulation App Shutting Down

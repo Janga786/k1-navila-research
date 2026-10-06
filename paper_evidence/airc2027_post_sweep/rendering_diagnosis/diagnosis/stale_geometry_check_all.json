@@ -1,0 +1,1618 @@
+{
+ "diagnosis/h095_pattern/idx75_cz042": {
+  "episode_idx": 75,
+  "record": 111,
+  "cam_z": 0.42,
+  "frames": {
+   "init": {
+    "gray": 0.0021,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1754,
+    "camera_in_spawn_frame": [
+     0.0671,
+     0.0054,
+     0.2442
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup1": {
+    "gray": 0.0019,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.177,
+    "camera_in_spawn_frame": [
+     0.0542,
+     0.0072,
+     0.2434
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup2": {
+    "gray": 0.0022,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.178,
+    "camera_in_spawn_frame": [
+     0.048,
+     0.0082,
+     0.2428
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup3": {
+    "gray": 0.002,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1789,
+    "camera_in_spawn_frame": [
+     0.0427,
+     0.0073,
+     0.2421
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup4": {
+    "gray": 0.0019,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1802,
+    "camera_in_spawn_frame": [
+     0.0357,
+     0.0043,
+     0.241
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup5": {
+    "gray": 0.0018,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1817,
+    "camera_in_spawn_frame": [
+     0.03,
+     0.0021,
+     0.2398
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup6": {
+    "gray": 0.0021,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1829,
+    "camera_in_spawn_frame": [
+     0.0259,
+     0.0004,
+     0.2388
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup7": {
+    "gray": 0.1976,
+    "predicted_backface_fraction": 0.2309,
+    "predicted_any_stale_hit_fraction": 0.2309,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.184,
+    "camera_in_spawn_frame": [
+     0.0228,
+     -0.0014,
+     0.2379
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup8": {
+    "gray": 0.6831,
+    "predicted_backface_fraction": 0.2656,
+    "predicted_any_stale_hit_fraction": 0.6997,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1849,
+    "camera_in_spawn_frame": [
+     0.0205,
+     -0.0031,
+     0.2372
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "main000": {
+    "gray": 0.6954,
+    "predicted_backface_fraction": 0.2309,
+    "predicted_any_stale_hit_fraction": 0.8837,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1841,
+    "camera_in_spawn_frame": [
+     0.0199,
+     -0.0023,
+     0.2382
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   }
+  }
+ },
+ "diagnosis/h095_pattern/idx81_cz042": {
+  "episode_idx": 81,
+  "record": 120,
+  "cam_z": 0.42,
+  "frames": {
+   "init": {
+    "gray": 0.0,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1798,
+    "camera_in_spawn_frame": [
+     0.0565,
+     -0.0003,
+     0.2402
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup1": {
+    "gray": 0.0001,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.182,
+    "camera_in_spawn_frame": [
+     0.0418,
+     0.0007,
+     0.2388
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup2": {
+    "gray": 0.0001,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1835,
+    "camera_in_spawn_frame": [
+     0.0337,
+     0.001,
+     0.2377
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup3": {
+    "gray": 0.0001,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1847,
+    "camera_in_spawn_frame": [
+     0.0282,
+     0.0012,
+     0.2368
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup4": {
+    "gray": 0.0001,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1855,
+    "camera_in_spawn_frame": [
+     0.0243,
+     0.001,
+     0.2361
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup5": {
+    "gray": 0.3419,
+    "predicted_backface_fraction": 0.3108,
+    "predicted_any_stale_hit_fraction": 0.3628,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1863,
+    "camera_in_spawn_frame": [
+     0.0215,
+     0.0005,
+     0.2355
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup6": {
+    "gray": 0.6553,
+    "predicted_backface_fraction": 0.217,
+    "predicted_any_stale_hit_fraction": 0.6667,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1869,
+    "camera_in_spawn_frame": [
+     0.0195,
+     -0.0001,
+     0.235
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup7": {
+    "gray": 0.8056,
+    "predicted_backface_fraction": 0.1944,
+    "predicted_any_stale_hit_fraction": 0.8125,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1874,
+    "camera_in_spawn_frame": [
+     0.0181,
+     -0.0009,
+     0.2346
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup8": {
+    "gray": 0.8792,
+    "predicted_backface_fraction": 0.1684,
+    "predicted_any_stale_hit_fraction": 0.8802,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1879,
+    "camera_in_spawn_frame": [
+     0.0171,
+     -0.0018,
+     0.2342
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "main000": {
+    "gray": 0.8808,
+    "predicted_backface_fraction": 0.1337,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_1"
+    ],
+    "trunk_z_minus_spawn_z": -0.1871,
+    "camera_in_spawn_frame": [
+     0.0165,
+     -0.001,
+     0.2353
+    ],
+    "inside_stale_bbox_of": [
+     "Head_1",
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   }
+  }
+ },
+ "diagnosis/h095_pattern/idx72_cz042": {
+  "episode_idx": 72,
+  "record": 102,
+  "cam_z": 0.42,
+  "frames": {
+   "init": {
+    "gray": 0.0053,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0864,
+    "camera_in_spawn_frame": [
+     0.0785,
+     -0.0065,
+     0.3327
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0095
+   },
+   "warmup1": {
+    "gray": 0.0052,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0874,
+    "camera_in_spawn_frame": [
+     0.0689,
+     -0.002,
+     0.3323
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup2": {
+    "gray": 0.0053,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0877,
+    "camera_in_spawn_frame": [
+     0.0648,
+     0.0015,
+     0.3323
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup3": {
+    "gray": 0.0056,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0877,
+    "camera_in_spawn_frame": [
+     0.0629,
+     0.004,
+     0.3323
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup4": {
+    "gray": 0.0055,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0875,
+    "camera_in_spawn_frame": [
+     0.0619,
+     0.0065,
+     0.3326
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup5": {
+    "gray": 0.0052,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0873,
+    "camera_in_spawn_frame": [
+     0.0615,
+     0.0088,
+     0.3328
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup6": {
+    "gray": 0.0054,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.087,
+    "camera_in_spawn_frame": [
+     0.0613,
+     0.0109,
+     0.3331
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup7": {
+    "gray": 0.0052,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0867,
+    "camera_in_spawn_frame": [
+     0.0613,
+     0.0128,
+     0.3334
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup8": {
+    "gray": 0.0057,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0863,
+    "camera_in_spawn_frame": [
+     0.0613,
+     0.0151,
+     0.3337
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "main000": {
+    "gray": 0.0057,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.0853,
+    "camera_in_spawn_frame": [
+     0.0609,
+     0.0158,
+     0.3351
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz007": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.07,
+  "frames": {
+   "init": {
+    "gray": 0.0015,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0549,
+     0.0015,
+     -0.1613
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3812
+   },
+   "warmup1": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.041,
+     0.0044,
+     -0.1625
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3824
+   },
+   "warmup2": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0332,
+     0.0056,
+     -0.1637
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3836
+   },
+   "warmup3": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0281,
+     0.0065,
+     -0.1646
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3845
+   },
+   "warmup4": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0244,
+     0.0071,
+     -0.1652
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3851
+   },
+   "warmup5": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0217,
+     0.0075,
+     -0.1657
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3856
+   },
+   "warmup6": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.02,
+     0.0078,
+     -0.166
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3859
+   },
+   "warmup7": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.0189,
+     0.0081,
+     -0.1663
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3862
+   },
+   "warmup8": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0181,
+     0.0083,
+     -0.1666
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3865
+   },
+   "main000": {
+    "gray": 0.0016,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0187,
+     0.0077,
+     -0.1654
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3853
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz025": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.25,
+  "frames": {
+   "init": {
+    "gray": 0.0015,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0541,
+     0.0024,
+     0.0187
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2012
+   },
+   "warmup1": {
+    "gray": 0.0015,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.0384,
+     0.0054,
+     0.0175
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2024
+   },
+   "warmup2": {
+    "gray": 0.0017,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0298,
+     0.0065,
+     0.0163
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2036
+   },
+   "warmup3": {
+    "gray": 0.0018,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0241,
+     0.0073,
+     0.0154
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2045
+   },
+   "warmup4": {
+    "gray": 0.0018,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0201,
+     0.0078,
+     0.0147
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2052
+   },
+   "warmup5": {
+    "gray": 0.0017,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0172,
+     0.0081,
+     0.0143
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2056
+   },
+   "warmup6": {
+    "gray": 0.0018,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0153,
+     0.0084,
+     0.0139
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.206
+   },
+   "warmup7": {
+    "gray": 0.0018,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.014,
+     0.0088,
+     0.0136
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2063
+   },
+   "warmup8": {
+    "gray": 0.0017,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0132,
+     0.0089,
+     0.0134
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2065
+   },
+   "main000": {
+    "gray": 0.0017,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0131,
+     0.009,
+     0.0146
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.2053
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz042": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.42,
+  "frames": {
+   "init": {
+    "gray": 0.0007,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.1233,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0533,
+     0.0033,
+     0.1887
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0312
+   },
+   "warmup1": {
+    "gray": 0.0012,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.1406,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.036,
+     0.0063,
+     0.1874
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0325
+   },
+   "warmup2": {
+    "gray": 0.0014,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.092,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0266,
+     0.0073,
+     0.1863
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0336
+   },
+   "warmup3": {
+    "gray": 0.0012,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0764,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0204,
+     0.008,
+     0.1854
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0345
+   },
+   "warmup4": {
+    "gray": 0.0014,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0816,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.016,
+     0.0085,
+     0.1847
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0352
+   },
+   "warmup5": {
+    "gray": 0.0014,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0747,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0129,
+     0.0087,
+     0.1842
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0357
+   },
+   "warmup6": {
+    "gray": 0.0015,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0486,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0108,
+     0.009,
+     0.1838
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0361
+   },
+   "warmup7": {
+    "gray": 0.0015,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0347,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.0094,
+     0.0094,
+     0.1835
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0364
+   },
+   "warmup8": {
+    "gray": 0.0014,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0278,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0085,
+     0.0096,
+     0.1833
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0366
+   },
+   "main000": {
+    "gray": 0.0014,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0625,
+    "meshes_covering": [
+     "K1logo"
+    ],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0078,
+     0.0103,
+     0.1845
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.0354
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz057": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.57,
+  "frames": {
+   "init": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0527,
+     0.004,
+     0.3387
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup1": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.0338,
+     0.0071,
+     0.3374
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup2": {
+    "gray": 0.9997,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0238,
+     0.008,
+     0.3362
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup3": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0172,
+     0.0087,
+     0.3353
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup4": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0125,
+     0.0091,
+     0.3347
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup5": {
+    "gray": 0.9998,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.0091,
+     0.0093,
+     0.3342
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup6": {
+    "gray": 0.9999,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0069,
+     0.0095,
+     0.3338
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup7": {
+    "gray": 0.9999,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     0.0054,
+     0.0099,
+     0.3335
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "warmup8": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     0.0043,
+     0.0101,
+     0.3332
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   },
+   "main000": {
+    "gray": 1.0,
+    "predicted_backface_fraction": 1.0,
+    "predicted_any_stale_hit_fraction": 1.0,
+    "meshes_covering": [
+     "Head_2"
+    ],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     0.0032,
+     0.0114,
+     0.3344
+    ],
+    "inside_stale_bbox_of": [
+     "Head_2"
+    ],
+    "dist_to_stale_Head_2_bbox_m": 0.0
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz077": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.77,
+  "frames": {
+   "init": {
+    "gray": 0.0007,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0518,
+     0.005,
+     0.5387
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.136
+   },
+   "warmup1": {
+    "gray": 0.0008,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.0309,
+     0.0082,
+     0.5374
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1347
+   },
+   "warmup2": {
+    "gray": 0.0007,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.02,
+     0.009,
+     0.5362
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1335
+   },
+   "warmup3": {
+    "gray": 0.0008,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0128,
+     0.0095,
+     0.5353
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1326
+   },
+   "warmup4": {
+    "gray": 0.0009,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0077,
+     0.0099,
+     0.5346
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1319
+   },
+   "warmup5": {
+    "gray": 0.0009,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     0.004,
+     0.01,
+     0.5341
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1314
+   },
+   "warmup6": {
+    "gray": 0.001,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     0.0016,
+     0.0102,
+     0.5337
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.131
+   },
+   "warmup7": {
+    "gray": 0.0009,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     -0.0,
+     0.0106,
+     0.5334
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1307
+   },
+   "warmup8": {
+    "gray": 0.0009,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     -0.0012,
+     0.0108,
+     0.5332
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1305
+   },
+   "main000": {
+    "gray": 0.0009,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     -0.0031,
+     0.0129,
+     0.5343
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1316
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx0_cz097": {
+  "episode_idx": 0,
+  "record": 0,
+  "cam_z": 0.97,
+  "frames": {
+   "init": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2317,
+    "camera_in_spawn_frame": [
+     0.0509,
+     0.006,
+     0.7387
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.336
+   },
+   "warmup1": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.234,
+    "camera_in_spawn_frame": [
+     0.028,
+     0.0093,
+     0.7374
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3347
+   },
+   "warmup2": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2356,
+    "camera_in_spawn_frame": [
+     0.0162,
+     0.01,
+     0.7362
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3335
+   },
+   "warmup3": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2367,
+    "camera_in_spawn_frame": [
+     0.0084,
+     0.0104,
+     0.7352
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3325
+   },
+   "warmup4": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2376,
+    "camera_in_spawn_frame": [
+     0.0029,
+     0.0107,
+     0.7345
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3319
+   },
+   "warmup5": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2382,
+    "camera_in_spawn_frame": [
+     -0.001,
+     0.0107,
+     0.734
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3314
+   },
+   "warmup6": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2386,
+    "camera_in_spawn_frame": [
+     -0.0036,
+     0.0109,
+     0.7336
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.331
+   },
+   "warmup7": {
+    "gray": 0.0007,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.239,
+    "camera_in_spawn_frame": [
+     -0.0054,
+     0.0114,
+     0.7333
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3306
+   },
+   "warmup8": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2393,
+    "camera_in_spawn_frame": [
+     -0.0067,
+     0.0115,
+     0.7331
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3304
+   },
+   "main000": {
+    "gray": 0.0006,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.2384,
+    "camera_in_spawn_frame": [
+     -0.0093,
+     0.0143,
+     0.7342
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.3315
+   }
+  }
+ },
+ "diagnosis/step5a_raw/idx7_cz025": {
+  "episode_idx": 7,
+  "record": 10,
+  "cam_z": 0.25,
+  "frames": {
+   "init": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1898,
+    "camera_in_spawn_frame": [
+     0.054,
+     0.0117,
+     0.0608
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1591
+   },
+   "warmup1": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1916,
+    "camera_in_spawn_frame": [
+     0.0429,
+     0.0102,
+     0.0596
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1603
+   },
+   "warmup2": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1927,
+    "camera_in_spawn_frame": [
+     0.0366,
+     0.0105,
+     0.0587
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1612
+   },
+   "warmup3": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1934,
+    "camera_in_spawn_frame": [
+     0.0327,
+     0.0117,
+     0.0583
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1616
+   },
+   "warmup4": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1937,
+    "camera_in_spawn_frame": [
+     0.0302,
+     0.0138,
+     0.0581
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1618
+   },
+   "warmup5": {
+    "gray": 0.0003,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1938,
+    "camera_in_spawn_frame": [
+     0.0286,
+     0.0163,
+     0.0581
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1618
+   },
+   "warmup6": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1936,
+    "camera_in_spawn_frame": [
+     0.0279,
+     0.0194,
+     0.0584
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1615
+   },
+   "warmup7": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1932,
+    "camera_in_spawn_frame": [
+     0.0279,
+     0.0231,
+     0.0588
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1611
+   },
+   "warmup8": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1927,
+    "camera_in_spawn_frame": [
+     0.0286,
+     0.0277,
+     0.0593
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.1606
+   },
+   "main000": {
+    "gray": 0.0004,
+    "predicted_backface_fraction": 0.0,
+    "predicted_any_stale_hit_fraction": 0.0,
+    "meshes_covering": [],
+    "trunk_z_minus_spawn_z": -0.1915,
+    "camera_in_spawn_frame": [
+     0.0287,
+     0.028,
+     0.0609
+    ],
+    "inside_stale_bbox_of": [],
+    "dist_to_stale_Head_2_bbox_m": 0.159
+   }
+  }
+ }
+}

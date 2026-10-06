@@ -1,0 +1,2472 @@
+{
+ "E_stand": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "E_forward": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "E_turn_left": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "E_turn_right": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      12
+     ],
+     [
+      850,
+      12
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "E_sequence": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      12
+     ],
+     [
+      1750,
+      12
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      12
+     ],
+     [
+      1750,
+      12
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      12
+     ],
+     [
+      1750,
+      12
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      4
+     ],
+     [
+      1750,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   }
+  },
+  "rows": [
+   1750,
+   1750
+  ]
+ },
+ "T_stand": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "T_forward": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "T_turn_left": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "T_turn_right": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      22
+     ],
+     [
+      850,
+      22
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      3
+     ],
+     [
+      850,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      850,
+      4
+     ],
+     [
+      850,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      850
+     ],
+     [
+      850
+     ]
+    ]
+   }
+  },
+  "rows": [
+   850,
+   850
+  ]
+ },
+ "T_sequence": {
+  "identical": true,
+  "arrays": {
+   "action": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      22
+     ],
+     [
+      1750,
+      22
+     ]
+    ]
+   },
+   "bad_orientation": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "cmd": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "env_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "episode_length": {
+    "identical": true,
+    "dtype": "int32",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "joint_pos": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      22
+     ],
+     [
+      1750,
+      22
+     ]
+    ]
+   },
+   "joint_vel": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      22
+     ],
+     [
+      1750,
+      22
+     ]
+    ]
+   },
+   "phase": {
+    "identical": true,
+    "dtype": "int8",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "projected_gravity_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_ang_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_b": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_lin_vel_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_pos_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      3
+     ],
+     [
+      1750,
+      3
+     ]
+    ]
+   },
+   "root_quat_w": {
+    "identical": true,
+    "dtype": "float32",
+    "shape": [
+     [
+      1750,
+      4
+     ],
+     [
+      1750,
+      4
+     ]
+    ]
+   },
+   "terminated": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "time_out": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   },
+   "wrapper_done": {
+    "identical": true,
+    "dtype": "bool",
+    "shape": [
+     [
+      1750
+     ],
+     [
+      1750
+     ]
+    ]
+   }
+  },
+  "rows": [
+   1750,
+   1750
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+[run_gpu] T_stand_r1 rc=0 wall=70s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_stand_r1.log
+[run_gpu] E_stand_r1 rc=0 wall=61s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_stand_r1.log
+[run_gpu] E_forward_r1 rc=0 wall=61s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_forward_r1.log
+[run_gpu] T_forward_r1 rc=0 wall=67s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_forward_r1.log
+[run_gpu] E_turn_left_r1 rc=0 wall=62s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_turn_left_r1.log
+[run_gpu] T_turn_left_r1 rc=0 wall=67s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_turn_left_r1.log
+[run_gpu] E_turn_right_r1 rc=0 wall=62s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_turn_right_r1.log
+[run_gpu] T_turn_right_r1 rc=0 wall=67s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_turn_right_r1.log
+[run_gpu] E_sequence_r1 rc=0 wall=107s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_sequence_r1.log
+[run_gpu] T_sequence_r1 rc=0 wall=120s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_sequence_r1.log
+[run_gpu] E_stand_r2 rc=0 wall=62s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_stand_r2.log
+[run_gpu] T_stand_r2 rc=0 wall=69s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_stand_r2.log
+[run_gpu] E_forward_r2 rc=0 wall=61s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_forward_r2.log
+[run_gpu] T_forward_r2 rc=0 wall=68s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_forward_r2.log
+[run_gpu] E_turn_left_r2 rc=0 wall=61s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_turn_left_r2.log
+[run_gpu] T_turn_left_r2 rc=0 wall=68s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_turn_left_r2.log
+[run_gpu] E_turn_right_r2 rc=0 wall=61s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_turn_right_r2.log
+[run_gpu] T_turn_right_r2 rc=0 wall=67s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_turn_right_r2.log
+[run_gpu] E_sequence_r2 rc=0 wall=106s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/E_sequence_r2.log
+[run_gpu] T_sequence_r2 rc=0 wall=119s log=/home/boosterk1/Projects/k1_research/airc2027_walking/logs/T_sequence_r2.log
+[batch] trials done; GPU used 1508s
+batch rc=0

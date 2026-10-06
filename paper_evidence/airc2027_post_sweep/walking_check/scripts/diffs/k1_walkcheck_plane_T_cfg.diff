@@ -1,0 +1,84 @@
+--- evaluated: NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
++++ copy: scripts/configs/k1_walkcheck_plane_T_cfg.py
+@@ -1,4 +1,18 @@
+-"""K1 vision-based Matterport task for NaVILA-Bench.
++"""AIRC 2027 walking check: COPY of the evaluated k1_matterport_vision_cfg.py (sweep-time, SHA-256 e294b61e...).
++
++Robot T (training robot model) on a flat plane. Identical to k1_walkcheck_plane_cfg.py except the robot:
++  * robot = make_walkcheck_T_robot_cfg(...) from k1_walkcheck_T_robot_cfg.py (K1_22dof.urdf, free base, legs as
++    evaluated, arms/head implicit PD at the training gains held at the training pose).
++The plane changes (each marked `# WALKCHECK:`):
++  * the Matterport scene is replaced by a flat plane (`TerrainImporterCfg(terrain_type="plane")` at /World/ground,
++    plane at z = 0) with the Matterport importer's physics material (static/dynamic friction 1.0, combine "multiply");
++  * the height scanner ray-casts that plane instead of /World/matterport;
++  * the robot spawns with its Trunk 0.729 m above the plane, heading +x (PLANE_SPAWN_POS / PLANE_SPAWN_ROT).
++Robot (K1_locomotion.urdf, actuators), sensors, cameras, observations, actions, terminations, dt 0.005, decimation 4,
++render interval 4, sim physics material and PhysX settings are unchanged. Diff: ../diffs/k1_walkcheck_plane_T_cfg.diff.
++
++--- original docstring ---
++K1 vision-based Matterport task for NaVILA-Bench.
+ 
+ Mirrors `h1_matterport_vision_cfg.py` but loads the K1 12-DoF locomotion
+ URDF (no arms / head merged into Trunk) and includes a height-scanner so
+@@ -29,6 +43,8 @@
+ from omni.isaac.lab.actuators import ImplicitActuatorCfg
+ from omni.isaac.lab.scene import InteractiveSceneCfg
+ from omni.isaac.lab.sensors import CameraCfg, ContactSensorCfg, RayCasterCfg, patterns
++from omni.isaac.lab.terrains import TerrainImporterCfg  # WALKCHECK: flat plane
++from k1_walkcheck_T_robot_cfg import make_walkcheck_T_robot_cfg  # WALKCHECK: robot T
+ 
+ import omni.isaac.vlnce.vlnce.mdp as mdp
+ from omni.isaac.vlnce.utils import ASSETS_DIR
+@@ -48,6 +64,12 @@
+     "~/Projects/k1_research/booster/booster_assets/robots/K1/K1_locomotion.urdf"
+ )
+ 
++# WALKCHECK: spawn on the plane (z = 0): Trunk 0.729 m above it = dataset index 0's start point 0.178 m above the
++# Matterport floor + the evaluator's 0.55 m; heading +x (identity quaternion, w, x, y, z).
++PLANE_SPAWN_POS = (0.0, 0.0, 0.729)
++PLANE_SPAWN_ROT = (1.0, 0.0, 0.0, 0.0)
++GROUND_PRIM_PATH = "/World/ground"
++
+ K1_DEFAULT_JOINT_POS = {
+     ".*_Hip_Pitch": -0.15,
+     ".*_Hip_Roll": 0.0,
+@@ -329,22 +351,22 @@
+ class TerrainSceneCfg(InteractiveSceneCfg):
+     """Matterport scene + K1 + height scanner + cameras."""
+ 
+-    terrain = MatterportImporterCfg(
+-        prim_path="/World/matterport",
+-        terrain_type="matterport",
++    # WALKCHECK: flat plane instead of the Matterport scene, same physics material as the Matterport importer
++    terrain = TerrainImporterCfg(
++        prim_path=GROUND_PRIM_PATH,
++        terrain_type="plane",
+         physics_material=sim_utils.RigidBodyMaterialCfg(
+             friction_combine_mode="multiply",
+             restitution_combine_mode="multiply",
+             static_friction=1.0,
+             dynamic_friction=1.0,
+         ),
+-        obj_filepath=os.path.join(ASSETS_DIR, "matterport_usd/5q7pvUzZiYa/5q7pvUzZiYa.usd"),
+-        groundplane=False,
+     )
+ 
+-    robot = K1_ARTICULATION_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+-    robot.init_state.pos = (9.1, 3.8, 0.55)
+-    robot.init_state.rot = (0.7, 0.0, 0.0, 0.0)
++    # WALKCHECK: robot T (training robot model) instead of K1_ARTICULATION_CFG
++    robot = make_walkcheck_T_robot_cfg(PLANE_SPAWN_POS, PLANE_SPAWN_ROT).replace(prim_path="{ENV_REGEX_NS}/Robot")
++    robot.init_state.pos = PLANE_SPAWN_POS  # WALKCHECK: was (9.1, 3.8, 0.55)
++    robot.init_state.rot = PLANE_SPAWN_ROT  # WALKCHECK: was (0.7, 0.0, 0.0, 0.0)
+ 
+     # Height scanner -- raycaster casts down from 20m above Trunk onto the
+     # matterport mesh. attach_yaw_only=True keeps the grid world-aligned.
+@@ -354,7 +376,7 @@
+         attach_yaw_only=True,
+         pattern_cfg=patterns.GridPatternCfg(resolution=0.1, size=[1.6, 1.0]),
+         debug_vis=False,
+-        mesh_prim_paths=["/World/matterport"],
++        mesh_prim_paths=[GROUND_PRIM_PATH],  # WALKCHECK: was ["/World/matterport"]
+     )
+ 
+     # Contact sensor on the K1 body (needed by base_contact termination).

@@ -1,0 +1,18 @@
+{
+ "studio_three_quarter": {
+  "eye": [
+   1.4800000000000002,
+   1.11,
+   0.8367953264713287
+  ],
+  "target": [
+   0.0,
+   0.0,
+   0.4167953264713287
+  ],
+  "focal_length": 50.0,
+  "horizontal_aperture": 36.0,
+  "width": 2048,
+  "height": 2048
+ }
+}

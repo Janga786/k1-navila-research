@@ -1,0 +1,13 @@
+# provenance of sweep-time files used (read-only), recorded 2026-10-01T19:35:24-06:00
+k1_research HEAD: 72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa (local main; working tree clean: 0 changes under NaVILA-Bench-main/IsaacLab tracked paths)
+9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc  2026-09-11 18:53:43  NaVILA-Bench-main/scripts/navila_eval_v3.py
+e294b61ea3f8f5992952bcd01f9593f74399293eea49aac3e901f862246434cb  2026-09-11 18:53:43  NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py
+be607d92309a64d07bc943eb43c063acbedf1b51c9491dae04407455b948330d  2026-09-11 18:53:43  NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py
+2add9a77dc2328c88e816b849c24b7a5a46e870d2fe4ab39abf7e15c534fa08d  2026-09-11 18:53:43  NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py
+20ec8def810cae378c6dc65d17abb5023248e743ca7f1df00477698368535713  2026-09-11 18:53:43  NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/measures.py
+8d13b5bfdfc1801fc518088ac1e8b1bb34698cef9deb56e08076905028a655dd  2026-06-05 11:19:44  IsaacLab/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py
+8e7559b5075fe6c90d4ce81fb1eb66d69ef852b2ed3718b5416b6a0fd2bdad4b  2026-06-10 19:06:47  checkpoints/model_14498.pt
+9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc  2026-09-11 18:53:43  airc2027_renders/scripts/navila_eval_v3_COPY.py
+5cf5951dd8103b19ebc255ec5a6238d912d4ec1efe79bc38935e5f55c69a72d8  2026-05-26 15:11:18  /home/boosterk1/robots/k1/workspace/booster_assets/robots/K1/K1_locomotion.urdf
+9312ecc9dbd2424247d9d74c86eeb478e738dd994c787fd42116f4a4615e0a01  2026-05-26 15:11:18  /home/boosterk1/robots/k1/workspace/booster_assets/robots/K1/K1_22dof.urdf
+IsaacLab fork HEAD: 4d558ec83878c4892a46591c85ba91ac9d3c1834

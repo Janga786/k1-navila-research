@@ -1,0 +1,26 @@
+{
+  "requests": [
+    {
+      "label": "ep8_A_q006",
+      "logged_reply": "The next action is turn right 15 degree.",
+      "sends": 20,
+      "own_reply_count": 20,
+      "distribution": {
+        "The next action is turn right 15 degree.": 20
+      },
+      "request_sha_ok": true
+    },
+    {
+      "label": "ep8_B_q006",
+      "logged_reply": "The next action is move forward 25 cm.",
+      "sends": 20,
+      "own_reply_count": 20,
+      "distribution": {
+        "The next action is move forward 25 cm.": 20
+      },
+      "request_sha_ok": true
+    }
+  ],
+  "requests_identical": false,
+  "H2": "held"
+}

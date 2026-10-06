@@ -1,0 +1,578 @@
+{
+ "/World/envs/env_0/Robot": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(15.0686, 4.48482, 0.721628)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.258819, 0, 0, 0.965926)"
+ },
+ "/World/envs/env_0/Robot/Trunk": {
+  "_worldPosition": "(15.107, 4.46175, 0.489915)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.257062, 0.0014772, -0.003020, 0.966389)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/Head_1": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0056, 0, 0.2149)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/Left_Arm_1": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0.077, 0.1845)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/Right_Arm_1": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, -0.077, 0.1845)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals": {},
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Trunk/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Trunk/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_1": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_2": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0056, 0, 0.2149)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_3": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0056, 0, 0.2479)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_4": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0.077, 0.1845)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_5": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, 0.145, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_6": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, 0.189428, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_7": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, 0.310928, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_8": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, -0.077, 0.1845)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_9": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, -0.145, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_10": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, -0.189428, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/visuals/mesh_11": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, -0.310928, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions": {},
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_0": {
+  "xformOp:scale": "(0.12, 0.18, 0.2)",
+  "xformOp:translate": "(0, 0, 0.1)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_1": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, -0.06)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0.707108, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_2": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0056, 0, 0.2149)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_3": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0056, 0, 0.2479)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_4": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.0045, 0.145, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0, 0.707108, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_5": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, 0.189428, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_6": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, 0.310928, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_7": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.0045, -0.145, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0, 0.707108, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_8": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, -0.189428, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/collisions/mesh_9": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.0025, -0.310928, 0.171)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/Left_Hip_Pitch": {
+  "physics:localPos0": "(0, 0.096, -0.077)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/Right_Hip_Pitch": {
+  "physics:localPos0": "(0, -0.096, -0.077)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Trunk/rgb_camera": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.1, 0, 0.57)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.5, 0.5, -0.5, -0.5)"
+ },
+ "/World/envs/env_0/Robot/Trunk/viz_rgb_camera": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-1, 0, 0.85)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.5, 0.5, -0.5, -0.5)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Pitch": {
+  "_worldPosition": "(15.0592, 4.37895, 0.41243)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0.096, -0.077)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.247678, 0.249438, -0.068891, 0.933644)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/visuals": {},
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Left_Hip_Pitch/Left_Hip_Roll": {
+  "physics:localPos0": "(0, 0, -0.026)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Roll": {
+  "_worldPosition": "(15.048, 4.38551, 0.389912)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0.096, -0.103)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.236843, 0.259748, -0.029113, 0.935729)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Roll/visuals": {},
+ "/World/envs/env_0/Robot/Left_Hip_Roll/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Left_Hip_Roll/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Left_Hip_Roll/collisions": {},
+ "/World/envs/env_0/Robot/Left_Hip_Roll/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0, 0.707108, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Roll/Left_Hip_Yaw": {
+  "physics:localPos0": "(0.012, 0, -0.0485)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Yaw": {
+  "_worldPosition": "(15.0161, 4.39925, 0.354037)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.012, 0.096, -0.1515)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.230647, 0.25955, -0.030831, 0.937275)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/visuals": {},
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/collisions": {},
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, -0.03)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Hip_Yaw/Left_Knee_Pitch": {
+  "physics:localPos0": "(-0.014, 0, -0.117)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Shank": {
+  "_worldPosition": "(14.9714, 4.4142, 0.246013)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.002, 0.096, -0.2685)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.214989, -0.245685, 0.0890394, 0.941005)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Shank/visuals": {},
+ "/World/envs/env_0/Robot/Left_Shank/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Shank/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Left_Shank/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Left_Shank/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Left_Shank/collisions": {},
+ "/World/envs/env_0/Robot/Left_Shank/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0.707108, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Shank/collisions/mesh_1": {
+  "xformOp:scale": "(0.06, 0.06, 0.1)",
+  "xformOp:translate": "(0, 0, -0.13)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Shank/Left_Ankle_Pitch": {
+  "physics:localPos0": "(0.0001970, 0.0002, -0.24519)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Ankle_Cross": {
+  "_worldPosition": "(15.0752, 4.3471, 0.0342241)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.001802, 0.0962, -0.51369)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.231238, 0.0244939, 0.0260254, 0.97224)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/visuals": {},
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Left_Ankle_Cross/Left_Ankle_Roll": {
+  "physics:localPos0": "(0, 0, 0)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/left_foot_link": {
+  "_worldPosition": "(15.0752, 4.3471, 0.0342241)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.001802, 0.0962, -0.51369)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.229883, 0.0349951, 0.0702573, 0.970048)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/left_foot_link/visuals": {},
+ "/World/envs/env_0/Robot/left_foot_link/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/left_foot_link/visuals/Looks": {},
+ "/World/envs/env_0/Robot/left_foot_link/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/left_foot_link/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/left_foot_link/collisions": {},
+ "/World/envs/env_0/Robot/left_foot_link/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Pitch": {
+  "_worldPosition": "(15.1546, 4.54557, 0.413405)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, -0.096, -0.077)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.243976, 0.295215, -0.081031, 0.920195)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/visuals": {},
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Right_Hip_Pitch/Right_Hip_Roll": {
+  "physics:localPos0": "(0, 0, -0.026)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Roll": {
+  "_worldPosition": "(15.1415, 4.55319, 0.392278)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, -0.096, -0.103)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.248716, 0.291232, -0.095896, 0.918764)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Roll/visuals": {},
+ "/World/envs/env_0/Robot/Right_Hip_Roll/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Right_Hip_Roll/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Right_Hip_Roll/collisions": {},
+ "/World/envs/env_0/Robot/Right_Hip_Roll/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0, 0.707108, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Roll/Right_Hip_Yaw": {
+  "physics:localPos0": "(0.012, 0, -0.0485)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Yaw": {
+  "_worldPosition": "(15.1094, 4.57358, 0.359891)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0.012, -0.096, -0.1515)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.28414, 0.29473, -0.084536, 0.908434)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/visuals": {},
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/collisions": {},
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, -0.03)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Hip_Yaw/Right_Knee_Pitch": {
+  "physics:localPos0": "(-0.014, 0, -0.117)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Shank": {
+  "_worldPosition": "(15.0617, 4.60462, 0.256721)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.002, -0.096, -0.2685)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.289209, -0.186847, 0.0651157, 0.936593)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Shank/visuals": {},
+ "/World/envs/env_0/Robot/Right_Shank/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Shank/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Right_Shank/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Right_Shank/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Right_Shank/collisions": {},
+ "/World/envs/env_0/Robot/Right_Shank/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(0.707106, 0.707108, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Shank/collisions/mesh_1": {
+  "xformOp:scale": "(0.06, 0.06, 0.1)",
+  "xformOp:translate": "(0, 0, -0.13)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Shank/Right_Ankle_Pitch": {
+  "physics:localPos0": "(0.0001970, -0.0002, -0.24519)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Ankle_Cross": {
+  "_worldPosition": "(15.1382, 4.54848, 0.0306511)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.001802, -0.0962, -0.51369)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.296391, 0.0045367, 0.0058683, 0.955038)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/visuals": {},
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks": {},
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/Right_Ankle_Cross/Right_Ankle_Roll": {
+  "physics:localPos0": "(0, 0, 0)",
+  "physics:localPos1": "(0, 0, 0)",
+  "physics:localRot0": "(1, 0, 0, 0)",
+  "physics:localRot1": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/right_foot_link": {
+  "_worldPosition": "(15.1382, 4.54848, 0.0306511)",
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(-0.001802, -0.0962, -0.51369)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "_worldScale": "(1, 1, 1)",
+  "_worldForce": "(0, 0, 0)",
+  "_worldTorque": "(0, 0, 0)",
+  "_worldOrientation": "(0.296417, -0.002317, -0.016215, 0.954918)",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/right_foot_link/visuals": {},
+ "/World/envs/env_0/Robot/right_foot_link/visuals/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ },
+ "/World/envs/env_0/Robot/right_foot_link/visuals/Looks": {},
+ "/World/envs/env_0/Robot/right_foot_link/visuals/Looks/material_C0C0C0": {},
+ "/World/envs/env_0/Robot/right_foot_link/visuals/Looks/material_C0C0C0/Shader": {},
+ "/World/envs/env_0/Robot/right_foot_link/collisions": {},
+ "/World/envs/env_0/Robot/right_foot_link/collisions/mesh_0": {
+  "xformOp:scale": "(1, 1, 1)",
+  "xformOp:translate": "(0, 0, 0)",
+  "xformOpOrder": "[xformOp:translate, xformOp:orient, xformOp:scale]",
+  "xformOp:orient": "(1, 0, 0, 0)"
+ }
+}

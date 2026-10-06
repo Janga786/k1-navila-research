@@ -1,0 +1,82 @@
+{
+ "A": {
+  "name": "ep16_A",
+  "ended_at_step": 6001,
+  "term_reason": "step_cap",
+  "success": 0.0,
+  "n_queries": 63,
+  "n_frames": 250,
+  "n_state_lines": 6203,
+  "fields": {
+   "path_length": 32.48928515963962,
+   "distance_to_goal": 10.237995493306729,
+   "oracle_navigation_error": 9.877171417265432,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 0.0
+  }
+ },
+ "X": {
+  "name": "ep16_B",
+  "ended_at_step": 2232,
+  "term_reason": "sim_done",
+  "success": 0.0,
+  "n_queries": 24,
+  "n_frames": 99,
+  "n_state_lines": 2434,
+  "fields": {
+   "path_length": 19.26899194131147,
+   "distance_to_goal": 13.063496663600157,
+   "oracle_navigation_error": 10.156379725229728,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 0.0
+  }
+ },
+ "n_common_queries": 24,
+ "query_counts_differ": true,
+ "first_request_diff": {
+  "i": 0,
+  "step_A": 0,
+  "step_X": 0
+ },
+ "n_requests_differ_replies_match_before_qstar": 20,
+ "n_queries_before_qstar": 20,
+ "first_state_diff": {
+  "pos": 2008,
+  "label": "1807",
+  "kind": "hash"
+ },
+ "records_equal_six_fields": false,
+ "qstar": {
+  "i": 20,
+  "step_A": 1807,
+  "step_X": 1807,
+  "reply_A": "The next action is turn right 45 degree.",
+  "reply_X": "The next action is move forward 25 cm.",
+  "cmd_A": [
+   0.0,
+   0.0,
+   -0.5235987755982988
+  ],
+  "cmd_X": [
+   0.5,
+   0.0,
+   0.0
+  ],
+  "request_sha_A": "c3f17b927ecd140e020537a51fe908a5e23719947e264dfd2f358e2fdefeb574",
+  "request_sha_X": "9721ebfc717a1805ef072cb76533fc90bf354f53d5439d6c7e5e0ab4855cd4a0",
+  "state_hash_A": "498b31374c38eb57797b43e5d5f3f7d6b933e3b36b5194faf7ff6627e2621fbc",
+  "state_hash_X": "498b31374c38eb57797b43e5d5f3f7d6b933e3b36b5194faf7ff6627e2621fbc",
+  "n_frames_differ": 8
+ },
+ "H1": {
+  "verdict": "held",
+  "a_states_before_step_identical": true,
+  "b_state_at_qstar_identical": true,
+  "c_requests_at_qstar_differ": true,
+  "first_state_diff_relative": "none before q*"
+ },
+ "diverged": true
+}
+DIVERGED=1

@@ -1,0 +1,139 @@
+{
+ "episode": "dataset index 0 (record 0, zsNo4HB9uLZ)",
+ "floor_z_below_trunk": -0.006879955530166626,
+ "episode_start_z": 0.17162801325321198,
+ "trunk_walk_2s_above_floor": {
+  "mean": 0.5242351055145263,
+  "min": 0.48992201685905457,
+  "max": 0.5532379448413849
+ },
+ "note": "walking values: trunk height range from the 2-s walk (step3_cz025) + cam_z (camera mount is level; pitch/roll < 2 deg changes this by < 1 cm)",
+ "rows": [
+  {
+   "cam_z": 0.07,
+   "nominal_label_0.53+cam_z": 0.6,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 0.5672,
+    "camera_above_start_z": 0.3887,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 0.5619,
+    "camera_above_start_z": 0.3834,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 0.594,
+    "min": 0.56,
+    "max": 0.623
+   }
+  },
+  {
+   "cam_z": 0.25,
+   "nominal_label_0.53+cam_z": 0.78,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 0.7472,
+    "camera_above_start_z": 0.5687,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 0.7419,
+    "camera_above_start_z": 0.5634,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 0.774,
+    "min": 0.74,
+    "max": 0.803
+   }
+  },
+  {
+   "cam_z": 0.42,
+   "nominal_label_0.53+cam_z": 0.95,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 0.9172,
+    "camera_above_start_z": 0.7387,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 0.9118,
+    "camera_above_start_z": 0.7333,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 0.944,
+    "min": 0.91,
+    "max": 0.973
+   }
+  },
+  {
+   "cam_z": 0.57,
+   "nominal_label_0.53+cam_z": 1.1,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 1.0672,
+    "camera_above_start_z": 0.8887,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 1.0617,
+    "camera_above_start_z": 0.8832,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 1.094,
+    "min": 1.06,
+    "max": 1.123
+   }
+  },
+  {
+   "cam_z": 0.77,
+   "nominal_label_0.53+cam_z": 1.3,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 1.2672,
+    "camera_above_start_z": 1.0887,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 1.2617,
+    "camera_above_start_z": 1.0832,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 1.294,
+    "min": 1.26,
+    "max": 1.323
+   }
+  },
+  {
+   "cam_z": 0.97,
+   "nominal_label_0.53+cam_z": 1.5,
+   "init": {
+    "trunk_above_floor": 0.4968,
+    "camera_above_floor": 1.4672,
+    "camera_above_start_z": 1.2887,
+    "trunk_above_start_z": 0.3183
+   },
+   "warmup8": {
+    "trunk_above_floor": 0.4892,
+    "camera_above_floor": 1.4616,
+    "camera_above_start_z": 1.2831,
+    "trunk_above_start_z": 0.3107
+   },
+   "walking_2s_0.5mps_camera_above_floor_approx": {
+    "mean": 1.494,
+    "min": 1.46,
+    "max": 1.523
+   }
+  }
+ ]
+}

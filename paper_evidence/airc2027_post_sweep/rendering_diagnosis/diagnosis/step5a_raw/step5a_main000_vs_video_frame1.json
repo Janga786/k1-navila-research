@@ -1,0 +1,28 @@
+[
+ {
+  "label": "cz057_idx0_main000_vs_f1",
+  "sim_png": "idx0_cz057/main000_robotcam.png",
+  "video": "h110_200/output_0.mp4",
+  "video_frame": 1,
+  "episode_idx": 0,
+  "record": 0,
+  "gray_sim_raw": 0.9999945746527777,
+  "gray_sim_with_overlay": 0.99103515625,
+  "gray_video": 0.9909147135416667,
+  "mean_abs_diff_sim+overlay_vs_video": 1.0089500144675927,
+  "p99_abs_diff": 1.0
+ },
+ {
+  "label": "cz042_idx0_main000_vs_f1",
+  "sim_png": "idx0_cz042/main000_robotcam.png",
+  "video": "h095_200/output_0.mp4",
+  "video_frame": 1,
+  "episode_idx": 0,
+  "record": 0,
+  "gray_sim_raw": 0.0013552517361111111,
+  "gray_sim_with_overlay": 0.0015440538194444445,
+  "gray_video": 0.0013563368055555555,
+  "mean_abs_diff_sim+overlay_vs_video": 1.7779271556712963,
+  "p99_abs_diff": 9.0
+ }
+]

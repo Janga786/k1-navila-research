@@ -1,0 +1,16 @@
+{
+ "source": "diagnosis/sim/step3_cz025/step3_results.json poses.B_after_reset (as evaluated, dataset index 0, after the 1-s reset warm-up)",
+ "pos": [
+  15.107034683227539,
+  4.461751937866211,
+  0.4899153709411621
+ ],
+ "quat_wxyz": [
+  0.2570623457431793,
+  0.001477226265706122,
+  -0.003020952921360731,
+  0.9663889408111572
+ ],
+ "floor_z": -0.006879955530166626,
+ "height_above_floor": 0.49679532647132874
+}

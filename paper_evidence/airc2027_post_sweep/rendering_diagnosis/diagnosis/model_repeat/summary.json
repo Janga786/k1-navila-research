@@ -1,0 +1,39 @@
+{
+ "n_replies": 66,
+ "sessions": [
+  "session1",
+  "session2",
+  "session3"
+ ],
+ "july_5b_exact_384png_generic_query": {
+  "n": 6,
+  "per_session": {
+   "session1": 2,
+   "session2": 2,
+   "session3": 2
+  },
+  "distinct_replies": [
+   "\"The next action is move forward 75 cm.\""
+  ],
+  "request_sha256": [
+   "d11661eece6ea5a440c05d542883541c5162f5fd5511e5c44d3f9de4c3342b87"
+  ],
+  "median_seconds": 2.027
+ },
+ "primary_evaluator_encoding_ep7_instruction": {
+  "n": 60,
+  "per_session": {
+   "session1": 20,
+   "session2": 20,
+   "session3": 20
+  },
+  "distinct_replies": [
+   "\"The next action is move forward 75 cm.\""
+  ],
+  "request_sha256": [
+   "b97f6eb42dd7f502624991e65ac91ba61557a53bbe9f78ed214c8b742b529659"
+  ],
+  "median_seconds": 4.138
+ },
+ "june_int8_reply_for_this_tick": "The next action is move forward 75 cm."
+}

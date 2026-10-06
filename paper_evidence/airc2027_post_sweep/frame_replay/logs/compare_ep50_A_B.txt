@@ -1,0 +1,82 @@
+{
+ "A": {
+  "name": "ep50_A",
+  "ended_at_step": 6001,
+  "term_reason": "step_cap",
+  "success": 0.0,
+  "n_queries": 57,
+  "n_frames": 250,
+  "n_state_lines": 6203,
+  "fields": {
+   "path_length": 35.393546332907135,
+   "distance_to_goal": 7.647009340385726,
+   "oracle_navigation_error": 6.0797204181167395,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 0.0
+  }
+ },
+ "X": {
+  "name": "ep50_B",
+  "ended_at_step": 6001,
+  "term_reason": "step_cap",
+  "success": 0.0,
+  "n_queries": 55,
+  "n_frames": 250,
+  "n_state_lines": 6203,
+  "fields": {
+   "path_length": 35.122222713467636,
+   "distance_to_goal": 7.409564109831651,
+   "oracle_navigation_error": 6.0797204181167395,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 0.0
+  }
+ },
+ "n_common_queries": 55,
+ "query_counts_differ": true,
+ "first_request_diff": {
+  "i": 0,
+  "step_A": 0,
+  "step_X": 0
+ },
+ "n_requests_differ_replies_match_before_qstar": 51,
+ "n_queries_before_qstar": 51,
+ "first_state_diff": {
+  "pos": 5683,
+  "label": "5482",
+  "kind": "hash"
+ },
+ "records_equal_six_fields": false,
+ "qstar": {
+  "i": 51,
+  "step_A": 5482,
+  "step_X": 5482,
+  "reply_A": "The next action is turn right 15 degree.",
+  "reply_X": "The next action is turn left 45 degree.",
+  "cmd_A": [
+   0.0,
+   0.0,
+   -0.5235987755982988
+  ],
+  "cmd_X": [
+   0.0,
+   0.0,
+   0.5235987755982988
+  ],
+  "request_sha_A": "fffb5a64c2ba629cab637127b735bf509454101027cc254557a6ed30a55ed021",
+  "request_sha_X": "eebd0c3a396d0b0ec715b349bc5b2ea8792937fab9bbdb6384f26ec8956ae748",
+  "state_hash_A": "0805874961f6215a66a4cfc90288d3816e8088db31d14e5be2c961b39e8dae2a",
+  "state_hash_X": "0805874961f6215a66a4cfc90288d3816e8088db31d14e5be2c961b39e8dae2a",
+  "n_frames_differ": 8
+ },
+ "H1": {
+  "verdict": "held",
+  "a_states_before_step_identical": true,
+  "b_state_at_qstar_identical": true,
+  "c_requests_at_qstar_differ": true,
+  "first_state_diff_relative": "none before q*"
+ },
+ "diverged": true
+}
+DIVERGED=1

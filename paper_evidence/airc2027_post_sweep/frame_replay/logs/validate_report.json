@@ -1,0 +1,67 @@
+{
+  "run_dir": "/home/boosterk1/Projects/k1_research/airc2027_replay/runs/validate",
+  "1_outputs": {
+    "ok": true,
+    "missing": [],
+    "files_written_outside_airc2027_replay": [],
+    "n_files_written_outside": 0,
+    "excluded_from_check": [
+      "/home/boosterk1/Projects/k1_research/airc2027_replay",
+      "/home/boosterk1/Projects/k1_research/airc2027_walking"
+    ]
+  },
+  "2_png_roundtrip": {
+    "ok": true,
+    "frames_checked": 46,
+    "mismatching_frames": [],
+    "in_process_checks": 10,
+    "in_process_all_true": true,
+    "k_contiguous": true
+  },
+  "3_request_rebuild": {
+    "ok": true,
+    "queries_checked": 16,
+    "failures": []
+  },
+  "4_schema": {
+    "ok": true,
+    "missing_keys": [],
+    "extra_keys": [],
+    "type_differences": {},
+    "record": {
+      "path_length": 7.492213408986572,
+      "distance_to_goal": 2.361630922932785,
+      "success": 1.0,
+      "spl": 1.0,
+      "oracle_navigation_error": 2.361630922932785,
+      "oracle_success": 1.0,
+      "term_reason": "stop",
+      "ended_at_step": 913,
+      "max_episode_steps": 6000,
+      "hit_step_cap": false
+    },
+    "sweep_record": {
+      "path_length": 7.42027946584858,
+      "distance_to_goal": 2.5807677148747663,
+      "success": 1.0,
+      "spl": 1.0,
+      "oracle_navigation_error": 2.5714669461408475,
+      "oracle_success": 1.0,
+      "term_reason": "stop",
+      "ended_at_step": 925,
+      "max_episode_steps": 6000,
+      "hit_step_cap": false
+    }
+  },
+  "consistency": {
+    "ok": true,
+    "state_labels_as_expected": true,
+    "n_state_lines": 1115,
+    "main_loop_lines": 914,
+    "ended_at_step": 913,
+    "query_state_hash_equals_previous_step": true,
+    "query_previous_label_ok": true,
+    "error_txt": false
+  },
+  "all_ok": true
+}

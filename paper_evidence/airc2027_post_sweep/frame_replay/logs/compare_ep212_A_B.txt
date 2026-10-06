@@ -1,0 +1,82 @@
+{
+ "A": {
+  "name": "ep212_A",
+  "ended_at_step": 1049,
+  "term_reason": "stop",
+  "success": 1.0,
+  "n_queries": 15,
+  "n_frames": 51,
+  "n_state_lines": 1251,
+  "fields": {
+   "path_length": 9.761752663132938,
+   "distance_to_goal": 0.501740977577973,
+   "oracle_navigation_error": 0.441540537191438,
+   "success": 1.0,
+   "spl": 0.8913347342489043,
+   "oracle_success": 1.0
+  }
+ },
+ "X": {
+  "name": "ep212_B",
+  "ended_at_step": 994,
+  "term_reason": "stop",
+  "success": 1.0,
+  "n_queries": 15,
+  "n_frames": 49,
+  "n_state_lines": 1196,
+  "fields": {
+   "path_length": 9.24059205055164,
+   "distance_to_goal": 0.7693654636194516,
+   "oracle_navigation_error": 0.7625544249636256,
+   "success": 1.0,
+   "spl": 0.941605166443605,
+   "oracle_success": 1.0
+  }
+ },
+ "n_common_queries": 15,
+ "query_counts_differ": false,
+ "first_request_diff": {
+  "i": 0,
+  "step_A": 0,
+  "step_X": 0
+ },
+ "n_requests_differ_replies_match_before_qstar": 13,
+ "n_queries_before_qstar": 13,
+ "first_state_diff": {
+  "pos": 1187,
+  "label": "986",
+  "kind": "hash"
+ },
+ "records_equal_six_fields": false,
+ "qstar": {
+  "i": 13,
+  "step_A": 954,
+  "step_X": 954,
+  "reply_A": "The next action is move forward 75 cm.",
+  "reply_X": "The next action is move forward 25 cm.",
+  "cmd_A": [
+   0.5,
+   0.0,
+   0.0
+  ],
+  "cmd_X": [
+   0.5,
+   0.0,
+   0.0
+  ],
+  "request_sha_A": "42d984720214bd13cba47fa2062ab23c3263f325532531b6c405f96d66a6d697",
+  "request_sha_X": "381fd84231ddaa873dc28968c018a1dafc1542d74f292b4134cb60e1c5bad730",
+  "state_hash_A": "cc5d6acc52a67b70227123d8bc62071cb8f7f81529345da619e7f8cfeee4d9fb",
+  "state_hash_X": "cc5d6acc52a67b70227123d8bc62071cb8f7f81529345da619e7f8cfeee4d9fb",
+  "n_frames_differ": 8
+ },
+ "H1": {
+  "verdict": "held",
+  "a_states_before_step_identical": true,
+  "b_state_at_qstar_identical": true,
+  "c_requests_at_qstar_differ": true,
+  "first_state_diff_relative": "none before q*"
+ },
+ "diverged": true
+}
+DIVERGED=1

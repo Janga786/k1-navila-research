@@ -1,0 +1,8 @@
+[run_gpu] removal_headarms_cz042 rc=0 wall=33s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_headarms_cz042.log
+[run_gpu] removal_headarms_cz025 rc=0 wall=33s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_headarms_cz025.log
+[run_gpu] removal_armsonly_cz057 rc=0 wall=24s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_armsonly_cz057.log
+[run_gpu] removal_headonly_cz057 rc=0 wall=26s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_headonly_cz057.log
+[run_gpu] removal_armsonly_cz042 rc=0 wall=25s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_armsonly_cz042.log
+[run_gpu] removal_headonly_cz042 rc=0 wall=25s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/removal_headonly_cz042.log
+[run_gpu] physicscpu_cz025 rc=0 wall=31s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/physicscpu_cz025.log
+BATCH_DONE

@@ -1,0 +1,66 @@
+{
+ "script": "airc2027_renders/scripts/sim_render_pt.py",
+ "k1_research_commit": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+ "evaluator_sha256": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+ "robot_model": "K1_locomotion.urdf (merge_fixed_joints=True), unmodified",
+ "variant": "as_evaluated",
+ "state": "after the evaluator's 1-s reset warm-up (VLNEnvWrapperV3.reset)",
+ "floor_z": -0.006879955530166626,
+ "image": "behind_left.png",
+ "as_evaluated_or_corrected": "as_evaluated",
+ "dataset_index": 0,
+ "record": 0,
+ "scene": "zsNo4HB9uLZ",
+ "config_overrides": {},
+ "cam_z": null,
+ "render_mode": "RTX PathTracing via Replicator render product + rgb annotator",
+ "samples_per_pixel": 256,
+ "spp_per_frame": 32,
+ "frames_rendered": 12,
+ "denoiser": "OptiX (/rtx/pathtracing/optixDenoiser/enabled=True)",
+ "rtx_settings_read_back": {
+  "/rtx/rendermode": "PathTracing",
+  "/rtx/pathtracing/spp": 32,
+  "/rtx/pathtracing/totalSpp": 256,
+  "/rtx/pathtracing/optixDenoiser/enabled": true,
+  "/rtx/pathtracing/maxBounces": 4,
+  "/rtx/pathtracing/clampSpp": 0,
+  "/rtx/pathtracing/adaptiveSampling/enabled": false
+ },
+ "resolution": [
+  1920,
+  1080
+ ],
+ "camera": {
+  "eye": [
+   15.645348591740616,
+   3.795999831306274,
+   0.9588957407353462
+  ],
+  "target": [
+   15.107034683227539,
+   4.461751937866211,
+   0.6131200444698334
+  ],
+  "requested": "1.8 m back, 0.7 m left, 1.4 m above floor",
+  "first_hit_from_target_m": 1.0433463941639236,
+  "focal_length": 24.0,
+  "horizontal_aperture": 36.0,
+  "width": 1920,
+  "height": 1080
+ },
+ "mean_abs_change_after_3_more_frames": 0.0,
+ "trunk_pose": {
+  "pos": [
+   15.107034683227539,
+   4.461751937866211,
+   0.4899153709411621
+  ],
+  "quat_wxyz": [
+   0.2570623457431793,
+   0.001477226265706122,
+   -0.003020952921360731,
+   0.9663889408111572
+  ]
+ }
+}

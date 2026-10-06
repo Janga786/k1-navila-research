@@ -1,0 +1,261 @@
+{
+ "as_evaluated": "diagnosis/sim/step3_cz042",
+ "removal": "diagnosis/sim/removal_headarms_cz042",
+ "cam_z": 0.42,
+ "frames": {
+  "A_reset": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 1593,
+     "pred_px": 0,
+     "depth_check_grid20px": {
+      "grid_pts_in_gt": 8,
+      "grid_pts_predicted_hit": 0,
+      "gt_pts_with_predicted_hit": 0,
+      "median_abs_depth_err_m": null,
+      "median_rendered_depth_m": 0.01887482963502407,
+      "median_predicted_depth_m": null
+     }
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 1593,
+     "pred_px": 0,
+     "depth_check_grid20px": {
+      "grid_pts_in_gt": 8,
+      "grid_pts_predicted_hit": 0,
+      "gt_pts_with_predicted_hit": 0,
+      "median_abs_depth_err_m": null,
+      "median_rendered_depth_m": 0.01887482963502407,
+      "median_predicted_depth_m": null
+     }
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 75
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "gt_px": 1175,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.7113475177304964,
+     "precision": 0.8101777059773829,
+     "recall": 0.8536170212765958,
+     "gt_px": 1175,
+     "pred_px": 1238
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 167
+   }
+  },
+  "D_walk_step025": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 68,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 68,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 24
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.043523316062176166,
+     "precision": 0.08456375838926175,
+     "recall": 0.08229915088177661,
+     "gt_px": 1531,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.7233572611816675,
+     "precision": 0.8238993710691824,
+     "recall": 0.8556499020248204,
+     "gt_px": 1531,
+     "pred_px": 1590
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 171
+   }
+  },
+  "D_walk_step050": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 20
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.1732009060811988,
+     "precision": 0.6671140939597315,
+     "recall": 0.18958611481975968,
+     "gt_px": 5243,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.5165716322166786,
+     "precision": 0.8870869033047736,
+     "recall": 0.5529277131413313,
+     "gt_px": 5243,
+     "pred_px": 3268
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 182
+   }
+  },
+  "D_walk_step075": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": null,
+     "precision": null,
+     "recall": null,
+     "gt_px": 0,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 19
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.05593966059082338,
+     "precision": 0.11946308724832215,
+     "recall": 0.09518716577540107,
+     "gt_px": 1870,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.5489749430523918,
+     "precision": 0.7875816993464052,
+     "recall": 0.6443850267379679,
+     "gt_px": 1870,
+     "pred_px": 1530
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 157
+   }
+  },
+  "D_walk_step100": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 40,
+     "pred_px": 0
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 40,
+     "pred_px": 0
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 15
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.06688687035507845,
+     "precision": 0.16308724832214766,
+     "recall": 0.10184409052808047,
+     "gt_px": 2386,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.5937855248200076,
+     "precision": 0.860989010989011,
+     "recall": 0.6567476948868399,
+     "gt_px": 2386,
+     "pred_px": 1820
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 157
+   }
+  },
+  "F0_rereset": {
+   "trunk_pose_bit_identical_to_removal_run": true,
+   "robotcam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 4041,
+     "pred_px": 0,
+     "depth_check_grid20px": {
+      "grid_pts_in_gt": 13,
+      "grid_pts_predicted_hit": 0,
+      "gt_pts_with_predicted_hit": 0,
+      "median_abs_depth_err_m": null,
+      "median_rendered_depth_m": 0.018253646790981293,
+      "median_predicted_depth_m": null
+     }
+    },
+    "spawn_pose": {
+     "iou": 0.0,
+     "precision": null,
+     "recall": 0.0,
+     "gt_px": 4041,
+     "pred_px": 0,
+     "depth_check_grid20px": {
+      "grid_pts_in_gt": 13,
+      "grid_pts_predicted_hit": 0,
+      "gt_pts_with_predicted_hit": 0,
+      "median_abs_depth_err_m": null,
+      "median_rendered_depth_m": 0.018253646790981293,
+      "median_predicted_depth_m": null
+     }
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 88
+   },
+   "chasecam": {
+    "current_trunk": {
+     "iou": 0.0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "gt_px": 1146,
+     "pred_px": 1490
+    },
+    "spawn_pose": {
+     "iou": 0.7077363896848138,
+     "precision": 0.7980613893376414,
+     "recall": 0.8621291448516579,
+     "gt_px": 1146,
+     "pred_px": 1238
+    },
+    "max_abs_pixel_diff_eval_vs_removal": 157
+   }
+  }
+ }
+}

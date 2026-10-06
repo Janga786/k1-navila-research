@@ -1,0 +1,54 @@
+[
+ {
+  "label": "idx21_main050_vs_June_rec40_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "full_14498/output_40.mp4",
+  "video_frame": 11,
+  "episode_idx": 22,
+  "record": 40,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.1486990017361111,
+  "gray_video": 0.1321115451388889,
+  "mean_abs_diff_sim+overlay_vs_video": 1.348402054398148,
+  "p99_abs_diff": 8.0
+ },
+ {
+  "label": "idx21_main050_vs_stretchA_rec40_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "stretchA_300/output_40.mp4",
+  "video_frame": 11,
+  "episode_idx": 22,
+  "record": 40,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.1486990017361111,
+  "gray_video": 0.13184027777777776,
+  "mean_abs_diff_sim+overlay_vs_video": 1.3527589699074074,
+  "p99_abs_diff": 8.0
+ },
+ {
+  "label": "idx21_main050_vs_June_rec41_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "full_14498/output_41.mp4",
+  "video_frame": 11,
+  "episode_idx": 23,
+  "record": 41,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.14405056423611112,
+  "gray_video": 0.06506510416666667,
+  "mean_abs_diff_sim+overlay_vs_video": 4.224567057291667,
+  "p99_abs_diff": 28.0
+ },
+ {
+  "label": "idx21_main050_vs_stretchA_rec41_f11",
+  "sim_png": "step4_2_idx21_cz025_proc1/main050_robotcam.png",
+  "video": "stretchA_300/output_41.mp4",
+  "video_frame": 11,
+  "episode_idx": 23,
+  "record": 41,
+  "gray_sim_raw": 0.15342881944444445,
+  "gray_sim_with_overlay": 0.14405056423611112,
+  "gray_video": 0.12779405381944445,
+  "mean_abs_diff_sim+overlay_vs_video": 1.3457725694444445,
+  "p99_abs_diff": 8.0
+ }
+]

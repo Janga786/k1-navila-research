@@ -1,0 +1,82 @@
+{
+ "A": {
+  "name": "ep20_A",
+  "ended_at_step": 1563,
+  "term_reason": "sim_done",
+  "success": 0.0,
+  "n_queries": 19,
+  "n_frames": 72,
+  "n_state_lines": 1765,
+  "fields": {
+   "path_length": 13.386594262872677,
+   "distance_to_goal": 7.087826494001739,
+   "oracle_navigation_error": 2.6158616768026435,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 1.0
+  }
+ },
+ "X": {
+  "name": "ep20_B",
+  "ended_at_step": 1437,
+  "term_reason": "stop",
+  "success": 0.0,
+  "n_queries": 20,
+  "n_frames": 67,
+  "n_state_lines": 1639,
+  "fields": {
+   "path_length": 8.50504175097376,
+   "distance_to_goal": 3.066359674269848,
+   "oracle_navigation_error": 2.9398640642991998,
+   "success": 0.0,
+   "spl": 0.0,
+   "oracle_success": 1.0
+  }
+ },
+ "n_common_queries": 19,
+ "query_counts_differ": true,
+ "first_request_diff": {
+  "i": 0,
+  "step_A": 0,
+  "step_X": 0
+ },
+ "n_requests_differ_replies_match_before_qstar": 4,
+ "n_queries_before_qstar": 4,
+ "first_state_diff": {
+  "pos": 522,
+  "label": "321",
+  "kind": "hash"
+ },
+ "records_equal_six_fields": false,
+ "qstar": {
+  "i": 4,
+  "step_A": 277,
+  "step_X": 277,
+  "reply_A": "The next action is turn left 30 degree.",
+  "reply_X": "The next action is turn left 45 degree.",
+  "cmd_A": [
+   0.0,
+   0.0,
+   0.5235987755982988
+  ],
+  "cmd_X": [
+   0.0,
+   0.0,
+   0.5235987755982988
+  ],
+  "request_sha_A": "89307f3fbeaf79b446122f2e3dd9f832046553cee1c81b80bad91f6b000bc053",
+  "request_sha_X": "9fa7530bfcbb3241860bd796e271a012826f1e5bbe36797ef98a61389a5943b2",
+  "state_hash_A": "dd20e344cf34017fde4d1388d008bb2926f575216cda1a6436d8ed438b020394",
+  "state_hash_X": "dd20e344cf34017fde4d1388d008bb2926f575216cda1a6436d8ed438b020394",
+  "n_frames_differ": 8
+ },
+ "H1": {
+  "verdict": "held",
+  "a_states_before_step_identical": true,
+  "b_state_at_qstar_identical": true,
+  "c_requests_at_qstar_differ": true,
+  "first_state_diff_relative": "none before q*"
+ },
+ "diverged": true
+}
+DIVERGED=1

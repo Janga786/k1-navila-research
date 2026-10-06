@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/navila_eval_v3_LOG.py", line 1105, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/navila_eval_v3_LOG.py", line 837, in main
+    image_observations = [rlog.hist_frame(init_frame, "init")]  # [LOG] was [Image.fromarray(init_frame)]
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/navila_eval_v3_LOG.py", line 601, in hist_frame
+    back = np.array(Image.open(path))
+  File "/home/boosterk1/.local/lib/python3.10/site-packages/PIL/Image.py", line 813, in __array_interface__
+    new["data"] = self.tobytes()
+  File "/home/boosterk1/.local/lib/python3.10/site-packages/PIL/Image.py", line 874, in tobytes
+    self.load()
+  File "/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/extscache/omni.kit.pip_archive/pip_prebundle/PIL/ImageFile.py", line 238, in load
+    self.load_prepare()
+  File "/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/extscache/omni.kit.pip_archive/pip_prebundle/PIL/PngImagePlugin.py", line 922, in load_prepare
+    ImageFile.ImageFile.load_prepare(self)
+  File "/home/boosterk1/miniconda3/envs/vlnce-isaac/lib/python3.10/site-packages/isaacsim/extscache/omni.kit.pip_archive/pip_prebundle/PIL/ImageFile.py", line 316, in load_prepare
+    if not self.im or self.im.mode != self.mode or self.im.size != self.size:
+  File "/home/boosterk1/.local/lib/python3.10/site-packages/PIL/Image.py", line 647, in im
+    assert self._im is not None
+AssertionError

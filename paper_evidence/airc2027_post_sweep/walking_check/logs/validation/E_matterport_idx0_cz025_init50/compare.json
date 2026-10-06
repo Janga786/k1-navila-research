@@ -1,0 +1,106 @@
+{
+ "reference_dir": "/home/boosterk1/Projects/k1_research/airc2027_renders/diagnosis/repeatability/step4_1_idx0_cz025_proc1",
+ "items": {
+  "init_root_state.npy": {
+   "dtype": [
+    "float32",
+    "float32"
+   ],
+   "shape": [
+    [
+     13
+    ],
+    [
+     13
+    ]
+   ],
+   "bytes_identical": true,
+   "file_sha256": [
+    "0116d34094658068f6b8d534f9d83b37c50692d91f7373c59e6b552179579635",
+    "0116d34094658068f6b8d534f9d83b37c50692d91f7373c59e6b552179579635"
+   ],
+   "max_abs_diff": 0.0,
+   "n_values_differing": 0
+  },
+  "init_body_states.npy": {
+   "dtype": [
+    "float32",
+    "float32"
+   ],
+   "shape": [
+    [
+     13,
+     7
+    ],
+    [
+     13,
+     7
+    ]
+   ],
+   "bytes_identical": true,
+   "file_sha256": [
+    "342258ae15872d9d7bc66313693cdb10cb713a8e30370e419a2c87c13ef0696d",
+    "342258ae15872d9d7bc66313693cdb10cb713a8e30370e419a2c87c13ef0696d"
+   ],
+   "max_abs_diff": 0.0,
+   "n_values_differing": 0
+  },
+  "after50_root_state.npy": {
+   "dtype": [
+    "float32",
+    "float32"
+   ],
+   "shape": [
+    [
+     13
+    ],
+    [
+     13
+    ]
+   ],
+   "bytes_identical": true,
+   "file_sha256": [
+    "6a3566ea72b27c3a053f7901637dc6b80111085907a636d532cad242150436ba",
+    "6a3566ea72b27c3a053f7901637dc6b80111085907a636d532cad242150436ba"
+   ],
+   "max_abs_diff": 0.0,
+   "n_values_differing": 0
+  },
+  "after50_body_states.npy": {
+   "dtype": [
+    "float32",
+    "float32"
+   ],
+   "shape": [
+    [
+     13,
+     7
+    ],
+    [
+     13,
+     7
+    ]
+   ],
+   "bytes_identical": true,
+   "file_sha256": [
+    "0a9891dfe5335de684be1ffc26d9ddead75f111b686356ee12c0a38354b2a6de",
+    "0a9891dfe5335de684be1ffc26d9ddead75f111b686356ee12c0a38354b2a6de"
+   ],
+   "max_abs_diff": 0.0,
+   "n_values_differing": 0
+  }
+ },
+ "hex": {
+  "init": {
+   "harness": "6ab67141acc68e4030d6fa3ead9d833e7d9fc13a2efb45bb4465773f9146f53c7993f0bc8363163b03cd423cc2106b3cfa977b3b",
+   "reference": "6ab67141acc68e4030d6fa3ead9d833e7d9fc13a2efb45bb4465773f9146f53c7993f0bc8363163b03cd423cc2106b3cfa977b3b",
+   "equal": true
+  },
+  "after50": {
+   "harness": "655d6c417c089240ee0efe3ea783843ea0b23bbdd39668bb3fff763f630a38bd74018ebd871e503e523d6cbed385343f2f1304bf",
+   "reference": "655d6c417c089240ee0efe3ea783843ea0b23bbdd39668bb3fff763f630a38bd74018ebd871e503e523d6cbed385343f2f1304bf",
+   "equal": true
+  }
+ },
+ "pass": true
+}

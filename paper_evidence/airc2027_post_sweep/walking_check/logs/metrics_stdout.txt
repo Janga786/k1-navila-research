@@ -1,0 +1,69 @@
+| Metric | Unit | stand E | stand T | forward E | forward T | turn_left E | turn_left T | turn_right E | turn_right T | sequence E | sequence T |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| forward speed, steady-state mean | m/s | -0.000 | 0.000 | 0.453 | 0.451 | -0.042 | -0.043 | -0.000 | -0.019 |  |  |
+| forward speed / command |  |  |  | 0.906 | 0.901 |  |  |  |  |  |  |
+| forward speed RMS error | m/s | 0.000 | 0.001 | 0.086 | 0.076 | 0.071 | 0.064 | 0.072 | 0.052 | 0.140 | 0.134 |
+| forward speed SD (stepping oscillation), steady state | m/s | 0.000 | 0.001 | 0.072 | 0.057 | 0.057 | 0.048 | 0.072 | 0.049 |  |  |
+| lateral speed, steady-state mean | m/s | 0.001 | 0.001 | -0.003 | -0.002 | -0.005 | -0.011 | -0.029 | -0.030 |  |  |
+| lateral speed RMS error | m/s | 0.001 | 0.001 | 0.063 | 0.058 | 0.080 | 0.079 | 0.093 | 0.090 | 0.085 | 0.078 |
+| yaw rate, steady-state mean | rad/s | -0.003 | -0.010 | 0.017 | 0.025 | 0.529 | 0.533 | -0.507 | -0.495 |  |  |
+| yaw rate / command |  |  |  |  |  | 1.011 | 1.018 | 0.968 | 0.944 |  |  |
+| yaw rate RMS error | rad/s | 0.003 | 0.013 | 0.095 | 0.125 | 0.086 | 0.110 | 0.111 | 0.138 | 0.142 | 0.178 |
+| yaw rate SD, steady state | rad/s | 0.001 | 0.008 | 0.093 | 0.122 | 0.086 | 0.110 | 0.110 | 0.135 |  |  |
+| forward speed of the root centre of mass (Isaac Lab root_lin_vel_b), steady-state mean | m/s | 0.001 | 0.001 | 0.453 | 0.451 | -0.040 | -0.041 | -0.001 | -0.020 |  |  |
+| trunk height above the plane, mean | m | 0.488 | 0.486 | 0.512 | 0.511 | 0.511 | 0.511 | 0.508 | 0.508 | 0.510 | 0.509 |
+| trunk height above the plane, min | m | 0.487 | 0.485 | 0.481 | 0.480 | 0.488 | 0.487 | 0.487 | 0.487 | 0.476 | 0.476 |
+| max absolute roll | deg | 0.493 | 0.792 | 8.535 | 8.127 | 8.719 | 8.731 | 5.536 | 5.721 | 8.535 | 8.127 |
+| max absolute pitch | deg | 1.303 | 1.541 | 7.353 | 7.852 | 5.836 | 6.092 | 10.249 | 7.715 | 8.621 | 9.906 |
+| max tilt (fall criterion: 74.5°) | deg | 1.387 | 1.687 | 9.072 | 8.504 | 8.736 | 8.733 | 10.719 | 8.380 | 10.697 | 11.074 |
+| time of max tilt (from command start) | s | 11.940 | 10.040 | 0.400 | 0.380 | 0.340 | 0.340 | 10.540 | 7.200 | 5.240 | 5.240 |
+| yaw change over the command phase (unwrapped) | deg | 0.928 | 1.139 | 8.267 | 5.871 | 363.321 | 363.462 | -348.886 | -348.460 | 61.983 | 62.039 |
+| planar displacement over the command phase | m | 0.008 | 0.010 | 5.474 | 5.429 | 0.098 | 0.081 | 0.150 | 0.104 | 5.134 | 5.205 |
+| robot T: max absolute deviation of a head/arm joint from the training pose | rad | n/a | 0.022 | n/a | 0.069 | n/a | 0.046 | n/a | 0.052 | n/a | 0.069 |
+| horizontal drift over 12 s | m | 0.008 | 0.010 |  |  |  |  |  |  |  |  |
+| yaw drift over 12 s | deg | 0.928 | 1.139 |  |  |  |  |  |  |  |  |
+| check: absolute difference, finite-difference vs v, steady-state mean (world xy) | m/s | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 | 0.000 |  |  |
+| fell | | no | no | no | no | no | no | no | no | no | no |
+## Executor-like sequence: achieved vs implied per complete segment
+
+| Segment type | Quantity | Implied | E: n, mean ± SD [min, max] | E ratio | T: n, mean ± SD [min, max] | T ratio |
+|---|---|---|---|---|---|---|
+| forward | displacement along start heading (m) | 0.75 | 9, 0.610 ± 0.013 [0.590, 0.625] | 0.813 | 9, 0.610 ± 0.011 [0.599, 0.629] | 0.814 |
+| forward | same, at end of following zero segment (m) | 0.75 | 9, 0.651 ± 0.013 [0.630, 0.667] | 0.868 | 9, 0.651 ± 0.010 [0.641, 0.669] | 0.869 |
+| forward | lateral displacement (m) | 0 | 9, 0.001 ± 0.036 [-0.043, 0.080] | n/a | 9, -0.010 ± 0.036 [-0.048, 0.074] | n/a |
+| forward | yaw change (deg) | 0 | 9, 1.555 ± 1.103 [0.631, 4.307] | n/a | 9, 0.542 ± 1.976 [-3.408, 3.976] | n/a |
+| turn_left | yaw change (deg) | 45 | 5, 42.987 ± 0.854 [41.952, 44.036] | 0.955 | 5, 43.952 ± 0.958 [42.867, 44.906] | 0.977 |
+| turn_left | same, at end of following zero segment (deg) | 45 | 5, 44.851 ± 0.890 [43.542, 45.737] | 0.997 | 5, 46.087 ± 1.234 [44.599, 47.561] | 1.024 |
+| turn_left | planar displacement (m) | 0 | 5, 0.039 ± 0.035 [0.007, 0.091] | n/a | 5, 0.037 ± 0.035 [0.013, 0.095] | n/a |
+| turn_right | yaw change (deg) | -45 | 4, -42.966 ± 0.531 [-43.467, -42.343] | 0.955 | 4, -42.960 ± 1.627 [-44.523, -41.165] | 0.955 |
+| turn_right | same, at end of following zero segment (deg) | -45 | 4, -43.318 ± 0.623 [-44.060, -42.562] | 0.963 | 4, -42.402 ± 1.427 [-43.704, -41.059] | 0.942 |
+| turn_right | planar displacement (m) | 0 | 4, 0.028 ± 0.017 [0.007, 0.046] | n/a | 4, 0.039 ± 0.008 [0.032, 0.049] | n/a |
+| zero after forward (0.16 s) | residual planar displacement (m) | 0 | 9, 0.041 ± 0.001 [0.039, 0.043] |  | 9, 0.041 ± 0.002 [0.038, 0.044] |  |
+| zero after forward (0.16 s) | residual absolute yaw change (deg) | 0 | 9, 0.361 ± 0.239 [0.088, 0.863] |  | 9, 0.315 ± 0.306 [0.003, 0.970] |  |
+| zero after forward (0.16 s) | mean forward speed (m/s) | 0 | 9, 0.240 ± 0.012 [0.213, 0.251] |  | 9, 0.240 ± 0.009 [0.228, 0.256] |  |
+| zero after forward (0.16 s) | mean absolute yaw rate (rad/s) | 0 | 9, 0.135 ± 0.034 [0.096, 0.205] |  | 9, 0.178 ± 0.037 [0.109, 0.230] |  |
+| zero after turn left (0.16 s) | residual planar displacement (m) | 0 | 5, 0.014 ± 0.001 [0.013, 0.016] |  | 5, 0.014 ± 0.002 [0.012, 0.016] |  |
+| zero after turn left (0.16 s) | residual absolute yaw change (deg) | 0 | 5, 2.062 ± 1.047 [0.495, 3.297] |  | 5, 2.135 ± 1.045 [0.894, 3.637] |  |
+| zero after turn left (0.16 s) | mean forward speed (m/s) | 0 | 5, -0.088 ± 0.025 [-0.115, -0.049] |  | 5, -0.094 ± 0.025 [-0.126, -0.063] |  |
+| zero after turn left (0.16 s) | mean absolute yaw rate (rad/s) | 0 | 5, 0.233 ± 0.058 [0.183, 0.317] |  | 5, 0.256 ± 0.085 [0.172, 0.352] |  |
+| zero after turn right (0.16 s) | residual planar displacement (m) | 0 | 4, 0.015 ± 0.003 [0.012, 0.019] |  | 4, 0.014 ± 0.005 [0.007, 0.018] |  |
+| zero after turn right (0.16 s) | residual absolute yaw change (deg) | 0 | 4, 0.508 ± 0.809 [0.003, 1.717] |  | 4, 0.615 ± 0.370 [0.114, 0.955] |  |
+| zero after turn right (0.16 s) | mean forward speed (m/s) | 0 | 4, -0.118 ± 0.016 [-0.133, -0.099] |  | 4, -0.106 ± 0.029 [-0.126, -0.063] |  |
+| zero after turn right (0.16 s) | mean absolute yaw rate (rad/s) | 0 | 4, 0.177 ± 0.042 [0.135, 0.226] |  | 4, 0.224 ± 0.018 [0.212, 0.250] |  |
+
+RMS error against the step-wise command over the 30 s — E: vx 0.140 m/s, vy 0.085 m/s, wz 0.142 rad/s; T: vx 0.134 m/s, vy 0.078 m/s, wz 0.178 rad/s.
+
+
+| Robot | Trial | Forward speed (m/s) | Yaw rate (rad/s) | Fell | Trunk height mean / min (m) | Max tilt (°) |
+|---|---|---|---|---|---|---|
+| E | stand | -0.000 | -0.003 | no | 0.488 / 0.487 | 1.4 |
+| E | forward | 0.453 (0.91 × cmd) | +0.017 | no | 0.512 / 0.481 | 9.1 |
+| E | turn_left | -0.042 | +0.529 (1.01 × cmd) | no | 0.511 / 0.488 | 8.7 |
+| E | turn_right | -0.000 | -0.507 (0.97 × cmd) | no | 0.508 / 0.487 | 10.7 |
+| E | sequence | 0.405 (mean over forward segments) | +0.504 / -0.502 (mean over left / right segments) | no | 0.510 / 0.476 | 10.7 |
+| T | stand | 0.000 | -0.010 | no | 0.486 / 0.485 | 1.7 |
+| T | forward | 0.451 (0.90 × cmd) | +0.025 | no | 0.511 / 0.480 | 8.5 |
+| T | turn_left | -0.043 | +0.533 (1.02 × cmd) | no | 0.511 / 0.487 | 8.7 |
+| T | turn_right | -0.019 | -0.495 (0.94 × cmd) | no | 0.508 / 0.487 | 8.4 |
+| T | sequence | 0.406 (mean over forward segments) | +0.524 / -0.498 (mean over left / right segments) | no | 0.509 / 0.476 | 11.1 |
+

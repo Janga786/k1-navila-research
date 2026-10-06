@@ -1,0 +1,166 @@
+[
+ {
+  "episode_idx": 3,
+  "run": "A",
+  "ended_at_step": 1022,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 3,
+  "run": "B",
+  "ended_at_step": 903,
+  "equals_sweep_record": [
+   "stretchA"
+  ]
+ },
+ {
+  "episode_idx": 3,
+  "run": "R",
+  "ended_at_step": 1022,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 8,
+  "run": "A",
+  "ended_at_step": 1573,
+  "equals_sweep_record": [
+   "stretchA",
+   "stretchB"
+  ]
+ },
+ {
+  "episode_idx": 8,
+  "run": "B",
+  "ended_at_step": 1776,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 8,
+  "run": "R",
+  "ended_at_step": 1573,
+  "equals_sweep_record": [
+   "stretchA",
+   "stretchB"
+  ]
+ },
+ {
+  "episode_idx": 16,
+  "run": "A",
+  "ended_at_step": 6001,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 16,
+  "run": "B",
+  "ended_at_step": 2232,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 16,
+  "run": "R",
+  "ended_at_step": 6001,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 20,
+  "run": "A",
+  "ended_at_step": 1563,
+  "equals_sweep_record": [
+   "stretchA"
+  ]
+ },
+ {
+  "episode_idx": 20,
+  "run": "B",
+  "ended_at_step": 1437,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 20,
+  "run": "R",
+  "ended_at_step": 1563,
+  "equals_sweep_record": [
+   "stretchA"
+  ]
+ },
+ {
+  "episode_idx": 50,
+  "run": "A",
+  "ended_at_step": 6001,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 50,
+  "run": "B",
+  "ended_at_step": 6001,
+  "equals_sweep_record": [
+   "stretchB"
+  ]
+ },
+ {
+  "episode_idx": 50,
+  "run": "R",
+  "ended_at_step": 6001,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 99,
+  "run": "A",
+  "ended_at_step": 2677,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 99,
+  "run": "B",
+  "ended_at_step": 1947,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 99,
+  "run": "R",
+  "ended_at_step": 2677,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 92,
+  "run": "A",
+  "ended_at_step": 1025,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 92,
+  "run": "B",
+  "ended_at_step": 926,
+  "equals_sweep_record": [
+   "stretchB"
+  ]
+ },
+ {
+  "episode_idx": 92,
+  "run": "R",
+  "ended_at_step": 1025,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 212,
+  "run": "A",
+  "ended_at_step": 1049,
+  "equals_sweep_record": [
+   "stretchA"
+  ]
+ },
+ {
+  "episode_idx": 212,
+  "run": "B",
+  "ended_at_step": 994,
+  "equals_sweep_record": []
+ },
+ {
+  "episode_idx": 212,
+  "run": "R",
+  "ended_at_step": 1049,
+  "equals_sweep_record": [
+   "stretchA"
+  ]
+ }
+]

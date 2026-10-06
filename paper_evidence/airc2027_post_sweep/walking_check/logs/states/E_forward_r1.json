@@ -1,0 +1,862 @@
+{
+ "script": "airc2027_walking/scripts/walk_check.py",
+ "argv": [
+  "/home/boosterk1/Projects/k1_research/airc2027_walking/scripts/walk_check.py",
+  "--num_envs=1",
+  "--checkpoint=/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt",
+  "--gait_phase_init=0.0",
+  "--headless",
+  "--enable_cameras",
+  "--task=k1_walkcheck_plane_E",
+  "--mode",
+  "trial",
+  "--robot",
+  "E",
+  "--trial",
+  "forward",
+  "--rep",
+  "1",
+  "--episode_idx=0",
+  "--cam_z=0.25",
+  "--out",
+  "/home/boosterk1/Projects/k1_research/airc2027_walking/logs/states/E_forward_r1"
+ ],
+ "mode": "trial",
+ "robot": "E",
+ "trial": "forward",
+ "rep": 1,
+ "task": "k1_walkcheck_plane_E",
+ "episode_idx": 0,
+ "cam_z": 0.25,
+ "gait_phase_init": 0.0,
+ "checkpoint": "/home/boosterk1/Projects/k1_research/checkpoints/model_14498.pt",
+ "start_time": "2026-10-01T23:43:15-0600",
+ "wrapper_class": "omni.isaac.vlnce.utils.wrappers_v3.VLNEnvWrapperV3",
+ "policy_leg_order_used": [
+  "Left_Hip_Pitch",
+  "Right_Hip_Pitch",
+  "Left_Hip_Roll",
+  "Right_Hip_Roll",
+  "Left_Hip_Yaw",
+  "Right_Hip_Yaw",
+  "Left_Knee_Pitch",
+  "Right_Knee_Pitch",
+  "Left_Ankle_Pitch",
+  "Right_Ankle_Pitch",
+  "Left_Ankle_Roll",
+  "Right_Ankle_Roll"
+ ],
+ "robot_cfg_vs_evaluated_scene_robot": [
+  [
+   "init_state.pos[0]",
+   9.1,
+   0.0
+  ],
+  [
+   "init_state.pos[1]",
+   3.8,
+   0.0
+  ],
+  [
+   "init_state.pos[2]",
+   0.55,
+   0.729
+  ],
+  [
+   "init_state.rot[0]",
+   0.7,
+   1.0
+  ]
+ ],
+ "robot_urdf": "/home/boosterk1/Projects/k1_research/booster/booster_assets/robots/K1/K1_locomotion.urdf",
+ "fix_base": false,
+ "merge_fixed_joints": true,
+ "action_dim": 12,
+ "action_term_joint_names": [
+  "Left_Hip_Pitch",
+  "Right_Hip_Pitch",
+  "Left_Hip_Roll",
+  "Right_Hip_Roll",
+  "Left_Hip_Yaw",
+  "Right_Hip_Yaw",
+  "Left_Knee_Pitch",
+  "Right_Knee_Pitch",
+  "Left_Ankle_Pitch",
+  "Right_Ankle_Pitch",
+  "Left_Ankle_Roll",
+  "Right_Ankle_Roll"
+ ],
+ "default_root_state": [
+  0.0,
+  0.0,
+  0.7289999723434448,
+  1.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "default_joint_pos": [
+  -0.15000000596046448,
+  -0.15000000596046448,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.30000001192092896,
+  0.30000001192092896,
+  -0.15000000596046448,
+  -0.15000000596046448,
+  0.0,
+  0.0
+ ],
+ "env_origin": [
+  -0.0,
+  0.0,
+  0.0
+ ],
+ "terrain": {
+  "type": "plane",
+  "prim_path": "/World/ground",
+  "physics_material": {
+   "func": "omni.isaac.lab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+   "static_friction": 1.0,
+   "dynamic_friction": 1.0,
+   "restitution": 0.0,
+   "improve_patch_friction": true,
+   "friction_combine_mode": "multiply",
+   "restitution_combine_mode": "multiply",
+   "compliant_contact_stiffness": 0.0,
+   "compliant_contact_damping": 0.0
+  }
+ },
+ "sim": {
+  "dt": 0.005,
+  "decimation": 4,
+  "render_interval": 4,
+  "disable_contact_processing": true,
+  "physics_material": {
+   "func": "omni.isaac.lab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+   "static_friction": 1.0,
+   "dynamic_friction": 1.0,
+   "restitution": 0.0,
+   "improve_patch_friction": true,
+   "friction_combine_mode": "max",
+   "restitution_combine_mode": "max",
+   "compliant_contact_stiffness": 0.0,
+   "compliant_contact_damping": 0.0
+  },
+  "physx": {
+   "use_gpu": true,
+   "solver_type": 1,
+   "min_position_iteration_count": 1,
+   "max_position_iteration_count": 255,
+   "min_velocity_iteration_count": 0,
+   "max_velocity_iteration_count": 255,
+   "enable_ccd": false,
+   "enable_stabilization": true,
+   "enable_enhanced_determinism": false,
+   "bounce_threshold_velocity": 0.5,
+   "friction_offset_threshold": 0.04,
+   "friction_correlation_distance": 0.025,
+   "gpu_max_rigid_contact_count": 2097152,
+   "gpu_max_rigid_patch_count": 163840,
+   "gpu_found_lost_pairs_capacity": 262144,
+   "gpu_found_lost_aggregate_pairs_capacity": 262144,
+   "gpu_total_aggregate_pairs_capacity": 262144,
+   "gpu_collision_stack_size": 8388608,
+   "gpu_heap_capacity": 4194304,
+   "gpu_temp_buffer_capacity": 1048576,
+   "gpu_max_num_partitions": 8,
+   "gpu_max_soft_body_contacts": 1048576,
+   "gpu_max_particle_contacts": 1048576
+  },
+  "device": "cuda:0",
+  "use_fabric": true
+ },
+ "terminations": {
+  "bad_orientation": {
+   "limit_angle": 1.3
+  }
+ },
+ "plane_spawn_hook": {
+  "set_by_evaluator_reset_start_pos_rot": {
+   "pos": [
+    15.068599700927734,
+    4.4848198890686035,
+    0.721628013253212
+   ],
+   "rot": [
+    0.25881901383399963,
+    0.0,
+    0.0,
+    0.9659258127212524
+   ]
+  },
+  "plane_spawn": {
+   "pos": [
+    0.0,
+    0.0,
+    0.729
+   ],
+   "rot": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "episode": {
+  "episode_id": 1,
+  "scene_id": "mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb"
+ },
+ "rows_reset_warmup": 50,
+ "schedule": {
+  "dt_step": 0.02,
+  "zero_warmup_steps": 200,
+  "command_steps": 600,
+  "segments": [
+   [
+    "forward",
+    0,
+    600,
+    true,
+    [
+     0.5,
+     0.0,
+     0.0
+    ]
+   ]
+  ]
+ },
+ "physx": {
+  "units": "as returned by the PhysX tensor API (Isaac Sim 4.1)",
+  "joint_names": [
+   "Left_Hip_Pitch",
+   "Right_Hip_Pitch",
+   "Left_Hip_Roll",
+   "Right_Hip_Roll",
+   "Left_Hip_Yaw",
+   "Right_Hip_Yaw",
+   "Left_Knee_Pitch",
+   "Right_Knee_Pitch",
+   "Left_Ankle_Pitch",
+   "Right_Ankle_Pitch",
+   "Left_Ankle_Roll",
+   "Right_Ankle_Roll"
+  ],
+  "body_names": [
+   "Trunk",
+   "Left_Hip_Pitch",
+   "Right_Hip_Pitch",
+   "Left_Hip_Roll",
+   "Right_Hip_Roll",
+   "Left_Hip_Yaw",
+   "Right_Hip_Yaw",
+   "Left_Shank",
+   "Right_Shank",
+   "Left_Ankle_Cross",
+   "Right_Ankle_Cross",
+   "left_foot_link",
+   "right_foot_link"
+  ],
+  "dof_stiffness": [
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0
+  ],
+  "dof_damping": [
+   2.0,
+   2.0,
+   2.0,
+   2.0,
+   2.0,
+   2.0,
+   2.0,
+   2.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "dof_armature": [
+   0.04781249910593033,
+   0.04781249910593033,
+   0.033955201506614685,
+   0.033955201506614685,
+   0.028252800926566124,
+   0.028252800926566124,
+   0.09562499821186066,
+   0.09562499821186066,
+   0.05650560185313225,
+   0.05650560185313225,
+   0.05650560185313225,
+   0.05650560185313225
+  ],
+  "dof_friction": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "dof_max_force": [
+   68.0,
+   68.0,
+   76.0,
+   76.0,
+   38.29999923706055,
+   38.29999923706055,
+   112.0,
+   112.0,
+   38.29999923706055,
+   38.29999923706055,
+   38.29999923706055,
+   38.29999923706055
+  ],
+  "dof_max_velocity": [
+   7.09999942779541,
+   7.09999942779541,
+   12.899999618530273,
+   12.899999618530273,
+   18.100000381469727,
+   18.100000381469727,
+   12.5,
+   12.5,
+   18.100000381469727,
+   18.100000381469727,
+   18.100000381469727,
+   18.100000381469727
+  ],
+  "body_masses": [
+   10.65999984741211,
+   0.6899999976158142,
+   0.6899999976158142,
+   0.12999999523162842,
+   0.12999999523162842,
+   1.649999976158142,
+   1.649999976158142,
+   1.5,
+   1.5,
+   0.039000000804662704,
+   0.039000000804662704,
+   0.49399998784065247,
+   0.49399998784065247
+  ],
+  "total_mass": 19.665998458862305,
+  "body_coms_in_link_frame_pos_quat": [
+   [
+    -0.0009819985134527087,
+    -0.000476129847811535,
+    0.11961382627487183,
+    0.004517663270235062,
+    0.020141297951340675,
+    -0.00014429075235966593,
+    0.9997869729995728
+   ],
+   [
+    -0.010092999786138535,
+    -0.0019934000447392464,
+    -0.024713000282645226,
+    0.014274847693741322,
+    -0.2671337425708771,
+    -0.03290581703186035,
+    0.9629917144775391
+   ],
+   [
+    -0.01006499957293272,
+    0.002008599927648902,
+    -0.02473899908363819,
+    -0.015618951059877872,
+    -0.2658829987049103,
+    0.034529294818639755,
+    0.9632601141929626
+   ],
+   [
+    0.0235849991440773,
+    4.8999998398358e-05,
+    -0.024995999410748482,
+    0.0,
+    0.2876676023006439,
+    0.0,
+    0.9577302932739258
+   ],
+   [
+    0.0235849991440773,
+    4.8999998398358e-05,
+    -0.024995999410748482,
+    0.0,
+    0.2876676023006439,
+    0.0,
+    0.9577302932739258
+   ],
+   [
+    -0.008474400267004967,
+    -0.004049399867653847,
+    -0.08790600299835205,
+    0.037026431411504745,
+    -0.04538167640566826,
+    -0.24585099518299103,
+    0.9675365090370178
+   ],
+   [
+    -0.008475000038743019,
+    0.004039200022816658,
+    -0.08790600299835205,
+    -0.037026431411504745,
+    -0.04538167640566826,
+    0.24585099518299103,
+    0.9675365090370178
+   ],
+   [
+    -0.000810829980764538,
+    0.0031459000892937183,
+    -0.1092199981212616,
+    -0.003889063373208046,
+    -0.003857737872749567,
+    0.33957549929618835,
+    0.9405628442764282
+   ],
+   [
+    -0.000805000017862767,
+    -0.003145999973639846,
+    -0.10921499878168106,
+    0.003881813958287239,
+    -0.0038364536594599485,
+    -0.3396596312522888,
+    0.9405326247215271
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   [
+    0.011661999858915806,
+    0.00024399999529123306,
+    -0.014364000409841537,
+    0.0020694416016340256,
+    -0.059228986501693726,
+    -2.608669274195563e-05,
+    0.9982423186302185
+   ],
+   [
+    0.011661999858915806,
+    -0.00024399999529123306,
+    -0.014364000409841537,
+    -0.0020694416016340256,
+    -0.059228986501693726,
+    2.608669274195563e-05,
+    0.9982423186302185
+   ]
+  ],
+  "body_inertias": [
+   [
+    0.3799726068973541,
+    -5.087710451334715e-05,
+    -0.005781468003988266,
+    -5.087708996143192e-05,
+    0.16092027723789215,
+    -0.0006821510614827275,
+    -0.005781468003988266,
+    -0.0006821511778980494,
+    0.23677527904510498
+   ],
+   [
+    0.0007810000097379088,
+    4.000004992121831e-06,
+    0.00016700006381142884,
+    4.000008630100638e-06,
+    0.0009870000649243593,
+    7.999991794349626e-06,
+    0.00016700006381142884,
+    7.999991794349626e-06,
+    0.0006040000007487833
+   ],
+   [
+    0.000782000133767724,
+    -3.9999854379857425e-06,
+    0.00016600009985268116,
+    -3.999985892733093e-06,
+    0.0009879997232928872,
+    -8.999993951874785e-06,
+    0.00016600008530076593,
+    -8.999997589853592e-06,
+    0.0006039999425411224
+   ],
+   [
+    0.0001910000282805413,
+    0.0,
+    -4.8000023525673896e-05,
+    0.0,
+    0.00026199998683296144,
+    0.0,
+    -4.800001624971628e-05,
+    0.0,
+    0.0001500000071246177
+   ],
+   [
+    0.0001910000282805413,
+    0.0,
+    -4.8000023525673896e-05,
+    0.0,
+    0.00026199998683296144,
+    0.0,
+    -4.800001624971628e-05,
+    0.0,
+    0.0001500000071246177
+   ],
+   [
+    0.015785999596118927,
+    9.600176417734474e-05,
+    0.0015460001304745674,
+    9.600222983863205e-05,
+    0.016140000894665718,
+    0.0007450003176927567,
+    0.0015460001304745674,
+    0.0007450003176927567,
+    0.0015509999357163906
+   ],
+   [
+    0.015785999596118927,
+    -9.600176417734474e-05,
+    0.0015460001304745674,
+    -9.600222983863205e-05,
+    0.016140000894665718,
+    -0.0007450003176927567,
+    0.0015460001304745674,
+    -0.0007450003176927567,
+    0.0015509999357163906
+   ],
+   [
+    0.023680994287133217,
+    3.499654121696949e-05,
+    0.0002219999732915312,
+    3.4995609894394875e-05,
+    0.023669997230172157,
+    -0.00010500000644242391,
+    0.0002219999732915312,
+    -0.00010500000644242391,
+    0.0012400000123307109
+   ],
+   [
+    0.023680996149778366,
+    -3.5002387448912486e-05,
+    0.00022099998022895306,
+    -3.500145612633787e-05,
+    0.023670000955462456,
+    0.00010499997733859345,
+    0.00022099998022895306,
+    0.00010499997733859345,
+    0.0012400000123307109
+   ],
+   [
+    1.9999999949504854e-06,
+    0.0,
+    0.0,
+    0.0,
+    3.999999989900971e-06,
+    0.0,
+    0.0,
+    0.0,
+    3.999999989900971e-06
+   ],
+   [
+    1.9999999949504854e-06,
+    0.0,
+    0.0,
+    0.0,
+    3.999999989900971e-06,
+    0.0,
+    0.0,
+    0.0,
+    3.999999989900971e-06
+   ],
+   [
+    0.00026100006652995944,
+    3.0000128958818095e-07,
+    -0.00011499998799990863,
+    3.000013464315998e-07,
+    0.0011700000613927841,
+    -1.9999924916191958e-07,
+    -0.00011499998799990863,
+    -1.9999924916191958e-07,
+    0.0012129999231547117
+   ],
+   [
+    0.00026100006652995944,
+    -3.0000128958818095e-07,
+    -0.00011499998799990863,
+    -3.000013464315998e-07,
+    0.0011700000613927841,
+    1.9999924916191958e-07,
+    -0.00011499998799990863,
+    1.9999924916191958e-07,
+    0.0012129999231547117
+   ]
+  ],
+  "root_body": "Trunk",
+  "root_com_b": [
+   -0.0009819985134527087,
+   -0.000476129847811535,
+   0.11961382627487183
+  ]
+ },
+ "ground_usd": [
+  {
+   "path": "/World/ground/GroundPlane/CollisionPlane",
+   "type": "Plane",
+   "apis": [
+    "MaterialBindingAPI",
+    "PhysicsCollisionAPI"
+   ],
+   "attrs": {
+    "physics:collisionEnabled": true
+   },
+   "rels": {
+    "material:binding:physics": [
+     "/World/ground/physicsMaterial"
+    ]
+   }
+  },
+  {
+   "path": "/World/ground/Environment",
+   "type": "Xform",
+   "apis": [
+    "MaterialBindingAPI"
+   ],
+   "attrs": {},
+   "rels": {
+    "material:binding": [
+     "/World/ground/Looks/theGrid"
+    ]
+   }
+  },
+  {
+   "path": "/World/ground/Environment/Geometry",
+   "type": "Mesh",
+   "apis": [
+    "MaterialBindingAPI"
+   ],
+   "attrs": {},
+   "rels": {}
+  },
+  {
+   "path": "/World/ground/physicsMaterial",
+   "type": "Material",
+   "apis": [
+    "PhysicsMaterialAPI",
+    "PhysxMaterialAPI"
+   ],
+   "attrs": {
+    "physics:density": 0.0,
+    "physics:dynamicFriction": 1.0,
+    "physics:restitution": 0.0,
+    "physics:staticFriction": 1.0,
+    "physxMaterial:compliantContactAccelerationSpring": false,
+    "physxMaterial:compliantContactDamping": 0.0,
+    "physxMaterial:compliantContactStiffness": 0.0,
+    "physxMaterial:dampingCombineMode": "average",
+    "physxMaterial:frictionCombineMode": "multiply",
+    "physxMaterial:improvePatchFriction": true,
+    "physxMaterial:restitutionCombineMode": "multiply"
+   },
+   "rels": {}
+  }
+ ],
+ "rows": {
+  "total": 850,
+  "reset_warmup": 50,
+  "zero_warmup": 200,
+  "command": 600
+ },
+ "fall": null,
+ "wrapper_done_rows": [],
+ "wall_s": {
+  "build_incl_reset_warmup": 7.075242280960083,
+  "zero_warmup": 10.533345937728882,
+  "command": 30.976208209991455,
+  "total_before_close": 48.60807275772095
+ },
+ "file_sha256": {
+  "NaVILA-Bench-main/scripts/navila_eval_v3.py": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+  "NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/config/k1/k1_matterport_vision_cfg.py": "e294b61ea3f8f5992952bcd01f9593f74399293eea49aac3e901f862246434cb",
+  "NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py": "be607d92309a64d07bc943eb43c063acbedf1b51c9491dae04407455b948330d",
+  "NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/eval_utils.py": "2add9a77dc2328c88e816b849c24b7a5a46e870d2fe4ab39abf7e15c534fa08d",
+  "NaVILA-Bench-main/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/measures.py": "20ec8def810cae378c6dc65d17abb5023248e743ca7f1df00477698368535713",
+  "IsaacLab/source/extensions/omni.isaac.lab/omni/isaac/lab/sim/simulation_cfg.py": "8d13b5bfdfc1801fc518088ac1e8b1bb34698cef9deb56e08076905028a655dd",
+  "checkpoints/model_14498.pt": "8e7559b5075fe6c90d4ce81fb1eb66d69ef852b2ed3718b5416b6a0fd2bdad4b",
+  "airc2027_renders/scripts/sim_setup.py": "8a205c615bbcccf8a5fe2c2db15ece613f897bd31400f3e9debbb39a758fa825",
+  "airc2027_renders/scripts/navila_eval_v3_COPY.py": "9b010715ced0a46efb17b86e918653e933bdc26b5fd765f3d8a0912d7b1281fc",
+  "airc2027_renders/configs/k1_corrected_robot_cfg.py": "380741f58de0efd0e0c0f9eba07bc8a54139e5c1524dd08d6064e9ce585c9a30",
+  "airc2027_walking/scripts/walk_check.py": "e116ba511f7f76352b9cec565ae409e6af8b58022841eeceaea687b3b7871a8f",
+  "airc2027_walking/scripts/wrappers_v3_T.py": "74fe25dbe622c4eb4b81bf144e10c91b36bfbb5c133f09e079fad9fed7e5a483",
+  "airc2027_walking/scripts/configs/k1_walkcheck_plane_cfg.py": "5c94e1c403e0b8da7ccd4cb869f239a6ce83359458439d47e85e22fc9ea7e6db",
+  "airc2027_walking/scripts/configs/k1_walkcheck_plane_T_cfg.py": "8735094feca593dcbf6b2934a3d29232ae4574812c9e556525ecb0050dddfe8e",
+  "airc2027_walking/scripts/configs/k1_walkcheck_T_robot_cfg.py": "609ae618d70f356a27297f6dc2a87b74e4a9fa3f8cff3309edebacb7585d4921",
+  "booster/booster_assets/robots/K1/K1_locomotion.urdf": "5cf5951dd8103b19ebc255ec5a6238d912d4ec1efe79bc38935e5f55c69a72d8",
+  "booster/booster_assets/robots/K1/K1_22dof.urdf": "9312ecc9dbd2424247d9d74c86eeb478e738dd994c787fd42116f4a4615e0a01"
+ },
+ "k1_research_commit": "72a4820d61bd5ba1d188bf1e99d09eff6d3bcbaa",
+ "isaaclab_commit": "4d558ec83878c4892a46591c85ba91ac9d3c1834",
+ "torch": "2.2.2+cu118",
+ "numpy": "1.26.0",
+ "gpu": "NVIDIA GeForce RTX 3090",
+ "driver": "580.173.02",
+ "array_keys": {
+  "phase": [
+   "int8",
+   [
+    850
+   ]
+  ],
+  "cmd": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "root_pos_w": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "root_quat_w": [
+   "float32",
+   [
+    850,
+    4
+   ]
+  ],
+  "root_lin_vel_w": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "root_ang_vel_w": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "root_lin_vel_b": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "root_ang_vel_b": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "projected_gravity_b": [
+   "float32",
+   [
+    850,
+    3
+   ]
+  ],
+  "joint_pos": [
+   "float32",
+   [
+    850,
+    12
+   ]
+  ],
+  "joint_vel": [
+   "float32",
+   [
+    850,
+    12
+   ]
+  ],
+  "action": [
+   "float32",
+   [
+    850,
+    12
+   ]
+  ],
+  "env_done": [
+   "bool",
+   [
+    850
+   ]
+  ],
+  "terminated": [
+   "bool",
+   [
+    850
+   ]
+  ],
+  "time_out": [
+   "bool",
+   [
+    850
+   ]
+  ],
+  "bad_orientation": [
+   "bool",
+   [
+    850
+   ]
+  ],
+  "episode_length": [
+   "int32",
+   [
+    850
+   ]
+  ],
+  "wrapper_done": [
+   "bool",
+   [
+    850
+   ]
+  ]
+ }
+}

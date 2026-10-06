@@ -1,0 +1,63 @@
+PASS  normal run A completes (rc 0)
+PASS  normal run B completes (rc 0)
+PASS  validation checks 2-4 + consistency pass on run A (PNG round-trip, request rebuild, schema)
+      A vs B: None None
+PASS  replay run R completes
+PASS  R vs A: H3 held with deterministic fake physics and server
+PASS  1e-6 m physics jitter after env step 350 -> replay stops with a state mismatch at main step 99
+PASS  nondeterministic server -> replay stops with a reply mismatch
+PASS  identical renders -> no divergence, identical records
+PASS  identical requests + nondeterministic server -> H1 verdict failed_requests_identical
+PASS  physics jitter before q* -> H1 verdict failed_state_before_qstar
+FAIL  q* requests rebuilt from saved frames match the logged hashes
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 186, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 164, in main
+    res = check_h2(a.run_a, a.run_x, n_expected=a.n)
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 138, in check_h2
+    spec = json.load(open(requests_json))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/offline_tests2/rq/requests.json'
+FAIL  condition 1 (--replay_queries in the copy): each request gets its own reply 4/4
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/replay_client.py", line 77, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/replay_client.py", line 56, in main
+    spec = json.load(open(spec_path))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/offline_tests2/rq/requests.json'
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 186, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 164, in main
+    res = check_h2(a.run_a, a.run_x, n_expected=a.n)
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 138, in check_h2
+    spec = json.load(open(requests_json))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/offline_tests2/rq/requests.json'
+FAIL  condition 2 client: each request gets its own reply 4/4
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/replay_client.py", line 77, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/replay_client.py", line 56, in main
+    spec = json.load(open(spec_path))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/offline_tests2/rq/requests.json'
+Traceback (most recent call last):
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 186, in <module>
+    main()
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 164, in main
+    res = check_h2(a.run_a, a.run_x, n_expected=a.n)
+  File "/home/boosterk1/Projects/k1_research/airc2027_replay/scripts/compare_runs.py", line 138, in check_h2
+    spec = json.load(open(requests_json))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-boosterk1/53e0279a-5c5d-471a-833c-5e65c3065aee/scratchpad/offline_tests2/rq/requests.json'
+FAIL  nondeterministic server -> H2 failed (distribution reported)
+PASS  replay_client._vlm_send_bytes is AST-identical to the copy's (the evaluator's socket code)
+PASS  SIGTERM: record (wall_timeout) and states_at_queries.npz written under --log_dir; rc 124
+PASS  simulated Kit Pillow mix: normal run completes (in-process PNG decode via cv2)
+PASS  simulated Kit Pillow mix: the 10 in-process PNG reload checks are true
+PASS  simulated Kit Pillow mix: validation checks 2-4 + consistency pass (requests encoded under the mix rebuild exactly)
+PASS  simulated Kit Pillow mix: replay run R completes
+PASS  simulated Kit Pillow mix: R vs A H3 held, R's history frames = A's frames
+PASS  refuses a --log_dir under eval_results/ (and creates nothing there)
+PASS  refuses to overwrite an existing run directory
+OFFLINE TESTS: 19 passed, 4 failed
+
+[exited with code 0]

@@ -1,0 +1,16 @@
+[run_gpu] rep41_cz025_p1 rc=0 wall=25s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep41_cz025_p1.log
+[run_gpu] rep41_cz057_p1 rc=0 wall=25s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep41_cz057_p1.log
+[run_gpu] rep41_cz025_p2 rc=0 wall=25s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep41_cz025_p2.log
+[run_gpu] rep41_cz057_p2 rc=0 wall=24s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep41_cz057_p2.log
+[run_gpu] rep42_idx21_p1 rc=0 wall=43s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep42_idx21_p1.log
+[run_gpu] rep42_idx21_p2 rc=0 wall=42s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep42_idx21_p2.log
+[run_gpu] rep42_idx21_p3 rc=0 wall=42s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep42_idx21_p3.log
+[run_gpu] rep42_idx21_p4 rc=0 wall=43s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/rep42_idx21_p4.log
+[run_gpu] s5a_idx0_cz007 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz007.log
+[run_gpu] s5a_idx0_cz025 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz025.log
+[run_gpu] s5a_idx0_cz042 rc=0 wall=36s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz042.log
+[run_gpu] s5a_idx0_cz057 rc=0 wall=33s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz057.log
+[run_gpu] s5a_idx0_cz077 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz077.log
+[run_gpu] s5a_idx0_cz097 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx0_cz097.log
+[run_gpu] s5a_idx7_cz025 rc=0 wall=37s log=/home/boosterk1/Projects/k1_research/airc2027_renders/logs/s5a_idx7_cz025.log
+BATCH_DONE

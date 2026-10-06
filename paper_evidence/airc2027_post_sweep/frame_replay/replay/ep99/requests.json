@@ -1,0 +1,50 @@
+{
+  "qstar": 11,
+  "step_A": 724,
+  "step_X": 724,
+  "requests": [
+    {
+      "label": "ep99_A_q011",
+      "run": "ep99_A",
+      "path": "requests/ep99_A_q011.bin",
+      "sha256": "481d60aa9f3af18c0cee738467ddac1738e05d8f36d16fe7b5a44a21b09a2cb4",
+      "logged_request_sha256": "481d60aa9f3af18c0cee738467ddac1738e05d8f36d16fe7b5a44a21b09a2cb4",
+      "rebuilt_matches_log": true,
+      "logged_reply": "The next action is turn right 15 degree.",
+      "num_steps": 724,
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        21,
+        26,
+        31,
+        37
+      ],
+      "bytes": 7821543
+    },
+    {
+      "label": "ep99_B_q011",
+      "run": "ep99_B",
+      "path": "requests/ep99_B_q011.bin",
+      "sha256": "99b4a8e4b0a66233a6b3ad70eb390bcc5438729bc8310b0c156f363c1aa40d27",
+      "logged_request_sha256": "99b4a8e4b0a66233a6b3ad70eb390bcc5438729bc8310b0c156f363c1aa40d27",
+      "rebuilt_matches_log": true,
+      "logged_reply": "The next action is move forward 25 cm.",
+      "num_steps": 724,
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        21,
+        26,
+        31,
+        37
+      ],
+      "bytes": 7820187
+    }
+  ],
+  "requests_identical": false
+}

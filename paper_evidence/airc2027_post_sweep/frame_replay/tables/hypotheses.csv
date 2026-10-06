@@ -1,0 +1,9 @@
+episode_idx,H1,H1_detail,H3,H3_first_mismatch,H2_cond1,H2_cond2,H2_cond3
+3,held,a=True b=True c=True; first state diff 109,held,,held,held,held
+8,held,a=True b=True c=True; first state diff 530,held,,held,held,held
+16,held,a=True b=True c=True; first state diff 1807,held,,held,held,held
+20,held,a=True b=True c=True; first state diff 321,held,,held,held,held
+50,held,a=True b=True c=True; first state diff 5482,held,,held,held,held
+99,held,a=True b=True c=True; first state diff 724,held,,held,held,held
+92,held,a=True b=True c=True; first state diff 692,held,,held,held,held
+212,held,a=True b=True c=True; first state diff 986,held,,held,held,held

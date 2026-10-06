@@ -1,0 +1,44 @@
+{
+ "processes": [
+  "step4_1_idx0_cz025_proc1",
+  "step4_1_idx0_cz025_proc2"
+ ],
+ "frames": {
+  "init": {
+   "gray_frac_per_process": [
+    0.001521267361111111,
+    0.001533203125
+   ],
+   "vs_process_1": [
+    {
+     "process": "step4_1_idx0_cz025_proc2",
+     "max_abs_diff": 10,
+     "mean_abs_diff": 0.1585716869212963,
+     "share_channels_differ": 0.15686595775462964,
+     "share_pixels_any_channel_differ": 0.3729937065972222,
+     "root_state_bit_identical": true,
+     "all_body_states_bit_identical": true,
+     "max_abs_body_state_diff": 0.0
+    }
+   ]
+  },
+  "after50": {
+   "gray_frac_per_process": [
+    0.0004752604166666667,
+    0.00047960069444444444
+   ],
+   "vs_process_1": [
+    {
+     "process": "step4_1_idx0_cz025_proc2",
+     "max_abs_diff": 59,
+     "mean_abs_diff": 0.12498408564814815,
+     "share_channels_differ": 0.12421983506944445,
+     "share_pixels_any_channel_differ": 0.3102756076388889,
+     "root_state_bit_identical": true,
+     "all_body_states_bit_identical": true,
+     "max_abs_body_state_diff": 0.0
+    }
+   ]
+  }
+ }
+}
