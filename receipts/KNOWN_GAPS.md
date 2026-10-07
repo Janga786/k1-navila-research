@@ -164,3 +164,41 @@ episode-unstable non-determinism — are fully backed by committed per-episode d
 re-runnable analysis code. The *secondary* mechanistic claims — where nondeterminism
 originates (G1), and peripheral FOV driving arrival recognition (G6) — are not: one has no
 receipts, and the other is refuted by the sweep itself.
+
+---
+
+## UPDATE 2026-10-06 — post-sweep tests (commit 04ebeca)
+
+Tests run on the sweep workstation on 2026-10-01 and 2026-10-02, published in
+`paper_evidence/airc2027_post_sweep/`, close or narrow some of the gaps above. The text above is left as
+written in August.
+
+- **G1, resolved with new receipts.** The July 5a/5b numbers are still unverified, and the AIRC 2027 paper
+  does not use them. In their place:
+  - `rendering_diagnosis/DIAGNOSIS.md`, Step 4: two episode starts repeated in fresh processes gave
+    bit-identical physics but images that differed, almost all by one level of 255.
+  - `rendering_diagnosis/DIAGNOSIS.md`, Step 6: one logged eight-frame query, sent 60 times over three
+    model-server sessions, drew one reply.
+  - `frame_replay/RESULTS.md`, a test whose plan was committed before it ran: eight diverging episodes, each
+    run twice with full logging. The robot state was bit-identical until the first differing reply, and the
+    requests differed from the first query on because the rendered frames differed. Each run's request at the
+    first differing reply drew that run's reply in 20 of 20 sends under three server conditions. A third run
+    fed the first run's saved frames reproduced it exactly. In these eight episodes, rendering differences
+    alone caused the divergence.
+- **G3, resolved.**
+  - Camera heights were measured in dataset entry 0 after the reset warm-up, with the trunk origin 0.497 m
+    above the floor (`rendering_diagnosis/DIAGNOSIS.md` §3.5).
+  - The robot camera's first frame was re-rendered at all six heights
+    (`rendering_diagnosis/images/as_evaluated/robot_camera/`; the paper's Fig. 1).
+  - The −1.887 m Trunk-z diagnostic was not investigated.
+  - The same work found a rendering defect: the robot's merged head, arm and logo visuals stay at the spawn
+    pose (`DIAGNOSIS.md`).
+- **G4, narrowed.** In the frame-replay test, physics was bit-identical between processes given the same
+  commands, in all eight episodes (up to 6,001 control steps). The reduced buffers therefore caused no
+  run-to-run physics difference there. Whether a buffer ever overflows is still untested.
+- **G5, corrected: the videos were kept.** Every episode that was not interrupted left a video (chase
+  camera plus the robot camera's history frames): 3,360 across the ten sweep runs and the June run. They
+  remain on the workstation (about 65 GB). First frames and video scans are in the private
+  NaVILA-Complete-Archive (`12_airc2027_materials/`), and the frame measures used in the paper are in
+  `paper_evidence/airc2027_reanalysis/data/`.
+- **G13, addressed in the paper**, which uses `h078` as a third rerun (D3) of the default configuration.

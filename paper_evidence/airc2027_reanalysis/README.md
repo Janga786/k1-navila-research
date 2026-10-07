@@ -17,9 +17,10 @@ simulator or the model.
   and with Python 3.10, numpy 2.2.6, pandas 2.3.3 and scipy 1.15.3); `check_tables.py` allows for that.
 
 ## Data beyond the receipts (`data/`, `fig1_assets/`)
-All of it was derived on the sweep workstation (2026-10-01) from files that stay there (videos, scans and
-full logs are in the private NaVILA-Complete-Archive, `12_airc2027_materials/`). The post-sweep tests are
-published next to this folder in `../airc2027_post_sweep/`.
+All of it was derived on the sweep workstation (2026-10-01) from files that stay there. The episode
+videos (about 65 GB) were not archived; their first frames, the video scans and the run logs are in the
+private NaVILA-Complete-Archive, `12_airc2027_materials/`. The post-sweep tests are published next to this
+folder in `../airc2027_post_sweep/`.
 
 | File | What it is |
 | --- | --- |
