@@ -70,7 +70,7 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
   low-pass filter + verified ChangeMode). This is DONE and robot-gated; not part of the sweep.
 
 ## INFRASTRUCTURE (all set up, all survive reboot)
-- **Remote:** `ssh boosterk1@100.116.68.68` (Tailscale; key valid to Jan 2027). sshd+tailscaled
+- **Remote:** `ssh <user>@<tailscale-host>` (Tailscale; key valid to Jan 2027). sshd+tailscaled
   enabled. Box is on WiFi (SSID "Robotz", autoconnect on, powersave disabled).
 - **Never sleeps:** sleep/suspend/hibernate targets MASKED; logind idle/lid ignored; GNOME
   no-sleep/no-blank.

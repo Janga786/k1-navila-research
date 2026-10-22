@@ -117,5 +117,5 @@ instruction 30–60 s; some milling before a clean stop is normal.
 | **live mode: relay logs Move but robot doesn't walk** | DDS networking. This box's wired IP is `192.168.10.10`; the SDK targets `192.168.10.102`. Check link: `~/envs/navilaenv/bin/python -c "import socket; socket.create_connection(('192.168.10.102',22),timeout=3); print('wired OK')"`. If the `whitelist filtered out` error blocks commands, the FastDDS profile (`~/fastdds_k1.xml`, env `FASTRTPS_DEFAULT_PROFILES_FILE`) needs this box's wired interface/subnet whitelisted. |
 | robot won't stand / enter walking | put it in Prepare/stand via the Booster remote or LUI first; check battery. |
 
-Robot: `ssh booster@10.218.0.138` (pw 123456, sudo same). Wired: robot `192.168.10.102`,
+Robot: `ssh booster@<robot-LAN-IP>` (credentials kept off the repo; ask the lab). Wired: robot `192.168.10.102`,
 this box `192.168.10.10`. VLM server: this box `:5555`.

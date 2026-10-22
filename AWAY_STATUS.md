@@ -1,8 +1,8 @@
 # AWAY_STATUS — lab machine handoff (compiled 2026-07-24; user away 2026-07-25 .. 08-23)
 
 ## Remote access
-- SSH over Tailscale: `ssh boosterk1@100.116.68.68` (survives reboot; sshd + tailscaled enabled).
-- LAN fallback: 10.218.0.139.
+- SSH over Tailscale: `ssh <user>@<tailscale-host>` (survives reboot; sshd + tailscaled enabled).
+- LAN fallback: <lab-LAN-IP>.
 
 ## GPU / driver situation (RESOLVED 2026-07-24)
 - An auto-upgrade bumped the NVIDIA driver 580.159.03 -> 580.173.02 and broke CUDA (module
