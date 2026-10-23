@@ -9,8 +9,8 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
 - **Two-tier stack.** NaVILA issues mid-level commands at ~1 Hz; an RL locomotion policy I trained
   in Isaac Sim / Isaac Lab tracks them at 50 Hz (235-dim observation, 12-DoF action).
 - **Full benchmark.** The K1 integrated into VLN-CE-Isaac (R2R val-unseen) and run on all
-  **1,077 episodes**: **SR 18.3% · OS 30.3% · NE 7.59 m · SPL 10.9**, up from 0.76% for the first
-  full pipeline, over 22 training runs (~270 GPU-hours) and pipeline fixes. Simulation results.
+  **1,077 episodes**: **SR 18.3% · OS 30.3% · NE 7.59 m · SPL 10.9**, up from under 1% (recorded
+  as 0.76%; raw run not retained, see `EVIDENCE.md` claim 7) for the first full pipeline, over 22 training runs (~270 GPU-hours) and pipeline fixes. Simulation results.
 - **Evaluation reliability (the paper).** In 2,400 preregistered ablation episodes, two
   byte-identical 300-episode runs matched in aggregate (15.0% vs 16.0% SR) but disagreed on
   **11.0%** of episode outcomes (**Cohen's kappa 0.58**), and a fixed wall-clock limit censored
