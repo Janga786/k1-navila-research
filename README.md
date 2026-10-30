@@ -16,9 +16,11 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
   **11.0%** of episode outcomes (**Cohen's kappa 0.58**), and a fixed wall-clock limit censored
   conditions unequally (2.0% vs 12.3% timeouts). A 10-episode pilot effect did not replicate
   at n = 300; the correction is kept on the record.
-- **Physical robot.** A three-machine relay (RTX 5090 VLM inference, ~330 ms) ran NaVILA on the
-  real K1 for two natural-language episodes with zero teleoperation, using Booster's built-in
-  walker (the trained policy was evaluated in simulation).
+- **Physical robot.** A three-machine deploy relay for the real K1 is wired and documented
+  (`ROBOT_DEPLOY_RUNBOOK.md`), with print/dry/live modes and safety interlocks. The public K1
+  volleyball clip shows physical locomotion but has no synchronized model trace, so it is not
+  evidence of live NaVILA control; this project claims no live closed-loop navigation on
+  hardware. The trained policy was evaluated in simulation only.
 
 ## Start here
 
