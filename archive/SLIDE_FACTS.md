@@ -1,6 +1,13 @@
 # SLIDE_FACTS — verified numbers only (2026-07-22)
 
 > [!IMPORTANT]
+> **2026-10-30:** This is an archived slide-prep ledger. Several items below were later
+> withdrawn: the exact **0.76%** baseline and the **~24×** headline (raw run not retained —
+> use "under 1%"), and every causal camera-height / embodiment-tax framing (the pre-specified
+> height ladder found no trend). Current canonical claims live in `FINAL_RESULTS_full1077.md`
+> (revised) and `paper_evidence/PAPER_RESULTS.md`.
+
+> [!IMPORTANT]
 > **CORRECTION NOTICE — added 2026-08-22, after the n=300 sweep completed.**
 > The "Controlled studies" crop-vs-stretch item below is superseded. The 100-episode/arm
 > rerun listed as "IN PROGRESS since 07-22" was abandoned and replaced by 300-episode arms,

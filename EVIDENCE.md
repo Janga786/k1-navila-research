@@ -1,4 +1,13 @@
 # EVIDENCE.md — claim-by-claim verification against primary sources
+
+> [!NOTE]
+> **Addendum 2026-10-30.** This ledger is a dated snapshot (2026-07-21) and three entries are
+> superseded by the completed n=300 sweep: claim 12 (crop-vs-stretch pilot) **reversed** at
+> n=300 (`receipts/analysis/ROBUSTNESS.md` §C, `receipts/KNOWN_GAPS.md` G6); claim 15's
+> booster_train commit note is stale; and the camera-height "embodiment tax" framing is
+> withdrawn (no monotone height trend — `receipts/analysis/ANALYSIS.md`). Current gaps live in
+> `receipts/KNOWN_GAPS.md`; `FINAL_RESULTS_full1077.md` was revised 2026-10-30 accordingly.
+
 Compiled 2026-07-21 on the lab machine. Verdicts: ✅ VERIFIED · ⚠️ VERIFIED-WITH-NUANCE
 (number right, framing needs care) · 🔴 CONFLICT (slide number disagrees with primary
 source) · ⛔ NOT ON DISK (cannot be verified from this machine — fix or remove).

@@ -40,8 +40,7 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 - **Do NOT change benchmark semantics.** No scoring/termination changes. Additive logging only.
 - **STOP and ask** before any hard-to-reverse or system-level change.
 - The user gives explicit launch/decision gates. Don't launch multi-day work without a go.
-- Sudo: the user authorized it for THIS machine's upkeep. Password is in the session
-  transcript (it was exposed; the user was told to change it). Don't echo it needlessly.
+- Sudo: the user authorized it for THIS machine's upkeep.
 
 ## KEY FACTS / PRIOR FINDINGS (so you don't re-derive them)
 - **Headline result (the paper's anchor):** full_14498 benchmark = SR **18.3%** over n=1077
@@ -65,9 +64,12 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 - **Camera flags added to navila_eval_v3.py:** `--cam_z/--cam_height/--cam_width/--cam_aperture`
   (offset-only, isolation-verified: only z moves, FOV/res fixed). Ground height = 0.53 + cam_z.
 - Robot deploy policy (separate from the benchmark): model_14200 (round-5 lateral-band gait)
-  is installed in booster_deploy but the user rejected earlier gaits; the FIRST real-robot walk
-  happened 07-23 (vibrated → traced to a mode-switch/dual-controller issue, fixed a deploy-side
-  low-pass filter + verified ChangeMode). This is DONE and robot-gated; not part of the sweep.
+  is installed in booster_deploy but the user rejected earlier gaits; the 07-23 hardware session
+  was the first and only attempt (the robot vibrated at stand and the attempt was aborted before
+  any walk — traced to a mode-switch/dual-controller issue, fixed a deploy-side low-pass filter +
+  verified ChangeMode). *[Annotated 2026-10-30: this entry originally said "the FIRST real-robot
+  walk happened 07-23"; per the project record the trained policy has never walked on hardware —
+  see `EVIDENCE.md` §18 and `receipts/media_index.md`.]* This is robot-gated; not part of the sweep.
 
 ## INFRASTRUCTURE (all set up, all survive reboot)
 - **Remote:** `ssh <user>@<tailscale-host>` (Tailscale; key valid to Jan 2027). sshd+tailscaled

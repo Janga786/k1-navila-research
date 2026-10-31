@@ -1,16 +1,23 @@
 # K1 NaVILA — Full Benchmark Results (VLN-CE-Isaac, R2R val-unseen, n=1077)
 
 > [!IMPORTANT]
-> **CORRECTION NOTICE — added 2026-08-22, after the n=300 sweep completed.**
-> Finding 2 below ("Arrival recognition needs peripheral FOV", crop *reached* but never
-> stopped) came from an n=10 pilot and **did not replicate**. At n=300 per arm the effect
-> runs the OPPOSITE way: crop converts **69.4%** of goal-reaches into stops versus stretch's
-> **51.1%** (Fisher p = 0.008), while reaching *less* often (OS 24.0% vs 29.0/31.7%).
-> No transform shows a significant SR difference at n=300. See
-> `receipts/analysis/ROBUSTNESS.md` §C and `receipts/KNOWN_GAPS.md` G6.
-> **Do not reuse the peripheral-FOV mechanism in the paper.** The body of this document is
-> left unedited so the original claim and its refutation are both on the record; it still
-> needs a proper rewrite, and the outstanding edits in `EVIDENCE.md` (G7) still apply.
+> **CORRECTION NOTICE — 2026-08-22, revised 2026-10-30.** This document originally claimed a
+> causal "camera-height / FOV embodiment tax" with two mechanisms. Both causal claims are
+> withdrawn, and the body below has now been edited to match the evidence (the original text
+> is preserved in git history):
+> - **Mechanism 2** ("arrival recognition needs peripheral FOV": crop *reached* but never
+>   stopped, from an n=10 pilot) **did not replicate**. At n=300 per arm the effect runs the
+>   OPPOSITE way: crop converts **69.4%** of goal-reaches into stops versus stretch's
+>   **51.1%** (Fisher p = 0.008), while reaching *less* often (OS 24.0% vs 29.0/31.7%).
+>   No transform shows a significant SR difference at n=300. See
+>   `receipts/analysis/ROBUSTNESS.md` §C and `receipts/KNOWN_GAPS.md` G6.
+> - **Mechanism 1 as a causal camera-height claim did not survive the controlled sweep**:
+>   across the pre-specified height ladder (n=200/arm) there is no monotone SR trend
+>   (z = +0.828, p = 0.408; `receipts/analysis/ANALYSIS.md`). The viewpoint-gap numbers
+>   below are kept as description, not cause.
+>
+> The 2,400-episode sweep's strongest result is about evaluation reliability itself —
+> see `paper_evidence/PAPER_RESULTS.md` and `receipts/KNOWN_GAPS.md`.
 
 **Run:** `full_14498` · completed 2026-06-22 · **COMPLETE: 1077/1077 scored, 0 missing** (the 27
 straggler timeouts were recovered on a retry pass with a doubled wall-clock guard — they were slow
@@ -29,10 +36,12 @@ all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (n
 | H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
 | H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
 | **K1 (ours, vision)** | **model_14498** (n=1077/1077) | **7.59** | **30.3** | **18.3** | **10.9** |
-| K1 — prior stack (reference) | v3 model_16000 | — | ~10 | 0.76 | — |
+| K1 — prior stack (reference) | v3 model_16000 | — | ~10 | 0.76* | — |
 
-**SR 0.76% → 18.3% — a ~24× improvement.** NE is essentially tied with the paper's blind-H1
-(7.59 vs 7.67); OS/SR/SPL sit a notch below it — the embodiment gap analyzed below.
+\* Recorded value; the raw run directory was not retained (`EVIDENCE.md` claim 7) — treat as
+"under 1%". The first complete pipeline scored under 1%; the final stack scores 18.3%. NE is
+essentially tied with the paper's blind-H1 (7.59 vs 7.67); OS/SR/SPL sit a notch below it —
+the viewpoint gap is described (not causally attributed) below.
 
 ## Decomposition (where the episodes go) — complete n=1077
 - **197 successes = SR 18.3%.**
@@ -46,29 +55,35 @@ all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (n
 - **0 missing** — all 1077 scored. (The first pass left 27 as persistent timeouts; doubling the
   harness wall-clock guard 900→1800 s recovered every one — they were slow scenes, not hung.)
 
-## The scientific finding: the camera-height / FOV embodiment tax
-The same frozen NaVILA VLM drives H1 (blind) to SR 24.4 / OS 33.3 and K1 to SR 18.3 / OS 30.3. The
-gap is **embodiment, not the policy or the brain** (the locomotion passed every sim gate; the VLM is
-identical and was shown stop-capable). Two quantified mechanisms:
-1. **Exploration cost (the OS/SR gap).** K1's eye sits at **0.78 m** vs H1's ~1.5 m, so goals behind
-   furniture aren't visible — the robot must explore to find them. **SPL among successes is 60%**
-   (≈1.7× the optimal path) vs blind-H1's ~86%; successful K1 runs wander before arriving.
-   Mean path length 22.1 m. NE among the 197 successes is **1.53 m** (it stops *well* inside the
-   radius when it does arrive — the stop logic is sound; the issue is reaching).
-2. **Arrival recognition needs peripheral FOV (controlled).** A same-episode crop-vs-stretch A/B:
-   stretch SR 30 vs crop 0 (crop *reached* but never stopped). Cropping improves approach geometry
-   but blinds the "I have arrived" judgment.
+## The viewpoint gap, described (causal claims withdrawn — see correction notice)
+The same frozen NaVILA VLM drives H1 (blind) to SR 24.4 / OS 33.3 and K1 to SR 18.3 / OS 30.3
+(the locomotion passed every sim gate; the VLM is identical and was shown stop-capable).
+Descriptively:
+- **Exploration dominates the gap.** K1's eye sits at **0.78 m** vs H1's ~1.5 m (derived).
+  **SPL among successes is 60%** (≈1.7× the optimal path) vs blind-H1's ~86%; successful K1
+  runs wander before arriving. Mean path length 22.1 m. NE among the 197 successes is
+  **1.53 m** (it stops *well* inside the radius when it does arrive — the stop logic is
+  sound; the issue is reaching).
+- **Whether the lower viewpoint *causes* the gap is unresolved.** The pre-specified
+  camera-height ladder (n=200/arm) found no monotone SR trend, so this run's descriptive gap
+  cannot be attributed to camera height on this stack's own evidence.
 
-Supporting controls already in hand: **int8 vs fp16 action drift 7.1%** (below the model's own 14.9%
-sensitivity to an imperceptible JPEG re-encode; 100% agreement on success episodes — int8 is not a
-confound); and the **renderer result** — the same stack on a 5090 (Isaac 4.1 lacks Blackwell support,
-~17% frame speckle) scores **SR 0/10** on episodes where this 3090 (clean render) scores 30/10.
+Supporting controls: **int8 vs fp16 action drift 7.1%** (below the model's own 14.9%
+sensitivity to an imperceptible JPEG re-encode; 100% agreement on success episodes — int8 is
+not a confound). The **5090 was disqualified as an eval machine** after visible frame
+corruption (Isaac 4.1 lacks Blackwell support, ~17% frame speckle) and an SR 0/10 screen on
+episodes where the 3090 (clean render) scored 3/10 — a 10-episode hardware screen, within
+run-to-run noise, not a finding.
 
 ## Caveats (stated plainly)
 - **n = 1 robot, single VLM.** A deployment/embodiment result, not a broad empirical claim.
 - **Sim-only.** No real-robot navigation number yet (deployment networking solved — `--net eno1` /
   GetMode verified — but the robot has not walked under NaVILA; camera reliability pending).
 - **int8** (to co-fit the VLM with Isaac on 24 GB) — controlled and shown ≈fp16 at the action level.
+- **Known rendering defect (found post-sweep):** robot head/arm/logo geometry drawn at the
+  spawn pose can appear in the robot camera
+  (`paper_evidence/airc2027_post_sweep/rendering_diagnosis/DIAGNOSIS.md`); it is visible in
+  this run's era and its effect on the headline numbers is not quantified.
 
 ## Provenance
 Measurements: `NaVILA-Bench-main/eval_results/k1_matterport_vision_loco_full_14498/measurements/`

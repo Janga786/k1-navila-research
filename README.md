@@ -12,7 +12,7 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
   **1,077 episodes**: **SR 18.3% · OS 30.3% · NE 7.59 m · SPL 10.9**, up from under 1% (recorded
   as 0.76%; raw run not retained, see `EVIDENCE.md` claim 7) for the first full pipeline, over 22 training runs (~270 GPU-hours) and pipeline fixes. Simulation results.
 - **Evaluation reliability (the paper).** In 2,400 preregistered ablation episodes, two
-  byte-identical 300-episode runs matched in aggregate (15.0% vs 16.0% SR) but disagreed on
+  identically configured 300-episode runs matched in aggregate (15.0% vs 16.0% SR) but disagreed on
   **11.0%** of episode outcomes (**Cohen's kappa 0.58**), and a fixed wall-clock limit censored
   conditions unequally (2.0% vs 12.3% timeouts). A 10-episode pilot effect did not replicate
   at n = 300; the correction is kept on the record.
@@ -40,7 +40,8 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
 - `paper_evidence/` — CPU-only, deterministic reanalysis scripts, tables, and figures
 - `receipts/` — run ledgers, preregistration, determinism probes, raw metric outputs
 - `scripts/` — benchmark and analysis helpers
-- Top-level `*_STATUS.md`, `HANDOFF.md`, `RUN_STATUS.md` — lab-notebook status logs kept for the record
+- `archive/` — lab-notebook status logs and slide-prep ledgers (`HANDOFF.md`, `AWAY_STATUS.md`,
+  `SLIDE_FACTS.md`, …) kept for the record, annotated where later evidence corrected an entry
 
 ## Credits
 
