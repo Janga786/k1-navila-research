@@ -21,6 +21,7 @@
   use r6's video instead).
 - **"Real-robot volleyball clip": NOT FOUND anywhere on this machine** (searched Desktop,
   Videos, Screencasts, Downloads, Documents, robocup_demo). Also note the project record:
-  the K1 has never walked under this stack; if such a clip exists it is on a phone/other
+  the trained policy has never walked on hardware and no live NaVILA episode is evidenced in
+  this repository; if such a clip exists it is on a phone/other
   machine and is not part of this project's evidence chain. Remove from deck or source it
   explicitly.

@@ -43,6 +43,9 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
 - `archive/` — lab-notebook status logs and slide-prep ledgers (`HANDOFF.md`, `AWAY_STATUS.md`,
   `SLIDE_FACTS.md`, …) kept for the record, annotated where later evidence corrected an entry
 
-## Credits
+## Credits and provenance
 
 Built on [NaVILA](https://navila-bot.github.io/) and the VLN-CE-Isaac benchmark. Robot: Booster K1 EDU.
+The experiment designs, decisions, and claims are mine; substantial parts of the implementation and
+the unattended sweep operations were carried out with AI coding agents under my direction (the
+handoff notes in `archive/` record that process).

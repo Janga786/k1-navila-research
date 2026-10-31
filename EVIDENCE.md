@@ -6,7 +6,9 @@
 > n=300 (`receipts/analysis/ROBUSTNESS.md` §C, `receipts/KNOWN_GAPS.md` G6); claim 15's
 > booster_train commit note is stale; and the camera-height "embodiment tax" framing is
 > withdrawn (no monotone height trend — `receipts/analysis/ANALYSIS.md`). Current gaps live in
-> `receipts/KNOWN_GAPS.md`; `FINAL_RESULTS_full1077.md` was revised 2026-10-30 accordingly.
+> `receipts/KNOWN_GAPS.md`; `FINAL_RESULTS_full1077.md` was revised 2026-10-30 accordingly
+> (its line numbers have shifted relative to citations below). Root-level status logs cited
+> below (`HANDOFF.md`, `BENCHMARK_32GB_CHECKLIST.md`, …) now live under `archive/`.
 
 Compiled 2026-07-21 on the lab machine. Verdicts: ✅ VERIFIED · ⚠️ VERIFIED-WITH-NUANCE
 (number right, framing needs care) · 🔴 CONFLICT (slide number disagrees with primary

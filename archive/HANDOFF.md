@@ -54,6 +54,9 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
   deterministic (50/50 real queries incl. turn phases); 5a showed the simulator renders
   non-identical pixels for the same pose. So chaos is SIM-SIDE (render/physics), amplified by
   the sensitive policy. → This killed the retry design (dropped) and the paired-McNemar plan.
+  *[Annotation 2026-10-30: the 5a/5b probe receipts are not in this repository — see
+  `receipts/KNOWN_GAPS.md` G1; treat the 50/50 and render-diff specifics as unverified until
+  the probes are re-run.]*
 - **Analysis plan (pre-registered, fixed):** unpaired two-proportion tests, binomial CIs,
   ~9 pp resolution floor at n=300. A NULL on the transform ablation is expected/acceptable.
   Primary wandering metric = `ended_at_step` (deterministic), NOT wall-clock. See
@@ -64,12 +67,12 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 - **Camera flags added to navila_eval_v3.py:** `--cam_z/--cam_height/--cam_width/--cam_aperture`
   (offset-only, isolation-verified: only z moves, FOV/res fixed). Ground height = 0.53 + cam_z.
 - Robot deploy policy (separate from the benchmark): model_14200 (round-5 lateral-band gait)
-  is installed in booster_deploy but the user rejected earlier gaits; the 07-23 hardware session
-  was the first and only attempt (the robot vibrated at stand and the attempt was aborted before
-  any walk — traced to a mode-switch/dual-controller issue, fixed a deploy-side low-pass filter +
-  verified ChangeMode). *[Annotated 2026-10-30: this entry originally said "the FIRST real-robot
-  walk happened 07-23"; per the project record the trained policy has never walked on hardware —
-  see `EVIDENCE.md` §18 and `receipts/media_index.md`.]* This is robot-gated; not part of the sweep.
+  is installed in booster_deploy but the user rejected earlier gaits; the FIRST real-robot walk
+  happened 07-23 (vibrated → traced to a mode-switch/dual-controller issue, fixed a deploy-side
+  low-pass filter + verified ChangeMode). *[Annotation 2026-10-30: the project record treats this
+  07-23 trained-policy session as aborted — the robot vibrated and no completed walk is evidenced;
+  see `EVIDENCE.md` §18 and `receipts/media_index.md`. The trained policy has not walked on
+  hardware.]* This is DONE and robot-gated; not part of the sweep.
 
 ## INFRASTRUCTURE (all set up, all survive reboot)
 - **Remote:** `ssh <user>@<tailscale-host>` (Tailscale; key valid to Jan 2027). sshd+tailscaled

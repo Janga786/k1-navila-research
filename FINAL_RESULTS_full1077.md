@@ -47,13 +47,15 @@ the viewpoint gap is described (not causally attributed) below.
 - **197 successes = SR 18.3%.**
 - **326 reaches = OS 30.3%** — got within the 3.0 m goal radius at some point.
 - **Stop-given-reached = 197/326 = 60%** — of episodes that reached, 60% recognized arrival and
-  stopped. (Paper blind-H1 implies ~73%; ours is lower but far from the old ~0% — the camera/render
-  fixes earned this.)
-- **Reached-but-didn't-stop = 129 (12.0%)** — the stop-failure class; the lever here is arrival
-  recognition (FOV/height), not locomotion.
-- **Didn't reach = 69.7%** — the dominant failure mode, traced to exploration cost (below).
+  stopped. (Paper blind-H1 implies ~73%.)
+- **Reached-but-didn't-stop = 129 (12.0%)** — the stop-failure class: reached the goal radius but
+  did not stop. What drives it is unresolved; the FOV mechanism proposed earlier reversed at
+  n=300 (see correction notice).
+- **Didn't reach = 69.7%** — the dominant observed failure class (exploration; described below).
 - **0 missing** — all 1077 scored. (The first pass left 27 as persistent timeouts; doubling the
-  harness wall-clock guard 900→1800 s recovered every one — they were slow scenes, not hung.)
+  harness wall-clock guard 900→1800 s recovered every one — they were slow scenes, not hung.
+  Under measured nondeterminism a retry is a second draw; `receipts/PRE_REGISTRATION.md` discusses
+  the caveat and why the bias is negligible here.)
 
 ## The viewpoint gap, described (causal claims withdrawn — see correction notice)
 The same frozen NaVILA VLM drives H1 (blind) to SR 24.4 / OS 33.3 and K1 to SR 18.3 / OS 30.3
@@ -78,7 +80,8 @@ run-to-run noise, not a finding.
 ## Caveats (stated plainly)
 - **n = 1 robot, single VLM.** A deployment/embodiment result, not a broad empirical claim.
 - **Sim-only.** No real-robot navigation number yet (deployment networking solved — `--net eno1` /
-  GetMode verified — but the robot has not walked under NaVILA; camera reliability pending).
+  GetMode verified — but the trained policy has not walked on hardware and no live closed-loop
+  NaVILA run is evidenced or claimed; camera reliability pending).
 - **int8** (to co-fit the VLM with Isaac on 24 GB) — controlled and shown ≈fp16 at the action level.
 - **Known rendering defect (found post-sweep):** robot head/arm/logo geometry drawn at the
   spawn pose can appear in the robot camera

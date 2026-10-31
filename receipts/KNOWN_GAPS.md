@@ -1,5 +1,14 @@
 # KNOWN GAPS — what this evidence base does NOT support
 
+> [!NOTE]
+> **Update 2026-10-30:** G6/G7/G14 are now addressed — `FINAL_RESULTS_full1077.md` was rewritten
+> (causal embodiment-tax framing removed, the 13 flagged edits applied or superseded, "30/10"
+> fixed to 3/10) and `SLIDE_FACTS.md` was annotated and moved to `archive/` with the other
+> lab-notebook logs. File paths in the entries below that point at root-level status logs
+> (`HANDOFF.md`, `SLIDE_FACTS.md`, `AWAY_STATUS.md`, `COMMIT_LEDGER.md`, `RUN_STATUS.md`,
+> `ROBOT_TEST_NOW.md`, `BENCHMARK_32GB_CHECKLIST.md`) now resolve under `archive/`. The
+> remaining gaps stand as written.
+
 Compiled 2026-08-22, after the sweep completed, by auditing every paper-facing claim in this
 repository against the primary data on disk.
 
