@@ -27,8 +27,11 @@ publication). The robot is on a safety/power tether.
 
 - These recordings support: **NaVILA issued velocity commands to the real K1 in live mode,
   with no teleoperation, and the robot walked toward the instructed goal** under Booster's
-  **built-in walking controller** executing those commands (the early laptop relay — not the
-  later three-machine RTX 5090 relay in `../../ROBOT_DEPLOY_RUNBOOK.md`).
+  **built-in walking controller** executing those commands, via the early laptop relay (the
+  relay telemetry shows a remote VLM link; this deployment predates the deploy relay
+  documented in `../../ROBOT_DEPLOY_RUNBOOK.md`).
+- One episode is captured in these recordings; a second instruction episode from the same
+  session is on the project record but was not recorded.
 - They do **not** show: the trained RL policy on hardware (it was evaluated in simulation
   only and has not walked on hardware), an untethered run, or a scored navigation episode
   (no success metric is claimed for the live session).
