@@ -9,6 +9,9 @@
 > `receipts/KNOWN_GAPS.md`; `FINAL_RESULTS_full1077.md` was revised 2026-10-30 accordingly
 > (its line numbers have shifted relative to citations below). Root-level status logs cited
 > below (`HANDOFF.md`, `BENCHMARK_32GB_CHECKLIST.md`, …) now live under `archive/`.
+> Claim 18's "volleyball clip not found" is also resolved: the relay screen recording and the
+> dated third-person clip are committed with a receipt note at
+> `receipts/media/LIVE_EPISODE_RECEIPT.md` (2026-10-30).
 
 Compiled 2026-07-21 on the lab machine. Verdicts: ✅ VERIFIED · ⚠️ VERIFIED-WITH-NUANCE
 (number right, framing needs care) · 🔴 CONFLICT (slide number disagrees with primary

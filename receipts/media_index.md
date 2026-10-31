@@ -19,9 +19,9 @@
   `gait_r6_11999_FAILED_WIDE.mp4`. Fix the slide caption or render round-4's checkpoint
   (`k1_navila/2026-07-13_14-08-34` was DELETED after the negative result — cannot render;
   use r6's video instead).
-- **"Real-robot volleyball clip": NOT FOUND anywhere on this machine** (searched Desktop,
-  Videos, Screencasts, Downloads, Documents, robocup_demo). Also note the project record:
-  the trained policy has never walked on hardware and no live NaVILA episode is evidenced in
-  this repository; if such a clip exists it is on a phone/other
-  machine and is not part of this project's evidence chain. Remove from deck or source it
-  explicitly.
+- **"Real-robot volleyball clip": RESOLVED 2026-10-30.** The clips were on the user's phone
+  and desktop, and are now committed with a receipt note at
+  `receipts/media/LIVE_EPISODE_RECEIPT.md` (relay screen recording showing live VLM-issued
+  velocity commands + dated third-person video, May 2026, built-in walker executing). The
+  trained policy has still never walked on hardware, and no navigation score is claimed for
+  the live session.

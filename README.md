@@ -16,11 +16,14 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
   **11.0%** of episode outcomes (**Cohen's kappa 0.58**), and a fixed wall-clock limit censored
   conditions unequally (2.0% vs 12.3% timeouts). A 10-episode pilot effect did not replicate
   at n = 300; the correction is kept on the record.
-- **Physical robot.** A three-machine deploy relay for the real K1 is wired and documented
-  (`ROBOT_DEPLOY_RUNBOOK.md`), with print/dry/live modes and safety interlocks. The public K1
-  volleyball clip shows physical locomotion but has no synchronized model trace, so it is not
-  evidence of live NaVILA control; this project claims no live closed-loop navigation on
-  hardware. The trained policy was evaluated in simulation only.
+- **Physical robot.** In May 2026, NaVILA drove the real K1 **live** through the early laptop
+  relay: VLM-issued velocity commands (no teleoperation, ~350 ms/inference) executed by
+  Booster's built-in walking controller, walking the robot toward a volleyball on instruction.
+  Receipts — a screen recording of the live relay plus a dated third-person clip — are in
+  [`receipts/media/`](receipts/media/LIVE_EPISODE_RECEIPT.md); no navigation score is claimed
+  for the live session. The later three-machine deploy relay is wired and documented
+  (`ROBOT_DEPLOY_RUNBOOK.md`) with print/dry/live modes and safety interlocks. **The trained
+  RL policy was evaluated in simulation only and has not walked on hardware.**
 
 ## Start here
 
@@ -32,6 +35,7 @@ Fort Lewis College, summer 2026. Advisor: Dr. Yiyan Li. Paper in preparation for
 | [`receipts/KNOWN_GAPS.md`](receipts/KNOWN_GAPS.md) | Open issues and corrections, stated plainly |
 | [`EVIDENCE.md`](EVIDENCE.md) | Claim-by-claim verification against primary sources |
 | [`ROBOT_DEPLOY_RUNBOOK.md`](ROBOT_DEPLOY_RUNBOOK.md) | How the physical-robot relay is wired and run |
+| [`receipts/media/LIVE_EPISODE_RECEIPT.md`](receipts/media/LIVE_EPISODE_RECEIPT.md) | The May 2026 live NaVILA episode: relay screen recording + third-person video |
 | [`checkpoints/`](checkpoints/README.md) | Final locomotion policy checkpoints (`.pt`, TorchScript, ONNX) |
 
 ## Layout
