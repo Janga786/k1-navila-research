@@ -4,19 +4,19 @@
 **VLM:** navila-llama3-8b-8f, **int8** (`--load_8bit`) · **Frames:** raw render (no `--clean_render`/`--bright`), PNG wire, `--vlm_transform stretch`
 **Episodes:** R2R val-unseen indices 0–9 · **Flags:** `--closed_loop --max_episode_s 120`, `EP_TIMEOUT=900` · **Code:** commit `6dc4d2d`
 
-## Headline (paper-comparable)
+## Headline (comparable to published baselines)
 
 | Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
 |-------|--------|-----|-----|-----|------|
-| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
-| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
-| H1 (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
-| H1 (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| Go2 (published, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (published, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1 (published, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1 (published, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
 | K1 — old stack (full 1,077) | v3 model_16000 | — | ~10 | 0.76 | — |
 | K1 — desktop 5090 smoke (same 10 eps) | model_11999-era | — | 40.0 | 0.0 | — |
 | **K1 — lab 3090 smoke (this run)** | **model_14498** | **5.61** | **40.0** | **30.0** | **15.3** |
 
-The blind K1 beats the paper's **blind H1** on NE / OS / SR on this slice, with a quantized VLM,
+The blind K1 beats the published **blind H1** on NE / OS / SR on this slice, with a quantized VLM,
 despite a lower camera (0.78 m vs ~1.5 m eye height).
 
 ## Per-episode vs the desktop (same episodes, same VLM, different renderer)
@@ -39,12 +39,12 @@ despite a lower camera (0.78 m vs ~1.5 m eye height).
 - **All SR gain = stop-on-arrival conversions on clean frames** (eps 5, 7, 8). The desktop's
   Isaac 4.1 renderer lacks Blackwell (RTX 5090) support → ~17% speckle (high-freq residual 15.6
   vs 0.4–1.3 here) → arrival-blindness. Confirms the desktop session's diagnosis.
-- **int8 exonerated**: paper-level SR, organic in-episode stops, correct first decisions.
+- **int8 exonerated**: published-level SR, organic in-episode stops, correct first decisions.
 - **Surviving failure classes**: wander-never-near (0–2; blind-policy/VLM ceiling), mesh hazards
   (3; environment), late/far stops (4), archway walk-out (6; semantic prior — survives clean
   frames). Cheap lever remaining: `--vlm_transform crop` A/B. Structural lever: height-map policy
-  (paper vision rows above ≈ +14 SR).
-- **Caveats**: n=10 (wide CIs; expect the full 1,077 to land lower), SPL trails paper blind-H1
+  (published vision rows above ≈ +14 SR).
+- **Caveats**: n=10 (wide CIs; expect the full 1,077 to land lower), SPL trails published blind-H1
   (successes wander before arriving), ep9 regressed vs desktop (single-episode noise).
 - **Harness during the run**: 0 PARSE_FAIL, executor stall→re-query firing correctly, no socket
   hangs, no hopeless-stall false fires, all 10 episodes scored.

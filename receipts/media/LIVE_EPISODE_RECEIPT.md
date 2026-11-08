@@ -4,6 +4,21 @@ Two recordings of the same session document NaVILA driving the **real K1** in li
 through the early laptop relay. Added to the repository 2026-10-30; this resolves the
 "volleyball clip not found" gap in `../media_index.md` and `../../EVIDENCE.md` §18.
 
+## Hosted recordings
+
+The `.mp4` files are git-ignored and are not in this repository; they are hosted with the
+portfolio:
+
+- <https://janga786.github.io/media/k1-relay-live.mp4> — relay screen recording + robot: the
+  relay in `[LIVE]` mode streaming VLM velocity commands over the robot's own head camera.
+- <https://janga786.github.io/media/k1-walk-to-volleyball.mp4> — third-person clip of the K1
+  walking toward the volleyball during the live episode.
+
+Two live natural-language episodes were run in the May 2026 session ("walk to the volleyball
+and stop", "walk to the volleyball and turn left"). One is captured on video (above); the
+second is on the project record. Both used Booster's built-in walker through the relay, with
+zero teleoperation. The trained RL policy has never worked outside simulation.
+
 ## `relay_live_volleyball_2026-05.mp4` (screen recording, 17.5 s)
 
 A screen capture of the **"NaVILA Laptop Relay"** window during the episode:

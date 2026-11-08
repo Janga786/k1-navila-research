@@ -120,19 +120,19 @@ Generated tables/scripts live in `receipts/`. Paths are relative to
   **ss_vx error = 0.016 m/s** (0.484 @ 0.5 cmd), onset 0.40 s (matches recorded exactly),
   1.5 s-dist 0.626 (matches recorded exactly). The 0.007-vs-0.016 gap is run-to-run eval
   variance. **Slide-safe phrasing: "steady-state velocity error < 0.02 m/s (measured
-  0.007–0.016), ~4× better than the NaVILA paper's 0.066 Go2 reference."**
+  0.007–0.016), ~4× better than the published NaVILA 0.066 Go2 reference."**
 - ✅ **0.066 VERIFIED against arXiv 2412.04453 HTML (2026-07-22)**: Table V "Linear Vel.
   Error" = 0.066, Section III-B. Also verified: every H1/Go2 baseline in our docs matches
-  the paper's Table IV exactly (Go2 blind 6.03/49.0/36.2/33.3, Go2 vision 5.49/58.7/50.2/45.5,
+  the published NaVILA Table IV exactly (Go2 blind 6.03/49.0/36.2/33.3, Go2 vision 5.49/58.7/50.2/45.5,
   H1 blind 7.67/33.3/24.4/21.0, H1 vision 5.86/54.6/45.3/40.3).
 
 ---
-## SECTION 2 — paper evidence chain
+## SECTION 2 — reanalysis evidence chain
 
 ### 10. Failure decomposition & stop-conversion — ✅ REGENERATED EXACTLY
 - Same script/output as claim 8: **never-reached 751 (69.7%) / reached-no-stop 129
   (12.0%) / success 197 (18.3%)**; stop-given-reached **197/326 = 60.4%**.
-- H1-blind 73.3% is a **derivation from paper Table values** (SR 24.4 / OS 33.3 →
+- H1-blind 73.3% is a **derivation from published NaVILA Table values** (SR 24.4 / OS 33.3 →
   0.244·1077=263, 0.333·1077=359, 263/359=73.3%) — the script prints it with the
   derivation; label it "derived" on the slide.
 
@@ -226,7 +226,7 @@ source it explicitly or cut it.
 5. H1 1.5 m → "~1.5 m (pelvis + 0.5 m, derived)". (Claim 4)
 6. 61% → "~61% (recorded)"; raw log not on disk. (Claim 5)
 7. 0.76% → recorded baseline; raw run dir not on this machine. (Claim 7)
-8. 0.007 m/s → "<0.02 m/s (0.007–0.016 across runs)"; verify 0.066 vs the paper. (Claim 9)
+8. 0.007 m/s → "<0.02 m/s (0.007–0.016 across runs)"; verify 0.066 vs the published value. (Claim 9)
 9. Crop arm "never stopped" → "stopped only after overshooting (3.7–6.7 m)". (Claim 12)
 10. Renderer raw data is on the desktop machine — cite docs or fetch dirs. (Claim 13)
 11. "~9 training runs" → 22 runs / ~270 GPU-h. (Claim 17)

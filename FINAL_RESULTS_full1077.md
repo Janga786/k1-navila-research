@@ -27,27 +27,27 @@ all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (n
 · `--vlm_transform stretch` · `--closed_loop` · `--max_episode_s 120`. Code @ repo
 `Janga786/k1-navila-research`.
 
-## Headline (paper-comparable, denominator = full 1077)
+## Headline (comparable to published baselines, denominator = full 1077)
 
 | Robot | Policy | NE↓ | OS↑ | SR↑ | SPL↑ |
 |-------|--------|-----|-----|-----|------|
-| Go2 (paper, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
-| Go2 (paper, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
-| H1  (paper, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
-| H1  (paper, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
+| Go2 (published, blind) | — | 6.03 | 49.0 | 36.2 | 33.3 |
+| Go2 (published, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
+| H1  (published, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
+| H1  (published, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
 | **K1 (ours, vision)** | **model_14498** (n=1077/1077) | **7.59** | **30.3** | **18.3** | **10.9** |
 | K1 — prior stack (reference) | v3 model_16000 | — | ~10 | 0.76* | — |
 
 \* Recorded value; the raw run directory was not retained (`EVIDENCE.md` claim 7) — treat as
 "under 1%". The first complete pipeline scored under 1%; the final stack scores 18.3%. NE is
-essentially tied with the paper's blind-H1 (7.59 vs 7.67); OS/SR/SPL sit a notch below it —
+essentially tied with the published blind-H1 (7.59 vs 7.67); OS/SR/SPL sit a notch below it —
 the viewpoint gap is described (not causally attributed) below.
 
 ## Decomposition (where the episodes go) — complete n=1077
 - **197 successes = SR 18.3%.**
 - **326 reaches = OS 30.3%** — got within the 3.0 m goal radius at some point.
 - **Stop-given-reached = 197/326 = 60%** — of episodes that reached, 60% recognized arrival and
-  stopped. (Paper blind-H1 implies ~73%.)
+  stopped. (Published blind-H1 implies ~73%.)
 - **Reached-but-didn't-stop = 129 (12.0%)** — the stop-failure class: reached the goal radius but
   did not stop. What drives it is unresolved; the FOV mechanism proposed earlier reversed at
   n=300 (see correction notice).
@@ -93,5 +93,5 @@ run-to-run noise, not a finding.
 ## Provenance
 Measurements: `NaVILA-Bench-main/eval_results/k1_matterport_vision_loco_full_14498/measurements/`
 (1077 JSON, re-verified 2026-07-02). Aggregator: `aggregate_k1_vision_results.py` (NE = final distance_to_goal; missing =
-failures over 1077). Full project record + paper analysis: offline project dossier (local notes, not in-repo).
+failures over 1077). Full project record + baseline analysis: offline project dossier (local notes, not in-repo).
 Method/controls: `RESULTS_2026-06-11_smoke.md`, `REPLAY_ARBITER_2026-06-11.md`.
