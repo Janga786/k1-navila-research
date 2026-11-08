@@ -182,7 +182,7 @@ Tests run on the sweep workstation on 2026-10-01 and 2026-10-02, published in
 `paper_evidence/airc2027_post_sweep/`, close or narrow some of the gaps above. The text above is left as
 written in August.
 
-- **G1, resolved with new receipts.** The July 5a/5b numbers are still unverified, and the AIRC 2027 paper
+- **G1, resolved with new receipts.** The July 5a/5b numbers are still unverified, and the reanalysis
   does not use them. In their place:
   - `rendering_diagnosis/DIAGNOSIS.md`, Step 4: two episode starts repeated in fresh processes gave
     bit-identical physics but images that differed, almost all by one level of 255.
