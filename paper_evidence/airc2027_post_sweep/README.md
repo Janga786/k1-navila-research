@@ -2,7 +2,7 @@
 
 Three tests run after the sweep on the sweep workstation (RTX 3090, driver 580.173.02, Isaac Sim 4.1,
 Isaac Lab fork 4d558ec) for the paper "Run-to-Run Variability and Single-Run Camera Comparisons in
-Closed-Loop Vision-Language Navigation on a Simulated Humanoid" (AIRC 2027). Files are copied unchanged
+Closed-Loop Vision-Language Navigation on a Simulated Humanoid". Files are copied unchanged
 from the private NaVILA-Complete-Archive at commit 454c793, except for the withheld images below.
 
 | Folder | Test | Private-archive commits | Paper |

@@ -81,7 +81,7 @@ run-to-run noise, not a finding.
 ## Caveats (stated plainly)
 - **n = 1 robot, single VLM.** A deployment/embodiment result, not a broad empirical claim.
 - **Sim-only numbers.** No real-robot navigation score is claimed (deployment networking solved —
-  `--net eno1` / GetMode verified — and the trained policy has not walked on hardware). A live
+  `--net eno1` / GetMode verified — and my trained walking policy has not yet worked outside simulation). A live
   NaVILA episode via the early laptop relay (May 2026, Booster's built-in walker executing the
   VLM's velocity commands) is receipted in `receipts/media/LIVE_EPISODE_RECEIPT.md`.
 - **int8** (to co-fit the VLM with Isaac on 24 GB) — controlled and shown ≈fp16 at the action level.

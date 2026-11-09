@@ -1,7 +1,7 @@
 # K1 NaVILA — vision-language navigation on a Booster K1 humanoid
 
-Research code and evidence for running **NaVILA** (an existing 8B vision-language navigation
-model) on the **Booster K1** humanoid, and for measuring how reliable that evaluation is.
+Research code and evidence for running the pretrained **NaVILA** model (8B parameters), a vision-language
+navigation model, on the **Booster K1** humanoid, and for measuring how reliable that evaluation is.
 Fort Lewis College, full-time research from May 2026. Advisor: Dr. Yiyan Li.
 
 ## What's here
@@ -30,8 +30,8 @@ Fort Lewis College, full-time research from May 2026. Advisor: Dr. Yiyan Li.
   Details and claim boundary: [`receipts/media/LIVE_EPISODE_RECEIPT.md`](receipts/media/LIVE_EPISODE_RECEIPT.md);
   no navigation score is claimed for the live session. The later three-machine deploy relay is wired and documented
   (`ROBOT_DEPLOY_RUNBOOK.md`) with print/dry/live modes and safety interlocks. **Both live
-  episodes used Booster's built-in walker; the trained RL policy works in simulation only and
-  has never worked outside simulation.**
+  episodes used Booster's built-in walker; my trained RL walking policy has not yet worked
+  outside simulation.**
 
 ## Start here
 

@@ -1,4 +1,4 @@
-# paper_evidence — AIRC 2027 reanalysis package
+# Reanalysis package
 
 Reanalysis of ALREADY-COLLECTED experiments in `receipts/`. **No new simulation, training, or
 robot execution was performed.** All raw experimental data is read-only; integrity was verified
@@ -47,8 +47,8 @@ scripts/     analysis code
 provenance/  environment capture, input checksums, reruns of the historical scripts
 ```
 
-## AIRC 2027 paper
-- `airc2027_reanalysis/`: reproduces every number, table and figure of the AIRC 2027 paper from
+## Evaluation-reliability analysis
+- `airc2027_reanalysis/`: reproduces every number, table and figure of the evaluation-reliability analysis from
   `receipts/` (see its README).
 - `airc2027_post_sweep/`: the post-sweep tests the paper cites (rendering diagnosis, frame-replay
   test, walking check); see its README.

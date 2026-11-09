@@ -1,4 +1,4 @@
-# FINAL_REPORT — AIRC 2027 reanalysis audit
+# Reanalysis audit
 
 Compiled 2026-09-11 at repo commit `a6fe40b431353b0eee968c07015dd8d1b1211d53`.
 
@@ -56,7 +56,7 @@ consequence of failure being common.
 **11.00 %** (33/300 episodes changed outcome between two nominally identical runs); raw
 paired agreement 89.00 %. Scene-cluster 95 % CI [7.53 %, 14.67 %].
 
-The sharper statement for the paper: of the **63** episodes that succeeded in *either*
+The sharper statement of the result: of the **63** episodes that succeeded in *either*
 replicate, only **30 (47.6 %)** succeeded in *both*.
 
 ## 5. What McNemar's test shows
