@@ -451,7 +451,7 @@ def main():
         fh.write("\n".join(E) + "\n")
 
     # ------------------------------------------------------------------ README.md
-    R = f"""# paper_evidence — AIRC 2027 reanalysis package
+    R = f"""# Reanalysis package
 
 Reanalysis of ALREADY-COLLECTED experiments in `receipts/`. **No new simulation, training, or
 robot execution was performed.** All raw experimental data is read-only; integrity was verified

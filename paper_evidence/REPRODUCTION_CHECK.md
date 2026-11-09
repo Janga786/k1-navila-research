@@ -38,7 +38,7 @@ itself is `paper_evidence/scripts/reproduction_check.py`; run it with
   leg of it (stretchA's raw invocation log line) cannot be independently verified because the
   underlying log was not preserved across the July power outage.
 - **No discrepancy was found that changes any paper-facing number.** One genuine (documented)
-  data-integrity oddity is worth restating for the paper: the four episodes with a `-1.0`
+  data-integrity oddity is worth restating for the analysis: the four episodes with a `-1.0`
   `distance_to_goal` sentinel in stretchA and stretchB, and the one each in h078/h130, are
   **exactly** the same episodes flagged by the `max_episode_steps == -1` schema anomaly — i.e.
   the sentinel and the schema anomaly are the same underlying runner-stub records, not two

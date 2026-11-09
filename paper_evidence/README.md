@@ -50,5 +50,5 @@ provenance/  environment capture, input checksums, reruns of the historical scri
 ## Evaluation-reliability analysis
 - `airc2027_reanalysis/`: reproduces every number, table and figure of the evaluation-reliability analysis from
   `receipts/` (see its README).
-- `airc2027_post_sweep/`: the post-sweep tests the paper cites (rendering diagnosis, frame-replay
+- `airc2027_post_sweep/`: the post-sweep tests the analysis cites (rendering diagnosis, frame-replay
   test, walking check); see its README.
