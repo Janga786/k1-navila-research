@@ -35,8 +35,18 @@ all sim gates passed) · VLM `navila-llama3-8b-8f` **int8** · **raw** frames (n
 | Go2 (published, vision) | — | 5.49 | 58.7 | 50.2 | 45.5 |
 | H1  (published, blind) | — | 7.67 | 33.3 | 24.4 | 21.0 |
 | H1  (published, vision) | — | 5.86 | 54.6 | 45.3 | 40.3 |
-| **K1 (ours, vision)** | **model_14498** (n=1077/1077) | **7.59** | **30.3** | **18.3** | **10.9** |
+| **K1 (ours, blind policy)** | **model_14498** (n=1077/1077) | **7.59** | **30.3** | **18.3** | **10.9** |
 | K1 — prior stack (reference) | v3 model_16000 | — | ~10 | 0.76* | — |
+
+The K1 walking policy is proprioception-only ("blind"), the same category as the published
+blind H1 and Go2 rows: it sees a 235-dim observation (5 frames × 47 dims of velocity command,
+gait phase, gravity vector, angular velocity, joint positions/velocities, last action;
+[`wrappers_v3.py`](paper_evidence/airc2027_code/navila_bench/isaaclab_exts/omni.isaac.vlnce/omni/isaac/vlnce/utils/wrappers_v3.py)),
+and its training config has `height_scanner: null`
+([`env.yaml`](paper_evidence/airc2027_code/training_config_model_14498/run_2026-06-10_14-30-20/params/env.yaml)). The word "vision"
+in names such as `k1_matterport_vision` and `aggregate_k1_vision_results.py` comes from the
+upstream task the config was adapted from; the height scan that config defines is not used by
+the K1 policy. The camera feeds only the NaVILA VLM.
 
 \* Recorded value; the raw run directory was not retained (`EVIDENCE.md` claim 7) — treat as
 "under 1%". The first complete pipeline scored under 1%; the final stack scores 18.3%. NE is
