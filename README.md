@@ -60,6 +60,4 @@ Fort Lewis College, full-time research from May 2026. Advisor: Dr. Yiyan Li.
 ## Credits and provenance
 
 Built on [NaVILA](https://navila-bot.github.io/) and the VLN-CE-Isaac benchmark. Robot: Booster K1 EDU.
-The experiment designs, decisions, and claims are mine; substantial parts of the implementation and
-the unattended sweep operations were carried out with AI coding agents under my direction (the
-handoff notes in `archive/` record that process).
+The experiment designs, decisions, and claims are mine.
