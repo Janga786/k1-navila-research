@@ -225,7 +225,7 @@ All under `paper_evidence/`. Figures are vector PDF plus 300 dpi PNG, two-column
 | `git status` / `git diff` | PASS — tracked tree clean; only untracked `paper_evidence/` |
 | All paper numbers machine-generated | PASS — `build_paper_docs.py` reads every value from a generated CSV |
 | Correct episode pairing | PASS — paired on `record_idx`; `paired_episodes()` hard-fails on asymmetry; sets verified identical |
-| Scene bootstrap resamples scenes, not episodes | PASS — draws indices into the scene-key list only; asserts scene count; independently reproduced by the orchestrator |
+| Scene bootstrap resamples scenes, not episodes | PASS — draws indices into the scene-key list only; asserts scene count; independently reproduced |
 | Timeout bounds mathematically correct | PASS — lower = succ/n, upper = (succ+n_timeout)/n; independently recomputed |
 | No large GPU experiment launched | PASS — CPU only; the sole GPU process is the pre-existing idle VLM bridge (PID 10831, started 2026-08-04, 0 % util), untouched |
 | Analysis scripts cannot write to `receipts/` | PASS — every write path resolves under `paper_evidence/tables` or `figures` |
