@@ -1,9 +1,9 @@
 # Reanalysis package
 
 > [!NOTE]
-> No paper is planned. Folder names containing `airc2027` and words such as "paper",
-> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
-> that was dropped. They refer to this analysis, not to a forthcoming publication.
+> No paper is planned. Folder names containing `airc2027` are historical labels. Figure,
+> table and section numbers mentioned in these files refer to an unpublished internal write-up
+> of this analysis.
 
 Reanalysis of ALREADY-COLLECTED experiments in `receipts/`. **No new simulation, training, or
 robot execution was performed.** All raw experimental data is read-only; integrity was verified

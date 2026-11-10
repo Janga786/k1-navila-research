@@ -1,9 +1,9 @@
 # KNOWN GAPS — what this evidence base does NOT support
 
 > [!NOTE]
-> No paper is planned. Folder names containing `airc2027` and words such as "paper",
-> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
-> that was dropped. They refer to this analysis, not to a forthcoming publication.
+> No paper is planned. Folder names containing `airc2027` are historical labels. Figure,
+> table and section numbers mentioned in these files refer to an unpublished internal write-up
+> of this analysis.
 
 > [!NOTE]
 > **Update 2026-10-30:** G6/G7/G14 are now addressed — `FINAL_RESULTS_full1077.md` was rewritten
@@ -14,7 +14,7 @@
 > `ROBOT_TEST_NOW.md`, `BENCHMARK_32GB_CHECKLIST.md`) now resolve under `archive/`. The
 > remaining gaps stand as written.
 
-Compiled 2026-08-22, after the sweep completed, by auditing every paper-facing claim in this
+Compiled 2026-08-22, after the sweep completed, by auditing every reported claim in this
 repository against the primary data on disk.
 
 The purpose of this file is adversarial: it lists the places where a reviewer can push and the
@@ -77,7 +77,7 @@ commit that added them (`fc31cb8`) touched only the markdown. Worse, the one rel
 PNGs**, and shows only a *single* query pair for 5b, not fifty.
 
 The numbers may well be real — they are too specific to be invented — but they are currently
-unverifiable, and the claim is load-bearing. **Do not put 5a/5b numbers in the paper until the
+unverifiable, and the claim is load-bearing. **Do not report 5a/5b numbers until the
 probes are re-run and their outputs committed.** Estimated cost ~1 GPU-hour. Until then, the
 defensible substitute already exists and is far stronger: `ROBUSTNESS.md` §A quantifies
 run-to-run instability over 300 paired episodes (11.0% discordant, kappa 0.58) — but note it
@@ -100,7 +100,7 @@ untested; the outcome is verified. Say so plainly rather than claiming a tested 
 **G3. Height-sweep manipulation checking is weak.** The only receipt confirming that `--cam_z`
 actually moved the camera is the `[cam-override]` print line plus a FOV/resolution invariance
 check. That receipt's own Trunk-z diagnostic reports a mean of **-1.887 m** against a nominal
-0.53 m, which cannot be right in the frame the paper will quote. No rendered frames were
+0.53 m, which cannot be right in the frame the write-up quotes. No rendered frames were
 retained at any height. A reviewer asking "show me the camera was where you say" cannot be
 answered from this repository. Cheap fix: dump one frame per height from a fixed pose and
 commit the six images.
@@ -110,7 +110,7 @@ capacities are allocation knobs and should not change dynamics — unless one ov
 which case PhysX drops contacts silently. This was never tested, and it is a plausible
 mechanism for the sim-side chaos in G1. It is a constant across the baseline and every arm
 (verified by mtime), so it is not a differential confound between arms, but it may be part of
-the causal story the paper tells about nondeterminism.
+the causal story the write-up tells about nondeterminism.
 
 **G5. No qualitative evidence exists for any sweep episode.** 2,400 episodes ran; no video and
 no sample frames were retained. `receipts/media_index.md` predates the sweep. Nothing supports

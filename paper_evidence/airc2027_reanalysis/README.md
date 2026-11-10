@@ -1,9 +1,9 @@
 # Evaluation-reliability reanalysis
 
 > [!NOTE]
-> No paper is planned. Folder names containing `airc2027` and words such as "paper",
-> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
-> that was dropped. They refer to this analysis, not to a forthcoming publication.
+> No paper is planned. Folder names containing `airc2027` are historical labels. Figure,
+> table and section numbers mentioned in these files refer to an unpublished internal write-up
+> of this analysis.
 
 Reproduces every number, table and figure of the evaluation-reliability analysis (run-to-run
 variability and single-run camera comparisons in closed-loop VLN on the simulated K1) from the
@@ -76,7 +76,7 @@ camera rode 0.03 m higher on average. Heights above the floor were not measured 
 - An interruption in every script means a `wall_timeout` record that is not in
   `data/relabelled_wall_timeouts.csv` (117 of the 151 labelled records).
 - `paper_numbers.json` and `paper_numbers_v2.json` also hold earlier permutation-test p-values
-  (`configs`, `june_vs_reruns`, `h095_with_june`). The paper reports the route-clustered paired
+  (`configs`, `june_vs_reruns`, `h095_with_june`). The write-up reports the route-clustered paired
   tests in `audit_v3.json`; `paired_tests.py` shows why the permutation test was dropped.
 - Wall time per 1,000 simulated steps (Section V-C) = run duration from the ARM START/ARM DONE
   timestamps in `SWEEP_STATUS.md` divided by the run's summed `ended_at_step`; D2 uses only its

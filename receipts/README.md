@@ -1,9 +1,9 @@
 # Evidence index — what the results claim, and where the proof lives
 
 > [!NOTE]
-> No paper is planned. Folder names containing `airc2027` and words such as "paper",
-> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
-> that was dropped. They refer to this analysis, not to a forthcoming publication.
+> No paper is planned. Folder names containing `airc2027` are historical labels. Figure,
+> table and section numbers mentioned in these files refer to an unpublished internal write-up
+> of this analysis.
 
 Entry point for the evidence behind the K1 NaVILA results. Every reported number
 should be traceable to something in this directory. Written 2026-08-22, after the ten-arm

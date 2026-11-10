@@ -55,7 +55,7 @@ is corroborated by the operational timeline rather than instrumented per arm —
   episode-level or asymptotic interval as the primary CI for kappa and treat the
   scene-cluster one as a robustness check — do not present it as the conservative bound.
 
-Wording note for the manuscript: describe this as **run-to-run outcome instability**
+Wording note for any write-up: describe this as **run-to-run outcome instability**
 (irreproducibility of per-episode outcomes), not as "randomness". The data establish
 that identical configurations yield different per-episode outcomes; they do not
 characterise the process generating that variation.
