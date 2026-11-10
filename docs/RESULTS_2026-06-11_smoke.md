@@ -1,5 +1,20 @@
 # K1 NaVILA Benchmark — 10-Episode Smoke Results (2026-06-11)
 
+> [!IMPORTANT]
+> **CORRECTION NOTICE — 2026-11-09.** This is a 10-episode pilot. Two of its conclusions did not
+> hold up at larger n:
+> - The SR 30% on this slice is within run-to-run noise at n = 10. On the full 1,077 episodes the
+>   same policy scored **SR 18.3%** (95% Wilson CI 16.1–20.7%), below the published blind H1's
+>   24.4% (`../FINAL_RESULTS_full1077.md`). The "beats blind H1" line below applies to this
+>   slice only.
+> - "Arrival recognition needs the peripheral FOV" (crop vs stretch, addendum below) **did not
+>   replicate**. At n = 300 per arm crop converted 69.4% of goal-reaches into stops versus
+>   stretch's 51.1% (Fisher p = 0.008), and no transform showed a significant SR difference
+>   (`../receipts/analysis/ROBUSTNESS.md` §C, `../receipts/KNOWN_GAPS.md` G6).
+>
+> The body below is left as written on 2026-06-11. "Blind" here means the K1 walking policy is
+> proprioception-only.
+
 **Machine:** lab HP Z8 G4, RTX 3090 24 GB · **Policy:** `checkpoints/model_14498.pt` (feet_distance fine-tune of model_11999)
 **VLM:** navila-llama3-8b-8f, **int8** (`--load_8bit`) · **Frames:** raw render (no `--clean_render`/`--bright`), PNG wire, `--vlm_transform stretch`
 **Episodes:** R2R val-unseen indices 0–9 · **Flags:** `--closed_loop --max_episode_s 120`, `EP_TIMEOUT=900` · **Code:** commit `6dc4d2d`
