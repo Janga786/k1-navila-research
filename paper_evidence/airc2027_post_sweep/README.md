@@ -1,5 +1,10 @@
 # Post-sweep tests
 
+> [!NOTE]
+> No paper is planned. Folder names containing `airc2027` and words such as "paper",
+> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
+> that was dropped. They refer to this analysis, not to a forthcoming publication.
+
 Three tests run after the sweep on the sweep workstation (RTX 3090, driver 580.173.02, Isaac Sim 4.1,
 Isaac Lab fork 4d558ec) for the evaluation-reliability analysis. Files are copied unchanged
 from the private NaVILA-Complete-Archive at commit 454c793, except for the withheld images below.

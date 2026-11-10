@@ -1,7 +1,12 @@
-# AIRC 2027 reanalysis
+# Evaluation-reliability reanalysis
 
-Reproduces every number, table and figure in "Run-to-Run Variability and Single-Run Camera
-Comparisons in Closed-Loop Vision-Language Navigation on a Simulated Humanoid" from the
+> [!NOTE]
+> No paper is planned. Folder names containing `airc2027` and words such as "paper",
+> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
+> that was dropped. They refer to this analysis, not to a forthcoming publication.
+
+Reproduces every number, table and figure of the evaluation-reliability analysis (run-to-run
+variability and single-run camera comparisons in closed-loop VLN on the simulated K1) from the
 committed per-episode receipts and the small data files in `data/`. Nothing here runs the
 simulator or the model.
 
@@ -31,7 +36,7 @@ folder in `../airc2027_post_sweep/`.
 | `fig1_assets/` | Re-renders of the start of episode 0 (dataset entry 0) made with the unmodified evaluation code, robot model, scene and render settings (`../airc2027_post_sweep/rendering_diagnosis/images/as_evaluated/`), used in Fig. 1: the robot camera's initial frame at each of the six camera heights (lossless 1280x720 RTX frames resized to 450x253; each matches frame 0 of its run's episode-0 video to within H.264 noise, mean absolute difference 1.0-1.8 of 255) and a path-traced view of the K1 from behind after the reset warm-up (central 1080x1080 crop resized to 612x612). `SOURCES.json` lists each source file and its SHA-256. |
 
 ## Run (about three minutes)
-| Script | Output | Paper content |
+| Script | Output | Content |
 | --- | --- | --- |
 | `paper_numbers.py` | `tables/paper_numbers.json` | Table I, rerun agreement, bit-identity by length, variance, Fisher tests, interruption counts and timing |
 | `paper_numbers_v2.py` | `tables/paper_numbers_v2.json` | falls, kappa (all and diverged episodes), J agreement, near-goal interruptions, crop–pad interruption McNemar |
