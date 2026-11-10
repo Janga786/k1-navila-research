@@ -78,7 +78,9 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 *[Redacted 2026-11-09: remote-access, network and power-setting details removed for
 publication.]*
 - **Auto-upgrades DISABLED** (apt-daily timers off; 200 nvidia/kernel packages held) so the
-  driver can't break again mid-run.
+  driver can't break again mid-run. **RELEASE WHEN USER IS BACK** (in AWAY_STATUS.md):
+  `sudo apt-mark unhold $(apt-mark showhold); sudo systemctl enable --now apt-daily.timer apt-daily-upgrade.timer`
+- **Blind CUDA-recovery steps** (if it breaks again): AWAY_STATUS.md has the gcc-12 DKMS rebuild.
 
 ## REPOS (all pushed; user = Janga786, no co-author trailer)
 - `github.com/Janga786/k1-navila-research` (~/Projects/k1_research) — the sweep, receipts,

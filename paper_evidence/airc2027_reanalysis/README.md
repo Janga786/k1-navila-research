@@ -44,7 +44,7 @@ folder in `../airc2027_post_sweep/`.
 | `kappa_div_ci.py` | `tables/kappa_div_diff.json` | kappa differences on diverged episodes with route-resampled intervals |
 | `extras.py` | `tables/extras.json` | J's identical pairs, handler-written interruptions, step-cap share |
 | `paired_tests.py` | `tables/paired_tests.json` | why the within-episode permutation test was replaced (variance check, type-I simulation) |
-| `corrections_and_gray.py` | `tables/corrections_and_gray.json` | relabelled records and true interruptions (Sections III-D, V-C); gray-frame counts at the start and over whole episodes for every run, route consistency and outcome subsets (Section V-B); gray frames in identical and diverged rerun pairs (computed, not reported in the paper) |
+| `corrections_and_gray.py` | `tables/corrections_and_gray.json` | relabelled records and true interruptions (Sections III-D, V-C); gray-frame counts at the start and over whole episodes for every run, route consistency and outcome subsets (Section V-B); gray frames in identical and diverged rerun pairs (computed, not reported) |
 | `probe_divergence.py` | `tables/probe_divergence.json` | where divergence starts (Section V-A) |
 | `make_fig_system.py` | `fig_system.pdf` (Fig. 1) | set `FIG_DIR` for the output folder |
 | `make_figure_v3.py` | `fig_results.pdf` (Fig. 2) | set `FIG_DIR` for the output folder |
