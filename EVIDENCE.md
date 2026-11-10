@@ -12,6 +12,11 @@
 > Claim 18's "volleyball clip not found" is also resolved: the relay screen recording and the
 > dated third-person clip are committed with a receipt note at
 > `receipts/media/LIVE_EPISODE_RECEIPT.md` (2026-10-30).
+>
+> Repositories named below other than this one and `k1-vlm-navigation` (`booster_train`,
+> `booster_deploy`, `k1-research-workspace`, `NaVILA-Complete-Archive`) are private and cannot be
+> opened by visitors. The benchmark code and training configs used for the reported runs are copied into this repo
+> under `paper_evidence/airc2027_code/` and `receipts/`.
 
 Compiled 2026-07-21 on the lab machine. Verdicts: ✅ VERIFIED · ⚠️ VERIFIED-WITH-NUANCE
 (number right, framing needs care) · 🔴 CONFLICT (slide number disagrees with primary

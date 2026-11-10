@@ -3,7 +3,7 @@ All commits authored `Janga786 <jangarabliss@gmail.com>`, no co-author trailers.
 No force-pushes. Verification command per repo: `git log --author=Janga786 --oneline`.
 
 ## booster_train — 4 new commits, 64 files, 6,330 LOC added
-Remote (created today, private): **https://github.com/Janga786/booster_train** (remote name `janga`; `origin` remains BoosterRobotics upstream, untouched — we cannot and should not push there)
+Remote (created today, private; not publicly viewable): `github.com/Janga786/booster_train` (remote name `janga`; `origin` remains BoosterRobotics upstream, untouched — we cannot and should not push there)
 | Commit | Files | LOC+ | Content |
 |---|---|---|---|
 | d9ee287 | 21 | 2,379 | K1 NaVILA locomotion task: env cfgs (base/T1/R5/R6), GAE-truncation env, all reward terms, obs-contract docs |
@@ -14,7 +14,7 @@ Verified: `git log --author=Janga786` → 4 commits; working tree clean; `janga/
 Identity fix applied: repo-local user was Gavinw575 → set to Janga786 before committing.
 
 ## booster_deploy — 3 new commits, 30 files, 1,620 LOC added (4 total by Janga786 incl. 07-02 k1_navila task)
-Remote (created today, private): **https://github.com/Janga786/booster_deploy** (`janga`; `origin` = BoosterRobotics, untouched)
+Remote (created today, private; not publicly viewable): `github.com/Janga786/booster_deploy` (`janga`; `origin` = BoosterRobotics, untouched)
 | Commit | Files | LOC+ | Content |
 |---|---|---|---|
 | 8c93bb6 | 4 | 15 | deploy.py warn-and-skip discovery + deploy.sh navilaenv wrapper + gitignore |

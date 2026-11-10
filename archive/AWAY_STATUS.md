@@ -36,7 +36,8 @@ stays unloaded. The box boots with display + GPU both up.
 - Eval fixes applied (navila_eval_v3.py): wall_timeout capture, term_reason/hit_step_cap,
   cam_z/cam_height/cam_aperture flags. Aggregator: -1.0 distance sentinel handling.
 - Repos: github.com/Janga786/{k1-navila-research, NaVILA-Complete-Archive, booster_train,
-  booster_deploy, k1-vlm-navigation}.
+  booster_deploy, k1-vlm-navigation}. (NaVILA-Complete-Archive, booster_train and booster_deploy
+  are private.)
 
 ## EXPERIMENT STATUS: NOT YET LAUNCHED (pending acceptance/isolation tests + user go)
 See receipts/PRE_REGISTRATION.md for the fixed analysis plan, the determinism verdict
