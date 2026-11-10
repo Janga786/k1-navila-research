@@ -20,7 +20,7 @@
   (`k1_navila/2026-07-13_14-08-34` was DELETED after the negative result — cannot render;
   use r6's video instead).
 - **"Real-robot volleyball clip": RESOLVED 2026-10-30.** The clips were on the user's phone
-  and desktop, and are now committed with a receipt note at
+  and desktop, and are now hosted with the portfolio (not in git), with a receipt note at
   `receipts/media/LIVE_EPISODE_RECEIPT.md` (relay screen recording showing live VLM-issued
   velocity commands + dated third-person video, May 2026, built-in walker executing). The
   trained policy has still never walked on hardware, and no navigation score is claimed for

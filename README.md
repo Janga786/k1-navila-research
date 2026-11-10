@@ -25,7 +25,8 @@ Fort Lewis College, full-time research May–Aug 2026. Advisor: Dr. Yiyan Li.
 Pipeline fixes and retraining (22 training runs, ~270 GPU-hours) raised it to 18.3%. Raising an
 evaluation tilt limit of ~46° that cut ~61% of early episodes short, and fixing a camera
 warm-up bug, more than doubled the mean distance walked per episode
-([`EVIDENCE.md`](EVIDENCE.md) claim 19). 18.3% is below the published blind-H1 baseline
+(early policy, partial runs; success rate was 0% before and after;
+[`EVIDENCE.md`](EVIDENCE.md) claim 19). 18.3% is below the published blind-H1 baseline
 (24.4%), which also uses a proprioception-only walking policy. Details:
 [`FINAL_RESULTS_full1077.md`](FINAL_RESULTS_full1077.md).
 
@@ -75,7 +76,9 @@ used.** No navigation score is claimed. One episode is on video:
 
 The headline metrics and the reliability analysis recompute on a CPU in seconds from the
 committed per-episode records, with no simulator or GPU (the two analysis scripts rewrite their
-output files in `receipts/analysis/`):
+output files in `receipts/analysis/`). Without the git-ignored episode dataset, rerunning the
+robustness analysis shifts some scene-cluster intervals by up to about 0.2 points; the headline
+numbers are unchanged:
 
 ```bash
 python3 aggregate_k1_vision_results.py --measurements-dir receipts/baseline_full_14498 --total-episodes 1077

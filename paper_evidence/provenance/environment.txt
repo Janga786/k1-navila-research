@@ -20,7 +20,7 @@ SECTION 1 — ENVIRONMENT RUNNING THIS REANALYSIS (today, 2026-09-11)
 
 ## Host
 OS            : Ubuntu 22.04.5 LTS (Jammy Jellyfish)   [/etc/os-release: PRETTY_NAME="Ubuntu 22.04.5 LTS"]
-Kernel        : Linux booster 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26
+Kernel        : Linux <lab-machine> 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26
                 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux   [uname -a]
 Hostname      : <lab-machine>
 
@@ -34,7 +34,7 @@ NOTE: no CUDA context was initialized to capture any of the above — nvidia-smi
 separate processes; no simulation or GPU job was launched for this task.
 
 ## Python used for this reanalysis
-Interpreter   : /home/boosterk1/miniconda3/bin/python3
+Interpreter   : /home/<user>/miniconda3/bin/python3
 Version       : 3.13.13 | packaged by Anaconda, Inc. | (main, Apr 14 2026, 06:19:41) [GCC 14.3.0]
 numpy         : 2.4.6
 scipy         : 1.17.1

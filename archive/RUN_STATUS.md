@@ -38,7 +38,7 @@ cd ~ && setsid bash Projects/k1_research/run_ab100.sh > /tmp/ab100_chain.log 2>&
 
 ## ⚠️ STEP 4 — REMOTE ACCESS: **NOT REACHABLE OFF-NETWORK** (loud flag)
 - Tailscale: **not installed**. sshd: **inactive** (both `ssh`/`sshd` units). Only LAN
-  IP `<robot-ip>` on host `<robot-host>`.
+  IP `<lab-machine-ip>` on host `<lab-machine>`.
 - **The August remote plan does not work against this machine as it stands.** Options
   (require sudo + account decisions, deliberately NOT done today): install Tailscale and
   enable sshd (`sudo apt install tailscale openssh-server && sudo tailscale up &&
