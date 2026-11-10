@@ -87,10 +87,11 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 ## REPOS (all pushed; user = Janga786, no co-author trailer)
 - `github.com/Janga786/k1-navila-research` (~/Projects/k1_research) — the sweep, receipts,
   EVIDENCE.md, PRE_REGISTRATION.md, SLIDE_FACTS.md, AWAY_STATUS.md, HANDOFF.md.
-- `github.com/Janga786/NaVILA-Complete-Archive` (~/Desktop/NAVILA_COMPLETE_ARCHIVE_2026-07-13)
+- `github.com/Janga786/NaVILA-Complete-Archive` (private) (~/Desktop/NAVILA_COMPLETE_ARCHIVE_2026-07-13)
   — master report + 1077 result JSONs + paper assets (outline, reproducibility, references,
   figures, VLM input frames, training scalars).
-- `Janga786/{booster_train, booster_deploy, k1-vlm-navigation}` — training, deploy, robot stack.
+- `Janga786/{booster_train, booster_deploy, k1-vlm-navigation}` — training, deploy, robot stack
+  (booster_train and booster_deploy are private).
 - eval_results is GITIGNORED in k1_research → per-arm JSONs are copied to
   `receipts/sweep_measurements/<tag>/` and pushed from there.
 
