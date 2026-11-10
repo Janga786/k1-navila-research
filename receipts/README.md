@@ -54,7 +54,7 @@ episodes each) and `h060_200` … `h150_200` (camera heights 0.60–1.50 m, 200 
 | `KNOWN_GAPS.md` | The adversarial gap register. Read this before writing anything. |
 | `provenance/ENVIRONMENT.md` | Host, GPU, both driver versions, Python/torch/CUDA, IsaacLab commit, and the PhysX buffer modification with its open question. |
 | `provenance/pip_freeze_vlnce-isaac.txt` | Full package list (395 packages). |
-| `provenance/checkpoint_sha256.txt` | Weight hashes. The evaluated policy is `model_14498.pt`; weights are gitignored for size, so the hash is what pins them. |
+| `provenance/checkpoint_sha256.txt` | Weight hashes. The evaluated policy is `model_14498.pt`; the weights are committed in `checkpoints/` and the hash pins them. |
 | `provenance/isaaclab_simulation_cfg.patch` | The one local simulator modification, previously unversioned anywhere. |
 | `provenance/sweep_run_log.txt` | The raw runner log for all ten arms, rescued from volatile `/tmp`. |
 
@@ -62,7 +62,7 @@ episodes each) and `h060_200` … `h150_200` (camera heights 0.60–1.50 m, 200 
 
 ## Headline results
 
-Ten arms, 2,400 episodes, ~400 GPU-hours, 2026-07-26 → 08-17.
+Ten arms, 2,400 episodes, ~400 GPU-hours, 2026-07-24 → 08-17 (first arm started 07-24, per `SWEEP_STATUS.md`).
 
 | arm | n | SR % | 95% CI | OS % |
 |---|---|---|---|---|

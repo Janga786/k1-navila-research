@@ -48,6 +48,8 @@ in names such as `k1_matterport_vision` and `aggregate_k1_vision_results.py` com
 upstream task the config was adapted from; the height scan that config defines is not used by
 the K1 policy. The camera feeds only the NaVILA VLM.
 
+K1 SR 95% Wilson interval: **16.1–20.7%** (197/1077; `receipts/analysis/ANALYSIS.md`); OS 27.6–33.1%.
+
 \* Recorded value; the raw run directory was not retained (`EVIDENCE.md` claim 7) — treat as
 "under 1%". The first complete pipeline scored under 1%; the final stack scores 18.3%. NE is
 essentially tied with the published blind-H1 (7.59 vs 7.67); OS/SR/SPL sit a notch below it —
@@ -102,6 +104,6 @@ run-to-run noise, not a finding.
 
 ## Provenance
 Measurements: `NaVILA-Bench-main/eval_results/k1_matterport_vision_loco_full_14498/measurements/`
-(1077 JSON, re-verified 2026-07-02). Aggregator: `aggregate_k1_vision_results.py` (NE = final distance_to_goal; missing =
+(1077 JSON, re-verified 2026-07-02; committed copy in [`receipts/baseline_full_14498/`](receipts/baseline_full_14498/)). Aggregator: `aggregate_k1_vision_results.py` (NE = final distance_to_goal; missing =
 failures over 1077). Full project record + baseline analysis: offline project dossier (local notes, not in-repo).
 Method/controls: [`docs/RESULTS_2026-06-11_smoke.md`](docs/RESULTS_2026-06-11_smoke.md), [`docs/REPLAY_ARBITER_2026-06-11.md`](docs/REPLAY_ARBITER_2026-06-11.md).
