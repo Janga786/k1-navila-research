@@ -61,3 +61,7 @@ Fort Lewis College, full-time research from May 2026. Advisor: Dr. Yiyan Li.
 
 Built on [NaVILA](https://navila-bot.github.io/) and the VLN-CE-Isaac benchmark. Robot: Booster K1 EDU.
 The experiment designs, decisions, and claims are mine.
+
+## License
+
+MIT for my own code and documents (see [`LICENSE`](LICENSE)). Third-party components (NaVILA, VLN-CE-Isaac / NaVILA-Bench, Isaac Lab, the Booster SDK) keep their own licenses; copies are in [`paper_evidence/airc2027_code/navila_bench/LICENSE`](paper_evidence/airc2027_code/navila_bench/LICENSE) and [`paper_evidence/airc2027_code/isaaclab_fork/LICENSE`](paper_evidence/airc2027_code/isaaclab_fork/LICENSE).
