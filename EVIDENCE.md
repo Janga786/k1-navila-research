@@ -223,6 +223,36 @@ machine** — and the project record states the K1 has never walked under this s
 source it explicitly or cut it.
 
 ---
+## SECTION 4 — early-pipeline records (added 2026-11-09)
+
+These entries state facts whose raw notes are kept in the private project archive (not
+published here). The raw run directories behind them were not retained, so the numbers
+are as recorded at the time, not regenerable.
+
+### 19. Tilt-limit termination and image-buffer warm-up fix (2026-05-16)
+- Early stack (an early legged-loco policy, v2 iteration 9000), partial benchmark runs on 2026-05-16.
+- Diagnosis recorded that day: training had no orientation termination, but the evaluation
+  ended an episode at `bad_orientation` 0.8 rad (about 46°); **61% of episodes ended in under
+  2 s**. Separately, the first NaVILA query received one real camera frame padded with black
+  frames, and NaVILA repeated "turn left 45 degree" at episode start.
+- Fix: limit raised to 1.3 rad, plus an 8-frame zero-command warm-up that fills the VLM image
+  buffer with real camera frames before the first query (the "Pre-VLM warmup" block in
+  `paper_evidence/airc2027_code/navila_bench/scripts/navila_eval_v3.py`).
+- **Mean path length per episode rose from 0.81 m (first 199 episodes, before the fix) to
+  1.95 m (first 140 episodes, after the fix)**, about 2.4×. SR was 0% in both partial runs.
+  The two runs covered different episode counts. This corrects claim 5's "recorded during
+  the June fix": the 61% figure was recorded on 2026-05-16.
+
+### 20. Walking policy stalls on wall contact (June 2026)
+- `eval_contact_stall.py` (in the private training repo) drove the trained policy into
+  spawned walls in simulation. Recorded result: the policy **marches in place when jammed
+  (0 falls, displacement about 0)**.
+- The 2026-06-10 audit found that the original stall guard missed this case (a wall-jammed
+  robot moving at 0.02–0.1 m/s never triggered it). The fix is the 3-s windowed net-progress
+  stall check in `navila_eval_v3.py` (comment "Stall early-requery (audit rank 5)").
+- The raw output of the contact-stall test was not retained.
+
+---
 ## Summary of items needing slide edits before shipping
 1. "20 rewards" → 19 (14498) or 20 (14200) — pick the model. (Claim 1)
 2. feet_swing −20 → that's `feet_swing_height`; `feet_swing` is +3.0. (Claim 1)
