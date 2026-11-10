@@ -104,4 +104,4 @@ run-to-run noise, not a finding.
 Measurements: `NaVILA-Bench-main/eval_results/k1_matterport_vision_loco_full_14498/measurements/`
 (1077 JSON, re-verified 2026-07-02). Aggregator: `aggregate_k1_vision_results.py` (NE = final distance_to_goal; missing =
 failures over 1077). Full project record + baseline analysis: offline project dossier (local notes, not in-repo).
-Method/controls: `RESULTS_2026-06-11_smoke.md`, `REPLAY_ARBITER_2026-06-11.md`.
+Method/controls: [`docs/RESULTS_2026-06-11_smoke.md`](docs/RESULTS_2026-06-11_smoke.md), [`docs/REPLAY_ARBITER_2026-06-11.md`](docs/REPLAY_ARBITER_2026-06-11.md).

@@ -155,7 +155,7 @@ Generated tables/scripts live in `receipts/`. Paths are relative to
   stopped only after walking past," not "never stopped."
 - The two runs differ **only** in `--vlm_transform` (`stretch` vs `crop`), same
   checkpoint/int8/raw/seed episodes — commands recorded in
-  `RESULTS_2026-06-11_smoke.md` and `k1-research-workspace-main/scripts/bench_diag.sh`.
+  `docs/RESULTS_2026-06-11_smoke.md` and `k1-research-workspace-main/scripts/bench_diag.sh`.
 - Videos: `..._crop/videos/output_{6,7,8}.mp4` (arrival-blind), stretch successes
   `output_{5,7,8}.mp4`.
 - **100-episode/arm rerun**: `TRANSFORM=crop EP_TIMEOUT=900 bash scripts/run_powered_benchmark.sh crop100 checkpoints/model_14498.pt` (and stretch arm likewise), episodes 0–99.
@@ -166,14 +166,14 @@ Generated tables/scripts live in `receipts/`. Paths are relative to
 ### 13. Renderer study (5090 vs 3090) — ⛔ RAW 5090 ARTIFACTS NOT ON THIS MACHINE
 - On-disk primary: `BENCHMARK_32GB_CHECKLIST.md` ("DECISION 2026-06-11": desktop 5090
   SR 0/10, OS 4/10, fp16 vs lab 3090 SR 3/10, clean render; frame residual **15.6 vs
-  0.4–1.3**; deterministic 3× walk-out on ep 7) and `RESULTS_2026-06-11_smoke.md`
+  0.4–1.3**; deterministic 3× walk-out on ep 7) and `docs/RESULTS_2026-06-11_smoke.md`
   (per-episode desktop-vs-3090 table).
 - The 5090 run directories/frames live on the 32 GB desktop, not here. **Do not claim
   same-commit reproducibility from this machine** — cite the two documents, or pull the
   desktop dirs before the deck ships.
 
 ### 14. int8 arbiter — ✅ numbers, ⚠️ raw outputs partial
-- Primary: `REPLAY_ARBITER_2026-06-11.md` — **424 paired decisions; fp16-vs-int8
+- Primary: `docs/REPLAY_ARBITER_2026-06-11.md` — **424 paired decisions; fp16-vs-int8
   action-level agreement 394/424 = 92.9% (drift 7.1%); int8-replay vs int8-original
   361/424 = 85.1% ⇒ JPEG-re-encode sensitivity 14.9%; 100% agreement on all success
   episodes** (per-episode table in the doc).
