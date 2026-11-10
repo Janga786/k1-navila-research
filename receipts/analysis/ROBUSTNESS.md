@@ -148,7 +148,7 @@ The full benchmark spans **11 scenes**; the pinned 300 covers **8**.
 
 Where the cluster interval is materially wider, the binomial CI in ANALYSIS.md
 overstates precision. Since every headline contrast is already null, wider
-intervals do not change any conclusion — they *strengthen* the null. But the paper
+intervals do not change any conclusion — they *strengthen* the null. But any write-up
 should quote the cluster-robust intervals, or state plainly that intervals are
 episode-level and ignore scene clustering.
 

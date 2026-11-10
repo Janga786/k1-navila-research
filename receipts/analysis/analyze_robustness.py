@@ -125,7 +125,7 @@ def main():
     mcn = stats.binomtest(a1b0, disc, 0.5).pvalue
     W(f"- McNemar exact on the discordant pairs: p = {mcn:.3f} (no directional bias — "
       f"as expected, since the two arms are the same condition)\n")
-    W("**Why this matters for the paper.** The aggregate rate is reproducible; the per-episode")
+    W("**Why this matters for the analysis.** The aggregate rate is reproducible; the per-episode")
     W("outcome is not. Roughly half of this benchmark's successes are coin-flips at the")
     W("episode level. This is the single most defensible statement of the non-determinism")
     W("finding, it rests on 300 episodes rather than the 6-episode probe, and it independently")
@@ -200,7 +200,7 @@ def main():
     W(f"- difference {dd:+.1f} pp, Fisher p = {pf2:.3f}")
     W("\ncrop *reaches* less often (OS 24.0% vs 29.0/31.7%) but *recognises arrival better*")
     W("when it does. The pilot's direction did not replicate. The FOV-for-arrival-recognition")
-    W("mechanism must be retracted from those two documents before the paper reuses it; the")
+    W("mechanism must be retracted from those two documents before any write-up reuses it; the")
     W("honest n=300 statement is that no transform shows a significant SR difference, and the")
     W("reach/recognise split is exploratory and unpowered.")
 
@@ -304,7 +304,7 @@ def main():
               f"| {(chi-clo)/(bhi-blo):.2f}x |")
         W("\nWhere the cluster interval is materially wider, the binomial CI in ANALYSIS.md")
         W("overstates precision. Since every headline contrast is already null, wider")
-        W("intervals do not change any conclusion — they *strengthen* the null. But the paper")
+        W("intervals do not change any conclusion — they *strengthen* the null. But any write-up")
         W("should quote the cluster-robust intervals, or state plainly that intervals are")
         W("episode-level and ignore scene clustering.")
 

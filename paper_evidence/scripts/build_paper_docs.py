@@ -199,7 +199,7 @@ def main():
     a("  episode-level or asymptotic interval as the primary CI for kappa and treat the")
     a("  scene-cluster one as a robustness check — do not present it as the conservative bound.")
     a("")
-    a("Wording note for the manuscript: describe this as **run-to-run outcome instability**")
+    a("Wording note for any write-up: describe this as **run-to-run outcome instability**")
     a("(irreproducibility of per-episode outcomes), not as \"randomness\". The data establish")
     a("that identical configurations yield different per-episode outcomes; they do not")
     a("characterise the process generating that variation.\n")
@@ -347,7 +347,7 @@ def main():
          "paper_evidence/tables/repeatability_statistics.csv", "300 paired episodes",
          "Cohen's kappa; asymptotic Fleiss/Cohen SE interval + episode bootstrap "
          "(10 000 resamples, seed 20260911) + scene-cluster bootstrap (8 scenes)",
-         "VERIFIED independently by the orchestrator; point estimate matches ROBUSTNESS.md"),
+         "VERIFIED independently; point estimate matches ROBUSTNESS.md"),
         ("Run-to-run outcome discordance rate",
          "receipts/sweep_measurements/stretchA_300/*.json, stretchB_300/*.json",
          "paper_evidence/scripts/analysis1_repeatability.py",
@@ -360,7 +360,7 @@ def main():
          "paper_evidence/tables/repeatability_statistics.csv",
          "33 discordant pairs of 300",
          "Exact two-sided binomial test, p=0.5",
-         "VERIFIED independently by the orchestrator"),
+         "VERIFIED independently"),
         ("Wall-clock timeout rates by arm",
          "receipts/sweep_measurements/*/*.json (all 10 arms)",
          "paper_evidence/scripts/analysis2_censoring.py",
@@ -374,7 +374,7 @@ def main():
          "paper_evidence/tables/censoring_bounds.csv",
          "300 per transform arm, 200 per height arm",
          "Assumption-free bounds: lower = succ/n, upper = (succ + n_timeout)/n",
-         "NEW ANALYSIS; arithmetic verified independently by the orchestrator"),
+         "NEW ANALYSIS; arithmetic verified independently"),
         ("crop vs pad timeout-rate comparison",
          "receipts/sweep_measurements/crop_300/*.json, pad_300/*.json",
          "paper_evidence/scripts/analysis2_censoring.py",
@@ -386,7 +386,7 @@ def main():
          "paper_evidence/scripts/analysis2_censoring.py",
          "paper_evidence/tables/censoring_tests.csv", "300 + 300",
          "(d_ITT - d_completed)/d_ITT; DESCRIPTIVE, explicitly not causal",
-         "VERIFIED independently by the orchestrator"),
+         "VERIFIED independently"),
         ("Scene-aware vs naive confidence intervals",
          RAW4 + " joined to receipts/analysis/episode_index.csv",
          "paper_evidence/scripts/analysis3_scene_uncertainty.py",
@@ -394,7 +394,7 @@ def main():
          "300 episodes per arm in 8 scenes",
          "Wilson score interval vs cluster bootstrap resampling SCENES "
          "(10 000 replicates, seed 20260911)",
-         "VERIFIED independently by the orchestrator; consistent with ROBUSTNESS.md section D"),
+         "VERIFIED independently; consistent with ROBUSTNESS.md section D"),
         ("Per-scene success rates",
          RAW4 + " joined to receipts/analysis/episode_index.csv",
          "paper_evidence/scripts/analysis3_scene_uncertainty.py",
@@ -408,14 +408,14 @@ def main():
          "paper_evidence/tables/scene_uncertainty.csv", "8 scenes per arm",
          "One-way ANOVA method-of-moments ICC with unequal cluster sizes; "
          "DEFF = 1 + (m0 - 1) * ICC",
-         "VERIFIED independently by the orchestrator; UNSTABLE at k=8 — report as indicative"),
+         "VERIFIED independently; UNSTABLE at k=8 — report as indicative"),
         ("Minimum detectable difference / statistical resolution",
          "No experimental input (analytic); p1 anchored to measured SRs via paper_common",
          "paper_evidence/scripts/analysis4_mde_power.py",
          "paper_evidence/tables/mde_power.csv",
          "n per arm from 50 to 2000 (planning curve)",
          "Two-proportion z-test power, two-sided alpha=0.05, power=0.80, unpooled variance",
-         "VERIFIED independently by the orchestrator; consistent with the pre-registered "
+         "VERIFIED independently; consistent with the pre-registered "
          "~9 pp resolution at n=300"),
     ]
     E = []
@@ -453,6 +453,11 @@ def main():
     # ------------------------------------------------------------------ README.md
     R = f"""# Reanalysis package
 
+> [!NOTE]
+> No paper is planned. Folder names containing `airc2027` are historical labels. Figure,
+> table and section numbers mentioned in these files refer to an unpublished internal write-up
+> of this analysis.
+
 Reanalysis of ALREADY-COLLECTED experiments in `receipts/`. **No new simulation, training, or
 robot execution was performed.** All raw experimental data is read-only; integrity was verified
 by checksum before and after (see `FINAL_REPORT.md`).
@@ -464,9 +469,9 @@ Repo commit: `{commit}`
 | file | what it is |
 |---|---|
 | `REPRODUCTION_CHECK.md` | Did the historical results reproduce from raw data? (verdict + per-metric table) |
-| `PAPER_RESULTS.md` | The results section — every number read from a generated table |
+| `PAPER_RESULTS.md` | The results, with every number read from a generated table |
 | `PAPER_EVIDENCE.md` | Result -> input -> script -> output -> method -> commit map, plus checksums |
-| `FINAL_REPORT.md` | Final audit, caveats that must be disclosed, manuscript-ready asset list |
+| `FINAL_REPORT.md` | Final audit, caveats that must be disclosed, list of generated figures and tables |
 
 ## The four reanalyses
 
@@ -478,7 +483,7 @@ Repo commit: `{commit}`
 ## Reproducing everything from scratch
 
 ```bash
-cd {pc.ROOT}
+cd k1-navila-research   # repository root
 python3 paper_evidence/scripts/analysis1_repeatability.py
 python3 paper_evidence/scripts/analysis2_censoring.py
 python3 paper_evidence/scripts/analysis3_scene_uncertainty.py
@@ -495,10 +500,16 @@ indexing, the scene join, and the success/timeout conventions exactly once.
 
 ```
 tables/      machine-generated CSVs (the source of every number in the markdown)
-figures/     paper-ready PDF (vector) + PNG (300 dpi), IEEE two-column styling
+figures/     PDF (vector) + PNG (300 dpi) figures
 scripts/     analysis code
 provenance/  environment capture, input checksums, reruns of the historical scripts
 ```
+
+## Evaluation-reliability analysis
+- `airc2027_reanalysis/`: reproduces every number, table and figure of the evaluation-reliability analysis from
+  `receipts/` (see its README).
+- `airc2027_post_sweep/`: the post-sweep tests the analysis cites (rendering diagnosis, frame-replay
+  test, walking check); see its README.
 """
     with open(os.path.join(PE, "README.md"), "w") as fh:
         fh.write(R)
