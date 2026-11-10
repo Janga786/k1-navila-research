@@ -25,7 +25,7 @@ itself is `paper_evidence/scripts/reproduction_check.py`; run it with
   identified: numpy/scipy version drift (committed run: numpy 1.26.4 / scipy 1.15.3, per
   `receipts/provenance/ENVIRONMENT.md`; this rerun: numpy 2.4.6 / scipy 1.17.1) changes
   floating-point summation order in a couple of derived columns. **No number changes at the
-  precision anything is reported to** (all paper-facing values are quoted to 1-2 decimal
+  precision anything is reported to** (all reported values are quoted to 1-2 decimal
   places or fewer). The tree was restored to the committed state with
   `git checkout -- receipts/analysis/arm_summary.csv`; see the "Byte-for-byte reproduction"
   section below for the full diff.
@@ -37,7 +37,7 @@ itself is `paper_evidence/scripts/reproduction_check.py`; run it with
   asserted** — see the dedicated section below. Nothing here contradicts the claim, but one
   leg of it (stretchA's raw invocation log line) cannot be independently verified because the
   underlying log was not preserved across the July power outage.
-- **No discrepancy was found that changes any paper-facing number.** One genuine (documented)
+- **No discrepancy was found that changes any reported number.** One genuine (documented)
   data-integrity oddity is worth restating for the analysis: the four episodes with a `-1.0`
   `distance_to_goal` sentinel in stretchA and stretchB, and the one each in h078/h130, are
   **exactly** the same episodes flagged by the `max_episode_steps == -1` schema anomaly — i.e.
@@ -193,7 +193,7 @@ reweighted — one scene alone, zsNo4HB9uLZ, is 28% of the pinned 300).
 
 ## 6. stretchA vs stretchB configuration equivalence — proven vs. asserted
 
-This is the paper-critical claim: that stretchA and stretchB are the same configuration run
+This is the critical claim: that stretchA and stretchB are the same configuration run
 independently, so their comparison isolates run-to-run outcome instability under a fixed
 configuration and driver. Evidence, exactly as
 printed by `reproduction_check.py`:
@@ -228,7 +228,7 @@ printed by `reproduction_check.py`:
    `arms_runner.sh`'s single code path (point 1 above) and (b) `SWEEP_STATUS.md`'s own
    contemporaneous line `[07-24 12:42] ARM START: stretchA  transform=stretch  eps 0-300
    extra='none'`, but there is no surviving byte-level invocation record for stretchA the way
-   there is for stretchB. This is a real, if narrow, provenance gap — flag it in the paper as
+   there is for stretchB. This is a real, if narrow, provenance gap — flag it in any write-up as
    "corroborated by the runner script and the status log, not by a raw per-invocation log."
 2. **Same NVIDIA driver version (580.173.02) for both arms.** This rests on the upgrade/hold
    timeline — driver bumped 2026-07-24 06:45 (`PRE_REGISTRATION.md` "DRIVER-CHANGE CONFOUND"),
@@ -273,7 +273,7 @@ value differs only beyond the ~10th significant digit, e.g.:
 ```
 
 All such diffs are on the order of 1e-11 to 1e-15 in absolute value — no reported number
-(all quoted to 1-2 decimal places in every paper-facing table) is affected. Cause: the
+(all quoted to 1-2 decimal places in every reported table) is affected. Cause: the
 committed file was produced with numpy 1.26.4 / scipy 1.15.3 (`receipts/provenance/
 ENVIRONMENT.md`); this rerun used numpy 2.4.6 / scipy 1.17.1 (`paper_evidence/provenance/
 environment.txt`), and cross-version floating-point summation/CI-inversion order differs at
@@ -284,7 +284,7 @@ SHA-256 lists over `receipts/analysis/*` are identical after the restore).
 
 **Conclusion:** the committed summaries are reproducible for all practical (reported)
 purposes; they are not bit-for-bit reproducible across a numpy/scipy version bump in one
-CSV's derived-statistics columns. State this precisely in the paper's reproducibility
+CSV's derived-statistics columns. State this precisely in any reproducibility
 statement rather than claiming exact bitwise reproducibility.
 
 ---
@@ -305,7 +305,7 @@ statement rather than claiming exact bitwise reproducibility.
   does not contradict the "same configuration" claim (the code-level proof in §6 point 1
   stands on its own), but it means the claim rests on script inspection + a status-log line
   for stretchA, not on a captured raw invocation record the way stretchB's does. Recommend the
-  paper's Methods/reproducibility section say exactly this, rather than implying symmetric
+  Methods/reproducibility text say exactly this, rather than implying symmetric
   log evidence for both arms.
 - Rerunning the committed analysis scripts changed one file's least-significant floating-point
   digits (§7) — not a discrepancy in content, but worth stating plainly as a bitwise-vs-

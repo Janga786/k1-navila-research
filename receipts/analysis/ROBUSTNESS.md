@@ -22,7 +22,7 @@ driver, the same weights. Every difference below is pure run-to-run noise.
 - Of the 63 episodes that succeeded in *either* run, only 30 (**48%**) succeeded in *both*
 - McNemar exact on the discordant pairs: p = 0.728 (no directional bias — as expected, since the two arms are the same condition)
 
-**Why this matters for the paper.** The aggregate rate is reproducible; the per-episode
+**Why this matters for the analysis.** The aggregate rate is reproducible; the per-episode
 outcome is not. Roughly half of this benchmark's successes are coin-flips at the
 episode level. This is the single most defensible statement of the non-determinism
 finding, it rests on 300 episodes rather than the 6-episode probe, and it independently
@@ -93,7 +93,7 @@ recognition. At n=300 the effect runs the other way:
 
 crop *reaches* less often (OS 24.0% vs 29.0/31.7%) but *recognises arrival better*
 when it does. The pilot's direction did not replicate. The FOV-for-arrival-recognition
-mechanism must be retracted from those two documents before the paper reuses it; the
+mechanism must be retracted from those two documents before any write-up reuses it; the
 honest n=300 statement is that no transform shows a significant SR difference, and the
 reach/recognise split is exploratory and unpowered.
 

@@ -181,17 +181,17 @@ Scoring is unaffected; any analysis of `ended_at_step` must exclude them.
 `FINAL_RESULTS_full1077.md` and `SLIDE_FACTS.md` state, from an n=10 pilot, that crop reaches
 the goal but fails to stop (a peripheral-FOV arrival-recognition mechanism). At n=300 the
 effect runs the other way (`ROBUSTNESS.md` section C). That mechanism must not be reused in
-the manuscript.
+the write-up.
 
 **10.10 Terminology.** Call the run-to-run effect *outcome instability* / *irreproducibility*,
 not "randomness". Call the MDE *minimum detectable difference* or *statistical resolution*,
 never a "noise floor". Note that the *historical* scripts and their captured stdout under
 `provenance/` do use the older term; those captures are verbatim evidence and were left
-unedited, but the manuscript must not inherit the wording from them.
+unedited, but the write-up must not inherit the wording from them.
 
-## 11. Manuscript-ready figures and tables
+## 11. Generated figures and tables
 
-All under `paper_evidence/`. Figures are vector PDF plus 300 dpi PNG, IEEE two-column styling.
+All under `paper_evidence/`. Figures are vector PDF plus 300 dpi PNG, two-column figure styling.
 
 **Figures**
 | file | use |
