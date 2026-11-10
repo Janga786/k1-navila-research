@@ -1,7 +1,7 @@
 PROVENANCE SNAPSHOT — environment used for this reanalysis
 =============================================================================
 Captured: 2026-09-11T18:21:09-06:00 (America/Denver, MDT, -0600), NTP-synchronized
-Hostname: booster
+Hostname: <lab-machine>
 Command used to capture: date -Iseconds; hostname; lsb_release-equivalent /etc/os-release;
                           uname -a; nvidia-smi --query-gpu=...; nvcc --version; git rev-parse/status
 
@@ -22,7 +22,7 @@ SECTION 1 — ENVIRONMENT RUNNING THIS REANALYSIS (today, 2026-09-11)
 OS            : Ubuntu 22.04.5 LTS (Jammy Jellyfish)   [/etc/os-release: PRETTY_NAME="Ubuntu 22.04.5 LTS"]
 Kernel        : Linux booster 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26
                 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux   [uname -a]
-Hostname      : booster
+Hostname      : <lab-machine>
 
 ## GPU / driver (THIS machine, right now — same physical box as the sweep, not touched since)
 NVIDIA driver : 580.173.02   [nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv]

@@ -29,7 +29,7 @@ re-applying will conflict.
 ## 2. Copy the policy (gitignored, from the lab box)
 
 ```
-scp boosterk1@<lab-box>:~/robots/k1/workspace/booster_train/logs/rsl_rl/k1_navila/2026-06-09_13-52-48/model_11999.pt .
+scp <user>@<lab-machine>:~/robots/k1/workspace/booster_train/logs/rsl_rl/k1_navila/2026-06-09_13-52-48/model_11999.pt .
 # exported TorchScript/ONNX live next to it in exported/ (only model_11999.pt is
 # needed for the benchmark: navila_eval_v3 build_v3_actor loads the raw checkpoint)
 ```
