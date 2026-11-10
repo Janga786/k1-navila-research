@@ -51,7 +51,7 @@ bash bringup_camera.sh
 ```bash
 cd ~/robots/k1/workspace/k1-vlm-navigation
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode print \
-  --image-source mjpeg --mjpeg-url http://10.218.0.138:8080/frame.jpg \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
   --server localhost \
   --instruction "walk to the boxes on the floor and stop"
 ```
@@ -61,11 +61,11 @@ landmark) and confirm the decisions make sense. **Ctrl-C to stop.**
 
 ### Step 3 — DRY test (SDK connects to robot; commands LOGGED, not sent)
 
-Same command, `--mode dry` and add `--net 192.168.10.102`:
+Same command, `--mode dry` and add `--net <robot-wired-ip>`:
 ```bash
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode dry \
-  --image-source mjpeg --mjpeg-url http://10.218.0.138:8080/frame.jpg \
-  --server localhost --net 192.168.10.102 \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
+  --server localhost --net <robot-wired-ip> \
   --instruction "walk to the boxes on the floor and stop"
 ```
 Look for `B1LocoClient initialised`. (A `whitelist interfaces were filtered out` warning may
@@ -77,8 +77,8 @@ Before running: **clear a lane**, get the robot **standing** (Booster remote / L
 should be upright and balancing, not sitting), and keep a hand on the e-stop.
 ```bash
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode live \
-  --image-source mjpeg --mjpeg-url http://10.218.0.138:8080/frame.jpg \
-  --server localhost --net 192.168.10.102 \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
+  --server localhost --net <robot-wired-ip> \
   --instruction "walk to the boxes on the floor and stop"
 ```
 **E-STOP: press `q` in the HUD window, or Ctrl-C.** Either zeroes the command and returns the
@@ -114,8 +114,8 @@ instruction 30–60 s; some milling before a clean stop is normal.
 | frame.jpg blank / 503 | camera not unlocked → re-run `bringup_camera.sh` (it calls StartVisionService). |
 | robot ignores the scene / VLM repeats one action | the camera URL must end `/frame.jpg` (never `/stream`). bringup serves the right one. |
 | print mode prints no decisions | VLM server not up (Terminal 1) or wrong `--server`. |
-| **live mode: relay logs Move but robot doesn't walk** | DDS networking. This box's wired IP is `192.168.10.10`; the SDK targets `192.168.10.102`. Check link: `~/envs/navilaenv/bin/python -c "import socket; socket.create_connection(('192.168.10.102',22),timeout=3); print('wired OK')"`. If the `whitelist filtered out` error blocks commands, the FastDDS profile (`~/fastdds_k1.xml`, env `FASTRTPS_DEFAULT_PROFILES_FILE`) needs this box's wired interface/subnet whitelisted. |
+| **live mode: relay logs Move but robot doesn't walk** | DDS networking. This box's wired IP is `<lab-machine-wired-ip>`; the SDK targets `<robot-wired-ip>`. Check link: `~/envs/navilaenv/bin/python -c "import socket; socket.create_connection(('<robot-wired-ip>',22),timeout=3); print('wired OK')"`. If the `whitelist filtered out` error blocks commands, the FastDDS profile (`~/fastdds_k1.xml`, env `FASTRTPS_DEFAULT_PROFILES_FILE`) needs this box's wired interface/subnet whitelisted. |
 | robot won't stand / enter walking | put it in Prepare/stand via the Booster remote or LUI first; check battery. |
 
-Robot: `ssh booster@<robot-LAN-IP>` (credentials kept off the repo; ask the lab). Wired: robot `192.168.10.102`,
-this box `192.168.10.10`. VLM server: this box `:5555`.
+Robot: `ssh <robot-user>@<robot-ip>` (credentials kept off the repo; ask the lab). Wired: robot `<robot-wired-ip>`,
+this box `<lab-machine-wired-ip>`. VLM server: this box `:5555`.

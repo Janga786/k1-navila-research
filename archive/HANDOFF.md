@@ -76,7 +76,7 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
 
 ## INFRASTRUCTURE (all set up, all survive reboot)
 - **Remote:** `ssh <user>@<tailscale-host>` (Tailscale; key valid to Jan 2027). sshd+tailscaled
-  enabled. Box is on WiFi (SSID "Robotz", autoconnect on, powersave disabled).
+  enabled. Box is on WiFi (SSID `<lab-wifi>`, autoconnect on, powersave disabled).
 - **Never sleeps:** sleep/suspend/hibernate targets MASKED; logind idle/lid ignored; GNOME
   no-sleep/no-blank.
 - **Auto-upgrades DISABLED** (apt-daily timers off; 200 nvidia/kernel packages held) so the

@@ -3,7 +3,7 @@
 Rewritten 2026-07-02 after the sim2real readiness audit (supersedes the 2026-06-11
 version, which still used the dead-end StartVisionService camera path).
 Topology: **this lab box runs everything** — VLM server (GPU) + relay (Booster SDK
-over the wired LAN, this box = 192.168.10.10 on `eno1`, robot = 192.168.10.102).
+over the wired LAN, this box = <lab-machine-ip> on `eno1`, robot = <robot-ip>).
 Robot drives via `B1LocoClient.Move()` (Booster's built-in controller) — the trained
 policy is NOT in this path.
 
@@ -27,7 +27,7 @@ content fps) — do not bridge it.
 ```bash
 bash ~/k1_qr_nav_ws/camera_up.sh   # unlock (noface) + bridge raw topic + verify
 # "✅ CAMERA LIVE ... msg_rate ~29.5/s" → done.
-# Deploy pulls http://192.168.10.102:8080/frame.jpg (544×448;
+# Deploy pulls http://<robot-ip>:8080/frame.jpg (544×448;
 #  NAVILA_UNDISTORT=1 + stretch validated on this geometry).
 ```
 
@@ -75,7 +75,7 @@ cd ~/robots/k1/workspace/k1-vlm-navigation
 
 # A) PRINT — nothing moves; verifies camera → VLM → parser end to end:
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode print \
-  --image-source mjpeg --mjpeg-url http://192.168.10.102:8080/frame.jpg \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
   --server localhost \
   --instruction "walk to the boxes on the floor and stop"
 
@@ -83,13 +83,13 @@ cd ~/robots/k1/workspace/k1-vlm-navigation
 #    also validate odometry (watch the printed pose while you push/rotate the
 #    robot base gently — x,y,theta should track):
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode dry \
-  --image-source mjpeg --mjpeg-url http://192.168.10.102:8080/frame.jpg \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
   --server localhost --net eno1 --pose odom \
   --instruction "walk to the boxes on the floor and stop"
 
 # C) LIVE — ROBOT WALKS. Floor cleared, robot standing in Prepare (remote), hand on q:
 ~/envs/navilaenv/bin/python navila_laptop_relay.py --mode live \
-  --image-source mjpeg --mjpeg-url http://192.168.10.102:8080/frame.jpg \
+  --image-source mjpeg --mjpeg-url http://<robot-ip>:8080/frame.jpg \
   --server localhost --net eno1 --pose odom \
   --instruction "walk to the boxes on the floor and stop"
 ```
@@ -141,7 +141,7 @@ Give each instruction 30–60 s; ~1 decision/sec; some milling is normal.
 | `/frame.jpg` 503 forever | `booster-video-stream` service down → restart it on the robot (see §0; NO StartVisionService, NO reboot) |
 | bridge `frames: 0` | wrong topic → must be `/booster_video_stream` |
 | VLM buffer frozen / robot ignores scene | URL must end `/frame.jpg`, never `/stream`; also check the new stale-frame guard messages in the relay log |
-| relay can't reach SDK / "whitelist filtered out" | `--net eno1` (interface NAME); wired LAN: this box 192.168.10.10 ↔ robot 192.168.10.102 must ping |
+| relay can't reach SDK / "whitelist filtered out" | `--net eno1` (interface NAME); wired LAN: this box <lab-machine-ip> ↔ robot <robot-ip> must ping |
 | robot won't enter walking | put it in Prepare via remote first; check battery in LUI |
 | live mode runs, decisions stream, but robot never moves | robot wasn't STANDING in Prepare when live launched → kWalking silently refused. Since 2026-07-09 the launcher verifies via GetMode and aborts with instructions; bring the robot to Prepare (remote) and relaunch |
 | camera decays mid-session after ~40 min, all software fixes fail | battery brownout — charge the robot; next boot: `camera_up.sh` once (its escalation now waits up to 180 s after a perception restart before re-unlocking) |
