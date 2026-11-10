@@ -11,7 +11,7 @@ Remote (created today, private; not publicly viewable): `github.com/Janga786/boo
 | 8cd84df | 25 | 1,372 | Fail-closed pipelines rounds 4–7, weekend ablation sweep, reports (bulky logs excluded by pre-existing gitignore) |
 | 607ea1e | 5 | 204 | K1 getup task |
 Verified: `git log --author=Janga786` → 4 commits; working tree clean; `janga/main` = 607ea1e.
-Identity fix applied: repo-local user was Gavinw575 → set to Janga786 before committing.
+Identity fix applied: repo-local user was the lab machine's default git identity → set to Janga786 before committing.
 
 ## booster_deploy — 3 new commits, 30 files, 1,620 LOC added (4 total by Janga786 incl. 07-02 k1_navila task)
 Remote (created today, private; not publicly viewable): `github.com/Janga786/booster_deploy` (`janga`; `origin` = BoosterRobotics, untouched)
