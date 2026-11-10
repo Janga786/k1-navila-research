@@ -5,3 +5,5 @@ the record. They are preserved as written, with bracketed annotations added wher
 evidence corrected an entry. Current canonical claims live in the repo root:
 `README.md`, `FINAL_RESULTS_full1077.md` (revised), `EVIDENCE.md` (with addendum),
 `receipts/KNOWN_GAPS.md`, and `paper_evidence/`.
+
+Some of these notes mention a planned paper. That plan was dropped; no paper is planned.

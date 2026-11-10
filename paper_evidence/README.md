@@ -1,5 +1,10 @@
 # Reanalysis package
 
+> [!NOTE]
+> No paper is planned. Folder names containing `airc2027` and words such as "paper",
+> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
+> that was dropped. They refer to this analysis, not to a forthcoming publication.
+
 Reanalysis of ALREADY-COLLECTED experiments in `receipts/`. **No new simulation, training, or
 robot execution was performed.** All raw experimental data is read-only; integrity was verified
 by checksum before and after (see `FINAL_REPORT.md`).
@@ -11,9 +16,9 @@ Repo commit: `a6fe40b431353b0eee968c07015dd8d1b1211d53`
 | file | what it is |
 |---|---|
 | `REPRODUCTION_CHECK.md` | Did the historical results reproduce from raw data? (verdict + per-metric table) |
-| `PAPER_RESULTS.md` | The results section — every number read from a generated table |
+| `PAPER_RESULTS.md` | The results, with every number read from a generated table |
 | `PAPER_EVIDENCE.md` | Result -> input -> script -> output -> method -> commit map, plus checksums |
-| `FINAL_REPORT.md` | Final audit, caveats that must be disclosed, manuscript-ready asset list |
+| `FINAL_REPORT.md` | Final audit, caveats that must be disclosed, list of generated figures and tables |
 
 ## The four reanalyses
 
@@ -25,7 +30,7 @@ Repo commit: `a6fe40b431353b0eee968c07015dd8d1b1211d53`
 ## Reproducing everything from scratch
 
 ```bash
-cd /home/boosterk1/Projects/k1_research
+cd k1-navila-research   # repository root
 python3 paper_evidence/scripts/analysis1_repeatability.py
 python3 paper_evidence/scripts/analysis2_censoring.py
 python3 paper_evidence/scripts/analysis3_scene_uncertainty.py
@@ -42,7 +47,7 @@ indexing, the scene join, and the success/timeout conventions exactly once.
 
 ```
 tables/      machine-generated CSVs (the source of every number in the markdown)
-figures/     paper-ready PDF (vector) + PNG (300 dpi), IEEE two-column styling
+figures/     PDF (vector) + PNG (300 dpi) figures
 scripts/     analysis code
 provenance/  environment capture, input checksums, reruns of the historical scripts
 ```

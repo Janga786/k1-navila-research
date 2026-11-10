@@ -1,6 +1,11 @@
 # KNOWN GAPS — what this evidence base does NOT support
 
 > [!NOTE]
+> No paper is planned. Folder names containing `airc2027` and words such as "paper",
+> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
+> that was dropped. They refer to this analysis, not to a forthcoming publication.
+
+> [!NOTE]
 > **Update 2026-10-30:** G6/G7/G14 are now addressed — `FINAL_RESULTS_full1077.md` was rewritten
 > (causal embodiment-tax framing removed, the 13 flagged edits applied or superseded, "30/10"
 > fixed to 3/10) and `SLIDE_FACTS.md` was annotated and moved to `archive/` with the other
@@ -198,7 +203,7 @@ written in August.
   - Camera heights were measured in dataset entry 0 after the reset warm-up, with the trunk origin 0.497 m
     above the floor (`rendering_diagnosis/DIAGNOSIS.md` §3.5).
   - The robot camera's first frame was re-rendered at all six heights
-    (`rendering_diagnosis/images/as_evaluated/robot_camera/`; the paper's Fig. 1).
+    (`rendering_diagnosis/images/as_evaluated/robot_camera/`; Fig. 1 of the reanalysis).
   - The −1.887 m Trunk-z diagnostic was not investigated.
   - The same work found a rendering defect: the robot's merged head, arm and logo visuals stay at the spawn
     pose (`DIAGNOSIS.md`).
@@ -208,6 +213,6 @@ written in August.
 - **G5, corrected: the videos were kept.** Every episode that was not interrupted left a video (chase
   camera plus the robot camera's history frames): 3,360 across the ten sweep runs and the June run. They
   remain on the workstation (about 65 GB). First frames and video scans are in the private
-  NaVILA-Complete-Archive (`12_airc2027_materials/`), and the frame measures used in the paper are in
+  NaVILA-Complete-Archive (`12_airc2027_materials/`), and the frame measures used in the reanalysis are in
   `paper_evidence/airc2027_reanalysis/data/`.
-- **G13, addressed in the paper**, which uses `h078` as a third rerun (D3) of the default configuration.
+- **G13, addressed in the reanalysis** (`paper_evidence/airc2027_reanalysis/`), which uses `h078` as a third rerun (D3) of the default configuration.

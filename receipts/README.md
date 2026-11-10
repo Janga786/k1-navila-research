@@ -1,11 +1,16 @@
-# Evidence index — what the paper claims, and where the proof lives
+# Evidence index — what the results claim, and where the proof lives
 
-Entry point for the sim-to-real VLN + embodiment-effects paper. Every number in the paper
+> [!NOTE]
+> No paper is planned. Folder names containing `airc2027` and words such as "paper",
+> "manuscript", "Fig." or "reviewer" in these files are left over from an earlier write-up plan
+> that was dropped. They refer to this analysis, not to a forthcoming publication.
+
+Entry point for the evidence behind the K1 NaVILA results. Every reported number
 should be traceable to something in this directory. Written 2026-08-22, after the ten-arm
 sweep completed.
 
 **Read `KNOWN_GAPS.md` first.** It lists, adversarially, the places this evidence base does
-*not* hold up. Two paper-facing mechanistic claims are currently unsupported; the primary
+*not* hold up. Two mechanistic claims are currently unsupported; the primary
 results are fully backed.
 
 ---
