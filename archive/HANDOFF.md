@@ -74,15 +74,11 @@ is RESUMABLE: re-running `arms_runner.sh` skips completed arms and completed epi
   see `EVIDENCE.md` §18 and `receipts/media_index.md`. The trained policy has not walked on
   hardware.]* This is DONE and robot-gated; not part of the sweep.
 
-## INFRASTRUCTURE (all set up, all survive reboot)
-- **Remote:** `ssh <user>@<tailscale-host>` (Tailscale; key valid to Jan 2027). sshd+tailscaled
-  enabled. Box is on WiFi (SSID `<lab-wifi>`, autoconnect on, powersave disabled).
-- **Never sleeps:** sleep/suspend/hibernate targets MASKED; logind idle/lid ignored; GNOME
-  no-sleep/no-blank.
+## INFRASTRUCTURE
+*[Redacted 2026-11-09: remote-access, network and power-setting details removed for
+publication.]*
 - **Auto-upgrades DISABLED** (apt-daily timers off; 200 nvidia/kernel packages held) so the
-  driver can't break again mid-run. **RELEASE WHEN USER IS BACK** (in AWAY_STATUS.md):
-  `sudo apt-mark unhold $(apt-mark showhold); sudo systemctl enable --now apt-daily.timer apt-daily-upgrade.timer`
-- **Blind CUDA-recovery steps** (if it breaks again): AWAY_STATUS.md has the gcc-12 DKMS rebuild.
+  driver can't break again mid-run.
 
 ## REPOS (all pushed; user = Janga786, no co-author trailer)
 - `github.com/Janga786/k1-navila-research` (~/Projects/k1_research) — the sweep, receipts,
