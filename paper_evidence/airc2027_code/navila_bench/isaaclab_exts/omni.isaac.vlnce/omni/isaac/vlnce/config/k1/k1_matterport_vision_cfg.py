@@ -10,6 +10,8 @@ exactly. We mirror legged-loco/k1_low_vision_cfg.py:PolicyCfg:
     base_lin_vel | base_ang_vel | projected_gravity | velocity_commands
     | joint_pos | joint_vel | last_action | height_scan
 """
+# Note (2026-11-09): the evaluated K1 policy (model_14498) does not use this height scan. It is
+# driven through utils/wrappers_v3.py, which builds a proprioception-only 235-dim (5 x 47) input.
 
 import os
 import math
