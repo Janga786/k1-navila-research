@@ -14,10 +14,10 @@ portfolio:
 - <https://janga786.github.io/media/k1-walk-to-volleyball.mp4> — third-person clip of the K1
   walking toward the volleyball during the live episode.
 
-Two live natural-language episodes were run in the May 2026 session ("walk to the volleyball
-and stop", "walk to the volleyball and turn left"). One is captured on video (above); the
-second is on the project record. Both used Booster's built-in walker through the relay, with
-zero teleoperation. The trained RL policy has never worked outside simulation.
+Two live natural-language episodes were run in the May 2026 session. One is captured on video
+(above); its instruction, as shown in the relay's mode banner, was "walk to the volley ball and
+turn 90 degrees". The second episode was not recorded. Both used Booster's built-in walker
+through the relay, with zero teleoperation. The trained RL policy has never worked outside simulation.
 
 ## `relay_live_volleyball_2026-05.mp4` (screen recording, 17.5 s)
 
