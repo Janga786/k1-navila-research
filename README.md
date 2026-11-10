@@ -22,10 +22,12 @@ Fort Lewis College, full-time research May–Aug 2026. Advisor: Dr. Yiyan Li.
 
 **Simulation benchmark (R2R val-unseen, all 1,077 episodes):** SR **18.3%** (95% Wilson CI
 16.1–20.7%) · OS 30.3% · NE 7.59 m · SPL 10.9. The first full pipeline scored under 1%.
-Pipeline fixes and retraining (22 training runs, ~270 GPU-hours) raised it to 18.3%. Raising an
-evaluation tilt limit of ~46° that cut ~61% of early episodes short, and fixing a camera
-warm-up bug, more than doubled the mean distance walked per episode
-(early policy, partial runs; success rate was 0% before and after;
+Pipeline fixes and retraining raised it to 18.3%; the benchmark policy came from the June
+training runs, and the project's 22 training runs (~270 GPU-hours,
+[`receipts/run_ledger.md`](receipts/run_ledger.md)) also include the later ablation and gait work.
+Before the first full run, raising an evaluation tilt limit of ~46° that cut ~61% of early
+episodes short, and fixing a camera warm-up bug, more than doubled the mean distance walked
+per episode (early policy, partial runs; success rate was 0% before and after;
 [`EVIDENCE.md`](EVIDENCE.md) claim 19). 18.3% is below the published blind-H1 baseline
 (24.4%), which also uses a proprioception-only walking policy. Details:
 [`FINAL_RESULTS_full1077.md`](FINAL_RESULTS_full1077.md).
